@@ -96,7 +96,7 @@ def validate( model, criterion):
     output = model(input_var)
     mse = criterion(output, target_var).cpu()
     psnr = 10*np.log10(1/mse.data[0])
-    return psnr,'['+str(mse.data[0])+'/'+str(psnr)+']'
+    return psnr,'[%.3f/%.3f]'%(mse.data[0],psnr)
 
 def save_checkpoint(state, is_best,logdir):
     filename=os.path.join(logdir,'model_bsd300_15.pth')
@@ -134,7 +134,7 @@ def train(train_loader, model, criterion, optimizer, epoch):
                 'state_dict': model.state_dict(),
                 'best_psnr': best_psnr,
             }, is_best,args.logdir)
-            s=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))+': Epoch[{0}]({1}/{2}) '.format(epoch,i,len(train_loader))+' mse/psnr:'+'train['+str(mse.data[0])+'/'+str(psnr)+']'+' bnEval'+bn_s+' nobnEval'+nobn_s  
+            s=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))+': Epoch[{0}]({1}/{2}) '.format(ep       och,i,len(train_loader))+' mse/psnr:'+' train[%.3f/%.3f]'%(mse.data[0],psnr)+' bnEval'+bn_s+' nobnEval'+nobn_s
             f=open('info.pretrain_bsd300_15','a')
             f.write(s+'\n')
             f.close()
