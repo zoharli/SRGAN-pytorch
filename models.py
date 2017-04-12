@@ -57,7 +57,7 @@ class GenNet(nn.Module):
         self.conv1 = nn.Conv2d(3, 64, 3, 1, 1)
         kaiming_normal(self.conv1.weight)
         layers = []
-        for i in range(15):
+        for i in range(22):
             layers.append(ResBlock())
         self.resblocks = nn.Sequential(*layers)
         self.conv2 = nn.Conv2d(64, 64, 3, 1, 1)

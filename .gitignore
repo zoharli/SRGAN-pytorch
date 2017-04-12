@@ -11,7 +11,6 @@ dataset
 r128-256.bin
 test_r128-512.bin
 data
-save
 
 # Any Images
 */*.jpg

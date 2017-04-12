@@ -37,15 +37,14 @@ parser.add_argument('--resume', default='', type=str,
         help='path to latest checkpoint (default: none)')
 parser.add_argument('--logdir','-s',default='save',type=str,
         help='path to save checkpoint')
-parser.add_argument('--model-name','-n',default='model.pth',type=str,
-        help='name of the saved model')
-
+parser.add_argument('--optim','-o',default='sgd',
+        help='the optimization method to be employed')
 best_psnr = -100
 args = parser.parse_args()
 args.__dict__['upscale_factor']=2
 args.__dict__['train_filenames']='r128-256.bin'
 args.__dict__['val_filenames']='test_r128-512.bin'
-
+args.__dict__['model_name']='b%d_v%e_%s.pth'%(args.batch_size,args.lr,args.optim)
 if not os.path.exists(args.logdir):
     os.makedirs(args.logdir)
 cudnn.benchmark = True
@@ -57,7 +56,7 @@ train_loader = torch.utils.data.DataLoader(
 
 val_loader = torch.utils.data.DataLoader(
     get_val_set(args),
-    batch_size=args.batch_size, shuffle=True,
+    batch_size=16, shuffle=True,
     num_workers=1, pin_memory=True)
 
 model=GenNet().cuda()
@@ -107,7 +106,7 @@ def save_checkpoint(state, is_best,logdir):
 
 def train(train_loader, model, criterion, optimizer, epoch):
     model.train()
-    
+
     for i, (input, target) in enumerate(train_loader):
         input_var = Variable(input.cuda())
         target_var = Variable(target.cuda())
