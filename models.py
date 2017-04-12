@@ -38,17 +38,16 @@ class ResBlock(nn.Module):
 class DeconvBlock(nn.Module):
     def __init__(self,  n=64, f=3, upscale_factor=2):
         super(DeconvBlock,self).__init__()
+        self.upsample=nn.UpsamplingNearest2d(scale_factor=upscale_factor)
         self.conv = nn.Conv2d(
             in_channels=n,
-            out_channels=n*upscale_factor ** 2,
+            out_channels=n,
             kernel_size=f,
             stride=1,
             padding=(f-1)//2)
         kaiming_normal(self.conv.weight)
-        self.pixsf = nn.PixelShuffle(upscale_factor)
-
     def forward(self, x):
-        return self.pixsf(self.conv(x))
+        return self.conv(self.upsample(x))
 
 
 class GenNet(nn.Module):
@@ -68,7 +67,6 @@ class GenNet(nn.Module):
         self.deconv2 = DeconvBlock()
         self.conv3 = nn.Conv2d(64, 3, 3, 1, 1)
         kaiming_normal(self.conv3.weight)
-        
 
     def forward(self, x):
         xs = self.relu(self.conv1(x))
@@ -79,7 +77,6 @@ class GenNet(nn.Module):
         x = self.relu(self.deconv2(x))
         x = self.conv3(x)
         return x
-
 
 """ VGG
 """

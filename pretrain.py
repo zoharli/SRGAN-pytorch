@@ -37,6 +37,8 @@ parser.add_argument('--resume', default='', type=str,
         help='path to latest checkpoint (default: none)')
 parser.add_argument('--logdir','-s',default='save',type=str,
         help='path to save checkpoint')
+parser.add_argument('--model-name','-n',default='model.pth',type=str,
+        help='name of the saved model')
 
 best_psnr = -100
 args = parser.parse_args()
@@ -44,7 +46,6 @@ args.__dict__['upscale_factor']=2
 args.__dict__['train_filenames']='r128-256.bin'
 args.__dict__['val_filenames']='test_r128-512.bin'
 
-args.logdir='save'
 if not os.path.exists(args.logdir):
     os.makedirs(args.logdir)
 cudnn.benchmark = True
@@ -96,13 +97,13 @@ def validate( model, criterion):
     output = model(input_var)
     mse = criterion(output, target_var).cpu()
     psnr = 10*np.log10(1/mse.data[0])
-    return psnr,'['+str(mse.data[0])+'/'+str(psnr)+']'
+    return psnr,'[%.3f/%.3f]'%(mse.data[0],psnr)
 
 def save_checkpoint(state, is_best,logdir):
-    filename=os.path.join(logdir,'model_bsd300_15.pth')
+    filename=os.path.join(logdir,args.model_name)
     torch.save(state, filename)
     if is_best:
-        shutil.copyfile(filename, os.path.join(logdir,'model_bsd300_15_best.pth'))
+        shutil.copyfile(filename, os.path.join(logdir,'best_'+args.model_name))
 
 def train(train_loader, model, criterion, optimizer, epoch):
     model.train()
@@ -134,8 +135,8 @@ def train(train_loader, model, criterion, optimizer, epoch):
                 'state_dict': model.state_dict(),
                 'best_psnr': best_psnr,
             }, is_best,args.logdir)
-            s=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))+': Epoch[{0}]({1}/{2}) '.format(epoch,i,len(train_loader))+' mse/psnr:'+'train['+str(mse.data[0])+'/'+str(psnr)+']'+' bnEval'+bn_s+' nobnEval'+nobn_s  
-            f=open('info.pretrain_bsd300_15','a')
+            s=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))+': Epoch[{0}]({1}/{2}) '.format(epoch,i,len(train_loader))+' mse/psnr:'+' train[%.3f/%.3f]'%(mse.data[0],psnr)+' bnEval'+bn_s+' nobnEval'+nobn_s  
+            f=open('info.'+args.model_name,'a')
             f.write(s+'\n')
             f.close()
             print(s)
