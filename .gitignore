@@ -1,0 +1,25 @@
+# Python Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# System files
+.DS_Store
+
+# dataset
+dataset
+r128-256.bin
+test_r128-512.bin
+data
+save
+
+# Any Images
+*/*.jpg
+*/*.JPG
+*/*.jpeg
+*/*.JPEG
+*/*.PNG
+*/*.png
+
+# Experimental Project
+SRLSTM/
