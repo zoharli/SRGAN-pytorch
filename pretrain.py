@@ -3,6 +3,7 @@ import os
 import shutil
 import time
 import numpy as np
+from PIL import Image
 
 import torch
 import torch.nn as nn
@@ -16,35 +17,44 @@ import torchvision.models as models
 from torch.autograd import Variable
 from models import GenNet
 from dataset import *
+import numpy as np
+
 parser = argparse.ArgumentParser(description='Pretraining')
 parser.add_argument('-j', '--workers', default=4, type=int,
         help='number of data loading workers (default: 4)')
-parser.add_argument('--epochs', default=5000, type=int,
+parser.add_argument('--epochs', default=40, type=int,
         help='number of total epochs to run')
-parser.add_argument('--start-epoch', default=0, type=int,
+parser.add_argument('--start-epoch', default=1, type=int,
         help='manual epoch number (useful on restarts)')
 parser.add_argument('-b', '--batch-size', default=16, type=int,
         help='mini-batch size (default: 16)')
-parser.add_argument('--crop-size','-c',default=128,type=int,
+parser.add_argument('--crop-size','-c',default=300,type=int,
         help='crop size of the hr image')
 parser.add_argument('--lr', '--learning-rate', default=1e-4, type=float,
         help='initial learning rate')
+parser.add_argument('--momentum','-m',default=0.9,type=float,
+        help='momentum if using sgd optimization')
 parser.add_argument('--weight-decay', '--wd', default=1e-4, type=float,
         help='weight decay (default: 1e-4)')
-parser.add_argument('--print-freq', '-p', default=50, type=int,
-        help='print frequency (default: 50)')
+parser.add_argument('--print-freq', '-p', default=100, type=int,
+        help='print frequency (default: 20)')
 parser.add_argument('--resume', default='', type=str,
         help='path to latest checkpoint (default: none)')
 parser.add_argument('--logdir','-s',default='save',type=str,
         help='path to save checkpoint')
-parser.add_argument('--optim','-o',default='sgd',
+parser.add_argument('--optim','-o',default='SGD',
         help='the optimization method to be employed')
+parser.add_argument('--traindir',default='r375-400.bin',
+        help=' the global name of training set dir')
+parser.add_argument('--valdir',default='b100',type=str,
+        help='the global name of validation set dir')
+
 best_psnr = -100
 args = parser.parse_args()
-args.__dict__['upscale_factor']=2
-args.__dict__['train_filenames']='r128-256.bin'
-args.__dict__['val_filenames']='test_r128-512.bin'
-args.__dict__['model_name']='b%d_v%e_%s.pth'%(args.batch_size,args.lr,args.optim)
+args.__dict__['upscale_factor']=4
+#args.traindir=globals()[args.traindir]
+args.valdir=globals()[args.valdir]
+args.__dict__['model_name']='b%d_v%.4f_%s_hardtanh_conBn_varv2_nowd.pth'%(args.batch_size,args.lr,args.optim)
 if not os.path.exists(args.logdir):
     os.makedirs(args.logdir)
 cudnn.benchmark = True
@@ -53,11 +63,6 @@ train_loader = torch.utils.data.DataLoader(
     get_train_set(args),
     batch_size=args.batch_size, shuffle=True,
     num_workers=args.workers, pin_memory=True)
-
-val_loader = torch.utils.data.DataLoader(
-    get_val_set(args),
-    batch_size=16, shuffle=True,
-    num_workers=1, pin_memory=True)
 
 model=GenNet().cuda()
 #model = torch.nn.DataParallel(model).cuda()
@@ -76,28 +81,50 @@ if args.resume:
 
 criterion = nn.MSELoss().cuda()
 
-optimizer = torch.optim.Adam(model.parameters(), args.lr,weight_decay=args.weight_decay)
+optimizer = torch.optim.SGD(model.parameters(), args.lr,args.momentum)
 
 #if args.evaluate:
 #    validate(val_loader, model, criterion)
 #    return
 
-val_iter=enumerate(val_loader)
+def rgb2y_matlab(img):   #convert a PIL rgb image to y-channel image in `matlab` way
+    img=(img/255.0)[4:-4,4:-4,:]
+    img=65.481*img[:,:,0]+128.553*img[:,:,1]+24.966*img[:,:,2]+16.0
+    return img
 
-def validate( model, criterion):
-    global val_iter
-    try:
-        _, (input, target) = val_iter.next()
-    except Exception,e:
-        val_iter=enumerate(val_loader)
-        _, (input, target) = val_iter.next()
-    input_var = Variable(input.cuda(), volatile=True)
-    target_var = Variable(target.cuda(), volatile=True)
-    output = model(input_var)
-    mse = criterion(output, target_var).cpu()
-    psnr = 10*np.log10(1/mse.data[0])
-    return psnr,'[%.3f/%.3f]'%(mse.data[0],psnr)
-
+def validate( model,criterion,valdir,epoch,factor):
+    cnt=0
+    sum=0
+    ysum=0
+    for x in [os.path.join(valdir,y) for y in os.listdir(valdir)]:
+        im=Image.open(x)
+        im=im.resize((im.size[0]-im.size[0]%factor,im.size[1]-im.size[1]%factor),Image.BICUBIC)
+        target=Variable(torch.stack([transforms.ToTensor()(im)],0),volatile=True).cuda()
+        input=torch.stack([transforms.ToTensor()(im.resize((im.size[0]//args.upscale_factor,im.size[1]//args.upscale_factor),Image.BICUBIC))],0)
+        input_var=Variable(input,volatile=True).cuda()
+        output=model(input_var)
+        loss=criterion(target,output).cpu().data[0]
+        img=torch.squeeze(output.data.cpu())
+        rgb=transforms.ToPILImage()(img)
+        rgb.save('snapshot6/'+os.path.basename(x))
+        yorigin=rgb2y_matlab(np.asarray(im))
+        youtput=rgb2y_matlab(np.asarray(rgb))
+        ymse=np.mean((yorigin-youtput)**2)
+        ypsnr=10*(np.log10(255.0**2/ymse))
+        psnr=10*np.log10(1.0/loss)
+        sum+=psnr
+        ysum+=ypsnr
+        cnt+=1
+    psnr=float(sum)/cnt
+    ypsnr=float(ysum)/cnt
+    lr=optimizer.param_groups[0]['lr']
+    s=time.strftime('%dth-%H:%M:%S',time.localtime(time.time()))+'===>epoch%d=>lr=%.6f=>psnr=%.3f=>ypsnr=%.3f'%(epoch,lr,psnr,ypsnr)
+    print(s)
+    f=open('info.'+args.model_name,'a')
+    f.write(s+'\n')
+    f.close()
+    return psnr
+    
 def save_checkpoint(state, is_best,logdir):
     filename=os.path.join(logdir,args.model_name)
     torch.save(state, filename)
@@ -105,40 +132,30 @@ def save_checkpoint(state, is_best,logdir):
         shutil.copyfile(filename, os.path.join(logdir,'best_'+args.model_name))
 
 def train(train_loader, model, criterion, optimizer, epoch):
-    model.train()
-
     for i, (input, target) in enumerate(train_loader):
         input_var = Variable(input.cuda())
         target_var = Variable(target.cuda())
 
         output = model(input_var)
         loss = criterion(output, target_var)
-        mse=loss.cpu()
-        psnr = 10*np.log10(1/mse.data[0]) 
 
         optimizer.zero_grad()
-        mse.backward()
+        loss.backward()
         optimizer.step()
-
         if i % args.print_freq == 0:
-            bn_psnr,bn_s = validate( model, criterion)
-            model.eval()
-            nobn_psnr,nobn_s = validate( model,criterion) 
-            model.train()
-            psnr = max(bn_psnr,nobn_psnr)
+            vpsnr=validate(model,criterion,args.valdir,epoch,args.upscale_factor)
             global best_psnr
-            is_best = psnr > best_psnr
-            best_psnr = max(psnr, best_psnr)
+            is_best = vpsnr > best_psnr
+            best_psnr = max(vpsnr, best_psnr)
             save_checkpoint({
                 'epoch': epoch + 1,
                 'state_dict': model.state_dict(),
                 'best_psnr': best_psnr,
             }, is_best,args.logdir)
-            s=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))+': Epoch[{0}]({1}/{2}) '.format(epoch,i,len(train_loader))+' mse/psnr:'+' train[%.3f/%.3f]'%(mse.data[0],psnr)+' bnEval'+bn_s+' nobnEval'+nobn_s  
-            f=open('info.'+args.model_name,'a')
-            f.write(s+'\n')
-            f.close()
-            print(s)
-
+global_lr=0.001
 for epoch in range(args.start_epoch, args.epochs):
+    if epoch :
+        lr=global_lr*(0.1**(epoch%2))
+        for pg in optimizer.param_groups:
+            pg['lr']=lr
     train(train_loader, model, criterion, optimizer, epoch)

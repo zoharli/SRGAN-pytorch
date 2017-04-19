@@ -1,0 +1,154 @@
+Traceback (most recent call last):
+  File "train.py", line 62, in <module>
+    setprotitle('train_'+args.model_base_name)
+NameError: name 'setprotitle' is not defined
+Traceback (most recent call last):
+  File "train.py", line 181, in <module>
+    train(train_loader,gen,disc,gen_optimizer,disc_optimizer,ContentLoss,epoch,args)
+  File "train.py", line 156, in train
+    content_loss=ContentLoss(fake_feature,real_feature)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/module.py", line 206, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/loss.py", line 22, in forward
+    _assert_no_grad(target)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/loss.py", line 11, in _assert_no_grad
+    "nn criterions don't compute the gradient w.r.t. targets - please " \
+AssertionError: nn criterions don't compute the gradient w.r.t. targets - please mark these variables as volatile or not requiring gradients
+Traceback (most recent call last):
+  File "train.py", line 181, in <module>
+    train(train_loader,gen,disc,gen_optimizer,disc_optimizer,ContentLoss,epoch,args)
+  File "train.py", line 160, in train
+    gen_loss.backward()
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/autograd/variable.py", line 146, in backward
+    self._execution_engine.run_backward((self,), (gradient,), retain_variables)
+RuntimeError: CUDNN_STATUS_ALLOC_FAILED
+Traceback (most recent call last):
+  File "train.py", line 181, in <module>
+    train(train_loader,gen,disc,gen_optimizer,disc_optimizer,ContentLoss,epoch,args)
+  File "train.py", line 160, in train
+    gen_loss.backward()
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/autograd/variable.py", line 146, in backward
+    self._execution_engine.run_backward((self,), (gradient,), retain_variables)
+RuntimeError: CUDNN_STATUS_ALLOC_FAILED
+usage: train.py [-h] [-j WORKERS] [--epochs EPOCHS]
+                [--start-epoch START_EPOCH] [-b BATCH_SIZE]
+                [--crop-size CROP_SIZE] [--lr LR] [--momentum MOMENTUM]
+                [--weight-decay WEIGHT_DECAY] [--print-freq PRINT_FREQ]
+                [--resume RESUME] [--logdir LOGDIR] [--optim OPTIM]
+                [--traindir TRAINDIR] [--valdir VALDIR]
+train.py: error: unrecognized arguments: --batchsize=10
+usage: train.py [-h] [-j WORKERS] [--epochs EPOCHS]
+                [--start-epoch START_EPOCH] [-b BATCH_SIZE]
+                [--crop-size CROP_SIZE] [--lr LR] [--momentum MOMENTUM]
+                [--weight-decay WEIGHT_DECAY] [--print-freq PRINT_FREQ]
+                [--resume RESUME] [--logdir LOGDIR] [--optim OPTIM]
+                [--traindir TRAINDIR] [--valdir VALDIR]
+train.py: error: unrecognized arguments: --batchsize=10
+Traceback (most recent call last):
+  File "train.py", line 182, in <module>
+    train(train_loader,gen,disc,gen_optimizer,disc_optimizer,ContentLoss,epoch,args)
+  File "train.py", line 161, in train
+    gen_loss.backward()
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/autograd/variable.py", line 146, in backward
+    self._execution_engine.run_backward((self,), (gradient,), retain_variables)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/_functions/thnn/auto.py", line 153, in backward
+    t = self.saved_tensors
+RuntimeError: Trying to backward through the graph second time, but the buffers have already been freed. Please specify retain_variables=True when calling backward for the first time.
+Traceback (most recent call last):
+  File "train.py", line 182, in <module>
+    train(train_loader,gen,disc,gen_optimizer,disc_optimizer,ContentLoss,epoch,args)
+  File "train.py", line 161, in train
+    gen_loss.backward(retain_variables=True)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/autograd/variable.py", line 146, in backward
+    self._execution_engine.run_backward((self,), (gradient,), retain_variables)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/_functions/thnn/auto.py", line 153, in backward
+    t = self.saved_tensors
+RuntimeError: Trying to backward through the graph second time, but the buffers have already been freed. Please specify retain_variables=True when calling backward for the first time.
+Traceback (most recent call last):
+  File "train.py", line 182, in <module>
+    train(train_loader,gen,disc,gen_optimizer,disc_optimizer,ContentLoss,epoch,args)
+  File "train.py", line 165, in train
+    s,vpsnr=validate(gen,criterion,args.valdir,epoch,args.upscale_factor)
+NameError: name 'criterion' is not defined
+Traceback (most recent call last):
+  File "train.py", line 182, in <module>
+    train(train_loader,gen,disc,gen_optimizer,disc_optimizer,ContentLoss,epoch,args)
+NameError: name 'ContentLoss' is not defined
+Traceback (most recent call last):
+  File "train.py", line 182, in <module>
+    train(train_loader,gen,disc,gen_optimizer,disc_optimizer,criterion,epoch,args)
+  File "train.py", line 165, in train
+    s,vpsnr=validate(gen,criterion,args.valdir,epoch,args.upscale_factor)
+  File "train.py", line 127, in validate
+    lr=optimizer.param_groups[0]['lr']
+NameError: name 'optimizer' is not defined
+Traceback (most recent call last):
+  File "train.py", line 182, in <module>
+    train(train_loader,gen,disc,gen_optimizer,disc_optimizer,criterion,epoch,args)
+  File "train.py", line 166, in train
+    s+='=>gen_loss%.3f[C%.3f/A%.3f]=>disc_loss%.3f[R%.3f/F%.3f]'%(gen_loss,content_loss,adv_loss,disc_loss,real_loss,fake_loss)
+TypeError: must be real number, not Variable
+Traceback (most recent call last):
+  File "train.py", line 182, in <module>
+    train(train_loader,gen,disc,gen_optimizer,disc_optimizer,criterion,epoch,args)
+  File "train.py", line 165, in train
+    s,vpsnr=validate(gen,criterion,args.valdir,epoch,args.upscale_factor,gen_optimizer)
+  File "train.py", line 112, in validate
+    output=model(input_var)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/module.py", line 206, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/media/H/zohar/SRGAN-pytorch/models.py", line 76, in forward
+    xs = self.relu(self.conv1(x))
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/module.py", line 206, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/conv.py", line 237, in forward
+    self.padding, self.dilation, self.groups)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/functional.py", line 39, in conv2d
+    return f(input, weight, bias)
+RuntimeError: CUDNN_STATUS_BAD_PARAM
+Traceback (most recent call last):
+  File "train.py", line 181, in <module>
+    train(train_loader,gen,disc,gen_optimizer,disc_optimizer,criterion,epoch,args)
+  File "train.py", line 154, in train
+    fake_feature=vgg(G_z)
+NameError: name 'G_z' is not defined
+  File "train.py", line 1
+    mport argparse
+                 ^
+SyntaxError: invalid syntax
+Traceback (most recent call last):
+  File "train.py", line 182, in <module>
+    train(train_loader,gen,disc,gen_optimizer,disc_optimizer,criterion,epoch,args)
+  File "train.py", line 165, in train
+    s,vpsnr=validate(gen,criterion,args.valdir,epoch,args.upscale_factor,gen_optimizer)
+  File "train.py", line 112, in validate
+    output=model(input_var)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/module.py", line 206, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/media/H/zohar/SRGAN-pytorch/models.py", line 76, in forward
+    xs = self.relu(self.conv1(x))
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/module.py", line 206, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/conv.py", line 237, in forward
+    self.padding, self.dilation, self.groups)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/functional.py", line 39, in conv2d
+    return f(input, weight, bias)
+RuntimeError: CUDNN_STATUS_BAD_PARAM
+Traceback (most recent call last):
+  File "train.py", line 182, in <module>
+    train(train_loader,gen,disc,gen_optimizer,disc_optimizer,criterion,epoch,args)
+  File "train.py", line 165, in train
+    s,vpsnr=validate(gen,criterion,args.valdir,epoch,args.upscale_factor,gen_optimizer)
+  File "train.py", line 112, in validate
+    output=model(input_var)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/module.py", line 206, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/media/H/zohar/SRGAN-pytorch/models.py", line 76, in forward
+    xs = self.relu(self.conv1(x))
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/module.py", line 206, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/conv.py", line 237, in forward
+    self.padding, self.dilation, self.groups)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/functional.py", line 39, in conv2d
+    return f(input, weight, bias)
+RuntimeError: CUDNN_STATUS_BAD_PARAM
