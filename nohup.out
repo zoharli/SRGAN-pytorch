@@ -152,3 +152,287 @@ Traceback (most recent call last):
   File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/functional.py", line 39, in conv2d
     return f(input, weight, bias)
 RuntimeError: CUDNN_STATUS_BAD_PARAM
+  File "train.py", line 46
+    parser.add_argument('--logdir','-s',default='save',type=str,
+         ^
+SyntaxError: invalid syntax
+  File "train.py", line 91
+    if args.resume:
+                  ^
+SyntaxError: invalid syntax
+=> loading checkpoint 'save/best_b16_v0.0001_SGD_hardtanh_conBn_varv2_nowd.pth'
+Traceback (most recent call last):
+  File "train.py", line 85, in <module>
+    checkpoint = torch.load(atgs.pretrained)
+NameError: name 'atgs' is not defined
+=> loading checkpoint 'save/best_b16_v0.0001_SGD_hardtanh_conBn_varv2_nowd.pth'
+=> loaded checkpoint
+=> loading checkpoint 'save/best_b16_v0.0001_SGD_hardtanh_conBn_varv2_nowd.pth'
+=> loaded checkpoint
+=> loading checkpoint 'save/srgan_RMSprop.pth'
+=> loaded checkpoint (epoch 2)
+=> loading checkpoint 'save/best_b16_v0.0001_SGD_hardtanh_conBn_varv2_nowd.pth'
+=> loaded checkpoint
+THCudaCheck FAIL file=/py/conda-bld/pytorch_1490903321756/work/torch/lib/THC/generic/THCStorage.cu line=66 error=2 : out of memory
+Traceback (most recent call last):
+  File "train.py", line 195, in <module>
+    train(train_loader,gen,disc,gen_optimizer,disc_optimizer,criterion,epoch,args)
+  File "train.py", line 158, in train
+    real_loss.backward()
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/autograd/variable.py", line 146, in backward
+    self._execution_engine.run_backward((self,), (gradient,), retain_variables)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/_functions/linear.py", line 24, in backward
+    grad_weight = torch.mm(grad_output.t(), input)
+RuntimeError: cuda runtime error (2) : out of memory at /py/conda-bld/pytorch_1490903321756/work/torch/lib/THC/generic/THCStorage.cu:66
+=> loading checkpoint 'save/srgan_RMSprop.pth'
+=> loaded checkpoint (epoch 2)
+=> loading checkpoint 'save/best_b16_v0.0001_SGD_hardtanh_conBn_varv2_nowd.pth'
+=> loaded checkpoint
+=> loading checkpoint 'save/srgan_RMSprop.pth'
+=> loaded checkpoint (epoch 2)
+=> loading checkpoint 'save/best_b16_v0.0001_SGD_hardtanh_conBn_varv2_nowd.pth'
+=> loaded checkpoint
+=> loading checkpoint 'save/best_b16_v0.0001_SGD_hardtanh_conBn_varv2_nowd.pth'
+=> loaded checkpoint
+=> loading checkpoint 'save/best_srgan_RMSP_pretrained.pth'
+=> loaded checkpoint (epoch 2)
+=> loading checkpoint 'save/best_b16_v0.0001_SGD_hardtanh_conBn_varv2_nowd.pth'
+=> loaded checkpoint
+=> loading checkpoint 'save/best_srgan_RMSP_pretrained.pth'
+=> loaded checkpoint (epoch 2)
+=> loading checkpoint 'save/best_b16_v0.0001_SGD_hardtanh_conBn_varv2_nowd.pth'
+=> loaded checkpoint
+19th-23:28:34===>epoch2=>lr=0.000100=>psnr=10.162=>ypsnr=14.107=>Gen_loss:5.410[Cont:0.228/Adv:17.276]=>Disc_loss:0.132[Real:0.234/Fake:0.031]
+19th-23:43:36===>epoch2=>lr=0.000100=>psnr=8.330=>ypsnr=12.305=>Gen_loss:0.786[Cont:0.513/Adv:0.909]=>Disc_loss:0.081[Real:0.068/Fake:0.093]
+19th-23:59:15===>epoch2=>lr=0.000100=>psnr=8.749=>ypsnr=12.868=>Gen_loss:0.469[Cont:0.283/Adv:0.621]=>Disc_loss:0.041[Real:0.056/Fake:0.027]
+20th-00:14:54===>epoch2=>lr=0.000100=>psnr=9.165=>ypsnr=13.792=>Gen_loss:0.493[Cont:0.357/Adv:0.454]=>Disc_loss:0.100[Real:0.165/Fake:0.034]
+20th-00:30:30===>epoch2=>lr=0.000100=>psnr=8.205=>ypsnr=13.888=>Gen_loss:0.423[Cont:0.314/Adv:0.362]=>Disc_loss:0.133[Real:0.252/Fake:0.015]
+20th-00:39:20===>epoch2=>lr=0.000100=>psnr=12.438=>ypsnr=14.774=>Gen_loss:0.523[Cont:0.263/Adv:0.866]=>Disc_loss:0.068[Real:0.037/Fake:0.099]
+20th-00:44:23===>epoch2=>lr=0.000100=>psnr=11.608=>ypsnr=14.164=>Gen_loss:0.487[Cont:0.293/Adv:0.649]=>Disc_loss:0.033[Real:0.049/Fake:0.018]
+20th-00:49:23===>epoch2=>lr=0.000100=>psnr=11.234=>ypsnr=13.111=>Gen_loss:0.445[Cont:0.269/Adv:0.587]=>Disc_loss:0.152[Real:0.149/Fake:0.154]
+20th-00:54:35===>epoch2=>lr=0.000100=>psnr=11.945=>ypsnr=13.736=>Gen_loss:0.981[Cont:0.332/Adv:2.165]=>Disc_loss:0.200[Real:0.087/Fake:0.314]
+20th-00:59:49===>epoch2=>lr=0.000100=>psnr=12.067=>ypsnr=14.330=>Gen_loss:0.364[Cont:0.334/Adv:0.099]=>Disc_loss:0.378[Real:0.618/Fake:0.137]
+20th-01:05:04===>epoch2=>lr=0.000100=>psnr=11.843=>ypsnr=14.532=>Gen_loss:0.730[Cont:0.341/Adv:1.297]=>Disc_loss:0.038[Real:0.029/Fake:0.048]
+20th-01:10:22===>epoch2=>lr=0.000100=>psnr=14.108=>ypsnr=15.614=>Gen_loss:0.487[Cont:0.352/Adv:0.452]=>Disc_loss:0.243[Real:0.357/Fake:0.129]
+20th-01:15:42===>epoch2=>lr=0.000100=>psnr=15.511=>ypsnr=18.261=>Gen_loss:0.537[Cont:0.271/Adv:0.885]=>Disc_loss:0.199[Real:0.152/Fake:0.246]
+20th-01:21:17===>epoch2=>lr=0.000100=>psnr=15.872=>ypsnr=18.598=>Gen_loss:0.342[Cont:0.309/Adv:0.110]=>Disc_loss:0.662[Real:1.216/Fake:0.108]
+20th-01:26:38===>epoch2=>lr=0.000100=>psnr=9.310=>ypsnr=11.822=>Gen_loss:0.496[Cont:0.320/Adv:0.588]=>Disc_loss:0.155[Real:0.186/Fake:0.124]
+20th-01:32:07===>epoch2=>lr=0.000100=>psnr=8.469=>ypsnr=10.711=>Gen_loss:0.570[Cont:0.329/Adv:0.801]=>Disc_loss:0.156[Real:0.184/Fake:0.128]
+20th-01:37:44===>epoch2=>lr=0.000100=>psnr=8.758=>ypsnr=11.782=>Gen_loss:0.455[Cont:0.332/Adv:0.411]=>Disc_loss:0.197[Real:0.252/Fake:0.142]
+20th-01:43:15===>epoch2=>lr=0.000100=>psnr=12.111=>ypsnr=16.342=>Gen_loss:0.409[Cont:0.292/Adv:0.391]=>Disc_loss:0.263[Real:0.225/Fake:0.301]
+20th-01:48:47===>epoch2=>lr=0.000100=>psnr=15.786=>ypsnr=19.786=>Gen_loss:0.454[Cont:0.243/Adv:0.704]=>Disc_loss:0.329[Real:0.054/Fake:0.605]
+20th-01:54:19===>epoch2=>lr=0.000100=>psnr=17.997=>ypsnr=21.919=>Gen_loss:0.407[Cont:0.226/Adv:0.604]=>Disc_loss:0.266[Real:0.085/Fake:0.447]
+20th-01:59:55===>epoch2=>lr=0.000100=>psnr=16.541=>ypsnr=19.919=>Gen_loss:0.305[Cont:0.260/Adv:0.152]=>Disc_loss:0.288[Real:0.369/Fake:0.208]
+20th-02:05:32===>epoch2=>lr=0.000100=>psnr=18.389=>ypsnr=20.286=>Gen_loss:0.357[Cont:0.277/Adv:0.267]=>Disc_loss:0.273[Real:0.257/Fake:0.289]
+20th-02:10:58===>epoch2=>lr=0.000100=>psnr=19.610=>ypsnr=21.833=>Gen_loss:0.250[Cont:0.227/Adv:0.076]=>Disc_loss:0.286[Real:0.481/Fake:0.091]
+20th-02:16:23===>epoch2=>lr=0.000100=>psnr=19.113=>ypsnr=21.454=>Gen_loss:0.251[Cont:0.225/Adv:0.088]=>Disc_loss:0.275[Real:0.444/Fake:0.107]
+20th-02:21:44===>epoch2=>lr=0.000100=>psnr=18.686=>ypsnr=20.818=>Gen_loss:0.367[Cont:0.190/Adv:0.588]=>Disc_loss:0.278[Real:0.089/Fake:0.468]
+20th-02:27:04===>epoch2=>lr=0.000100=>psnr=16.526=>ypsnr=18.401=>Gen_loss:0.528[Cont:0.294/Adv:0.782]=>Disc_loss:0.235[Real:0.071/Fake:0.398]
+20th-02:32:30===>epoch2=>lr=0.000100=>psnr=16.340=>ypsnr=19.360=>Gen_loss:0.297[Cont:0.260/Adv:0.123]=>Disc_loss:0.282[Real:0.457/Fake:0.107]
+20th-02:37:57===>epoch2=>lr=0.000100=>psnr=18.190=>ypsnr=20.720=>Gen_loss:0.532[Cont:0.260/Adv:0.906]=>Disc_loss:0.241[Real:0.080/Fake:0.401]
+20th-02:43:26===>epoch2=>lr=0.000100=>psnr=18.534=>ypsnr=20.970=>Gen_loss:0.405[Cont:0.230/Adv:0.586]=>Disc_loss:0.214[Real:0.158/Fake:0.269]
+20th-02:48:57===>epoch2=>lr=0.000100=>psnr=18.839=>ypsnr=20.951=>Gen_loss:0.328[Cont:0.251/Adv:0.257]=>Disc_loss:0.323[Real:0.439/Fake:0.208]
+20th-02:54:20===>epoch2=>lr=0.000100=>psnr=17.375=>ypsnr=19.622=>Gen_loss:0.397[Cont:0.294/Adv:0.345]=>Disc_loss:0.269[Real:0.337/Fake:0.201]
+20th-02:59:49===>epoch2=>lr=0.000100=>psnr=17.739=>ypsnr=20.086=>Gen_loss:0.306[Cont:0.234/Adv:0.240]=>Disc_loss:0.270[Real:0.414/Fake:0.125]
+20th-03:05:09===>epoch2=>lr=0.000100=>psnr=17.320=>ypsnr=19.444=>Gen_loss:0.512[Cont:0.231/Adv:0.937]=>Disc_loss:0.286[Real:0.206/Fake:0.367]
+20th-03:10:34===>epoch2=>lr=0.000100=>psnr=16.806=>ypsnr=18.890=>Gen_loss:0.338[Cont:0.246/Adv:0.307]=>Disc_loss:0.206[Real:0.344/Fake:0.068]
+20th-03:16:03===>epoch2=>lr=0.000100=>psnr=15.086=>ypsnr=18.987=>Gen_loss:0.591[Cont:0.248/Adv:1.143]=>Disc_loss:0.273[Real:0.029/Fake:0.517]
+20th-03:21:35===>epoch2=>lr=0.000100=>psnr=17.796=>ypsnr=19.886=>Gen_loss:0.429[Cont:0.293/Adv:0.453]=>Disc_loss:0.136[Real:0.185/Fake:0.087]
+20th-03:27:25===>epoch2=>lr=0.000100=>psnr=17.480=>ypsnr=19.771=>Gen_loss:0.403[Cont:0.186/Adv:0.724]=>Disc_loss:0.150[Real:0.162/Fake:0.137]
+20th-03:33:03===>epoch2=>lr=0.000100=>psnr=17.122=>ypsnr=18.824=>Gen_loss:0.507[Cont:0.256/Adv:0.837]=>Disc_loss:0.127[Real:0.115/Fake:0.139]
+20th-03:38:44===>epoch2=>lr=0.000100=>psnr=16.392=>ypsnr=18.075=>Gen_loss:1.064[Cont:0.245/Adv:2.731]=>Disc_loss:0.313[Real:0.042/Fake:0.585]
+20th-03:44:11===>epoch2=>lr=0.000100=>psnr=17.542=>ypsnr=19.758=>Gen_loss:0.458[Cont:0.260/Adv:0.660]=>Disc_loss:0.213[Real:0.135/Fake:0.290]
+20th-03:49:44===>epoch2=>lr=0.000100=>psnr=17.003=>ypsnr=19.196=>Gen_loss:0.778[Cont:0.269/Adv:1.698]=>Disc_loss:0.216[Real:0.033/Fake:0.398]
+20th-03:55:40===>epoch2=>lr=0.000100=>psnr=16.761=>ypsnr=18.569=>Gen_loss:0.607[Cont:0.253/Adv:1.177]=>Disc_loss:0.222[Real:0.116/Fake:0.328]
+20th-04:01:04===>epoch2=>lr=0.000100=>psnr=16.010=>ypsnr=18.636=>Gen_loss:0.623[Cont:0.255/Adv:1.227]=>Disc_loss:0.266[Real:0.082/Fake:0.449]
+20th-04:06:20===>epoch2=>lr=0.000100=>psnr=16.595=>ypsnr=18.570=>Gen_loss:0.335[Cont:0.277/Adv:0.192]=>Disc_loss:0.226[Real:0.372/Fake:0.080]
+20th-04:11:41===>epoch2=>lr=0.000100=>psnr=16.858=>ypsnr=19.091=>Gen_loss:0.578[Cont:0.290/Adv:0.961]=>Disc_loss:0.179[Real:0.088/Fake:0.269]
+20th-04:16:56===>epoch2=>lr=0.000100=>psnr=16.840=>ypsnr=18.985=>Gen_loss:0.486[Cont:0.199/Adv:0.957]=>Disc_loss:0.131[Real:0.069/Fake:0.193]
+20th-04:22:15===>epoch2=>lr=0.000100=>psnr=17.292=>ypsnr=19.256=>Gen_loss:0.578[Cont:0.193/Adv:1.282]=>Disc_loss:0.188[Real:0.064/Fake:0.313]
+20th-04:27:40===>epoch2=>lr=0.000100=>psnr=16.037=>ypsnr=18.525=>Gen_loss:0.385[Cont:0.208/Adv:0.592]=>Disc_loss:0.091[Real:0.155/Fake:0.026]
+20th-04:33:11===>epoch2=>lr=0.000100=>psnr=17.072=>ypsnr=18.874=>Gen_loss:0.593[Cont:0.262/Adv:1.105]=>Disc_loss:0.055[Real:0.055/Fake:0.055]
+20th-04:38:36===>epoch2=>lr=0.000100=>psnr=15.930=>ypsnr=18.535=>Gen_loss:0.248[Cont:0.234/Adv:0.045]=>Disc_loss:0.335[Real:0.634/Fake:0.037]
+20th-04:44:01===>epoch2=>lr=0.000100=>psnr=14.762=>ypsnr=16.721=>Gen_loss:1.079[Cont:0.364/Adv:2.382]=>Disc_loss:0.572[Real:0.370/Fake:0.774]
+20th-04:49:21===>epoch2=>lr=0.000100=>psnr=15.639=>ypsnr=17.905=>Gen_loss:0.826[Cont:0.310/Adv:1.722]=>Disc_loss:0.063[Real:0.033/Fake:0.093]
+20th-04:54:46===>epoch2=>lr=0.000100=>psnr=17.575=>ypsnr=19.898=>Gen_loss:0.506[Cont:0.259/Adv:0.823]=>Disc_loss:0.164[Real:0.138/Fake:0.190]
+20th-05:00:09===>epoch2=>lr=0.000100=>psnr=15.928=>ypsnr=18.068=>Gen_loss:0.750[Cont:0.273/Adv:1.593]=>Disc_loss:0.070[Real:0.050/Fake:0.091]
+20th-05:05:30===>epoch2=>lr=0.000100=>psnr=16.620=>ypsnr=18.625=>Gen_loss:0.481[Cont:0.237/Adv:0.812]=>Disc_loss:0.058[Real:0.068/Fake:0.048]
+20th-05:10:48===>epoch2=>lr=0.000100=>psnr=17.478=>ypsnr=19.919=>Gen_loss:0.624[Cont:0.259/Adv:1.216]=>Disc_loss:0.195[Real:0.085/Fake:0.304]
+20th-05:16:13===>epoch2=>lr=0.000100=>psnr=16.342=>ypsnr=18.386=>Gen_loss:0.664[Cont:0.285/Adv:1.264]=>Disc_loss:0.438[Real:0.061/Fake:0.815]
+20th-05:21:34===>epoch2=>lr=0.000100=>psnr=16.766=>ypsnr=19.629=>Gen_loss:0.504[Cont:0.287/Adv:0.723]=>Disc_loss:0.082[Real:0.111/Fake:0.053]19th-23:28:33===>epoch2=>lr=0.000100=>psnr=9.502=>ypsnr=17.440=>Gen_loss:835.472[Cont:0.209/Adv:2784.208]=>Disc_loss:6.853[Real:0.238/Fake:13.469]
+19th-23:44:08===>epoch2=>lr=0.000100=>psnr=10.762=>ypsnr=14.615=>Gen_loss:0.525[Cont:0.304/Adv:0.735]=>Disc_loss:0.317[Real:0.268/Fake:0.367]
+20th-00:00:09===>epoch2=>lr=0.000100=>psnr=11.392=>ypsnr=14.929=>Gen_loss:0.594[Cont:0.360/Adv:0.780]=>Disc_loss:0.340[Real:0.466/Fake:0.214]
+20th-00:15:56===>epoch2=>lr=0.000100=>psnr=11.037=>ypsnr=13.698=>Gen_loss:0.514[Cont:0.335/Adv:0.597]=>Disc_loss:0.537[Real:0.446/Fake:0.629]
+20th-00:31:51===>epoch2=>lr=0.000100=>psnr=11.206=>ypsnr=13.164=>Gen_loss:0.577[Cont:0.259/Adv:1.058]=>Disc_loss:0.400[Real:0.370/Fake:0.430]
+20th-00:39:49===>epoch2=>lr=0.000100=>psnr=13.317=>ypsnr=16.590=>Gen_loss:0.561[Cont:0.316/Adv:0.818]=>Disc_loss:0.039[Real:0.053/Fake:0.025]
+20th-00:45:14===>epoch2=>lr=0.000100=>psnr=15.418=>ypsnr=18.059=>Gen_loss:0.889[Cont:0.299/Adv:1.968]=>Disc_loss:0.391[Real:0.588/Fake:0.195]
+20th-00:50:48===>epoch2=>lr=0.000100=>psnr=9.940=>ypsnr=15.917=>Gen_loss:0.545[Cont:0.334/Adv:0.704]=>Disc_loss:0.118[Real:0.159/Fake:0.077]
+20th-00:56:20===>epoch2=>lr=0.000100=>psnr=10.222=>ypsnr=12.499=>Gen_loss:0.739[Cont:0.348/Adv:1.306]=>Disc_loss:0.035[Real:0.040/Fake:0.029]
+20th-01:01:57===>epoch2=>lr=0.000100=>psnr=16.111=>ypsnr=18.409=>Gen_loss:0.912[Cont:0.373/Adv:1.795]=>Disc_loss:0.409[Real:0.203/Fake:0.616]
+20th-01:07:55===>epoch2=>lr=0.000100=>psnr=9.797=>ypsnr=12.312=>Gen_loss:0.809[Cont:0.376/Adv:1.441]=>Disc_loss:0.274[Real:0.466/Fake:0.081]
+20th-01:13:37===>epoch2=>lr=0.000100=>psnr=14.923=>ypsnr=17.415=>Gen_loss:0.703[Cont:0.267/Adv:1.454]=>Disc_loss:0.365[Real:0.235/Fake:0.494]
+20th-01:19:30===>epoch2=>lr=0.000100=>psnr=15.813=>ypsnr=17.892=>Gen_loss:0.846[Cont:0.354/Adv:1.641]=>Disc_loss:0.061[Real:0.049/Fake:0.073]
+20th-01:25:19===>epoch2=>lr=0.000100=>psnr=15.510=>ypsnr=17.714=>Gen_loss:1.215[Cont:0.387/Adv:2.761]=>Disc_loss:0.251[Real:0.355/Fake:0.146]
+20th-01:30:56===>epoch2=>lr=0.000100=>psnr=9.033=>ypsnr=11.083=>Gen_loss:0.652[Cont:0.334/Adv:1.061]=>Disc_loss:0.107[Real:0.144/Fake:0.070]
+20th-01:36:33===>epoch2=>lr=0.000100=>psnr=9.851=>ypsnr=14.182=>Gen_loss:0.631[Cont:0.305/Adv:1.085]=>Disc_loss:0.023[Real:0.021/Fake:0.025]
+20th-01:42:23===>epoch2=>lr=0.000100=>psnr=10.305=>ypsnr=11.944=>Gen_loss:0.759[Cont:0.322/Adv:1.457]=>Disc_loss:0.035[Real:0.033/Fake:0.037]
+20th-01:48:14===>epoch2=>lr=0.000100=>psnr=12.910=>ypsnr=15.701=>Gen_loss:0.709[Cont:0.305/Adv:1.349]=>Disc_loss:0.047[Real:0.046/Fake:0.048]
+20th-01:54:01===>epoch2=>lr=0.000100=>psnr=14.733=>ypsnr=17.402=>Gen_loss:0.864[Cont:0.297/Adv:1.890]=>Disc_loss:0.294[Real:0.201/Fake:0.386]
+20th-02:00:01===>epoch2=>lr=0.000100=>psnr=7.552=>ypsnr=13.397=>Gen_loss:0.621[Cont:0.259/Adv:1.207]=>Disc_loss:0.027[Real:0.024/Fake:0.030]
+20th-02:06:10===>epoch2=>lr=0.000100=>psnr=10.102=>ypsnr=12.533=>Gen_loss:0.530[Cont:0.382/Adv:0.493]=>Disc_loss:0.038[Real:0.033/Fake:0.044]
+20th-02:11:52===>epoch2=>lr=0.000100=>psnr=9.818=>ypsnr=12.534=>Gen_loss:0.633[Cont:0.340/Adv:0.977]=>Disc_loss:0.046[Real:0.060/Fake:0.032]
+20th-02:17:41===>epoch2=>lr=0.000100=>psnr=7.603=>ypsnr=9.292=>Gen_loss:0.938[Cont:0.348/Adv:1.970]=>Disc_loss:0.048[Real:0.041/Fake:0.054]
+20th-02:23:22===>epoch2=>lr=0.000100=>psnr=8.321=>ypsnr=9.940=>Gen_loss:0.466[Cont:0.293/Adv:0.577]=>Disc_loss:0.075[Real:0.084/Fake:0.067]
+20th-02:29:05===>epoch2=>lr=0.000100=>psnr=11.475=>ypsnr=13.697=>Gen_loss:1.429[Cont:0.389/Adv:3.467]=>Disc_loss:0.195[Real:0.123/Fake:0.267]
+20th-02:34:53===>epoch2=>lr=0.000100=>psnr=13.273=>ypsnr=15.404=>Gen_loss:0.675[Cont:0.297/Adv:1.261]=>Disc_loss:0.034[Real:0.044/Fake:0.024]
+20th-02:40:42===>epoch2=>lr=0.000100=>psnr=12.444=>ypsnr=14.924=>Gen_loss:0.545[Cont:0.349/Adv:0.652]=>Disc_loss:0.020[Real:0.016/Fake:0.023]
+20th-02:46:30===>epoch2=>lr=0.000100=>psnr=13.255=>ypsnr=15.336=>Gen_loss:0.677[Cont:0.332/Adv:1.150]=>Disc_loss:0.026[Real:0.021/Fake:0.030]
+20th-02:52:20===>epoch2=>lr=0.000100=>psnr=15.871=>ypsnr=18.093=>Gen_loss:1.098[Cont:0.307/Adv:2.638]=>Disc_loss:0.274[Real:0.149/Fake:0.398]
+20th-02:58:13===>epoch2=>lr=0.000100=>psnr=16.796=>ypsnr=19.029=>Gen_loss:0.944[Cont:0.302/Adv:2.139]=>Disc_loss:0.143[Real:0.083/Fake:0.202]
+20th-03:04:04===>epoch2=>lr=0.000100=>psnr=10.065=>ypsnr=12.343=>Gen_loss:0.660[Cont:0.385/Adv:0.916]=>Disc_loss:0.033[Real:0.056/Fake:0.009]
+20th-03:09:49===>epoch2=>lr=0.000100=>psnr=7.997=>ypsnr=9.923=>Gen_loss:0.645[Cont:0.308/Adv:1.124]=>Disc_loss:0.027[Real:0.044/Fake:0.009]
+20th-03:15:33===>epoch2=>lr=0.000100=>psnr=9.113=>ypsnr=11.183=>Gen_loss:0.568[Cont:0.307/Adv:0.871]=>Disc_loss:0.065[Real:0.087/Fake:0.044]
+20th-03:21:37===>epoch2=>lr=0.000100=>psnr=13.970=>ypsnr=15.942=>Gen_loss:0.969[Cont:0.290/Adv:2.262]=>Disc_loss:0.281[Real:0.406/Fake:0.156]
+20th-03:27:56===>epoch2=>lr=0.000100=>psnr=15.266=>ypsnr=17.109=>Gen_loss:0.471[Cont:0.296/Adv:0.584]=>Disc_loss:0.061[Real:0.024/Fake:0.098]
+20th-03:34:08===>epoch2=>lr=0.000100=>psnr=15.086=>ypsnr=17.276=>Gen_loss:0.698[Cont:0.289/Adv:1.363]=>Disc_loss:0.210[Real:0.351/Fake:0.069]
+20th-03:40:20===>epoch2=>lr=0.000100=>psnr=16.353=>ypsnr=18.302=>Gen_loss:0.624[Cont:0.317/Adv:1.023]=>Disc_loss:0.018[Real:0.023/Fake:0.014]
+20th-03:46:07===>epoch2=>lr=0.000100=>psnr=16.243=>ypsnr=18.029=>Gen_loss:0.854[Cont:0.254/Adv:2.002]=>Disc_loss:0.039[Real:0.041/Fake:0.037]
+20th-03:52:08===>epoch2=>lr=0.000100=>psnr=16.725=>ypsnr=18.639=>Gen_loss:0.876[Cont:0.279/Adv:1.989]=>Disc_loss:0.333[Real:0.291/Fake:0.375]
+20th-03:58:07===>epoch2=>lr=0.000100=>psnr=15.431=>ypsnr=17.218=>Gen_loss:0.767[Cont:0.269/Adv:1.658]=>Disc_loss:0.188[Real:0.149/Fake:0.227]
+20th-04:03:50===>epoch2=>lr=0.000100=>psnr=16.204=>ypsnr=18.336=>Gen_loss:0.940[Cont:0.349/Adv:1.971]=>Disc_loss:0.276[Real:0.156/Fake:0.396]
+20th-04:09:36===>epoch2=>lr=0.000100=>psnr=15.799=>ypsnr=17.930=>Gen_loss:0.761[Cont:0.328/Adv:1.445]=>Disc_loss:0.262[Real:0.306/Fake:0.218]
+20th-04:15:16===>epoch2=>lr=0.000100=>psnr=15.652=>ypsnr=18.219=>Gen_loss:0.861[Cont:0.279/Adv:1.940]=>Disc_loss:0.080[Real:0.061/Fake:0.098]
+20th-04:20:58===>epoch2=>lr=0.000100=>psnr=11.316=>ypsnr=14.238=>Gen_loss:0.582[Cont:0.321/Adv:0.871]=>Disc_loss:0.007[Real:0.008/Fake:0.005]
+20th-04:26:41===>epoch2=>lr=0.000100=>psnr=9.645=>ypsnr=11.417=>Gen_loss:0.742[Cont:0.262/Adv:1.601]=>Disc_loss:0.089[Real:0.119/Fake:0.059]
+20th-04:32:27===>epoch2=>lr=0.000100=>psnr=13.064=>ypsnr=15.808=>Gen_loss:0.673[Cont:0.324/Adv:1.162]=>Disc_loss:0.005[Real:0.007/Fake:0.004]
+20th-04:38:23===>epoch2=>lr=0.000100=>psnr=16.424=>ypsnr=19.338=>Gen_loss:0.724[Cont:0.299/Adv:1.415]=>Disc_loss:0.260[Real:0.439/Fake:0.082]
+20th-04:44:16===>epoch2=>lr=0.000100=>psnr=16.616=>ypsnr=18.813=>Gen_loss:0.566[Cont:0.340/Adv:0.755]=>Disc_loss:0.046[Real:0.037/Fake:0.056]
+20th-04:50:07===>epoch2=>lr=0.000100=>psnr=17.104=>ypsnr=19.411=>Gen_loss:0.759[Cont:0.275/Adv:1.614]=>Disc_loss:0.229[Real:0.230/Fake:0.227]
+20th-04:55:56===>epoch2=>lr=0.000100=>psnr=16.751=>ypsnr=19.089=>Gen_loss:0.854[Cont:0.233/Adv:2.070]=>Disc_loss:0.316[Real:0.254/Fake:0.377]
+20th-05:01:42===>epoch2=>lr=0.000100=>psnr=16.043=>ypsnr=18.049=>Gen_loss:0.776[Cont:0.287/Adv:1.628]=>Disc_loss:0.233[Real:0.129/Fake:0.336]
+20th-05:07:28===>epoch2=>lr=0.000100=>psnr=17.001=>ypsnr=19.917=>Gen_loss:0.416[Cont:0.278/Adv:0.459]=>Disc_loss:0.270[Real:0.169/Fake:0.371]
+20th-05:13:16===>epoch2=>lr=0.000100=>psnr=17.226=>ypsnr=19.887=>Gen_loss:0.460[Cont:0.345/Adv:0.386]=>Disc_loss:0.406[Real:0.351/Fake:0.460]
+20th-05:18:58===>epoch2=>lr=0.000100=>psnr=17.149=>ypsnr=19.767=>Gen_loss:0.386[Cont:0.239/Adv:0.490]=>Disc_loss:0.299[Real:0.175/Fake:0.423]
+20th-05:24:42===>epoch2=>lr=0.000100=>psnr=15.790=>ypsnr=19.114=>Gen_loss:0.715[Cont:0.350/Adv:1.216]=>Disc_loss:0.328[Real:0.408/Fake:0.249]
+20th-05:30:27===>epoch2=>lr=0.000100=>psnr=17.132=>ypsnr=19.438=>Gen_loss:0.432[Cont:0.245/Adv:0.624]=>Disc_loss:0.336[Real:0.318/Fake:0.355]
+20th-05:36:17===>epoch2=>lr=0.000100=>psnr=13.488=>ypsnr=15.801=>Gen_loss:0.617[Cont:0.252/Adv:1.216]=>Disc_loss:0.032[Real:0.023/Fake:0.042]
+20th-05:42:01===>epoch2=>lr=0.000100=>psnr=12.146=>ypsnr=14.062=>Gen_loss:0.547[Cont:0.258/Adv:0.964]=>Disc_loss:0.014[Real:0.015/Fake:0.012]
+20th-05:26:55===>epoch2=>lr=0.000100=>psnr=17.246=>ypsnr=20.172=>Gen_loss:0.544[Cont:0.299/Adv:0.818]=>Disc_loss:0.053[Real:0.074/Fake:0.031]
+20th-05:32:22===>epoch2=>lr=0.000100=>psnr=16.979=>ypsnr=19.104=>Gen_loss:0.390[Cont:0.191/Adv:0.664]=>Disc_loss:0.047[Real:0.055/Fake:0.038]
+20th-05:37:41===>epoch2=>lr=0.000100=>psnr=17.181=>ypsnr=19.430=>Gen_loss:0.491[Cont:0.227/Adv:0.881]=>Disc_loss:0.130[Real:0.117/Fake:0.143]
+20th-05:43:06===>epoch2=>lr=0.000100=>psnr=17.488=>ypsnr=19.581=>Gen_loss:0.344[Cont:0.218/Adv:0.420]=>Disc_loss:0.100[Real:0.174/Fake:0.025]
+20th-05:48:25===>epoch2=>lr=0.000100=>psnr=17.992=>ypsnr=19.978=>Gen_loss:0.512[Cont:0.243/Adv:0.894]=>Disc_loss:0.027[Real:0.024/Fake:0.031]
+20th-05:53:46===>epoch2=>lr=0.000100=>psnr=17.612=>ypsnr=19.666=>Gen_loss:0.593[Cont:0.258/Adv:1.116]=>Disc_loss:0.194[Real:0.076/Fake:0.313]
+20th-05:59:10===>epoch2=>lr=0.000100=>psnr=17.185=>ypsnr=19.521=>Gen_loss:0.466[Cont:0.270/Adv:0.655]=>Disc_loss:0.102[Real:0.119/Fake:0.084]
+20th-06:04:43===>epoch2=>lr=0.000100=>psnr=16.739=>ypsnr=18.846=>Gen_loss:0.319[Cont:0.276/Adv:0.143]=>Disc_loss:0.228[Real:0.399/Fake:0.056]
+20th-06:10:05===>epoch2=>lr=0.000100=>psnr=16.747=>ypsnr=18.598=>Gen_loss:0.721[Cont:0.224/Adv:1.659]=>Disc_loss:0.078[Real:0.038/Fake:0.118]
+20th-06:15:28===>epoch2=>lr=0.000100=>psnr=16.440=>ypsnr=19.266=>Gen_loss:0.495[Cont:0.251/Adv:0.813]=>Disc_loss:0.039[Real:0.055/Fake:0.024]
+20th-06:20:52===>epoch2=>lr=0.000100=>psnr=16.962=>ypsnr=18.809=>Gen_loss:0.291[Cont:0.264/Adv:0.088]=>Disc_loss:0.180[Real:0.299/Fake:0.061]
+20th-06:26:14===>epoch2=>lr=0.000100=>psnr=16.768=>ypsnr=18.464=>Gen_loss:0.742[Cont:0.262/Adv:1.599]=>Disc_loss:0.245[Real:0.053/Fake:0.437]
+20th-06:31:26===>epoch2=>lr=0.000100=>psnr=17.602=>ypsnr=19.632=>Gen_loss:0.425[Cont:0.287/Adv:0.460]=>Disc_loss:0.100[Real:0.186/Fake:0.014]
+20th-06:36:46===>epoch2=>lr=0.000100=>psnr=17.564=>ypsnr=19.619=>Gen_loss:0.257[Cont:0.242/Adv:0.052]=>Disc_loss:0.417[Real:0.802/Fake:0.033]
+20th-06:42:12===>epoch2=>lr=0.000100=>psnr=16.088=>ypsnr=18.293=>Gen_loss:0.360[Cont:0.246/Adv:0.382]=>Disc_loss:0.174[Real:0.313/Fake:0.035]
+20th-06:47:34===>epoch2=>lr=0.000100=>psnr=18.011=>ypsnr=20.266=>Gen_loss:0.611[Cont:0.278/Adv:1.107]=>Disc_loss:0.109[Real:0.056/Fake:0.163]
+20th-06:52:50===>epoch2=>lr=0.000100=>psnr=17.753=>ypsnr=20.034=>Gen_loss:0.708[Cont:0.252/Adv:1.522]=>Disc_loss:0.067[Real:0.048/Fake:0.086]
+20th-06:58:01===>epoch2=>lr=0.000100=>psnr=16.298=>ypsnr=18.935=>Gen_loss:0.483[Cont:0.260/Adv:0.744]=>Disc_loss:0.125[Real:0.141/Fake:0.110]
+20th-07:03:25===>epoch2=>lr=0.000100=>psnr=17.846=>ypsnr=19.926=>Gen_loss:0.332[Cont:0.250/Adv:0.274]=>Disc_loss:0.161[Real:0.281/Fake:0.041]
+20th-07:08:49===>epoch2=>lr=0.000100=>psnr=13.424=>ypsnr=15.576=>Gen_loss:0.639[Cont:0.261/Adv:1.259]=>Disc_loss:0.031[Real:0.046/Fake:0.016]
+20th-07:14:22===>epoch2=>lr=0.000100=>psnr=16.838=>ypsnr=18.904=>Gen_loss:0.321[Cont:0.170/Adv:0.502]=>Disc_loss:0.078[Real:0.139/Fake:0.018]
+20th-07:19:44===>epoch2=>lr=0.000100=>psnr=17.632=>ypsnr=20.022=>Gen_loss:0.322[Cont:0.314/Adv:0.027]=>Disc_loss:0.304[Real:0.559/Fake:0.049]
+20th-07:25:01===>epoch2=>lr=0.000100=>psnr=18.297=>ypsnr=20.302=>Gen_loss:0.291[Cont:0.233/Adv:0.194]=>Disc_loss:0.139[Real:0.259/Fake:0.020]
+20th-07:30:19===>epoch2=>lr=0.000100=>psnr=17.941=>ypsnr=20.200=>Gen_loss:0.345[Cont:0.310/Adv:0.118]=>Disc_loss:0.174[Real:0.321/Fake:0.028]
+20th-07:35:39===>epoch2=>lr=0.000100=>psnr=17.038=>ypsnr=18.993=>Gen_loss:0.685[Cont:0.246/Adv:1.464]=>Disc_loss:0.184[Real:0.052/Fake:0.316]
+20th-07:40:57===>epoch2=>lr=0.000100=>psnr=17.666=>ypsnr=19.673=>Gen_loss:0.396[Cont:0.314/Adv:0.274]=>Disc_loss:0.103[Real:0.179/Fake:0.028]
+20th-07:46:20===>epoch2=>lr=0.000100=>psnr=17.586=>ypsnr=19.624=>Gen_loss:0.622[Cont:0.256/Adv:1.221]=>Disc_loss:0.038[Real:0.027/Fake:0.050]
+20th-07:51:44===>epoch2=>lr=0.000100=>psnr=17.272=>ypsnr=19.810=>Gen_loss:0.447[Cont:0.310/Adv:0.457]=>Disc_loss:0.159[Real:0.275/Fake:0.044]
+20th-07:57:09===>epoch2=>lr=0.000100=>psnr=17.498=>ypsnr=19.420=>Gen_loss:0.350[Cont:0.268/Adv:0.275]=>Disc_loss:0.177[Real:0.285/Fake:0.070]
+20th-08:02:37===>epoch2=>lr=0.000100=>psnr=15.925=>ypsnr=19.033=>Gen_loss:0.622[Cont:0.335/Adv:0.957]=>Disc_loss:0.095[Real:0.104/Fake:0.085]
+20th-08:07:58===>epoch2=>lr=0.000100=>psnr=17.225=>ypsnr=19.440=>Gen_loss:0.409[Cont:0.228/Adv:0.604]=>Disc_loss:0.073[Real:0.122/Fake:0.024]
+20th-08:13:16===>epoch2=>lr=0.000100=>psnr=16.754=>ypsnr=19.036=>Gen_loss:0.514[Cont:0.267/Adv:0.824]=>Disc_loss:0.163[Real:0.146/Fake:0.179]
+20th-08:18:41===>epoch2=>lr=0.000100=>psnr=17.348=>ypsnr=19.410=>Gen_loss:0.491[Cont:0.282/Adv:0.697]=>Disc_loss:0.088[Real:0.106/Fake:0.070]
+20th-08:24:08===>epoch2=>lr=0.000100=>psnr=16.694=>ypsnr=18.525=>Gen_loss:0.444[Cont:0.270/Adv:0.580]=>Disc_loss:0.114[Real:0.152/Fake:0.077]
+20th-08:29:52===>epoch2=>lr=0.000100=>psnr=17.515=>ypsnr=19.786=>Gen_loss:0.380[Cont:0.290/Adv:0.301]=>Disc_loss:0.164[Real:0.266/Fake:0.061]
+20th-08:35:17===>epoch2=>lr=0.000100=>psnr=17.707=>ypsnr=19.694=>Gen_loss:0.533[Cont:0.247/Adv:0.953]=>Disc_loss:0.161[Real:0.141/Fake:0.182]
+20th-08:40:34===>epoch2=>lr=0.000100=>psnr=13.579=>ypsnr=15.296=>Gen_loss:0.579[Cont:0.270/Adv:1.028]=>Disc_loss:0.015[Real:0.021/Fake:0.009]
+20th-08:45:58===>epoch2=>lr=0.000100=>psnr=17.644=>ypsnr=19.772=>Gen_loss:1.052[Cont:0.267/Adv:2.616]=>Disc_loss:0.396[Real:0.123/Fake:0.669]
+20th-08:51:23===>epoch2=>lr=0.000100=>psnr=17.448=>ypsnr=19.639=>Gen_loss:0.626[Cont:0.260/Adv:1.220]=>Disc_loss:0.192[Real:0.060/Fake:0.323]
+20th-08:56:36===>epoch2=>lr=0.000100=>psnr=17.165=>ypsnr=19.287=>Gen_loss:0.406[Cont:0.254/Adv:0.507]=>Disc_loss:0.069[Real:0.129/Fake:0.009]
+20th-09:01:56===>epoch2=>lr=0.000100=>psnr=14.946=>ypsnr=18.228=>Gen_loss:0.965[Cont:0.317/Adv:2.158]=>Disc_loss:0.490[Real:0.358/Fake:0.621]
+20th-09:07:24===>epoch2=>lr=0.000100=>psnr=13.624=>ypsnr=16.076=>Gen_loss:0.343[Cont:0.319/Adv:0.081]=>Disc_loss:0.207[Real:0.382/Fake:0.032]
+20th-09:12:44===>epoch2=>lr=0.000100=>psnr=14.416=>ypsnr=16.258=>Gen_loss:0.638[Cont:0.335/Adv:1.008]=>Disc_loss:0.014[Real:0.013/Fake:0.015]
+20th-09:18:07===>epoch2=>lr=0.000100=>psnr=16.589=>ypsnr=18.612=>Gen_loss:0.322[Cont:0.294/Adv:0.094]=>Disc_loss:0.207[Real:0.382/Fake:0.032]
+20th-09:23:26===>epoch2=>lr=0.000100=>psnr=17.255=>ypsnr=19.609=>Gen_loss:0.665[Cont:0.297/Adv:1.227]=>Disc_loss:0.133[Real:0.066/Fake:0.200]
+20th-09:28:53===>epoch2=>lr=0.000100=>psnr=17.832=>ypsnr=20.216=>Gen_loss:0.735[Cont:0.255/Adv:1.600]=>Disc_loss:0.088[Real:0.038/Fake:0.138]
+20th-09:34:22===>epoch2=>lr=0.000100=>psnr=16.271=>ypsnr=19.068=>Gen_loss:0.340[Cont:0.252/Adv:0.295]=>Disc_loss:0.109[Real:0.194/Fake:0.024]
+20th-09:39:52===>epoch2=>lr=0.000100=>psnr=18.181=>ypsnr=20.365=>Gen_loss:0.403[Cont:0.248/Adv:0.518]=>Disc_loss:0.116[Real:0.173/Fake:0.058]
+20th-09:45:43===>epoch2=>lr=0.000100=>psnr=16.886=>ypsnr=18.874=>Gen_loss:0.387[Cont:0.300/Adv:0.289]=>Disc_loss:0.157[Real:0.264/Fake:0.049]
+20th-09:51:25===>epoch2=>lr=0.000100=>psnr=17.345=>ypsnr=19.586=>Gen_loss:0.600[Cont:0.268/Adv:1.108]=>Disc_loss:0.181[Real:0.150/Fake:0.212]
+20th-09:56:52===>epoch2=>lr=0.000100=>psnr=17.306=>ypsnr=19.400=>Gen_loss:0.355[Cont:0.297/Adv:0.193]=>Disc_loss:0.156[Real:0.286/Fake:0.027]
+20th-10:02:22===>epoch2=>lr=0.000100=>psnr=16.744=>ypsnr=18.838=>Gen_loss:0.661[Cont:0.299/Adv:1.205]=>Disc_loss:0.245[Real:0.040/Fake:0.449]
+20th-10:07:46===>epoch2=>lr=0.000100=>psnr=16.917=>ypsnr=18.853=>Gen_loss:0.510[Cont:0.259/Adv:0.837]=>Disc_loss:0.073[Real:0.079/Fake:0.068]
+20th-10:13:12===>epoch2=>lr=0.000100=>psnr=17.527=>ypsnr=19.470=>Gen_loss:0.422[Cont:0.248/Adv:0.580]=>Disc_loss:0.131[Real:0.177/Fake:0.085]
+20th-10:18:47===>epoch2=>lr=0.000100=>psnr=16.349=>ypsnr=18.283=>Gen_loss:0.522[Cont:0.250/Adv:0.905]=>Disc_loss:0.153[Real:0.102/Fake:0.205]
+20th-10:24:14===>epoch2=>lr=0.000100=>psnr=16.975=>ypsnr=18.608=>Gen_loss:0.608[Cont:0.228/Adv:1.264]=>Disc_loss:0.076[Real:0.057/Fake:0.096]
+20th-10:29:34===>epoch2=>lr=0.000100=>psnr=17.464=>ypsnr=19.371=>Gen_loss:0.646[Cont:0.259/Adv:1.290]=>Disc_loss:0.260[Real:0.063/Fake:0.457]
+20th-10:34:53===>epoch2=>lr=0.000100=>psnr=17.325=>ypsnr=19.217=>Gen_loss:0.376[Cont:0.299/Adv:0.256]=>Disc_loss:0.216[Real:0.358/Fake:0.073]
+20th-05:47:49===>epoch2=>lr=0.000100=>psnr=15.451=>ypsnr=17.823=>Gen_loss:0.900[Cont:0.312/Adv:1.962]=>Disc_loss:0.103[Real:0.020/Fake:0.186]
+20th-05:53:38===>epoch2=>lr=0.000100=>psnr=16.984=>ypsnr=19.987=>Gen_loss:0.660[Cont:0.347/Adv:1.043]=>Disc_loss:0.218[Real:0.387/Fake:0.050]
+20th-05:59:27===>epoch2=>lr=0.000100=>psnr=16.899=>ypsnr=19.313=>Gen_loss:0.783[Cont:0.291/Adv:1.642]=>Disc_loss:0.508[Real:0.623/Fake:0.392]
+20th-06:05:11===>epoch2=>lr=0.000100=>psnr=12.694=>ypsnr=14.933=>Gen_loss:0.648[Cont:0.324/Adv:1.079]=>Disc_loss:0.017[Real:0.020/Fake:0.014]
+20th-06:10:53===>epoch2=>lr=0.000100=>psnr=14.665=>ypsnr=17.668=>Gen_loss:0.785[Cont:0.384/Adv:1.339]=>Disc_loss:0.040[Real:0.040/Fake:0.040]
+20th-06:16:42===>epoch2=>lr=0.000100=>psnr=11.975=>ypsnr=14.920=>Gen_loss:0.665[Cont:0.277/Adv:1.293]=>Disc_loss:0.132[Real:0.156/Fake:0.109]
+20th-06:22:25===>epoch2=>lr=0.000100=>psnr=14.521=>ypsnr=17.622=>Gen_loss:0.850[Cont:0.313/Adv:1.792]=>Disc_loss:0.156[Real:0.055/Fake:0.258]
+20th-06:28:11===>epoch2=>lr=0.000100=>psnr=14.880=>ypsnr=17.683=>Gen_loss:0.894[Cont:0.376/Adv:1.724]=>Disc_loss:0.222[Real:0.068/Fake:0.376]
+20th-06:33:50===>epoch2=>lr=0.000100=>psnr=15.816=>ypsnr=17.930=>Gen_loss:0.605[Cont:0.310/Adv:0.982]=>Disc_loss:0.293[Real:0.294/Fake:0.292]
+20th-06:39:43===>epoch2=>lr=0.000100=>psnr=15.908=>ypsnr=18.964=>Gen_loss:0.709[Cont:0.268/Adv:1.467]=>Disc_loss:0.238[Real:0.152/Fake:0.325]
+20th-06:45:30===>epoch2=>lr=0.000100=>psnr=16.537=>ypsnr=18.501=>Gen_loss:0.585[Cont:0.236/Adv:1.163]=>Disc_loss:0.290[Real:0.383/Fake:0.197]
+20th-06:51:13===>epoch2=>lr=0.000100=>psnr=16.894=>ypsnr=19.274=>Gen_loss:0.901[Cont:0.335/Adv:1.886]=>Disc_loss:0.258[Real:0.142/Fake:0.373]
+20th-06:56:55===>epoch2=>lr=0.000100=>psnr=16.959=>ypsnr=18.994=>Gen_loss:0.847[Cont:0.272/Adv:1.916]=>Disc_loss:0.359[Real:0.378/Fake:0.341]
+20th-07:02:43===>epoch2=>lr=0.000100=>psnr=16.496=>ypsnr=19.737=>Gen_loss:0.680[Cont:0.369/Adv:1.035]=>Disc_loss:0.151[Real:0.230/Fake:0.072]
+20th-07:08:29===>epoch2=>lr=0.000100=>psnr=14.915=>ypsnr=16.626=>Gen_loss:0.872[Cont:0.236/Adv:2.119]=>Disc_loss:0.263[Real:0.137/Fake:0.390]
+20th-07:14:29===>epoch2=>lr=0.000100=>psnr=16.173=>ypsnr=18.731=>Gen_loss:0.699[Cont:0.283/Adv:1.388]=>Disc_loss:0.053[Real:0.028/Fake:0.079]
+20th-07:20:11===>epoch2=>lr=0.000100=>psnr=11.672=>ypsnr=16.693=>Gen_loss:0.560[Cont:0.288/Adv:0.908]=>Disc_loss:0.021[Real:0.032/Fake:0.010]
+20th-07:25:52===>epoch2=>lr=0.000100=>psnr=15.103=>ypsnr=17.759=>Gen_loss:0.545[Cont:0.306/Adv:0.798]=>Disc_loss:0.017[Real:0.013/Fake:0.021]
+20th-07:31:40===>epoch2=>lr=0.000100=>psnr=16.352=>ypsnr=18.638=>Gen_loss:0.722[Cont:0.304/Adv:1.394]=>Disc_loss:0.070[Real:0.103/Fake:0.038]
+20th-07:37:25===>epoch2=>lr=0.000100=>psnr=16.219=>ypsnr=18.325=>Gen_loss:0.550[Cont:0.289/Adv:0.869]=>Disc_loss:0.029[Real:0.031/Fake:0.027]
+20th-07:43:13===>epoch2=>lr=0.000100=>psnr=16.870=>ypsnr=19.244=>Gen_loss:0.778[Cont:0.305/Adv:1.580]=>Disc_loss:0.328[Real:0.383/Fake:0.273]
+20th-07:49:01===>epoch2=>lr=0.000100=>psnr=14.886=>ypsnr=17.286=>Gen_loss:0.658[Cont:0.336/Adv:1.074]=>Disc_loss:0.068[Real:0.117/Fake:0.020]
+20th-07:54:51===>epoch2=>lr=0.000100=>psnr=16.940=>ypsnr=19.360=>Gen_loss:0.439[Cont:0.245/Adv:0.648]=>Disc_loss:0.349[Real:0.284/Fake:0.414]
+20th-08:00:36===>epoch2=>lr=0.000100=>psnr=17.019=>ypsnr=19.234=>Gen_loss:0.621[Cont:0.301/Adv:1.069]=>Disc_loss:0.104[Real:0.152/Fake:0.057]
+20th-08:06:22===>epoch2=>lr=0.000100=>psnr=16.457=>ypsnr=19.198=>Gen_loss:0.684[Cont:0.300/Adv:1.281]=>Disc_loss:0.046[Real:0.025/Fake:0.068]
+20th-08:12:12===>epoch2=>lr=0.000100=>psnr=16.051=>ypsnr=18.258=>Gen_loss:0.788[Cont:0.263/Adv:1.751]=>Disc_loss:0.096[Real:0.077/Fake:0.114]
+20th-08:17:52===>epoch2=>lr=0.000100=>psnr=15.850=>ypsnr=18.114=>Gen_loss:0.993[Cont:0.349/Adv:2.146]=>Disc_loss:0.374[Real:0.529/Fake:0.220]
+20th-08:23:43===>epoch2=>lr=0.000100=>psnr=11.444=>ypsnr=13.064=>Gen_loss:0.884[Cont:0.352/Adv:1.775]=>Disc_loss:0.120[Real:0.073/Fake:0.167]
+20th-08:29:45===>epoch2=>lr=0.000100=>psnr=12.665=>ypsnr=14.579=>Gen_loss:0.604[Cont:0.349/Adv:0.848]=>Disc_loss:0.009[Real:0.008/Fake:0.010]
+20th-08:35:33===>epoch2=>lr=0.000100=>psnr=14.562=>ypsnr=16.663=>Gen_loss:0.478[Cont:0.303/Adv:0.584]=>Disc_loss:0.025[Real:0.006/Fake:0.044]
+20th-08:41:17===>epoch2=>lr=0.000100=>psnr=15.641=>ypsnr=17.543=>Gen_loss:0.756[Cont:0.378/Adv:1.259]=>Disc_loss:0.026[Real:0.010/Fake:0.042]
+20th-08:47:04===>epoch2=>lr=0.000100=>psnr=16.118=>ypsnr=18.101=>Gen_loss:0.764[Cont:0.320/Adv:1.479]=>Disc_loss:0.022[Real:0.014/Fake:0.031]
+20th-08:52:51===>epoch2=>lr=0.000100=>psnr=16.092=>ypsnr=17.889=>Gen_loss:1.223[Cont:0.295/Adv:3.095]=>Disc_loss:0.381[Real:0.157/Fake:0.605]
+20th-08:58:39===>epoch2=>lr=0.000100=>psnr=13.275=>ypsnr=15.578=>Gen_loss:0.460[Cont:0.317/Adv:0.478]=>Disc_loss:0.239[Real:0.295/Fake:0.183]
+20th-09:04:28===>epoch2=>lr=0.000100=>psnr=14.465=>ypsnr=16.376=>Gen_loss:0.613[Cont:0.335/Adv:0.926]=>Disc_loss:0.136[Real:0.153/Fake:0.119]
+20th-09:10:16===>epoch2=>lr=0.000100=>psnr=14.822=>ypsnr=16.757=>Gen_loss:0.622[Cont:0.321/Adv:1.002]=>Disc_loss:0.266[Real:0.377/Fake:0.154]
+20th-09:16:08===>epoch2=>lr=0.000100=>psnr=15.607=>ypsnr=17.542=>Gen_loss:0.787[Cont:0.352/Adv:1.450]=>Disc_loss:0.081[Real:0.086/Fake:0.076]
+20th-09:21:57===>epoch2=>lr=0.000100=>psnr=16.800=>ypsnr=19.209=>Gen_loss:0.918[Cont:0.313/Adv:2.015]=>Disc_loss:0.080[Real:0.031/Fake:0.130]
+20th-09:27:48===>epoch2=>lr=0.000100=>psnr=16.367=>ypsnr=18.367=>Gen_loss:1.125[Cont:0.299/Adv:2.755]=>Disc_loss:0.542[Real:0.360/Fake:0.724]
+20th-09:33:36===>epoch2=>lr=0.000100=>psnr=17.084=>ypsnr=19.482=>Gen_loss:1.004[Cont:0.289/Adv:2.384]=>Disc_loss:0.330[Real:0.280/Fake:0.381]
+20th-09:39:40===>epoch2=>lr=0.000100=>psnr=16.748=>ypsnr=18.925=>Gen_loss:0.531[Cont:0.234/Adv:0.991]=>Disc_loss:0.025[Real:0.037/Fake:0.014]
+20th-09:45:45===>epoch2=>lr=0.000100=>psnr=16.850=>ypsnr=18.998=>Gen_loss:0.965[Cont:0.311/Adv:2.181]=>Disc_loss:0.157[Real:0.150/Fake:0.163]
+20th-09:51:54===>epoch2=>lr=0.000100=>psnr=16.552=>ypsnr=19.035=>Gen_loss:0.564[Cont:0.278/Adv:0.954]=>Disc_loss:0.014[Real:0.019/Fake:0.010]
+20th-09:57:47===>epoch2=>lr=0.000100=>psnr=15.230=>ypsnr=17.344=>Gen_loss:0.580[Cont:0.317/Adv:0.876]=>Disc_loss:0.031[Real:0.031/Fake:0.031]
+20th-10:03:42===>epoch2=>lr=0.000100=>psnr=16.238=>ypsnr=18.750=>Gen_loss:1.032[Cont:0.298/Adv:2.445]=>Disc_loss:0.352[Real:0.206/Fake:0.498]
+20th-10:09:30===>epoch2=>lr=0.000100=>psnr=17.425=>ypsnr=19.582=>Gen_loss:0.454[Cont:0.307/Adv:0.488]=>Disc_loss:0.321[Real:0.280/Fake:0.362]
+20th-10:15:17===>epoch2=>lr=0.000100=>psnr=16.588=>ypsnr=18.645=>Gen_loss:0.660[Cont:0.344/Adv:1.053]=>Disc_loss:0.024[Real:0.023/Fake:0.025]
+20th-10:21:16===>epoch2=>lr=0.000100=>psnr=17.129=>ypsnr=19.370=>Gen_loss:0.648[Cont:0.293/Adv:1.183]=>Disc_loss:0.133[Real:0.083/Fake:0.183]
+20th-10:27:10===>epoch2=>lr=0.000100=>psnr=17.354=>ypsnr=19.672=>Gen_loss:0.775[Cont:0.366/Adv:1.364]=>Disc_loss:0.213[Real:0.237/Fake:0.190]
+20th-10:32:57===>epoch2=>lr=0.000100=>psnr=16.596=>ypsnr=18.711=>Gen_loss:0.688[Cont:0.235/Adv:1.513]=>Disc_loss:0.168[Real:0.237/Fake:0.099]
+20th-10:38:44===>epoch2=>lr=0.000100=>psnr=16.911=>ypsnr=19.176=>Gen_loss:0.468[Cont:0.259/Adv:0.697]=>Disc_loss:0.244[Real:0.282/Fake:0.207]
+20th-10:44:38===>epoch2=>lr=0.000100=>psnr=16.941=>ypsnr=18.874=>Gen_loss:0.606[Cont:0.307/Adv:0.999]=>Disc_loss:0.010[Real:0.009/Fake:0.011]
+20th-10:51:11===>epoch2=>lr=0.000100=>psnr=16.564=>ypsnr=18.583=>Gen_loss:0.580[Cont:0.275/Adv:1.018]=>Disc_loss:0.118[Real:0.224/Fake:0.013]
+20th-10:57:26===>epoch2=>lr=0.000100=>psnr=17.282=>ypsnr=19.819=>Gen_loss:0.838[Cont:0.355/Adv:1.610]=>Disc_loss:0.220[Real:0.297/Fake:0.143]
+20th-11:03:38===>epoch2=>lr=0.000100=>psnr=8.556=>ypsnr=10.456=>Gen_loss:0.720[Cont:0.388/Adv:1.108]=>Disc_loss:0.119[Real:0.225/Fake:0.014]
+20th-11:09:33===>epoch2=>lr=0.000100=>psnr=12.478=>ypsnr=15.084=>Gen_loss:0.477[Cont:0.291/Adv:0.618]=>Disc_loss:0.066[Real:0.089/Fake:0.044]
+20th-11:15:22===>epoch2=>lr=0.000100=>psnr=10.884=>ypsnr=12.887=>Gen_loss:2.604[Cont:0.369/Adv:7.450]=>Disc_loss:6.694[Real:0.186/Fake:13.203]
+20th-11:21:13===>epoch2=>lr=0.000100=>psnr=15.764=>ypsnr=17.992=>Gen_loss:0.601[Cont:0.309/Adv:0.972]=>Disc_loss:0.028[Real:0.017/Fake:0.039]  File "train.py", line 70
+    +('_fixG' if args.fixG else '')
+    ^
+IndentationError: unexpected indent

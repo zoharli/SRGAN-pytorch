@@ -19,7 +19,7 @@ from models import GenNet
 from dataset import *
 import numpy as np
 
-parser = argparse.ArgumentParser(description='Pretraining')
+parser = argparse.ArgumentParser(description='SRGAN training')
 parser.add_argument('-j', '--workers', default=4, type=int,
         help='number of data loading workers (default: 4)')
 parser.add_argument('--epochs', default=40, type=int,

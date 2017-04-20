@@ -184,7 +184,7 @@ class DisNet(nn.Module):
 
     def _init_weights(self):
         for module in self.modules():
-            if isinstance(module, nn.Conv2d):
-                kaiming_normal(module.weight)
+            if isinstance(module, nn.Conv2d) or isinstance(module,nn.Linear):
+                kaiming_normal(module.weight,0.01)
 
 

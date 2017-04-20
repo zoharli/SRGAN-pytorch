@@ -41,25 +41,36 @@ parser.add_argument('--print-freq', '-p', default=100, type=int,
         help='print frequency (default: 20)')
 parser.add_argument('--resume', default='', type=str,
         help='path to latest checkpoint (default: none)')
+parser.add_argument('--generator',default='',type=str,
+        help='path to the pretrained srResNet if use it')
 parser.add_argument('--logdir','-s',default='save',type=str,
         help='path to save checkpoint')
-parser.add_argument('--optim','-o',default='RMSprop',
+parser.add_argument('--optim','-o',default='RMSP',
         help='the optimization method to be employed')
 parser.add_argument('--traindir',default='r375-400.bin',
         help=' the global name of training set dir')
 parser.add_argument('--valdir',default='b100',type=str,
         help='the global name of validation set dir')
+parser.add_argument('--weight',default=0.1,type=float,
+        help='the weight of adversarial loss,i.e. gen_loss=content_loss+weight*adv_loss')
+parser.add_argument('--separate',action='store_true',
+        help='wheather to separate real and fake minibatch when training discriminator')
+parser.add_argument('--fixG',action='store_true',
+        help='wheather to fix generator and only train discriminator')
+parser.add_argument('--fixD',action='store_true',
+        help='wheather to fix discriminator and only train generator')
+
 
 best_psnr = -100
 args = parser.parse_args()
 args.__dict__['upscale_factor']=4
 #args.traindir=globals()[args.traindir]
 args.valdir=globals()[args.valdir]
-args.__dict__['model_base_name']='srgan_%s'%args.optim
+args.__dict__['model_base_name']='SRGAN_w%g_%s'%(args.weight,args.optim)+('_fixG' if args.fixG else '')+('_fixD' if args.fixD else '')+('_separate' if args.separate else '')
 args.__dict__['model_name']=args.model_base_name+'.pth'
 args.__dict__['snapshot']='snapshot_'+args.model_base_name
 
-setproctitle('train_'+args.model_base_name)
+setproctitle(args.model_base_name)
 if not os.path.exists(args.logdir):
     os.makedirs(args.logdir)
 if not os.path.exists(args.snapshot):
@@ -76,6 +87,7 @@ gen=GenNet().cuda()
 disc=DisNet().cuda()
 vgg=vgg19_54().cuda()
 
+
 if args.resume:
     if os.path.isfile(args.resume):
         print("=> loading checkpoint '{}'".format(args.resume))
@@ -89,10 +101,20 @@ if args.resume:
     else:
         print("=> no checkpoint found at '{}'".format(args.resume))
 
+if args.generator:
+    if os.path.isfile(args.generator):
+        print("=> loading checkpoint '{}'".format(args.generator))
+        checkpoint = torch.load(args.generator)
+        gen.load_state_dict(checkpoint['state_dict'])
+        print("=> loaded checkpoint")
+    else:
+        print("=>no checkpoint found at '{}'".format(args.generator))
+
 criterion = nn.MSELoss().cuda()
 
 gen_optimizer = torch.optim.RMSprop(gen.parameters(), args.lr)
 disc_optimizer = torch.optim.RMSprop(disc.parameters(),args.lr)
+
 
 def rgb2y_matlab(img):   #convert a PIL rgb image to y-channel image in `matlab` way
     img=(img/255.0)[4:-4,4:-4,:]
@@ -139,31 +161,41 @@ def train(train_loader, gen,disc,gen_optimizer,disc_optimizer,ContentLoss,epoch,
         input_var = Variable(input.cuda())
         target_var = Variable(target.cuda())
         
+        if not args.fixD:
+            if args.separate:
+                real_loss=((disc(target_var)-1)**2).mean()
+                disc_optimizer.zero_grad()
+                real_loss.backward()
+                disc_optimizer.step()
+                
+                fake_loss=torch.mean(disc(gen(input_var))**2)
+                disc_optimizer.zero_grad()
+                fake_loss.backward()
+                disc_optimizer.step()
+                disc_loss=(fake_loss+real_loss)/2
+            
+            else:
+                real_loss=((disc(target_var)-1)**2).mean()
+                fake_loss=(disc(gen(input_var))**2).mean()
+                disc_loss=(fake_loss+real_loss)/2
+                disc_optimizer.zero_grad()
+                disc_loss.backward()
+                disc_optimizer.step()
 
-        real_loss=((disc(target_var)-1)**2).mean()
-        disc_optimizer.zero_grad()
-        real_loss.backward()
-        disc_optimizer.step()
-
-        fake_loss=torch.mean(disc(gen(input_var))**2)
-        disc_optimizer.zero_grad()
-        fake_loss.backward()
-        disc_optimizer.step()
-        disc_loss=(fake_loss+real_loss)/2
-
-        G_z=gen(input_var)
-        fake_feature=vgg(G_z)
-        real_feature=vgg(target_var).detach()
-        content_loss=criterion(fake_feature,real_feature)
-        adv_loss=torch.mean((disc(G_z)-1)**2)
-        gen_loss=adv_loss+content_loss
-        gen_optimizer.zero_grad()
-        gen_loss.backward()
-        gen_optimizer.step()
-        
+        if not args.fixG:
+            G_z=gen(input_var)
+            fake_feature=vgg(G_z)
+            real_feature=vgg(target_var).detach()
+            content_loss=criterion(fake_feature,real_feature)
+            adv_loss=torch.mean((disc(G_z)-1)**2)
+            gen_loss=args.weight*adv_loss+content_loss
+            gen_optimizer.zero_grad()
+            gen_loss.backward()
+            gen_optimizer.step()
+            
         if i % args.print_freq == 0:
             s,vpsnr=validate(gen,criterion,args.valdir,epoch,args.upscale_factor,gen_optimizer)
-            s+='=>gen_loss%.3f[C%.3f/A%.3f]=>disc_loss%.3f[R%.3f/F%.3f]'%(gen_loss.data[0],content_loss.data[0],adv_loss.data[0],disc_loss.data[0],real_loss.data[0],fake_loss.data[0])
+            s+='=>Gen_loss:%.3f[Cont:%.3f/Adv:%.3f]=>Disc_loss:%.3f[Real:%.3f/Fake:%.3f]'%(gen_loss.data[0],content_loss.data[0],adv_loss.data[0],disc_loss.data[0],real_loss.data[0],fake_loss.data[0])
             print(s)
             f=open('info.'+args.model_base_name,'a')
             f.write(s+'\n')
