@@ -1986,3 +1986,99 @@ TypeError: must be real number, not NoneType
 23th-16:44:44 | epoch2 | lr=0.0001 | psnr=22.195 | ypsnr=25.973 | Loss(G):0.449[Cont:0.149/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
 23th-16:50:26 | epoch2 | lr=0.0001 | psnr=22.193 | ypsnr=25.954 | Loss(G):0.452[Cont:0.152/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
 23th-16:56:14 | epoch2 | lr=0.0001 | psnr=22.212 | ypsnr=26.035 | Loss(G):0.474[Cont:0.174/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-14:33:06 | epoch2 | lr=0.0001 | psnr=20.165 | ypsnr=23.199 | Loss(G):0.145[Cont:0.144/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-14:39:31 | epoch2 | lr=0.0001 | psnr=19.974 | ypsnr=22.988 | Loss(G):0.171[Cont:0.170/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-14:45:45 | epoch2 | lr=0.0001 | psnr=19.834 | ypsnr=22.899 | Loss(G):0.158[Cont:0.157/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-14:52:00 | epoch2 | lr=0.0001 | psnr=19.877 | ypsnr=23.077 | Loss(G):0.170[Cont:0.169/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-14:57:35 | epoch2 | lr=0.0001 | psnr=20.069 | ypsnr=23.033 | Loss(G):0.171[Cont:0.171/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-15:03:12 | epoch2 | lr=0.0001 | psnr=19.866 | ypsnr=22.937 | Loss(G):0.154[Cont:0.153/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-15:08:44 | epoch2 | lr=0.0001 | psnr=19.958 | ypsnr=22.827 | Loss(G):0.155[Cont:0.154/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-15:14:17 | epoch2 | lr=0.0001 | psnr=20.261 | ypsnr=22.910 | Loss(G):0.161[Cont:0.160/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-15:19:51 | epoch2 | lr=0.0001 | psnr=20.084 | ypsnr=23.110 | Loss(G):0.168[Cont:0.168/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-15:25:28 | epoch2 | lr=0.0001 | psnr=20.119 | ypsnr=22.811 | Loss(G):0.171[Cont:0.171/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-15:31:11 | epoch2 | lr=0.0001 | psnr=20.087 | ypsnr=23.062 | Loss(G):0.155[Cont:0.154/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-15:37:13 | epoch2 | lr=0.0001 | psnr=20.248 | ypsnr=23.056 | Loss(G):0.141[Cont:0.140/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-15:43:49 | epoch2 | lr=0.0001 | psnr=20.176 | ypsnr=23.240 | Loss(G):0.128[Cont:0.127/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-15:49:47 | epoch2 | lr=0.0001 | psnr=20.101 | ypsnr=23.090 | Loss(G):0.196[Cont:0.196/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-15:56:35 | epoch2 | lr=0.0001 | psnr=19.160 | ypsnr=22.105 | Loss(G):0.317[Cont:0.317/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-16:02:07 | epoch2 | lr=0.0001 | psnr=20.121 | ypsnr=23.084 | Loss(G):0.177[Cont:0.176/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-16:07:40 | epoch2 | lr=0.0001 | psnr=20.331 | ypsnr=23.178 | Loss(G):0.151[Cont:0.150/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-16:13:16 | epoch2 | lr=0.0001 | psnr=20.228 | ypsnr=23.103 | Loss(G):0.171[Cont:0.171/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-16:18:53 | epoch2 | lr=0.0001 | psnr=20.141 | ypsnr=23.051 | Loss(G):0.164[Cont:0.163/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-16:24:24 | epoch2 | lr=0.0001 | psnr=20.001 | ypsnr=23.048 | Loss(G):0.113[Cont:0.113/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-16:30:03 | epoch2 | lr=0.0001 | psnr=20.145 | ypsnr=23.119 | Loss(G):0.160[Cont:0.159/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-16:35:39 | epoch2 | lr=0.0001 | psnr=20.225 | ypsnr=23.208 | Loss(G):0.144[Cont:0.144/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-16:41:10 | epoch2 | lr=0.0001 | psnr=20.280 | ypsnr=22.826 | Loss(G):0.149[Cont:0.149/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-16:46:48 | epoch2 | lr=0.0001 | psnr=20.132 | ypsnr=22.937 | Loss(G):0.158[Cont:0.158/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-16:52:21 | epoch2 | lr=0.0001 | psnr=19.807 | ypsnr=22.793 | Loss(G):0.129[Cont:0.129/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-16:57:54 | epoch2 | lr=0.0001 | psnr=20.052 | ypsnr=22.773 | Loss(G):0.177[Cont:0.176/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-17:03:33 | epoch2 | lr=0.0001 | psnr=20.025 | ypsnr=23.074 | Loss(G):0.109[Cont:0.108/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-17:09:09 | epoch2 | lr=0.0001 | psnr=20.304 | ypsnr=23.179 | Loss(G):0.141[Cont:0.141/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-17:14:43 | epoch2 | lr=0.0001 | psnr=20.233 | ypsnr=23.388 | Loss(G):0.135[Cont:0.134/Adv:1.000] | Loss(D):0.031[Real:0.062/Fake:0.000]
+23th-17:20:16 | epoch2 | lr=0.0001 | psnr=20.299 | ypsnr=23.231 | Loss(G):0.182[Cont:0.182/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-17:25:55 | epoch2 | lr=0.0001 | psnr=20.489 | ypsnr=23.312 | Loss(G):0.171[Cont:0.171/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-17:31:38 | epoch2 | lr=0.0001 | psnr=20.143 | ypsnr=23.026 | Loss(G):0.147[Cont:0.146/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-17:37:10 | epoch2 | lr=0.0001 | psnr=20.268 | ypsnr=23.201 | Loss(G):0.148[Cont:0.147/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-17:42:41 | epoch2 | lr=0.0001 | psnr=20.409 | ypsnr=23.149 | Loss(G):0.127[Cont:0.127/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-17:48:17 | epoch2 | lr=0.0001 | psnr=20.217 | ypsnr=23.030 | Loss(G):0.116[Cont:0.115/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-17:53:47 | epoch2 | lr=0.0001 | psnr=20.203 | ypsnr=23.026 | Loss(G):0.160[Cont:0.160/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-17:59:25 | epoch2 | lr=0.0001 | psnr=20.127 | ypsnr=23.102 | Loss(G):0.160[Cont:0.160/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-18:05:02 | epoch2 | lr=0.0001 | psnr=20.306 | ypsnr=23.190 | Loss(G):0.135[Cont:0.135/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-18:10:39 | epoch2 | lr=0.0001 | psnr=20.192 | ypsnr=23.177 | Loss(G):0.165[Cont:0.165/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-18:16:17 | epoch2 | lr=0.0001 | psnr=20.310 | ypsnr=23.133 | Loss(G):0.156[Cont:0.156/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-18:21:54 | epoch2 | lr=0.0001 | psnr=20.111 | ypsnr=23.123 | Loss(G):0.181[Cont:0.180/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-18:27:38 | epoch2 | lr=0.0001 | psnr=20.370 | ypsnr=23.167 | Loss(G):0.152[Cont:0.151/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-18:33:20 | epoch2 | lr=0.0001 | psnr=20.306 | ypsnr=23.184 | Loss(G):0.150[Cont:0.149/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-18:38:57 | epoch2 | lr=0.0001 | psnr=20.127 | ypsnr=23.203 | Loss(G):0.157[Cont:0.156/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-18:44:34 | epoch2 | lr=0.0001 | psnr=20.300 | ypsnr=23.189 | Loss(G):0.155[Cont:0.154/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-18:50:05 | epoch2 | lr=0.0001 | psnr=20.173 | ypsnr=23.027 | Loss(G):0.129[Cont:0.128/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-18:55:40 | epoch2 | lr=0.0001 | psnr=20.330 | ypsnr=23.121 | Loss(G):0.161[Cont:0.160/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-19:01:15 | epoch2 | lr=0.0001 | psnr=20.111 | ypsnr=23.214 | Loss(G):0.152[Cont:0.151/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-19:06:50 | epoch2 | lr=0.0001 | psnr=19.564 | ypsnr=22.136 | Loss(G):0.151[Cont:0.151/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-19:12:22 | epoch2 | lr=0.0001 | psnr=19.982 | ypsnr=23.077 | Loss(G):0.165[Cont:0.165/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-19:17:59 | epoch2 | lr=0.0001 | psnr=19.901 | ypsnr=22.935 | Loss(G):0.147[Cont:0.147/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-19:23:37 | epoch2 | lr=0.0001 | psnr=19.965 | ypsnr=23.000 | Loss(G):0.157[Cont:0.157/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-19:29:12 | epoch2 | lr=0.0001 | psnr=19.999 | ypsnr=23.040 | Loss(G):0.128[Cont:0.128/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-19:34:44 | epoch2 | lr=0.0001 | psnr=20.317 | ypsnr=23.149 | Loss(G):0.138[Cont:0.137/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-19:40:18 | epoch2 | lr=0.0001 | psnr=20.148 | ypsnr=23.122 | Loss(G):0.151[Cont:0.151/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-19:45:44 | epoch2 | lr=0.0001 | psnr=19.990 | ypsnr=23.071 | Loss(G):0.147[Cont:0.147/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-19:51:14 | epoch2 | lr=0.0001 | psnr=20.217 | ypsnr=23.113 | Loss(G):0.170[Cont:0.170/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-19:56:48 | epoch2 | lr=0.0001 | psnr=20.248 | ypsnr=23.190 | Loss(G):0.155[Cont:0.154/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]
+23th-20:02:25 | epoch2 | lr=0.0001 | psnr=20.117 | ypsnr=23.169 | Loss(G):0.172[Cont:0.171/Adv:1.000] | Loss(D):0.000[Real:0.000/Fake:0.000]  File "train.py", line 36
+    parser.add_argument('--beta1'.default=0.5,type=float,
+                       ^
+SyntaxError: keyword can't be an expression
+=> loading checkpoint 'save/best_b16_v0.0001_SGD_hardtanh_conBn_varv2_nowd.pth'
+=> loaded checkpoint
+Traceback (most recent call last):
+  File "train.py", line 246, in <module>
+    train(epoch)
+  File "train.py", line 168, in train
+    global_step+=1
+UnboundLocalError: local variable 'global_step' referenced before assignment
+=> loading checkpoint 'save/best_b16_v0.0001_SGD_hardtanh_conBn_varv2_nowd.pth'
+=> loaded checkpoint
+Traceback (most recent call last):
+  File "train.py", line 247, in <module>
+    train(epoch)
+  File "train.py", line 192, in train
+    real_loss=adv_criterion(output,label)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/module.py", line 206, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/loss.py", line 36, in forward
+    return backend_fn(self.size_average, weight=self.weight)(input, target)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/_functions/thnn/loss.py", line 24, in forward
+    result = super(BCELoss, self).forward(input, target)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/_functions/thnn/auto.py", line 41, in forward
+    output, *self.additional_args)
+TypeError: CudaBCECriterion_updateOutput received an invalid combination of arguments - got (int, torch.cuda.FloatTensor, torch.FloatTensor, torch.cuda.FloatTensor, bool, NoneType), but expected (int state, torch.cuda.FloatTensor input, torch.cuda.FloatTensor target, torch.cuda.FloatTensor output, bool sizeAverage, [torch.cuda.FloatTensor weights or None])
+=> loading checkpoint 'save/best_b16_v0.0001_SGD_hardtanh_conBn_varv2_nowd.pth'
+=> loaded checkpoint
+Traceback (most recent call last):
+  File "train.py", line 247, in <module>
+    train(epoch)
+  File "train.py", line 220, in train
+    vs,vpsnr=validate(gen,criterion,args.valdir,epoch,args.upscale_factor,gen_optimizer)
+NameError: name 'criterion' is not defined
+=> loading checkpoint 'save/best_b16_v0.0001_SGD_hardtanh_conBn_varv2_nowd.pth'
+=> loaded checkpoint

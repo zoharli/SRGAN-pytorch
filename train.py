@@ -33,6 +33,8 @@ parser.add_argument('--crop-size','-c',default=256,type=int,
         help='crop size of the hr image')
 parser.add_argument('--lr', '--learning-rate', default=1e-4, type=float,
         help='initial learning rate')
+parser.add_argument('--beta1',default=0.5,type=float,
+        help='beta1 value if use adam or rmsprop optimizer')
 parser.add_argument('--momentum','-m',default=0.9,type=float,
         help='momentum if using sgd optimization')
 parser.add_argument('--weight-decay', '--wd', default=1e-4, type=float,
@@ -45,13 +47,13 @@ parser.add_argument('--generator',default='',type=str,
         help='path to the pretrained srResNet if use it')
 parser.add_argument('--logdir','-s',default='save',type=str,
         help='path to save checkpoint')
-parser.add_argument('--optim','-o',default='RMSP',
+parser.add_argument('--optim','-o',default='Adam',
         help='the optimization method to be employed')
 parser.add_argument('--traindir',default='r375-400.bin',
         help=' the global name of training set dir')
 parser.add_argument('--valdir',default='b100',type=str,
         help='the global name of validation set dir')
-parser.add_argument('--weight',default=0.3,type=float,
+parser.add_argument('--weight',default=0.001,type=float,
         help='the weight of adversarial loss,i.e. gen_loss=content_loss+weight*adv_loss')
 parser.add_argument('--separate',action='store_true',
         help='wheather to separate real and fake minibatch when training discriminator')
@@ -62,7 +64,7 @@ parser.add_argument('--fixD',action='store_true',
 parser.add_argument('--clip',default=None,type=float,
         help='gradient clip norm')
 
-
+global_step=0
 best_psnr = -100
 best_disc_loss= 10000
 args = parser.parse_args()
@@ -96,6 +98,7 @@ if args.resume:
         print("=> loading checkpoint '{}'".format(args.resume))
         checkpoint = torch.load(args.resume)
         args.start_epoch = checkpoint['epoch']
+        global_step=checkpoint['global_step']
         best_psnr = checkpoint['best_psnr']
         gen.load_state_dict(checkpoint['gen_state_dict'])
         disc.load_state_dict(checkpoint['disc_state_dict'])
@@ -113,10 +116,12 @@ if args.generator:
     else:
         print("=>no checkpoint found at '{}'".format(args.generator))
 
-criterion = nn.MSELoss().cuda()
+label=Variable(torch.FloatTensor(args.batch_size)).cuda()
+cont_criterion = nn.MSELoss().cuda()
+adv_criterion = nn.BCELoss().cuda()
 
-gen_optimizer = torch.optim.RMSprop(gen.parameters(), args.lr)
-disc_optimizer = torch.optim.RMSprop(disc.parameters(),args.lr)
+gen_optimizer = torch.optim.Adam(gen.parameters(), args.lr,betas=(args.beta1,0.999))
+disc_optimizer = torch.optim.Adam(disc.parameters(),args.lr,betas=(args.beta1,0.999))
 
 
 def rgb2y_matlab(img):   #convert a PIL rgb image to y-channel image in `matlab` way
@@ -158,8 +163,10 @@ def save_checkpoint(state, is_best,logdir):
     if is_best:
         shutil.copyfile(filename, os.path.join(logdir,'best_'+args.model_name))
 
-def train(train_loader, gen,disc,gen_optimizer,disc_optimizer,criterion,epoch,args):
+def train(epoch):
     for i, (input, target) in enumerate(train_loader):
+        global global_step
+        global_step+=1
         input_var = Variable(input.cuda())
         target_var = Variable(target.cuda())
         
@@ -179,30 +186,38 @@ def train(train_loader, gen,disc,gen_optimizer,disc_optimizer,criterion,epoch,ar
                 disc_loss=(fake_loss+real_loss)/2
             
             else:
-                real_loss=((disc(target_var)-1)**2).mean()
-                fake_loss=(disc(gen(input_var))**2).mean()
-                disc_loss=(fake_loss+real_loss)/2
                 disc_optimizer.zero_grad()
-                disc_loss.backward()
+                label.data.fill_(1)
+                output=disc(target_var)
+                real_loss=adv_criterion(output,label)
+                real_loss.backward()
+                
+                label.data.fill_(0)
+                output=disc(gen(input_var).detach())
+                fake_loss=adv_criterion(output,label)
+                fake_loss.backward()
+                disc_loss=(fake_loss+real_loss)/2
                 disc_optimizer.step()
 
         if not args.fixG:
+            gen_optimizer.zero_grad()
             G_z=gen(input_var)
             fake_feature=vgg(G_z)
             real_feature=vgg(target_var).detach()
-            content_loss=criterion(fake_feature,real_feature)
-            adv_loss=torch.mean((disc(G_z)-1)**2)
+            content_loss=cont_criterion(fake_feature,real_feature)
+            label.data.fill_(1)
+            output=disc(G_z)
+            adv_loss=adv_criterion(output,label)
             gen_loss=args.weight*adv_loss+content_loss
-            gen_optimizer.zero_grad()
             gen_loss.backward()
             if args.clip is not None:
                 torch.nn.utils.clip_grad_norm(gen.parameters(),args.clip)
             gen_optimizer.step()
             
         if i % args.print_freq == 0:
-            s=time.strftime('%dth-%H:%M:%S',time.localtime(time.time()))+' | epoch%d | lr=%g'%(epoch,args.lr)
+            s=time.strftime('%dth-%H:%M:%S',time.localtime(time.time()))+' | epoch%d(%d) | lr=%g'%(epoch,global_step,args.lr)
             if not args.fixG:
-                vs,vpsnr=validate(gen,criterion,args.valdir,epoch,args.upscale_factor,gen_optimizer)
+                vs,vpsnr=validate(gen,cont_criterion,args.valdir,epoch,args.upscale_factor,gen_optimizer)
                 s+=vs+' | Loss(G):%.3f[Cont:%.3f/Adv:%.3f]'%(gen_loss.data[0],content_loss.data[0],adv_loss.data[0])
             if not args.fixD:
                 s+=' | Loss(D):%.3f[Real:%.3f/Fake:%.3f]'%(disc_loss.data[0],real_loss.data[0],fake_loss.data[0])
@@ -222,10 +237,11 @@ def train(train_loader, gen,disc,gen_optimizer,disc_optimizer,criterion,epoch,ar
                 
             save_checkpoint({
                 'epoch': epoch + 1,
+                'global_step':global_step,
                 'gen_state_dict': gen.state_dict(),
                 'disc_state_dict':disc.state_dict(),
                 'best_psnr': best_psnr,
             }, is_best,args.logdir)
 
 for epoch in range(args.start_epoch, args.epochs):
-    train(train_loader,gen,disc,gen_optimizer,disc_optimizer,criterion,epoch,args)
+    train(epoch)
