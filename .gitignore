@@ -16,7 +16,7 @@ save
 snapshot*
 bicubic
 oldlog
-
+.*sw*
 
 # Any Images
 */*.jpg

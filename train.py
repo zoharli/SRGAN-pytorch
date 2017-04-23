@@ -120,9 +120,16 @@ label=Variable(torch.FloatTensor(args.batch_size)).cuda()
 cont_criterion = nn.MSELoss().cuda()
 adv_criterion = nn.BCELoss().cuda()
 
+
 gen_optimizer = torch.optim.Adam(gen.parameters(), args.lr,betas=(args.beta1,0.999))
 disc_optimizer = torch.optim.Adam(disc.parameters(),args.lr,betas=(args.beta1,0.999))
 
+def normalize(tensor):
+    r,g,b=torch.split(tensor,1,1)
+    r=(r-0.485)/0.229
+    g=(g-0.456)/0.224
+    b=(b-0.406)/0.225
+    return torch.cat((r,g,b),1)
 
 def rgb2y_matlab(img):   #convert a PIL rgb image to y-channel image in `matlab` way
     img=(img/255.0)[4:-4,4:-4,:]
@@ -202,8 +209,8 @@ def train(epoch):
         if not args.fixG:
             gen_optimizer.zero_grad()
             G_z=gen(input_var)
-            fake_feature=vgg(G_z)
-            real_feature=vgg(target_var).detach()
+            fake_feature=vgg(normalize(G_z))
+            real_feature=vgg(normalize(target_var)).detach()
             content_loss=cont_criterion(fake_feature,real_feature)
             label.data.fill_(1)
             output=disc(G_z)
