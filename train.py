@@ -25,7 +25,7 @@ parser.add_argument('-j', '--workers', default=4, type=int,
         help='number of data loading workers (default: 4)')
 parser.add_argument('--epochs', default=40, type=int,
         help='number of total epochs to run')
-parser.add_argument('--start-epoch', default=1, type=int,
+parser.add_argument('--start-epoch', default=0, type=int,
         help='manual epoch number (useful on restarts)')
 parser.add_argument('-b', '--batch-size', default=16, type=int,
         help='mini-batch size (default: 16)')
@@ -51,7 +51,7 @@ parser.add_argument('--traindir',default='r375-400.bin',
         help=' the global name of training set dir')
 parser.add_argument('--valdir',default='b100',type=str,
         help='the global name of validation set dir')
-parser.add_argument('--weight',default=0.1,type=float,
+parser.add_argument('--weight',default=0.3,type=float,
         help='the weight of adversarial loss,i.e. gen_loss=content_loss+weight*adv_loss')
 parser.add_argument('--separate',action='store_true',
         help='wheather to separate real and fake minibatch when training discriminator')
@@ -59,9 +59,12 @@ parser.add_argument('--fixG',action='store_true',
         help='wheather to fix generator and only train discriminator')
 parser.add_argument('--fixD',action='store_true',
         help='wheather to fix discriminator and only train generator')
+parser.add_argument('--clip',default=None,type=float,
+        help='gradient clip norm')
 
 
 best_psnr = -100
+best_disc_loss= 10000
 args = parser.parse_args()
 args.__dict__['upscale_factor']=4
 #args.traindir=globals()[args.traindir]
@@ -146,8 +149,7 @@ def validate(model,criterion,valdir,epoch,factor,optimizer):
         cnt+=1
     psnr=float(sum)/cnt
     ypsnr=float(ysum)/cnt
-    lr=optimizer.param_groups[0]['lr']
-    s=time.strftime('%dth-%H:%M:%S',time.localtime(time.time()))+'===>epoch%d=>lr=%.6f=>psnr=%.3f=>ypsnr=%.3f'%(epoch,lr,psnr,ypsnr)
+    s=' | psnr=%.3f | ypsnr=%.3f'%(psnr,ypsnr)
     return s,psnr
     
 def save_checkpoint(state, is_best,logdir):
@@ -156,7 +158,7 @@ def save_checkpoint(state, is_best,logdir):
     if is_best:
         shutil.copyfile(filename, os.path.join(logdir,'best_'+args.model_name))
 
-def train(train_loader, gen,disc,gen_optimizer,disc_optimizer,ContentLoss,epoch,args):
+def train(train_loader, gen,disc,gen_optimizer,disc_optimizer,criterion,epoch,args):
     for i, (input, target) in enumerate(train_loader):
         input_var = Variable(input.cuda())
         target_var = Variable(target.cuda())
@@ -166,11 +168,13 @@ def train(train_loader, gen,disc,gen_optimizer,disc_optimizer,ContentLoss,epoch,
                 real_loss=((disc(target_var)-1)**2).mean()
                 disc_optimizer.zero_grad()
                 real_loss.backward()
+                #torch.nn.utils.clip_grad_norm(disc.parameters(),args.clip)
                 disc_optimizer.step()
                 
                 fake_loss=torch.mean(disc(gen(input_var))**2)
                 disc_optimizer.zero_grad()
                 fake_loss.backward()
+                #torch.nn.utils.clip_grad_norm(disc.parameters(),args.clip)
                 disc_optimizer.step()
                 disc_loss=(fake_loss+real_loss)/2
             
@@ -191,18 +195,31 @@ def train(train_loader, gen,disc,gen_optimizer,disc_optimizer,ContentLoss,epoch,
             gen_loss=args.weight*adv_loss+content_loss
             gen_optimizer.zero_grad()
             gen_loss.backward()
+            if args.clip is not None:
+                torch.nn.utils.clip_grad_norm(gen.parameters(),args.clip)
             gen_optimizer.step()
             
         if i % args.print_freq == 0:
-            s,vpsnr=validate(gen,criterion,args.valdir,epoch,args.upscale_factor,gen_optimizer)
-            s+='=>Gen_loss:%.3f[Cont:%.3f/Adv:%.3f]=>Disc_loss:%.3f[Real:%.3f/Fake:%.3f]'%(gen_loss.data[0],content_loss.data[0],adv_loss.data[0],disc_loss.data[0],real_loss.data[0],fake_loss.data[0])
+            s=time.strftime('%dth-%H:%M:%S',time.localtime(time.time()))+' | epoch%d | lr=%g'%(epoch,args.lr)
+            if not args.fixG:
+                vs,vpsnr=validate(gen,criterion,args.valdir,epoch,args.upscale_factor,gen_optimizer)
+                s+=vs+' | Loss(G):%.3f[Cont:%.3f/Adv:%.3f]'%(gen_loss.data[0],content_loss.data[0],adv_loss.data[0])
+            if not args.fixD:
+                s+=' | Loss(D):%.3f[Real:%.3f/Fake:%.3f]'%(disc_loss.data[0],real_loss.data[0],fake_loss.data[0])
             print(s)
             f=open('info.'+args.model_base_name,'a')
             f.write(s+'\n')
             f.close()
-            global best_psnr
-            is_best = vpsnr > best_psnr
-            best_psnr = max(vpsnr, best_psnr)
+
+            if not args.fixG:
+                global best_psnr
+                is_best = vpsnr > best_psnr
+                best_psnr = max(vpsnr, best_psnr)
+            else:
+                global best_disc_loss
+                is_best = disc_loss.data[0] > best_disc_loss
+                best_disc_loss = max(disc_loss.data[0],best_disc_loss)
+                
             save_checkpoint({
                 'epoch': epoch + 1,
                 'gen_state_dict': gen.state_dict(),
