@@ -217,7 +217,6 @@ def train(epoch):
             adv_loss=adv_criterion(output,label)
             gen_loss=args.weight*adv_loss+content_loss
             gen_loss.backward()
-            print(torch.max(
             if args.clip is not None:
                 torch.nn.utils.clip_grad_norm(gen.parameters(),args.clip)
             gen_optimizer.step()
@@ -226,9 +225,9 @@ def train(epoch):
             s=time.strftime('%dth-%H:%M:%S',time.localtime(time.time()))+' | epoch%d(%d) | lr=%g'%(epoch,global_step,args.lr)
             if not args.fixG:
                 vs,vpsnr=validate(gen,cont_criterion,args.valdir,epoch,args.upscale_factor,gen_optimizer)
-                s+=vs+' | Loss(G):%.3f[Cont:%.3f/Adv:%.3f]'%(gen_loss.data[0],content_loss.data[0],adv_loss.data[0])
+                s+=vs+' | Loss(G):%.3f[Cont:%.3f/Adv:%g]'%(gen_loss.data[0],content_loss.data[0],adv_loss.data[0])
             if not args.fixD:
-                s+=' | Loss(D):%.3f[Real:%.3f/Fake:%.3f]'%(disc_loss.data[0],real_loss.data[0],fake_loss.data[0])
+                s+=' | Loss(D):%g[Real:%g/Fake:%g]'%(disc_loss.data[0],real_loss.data[0],fake_loss.data[0])
             print(s)
             f=open('info.'+args.model_base_name,'a')
             f.write(s+'\n')
