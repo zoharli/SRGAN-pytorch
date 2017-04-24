@@ -57,6 +57,7 @@ class GenNet(nn.Module):
         super(GenNet,self).__init__()
         self.relu = nn.ReLU()
         self.tanh = nn.Hardtanh()
+        #self.tanh = nn.Tanh()
         self.conv1 = nn.Conv2d(3, 64, 3, 1, 1)
         kaiming_normal(self.conv1.weight)
         layers = []
@@ -154,10 +155,12 @@ def make_layers(nopts):
                 curr_filters,
                 nopts['kernel_size'][i],
                 nopts['stride'][i],
-                (nopts['kernel_size'][i]-1)//2))
+                (nopts['kernel_size'][i]-1)//2,
+                bias=False),
+                )
             prev_filters = curr_filters
         elif nopts['layer_type'][i] == 'lrelu':
-            layers.append(nn.LeakyReLU())
+            layers.append(nn.LeakyReLU(0.2))
         elif nopts['layer_type'][i] == 'bn':
             curr_filters = nopts['num_filters'][i]
             layers.append(nn.BatchNorm2d(curr_filters,affine=False))
@@ -171,7 +174,7 @@ class DisNet(nn.Module):
         self.features = make_layers(netspec_opts)
         self.classifier = nn.Sequential(
             nn.Linear(16 * 16 * 512, 1024),
-            nn.LeakyReLU(),
+            nn.LeakyReLU(0.2),
             nn.Linear(1024, 1),
             nn.Sigmoid()
             )
@@ -186,6 +189,6 @@ class DisNet(nn.Module):
     def _init_weights(self):
         for module in self.modules():
             if isinstance(module, nn.Conv2d) or isinstance(module,nn.Linear):
-                kaiming_normal(module.weight,0.01)
+                kaiming_normal(module.weight,0.2)
 
 
