@@ -2090,3 +2090,5 @@ Traceback (most recent call last):
 AttributeError: 'Normalize' object has no attribute 'cuda'
 => loading checkpoint 'save/best_b16_v0.0001_SGD_hardtanh_conBn_varv2_nowd.pth'
 => loaded checkpoint
+=> loading checkpoint 'save/best_b16_v0.0001_SGD_hardtanh_conBn_varv2_nowd.pth'
+=> loaded checkpoint

@@ -66,6 +66,7 @@ parser.add_argument('--clip',default=None,type=float,
 
 global_step=0
 best_psnr = -100
+best_gen_loss=10000
 best_disc_loss= 10000
 args = parser.parse_args()
 args.__dict__['upscale_factor']=4
@@ -121,8 +122,8 @@ cont_criterion = nn.MSELoss().cuda()
 adv_criterion = nn.BCELoss().cuda()
 
 
-gen_optimizer = torch.optim.Adam(gen.parameters(), args.lr,betas=(args.beta1,0.999))
-disc_optimizer = torch.optim.Adam(disc.parameters(),args.lr,betas=(args.beta1,0.999))
+gen_optimizer = torch.optim.Adam(gen.parameters(), args.lr)
+disc_optimizer = torch.optim.Adam(disc.parameters(),args.lr)
 
 def normalize(tensor):
     r,g,b=torch.split(tensor,1,1)
@@ -173,7 +174,6 @@ def save_checkpoint(state, is_best,logdir):
 def train(epoch):
     for i, (input, target) in enumerate(train_loader):
         global global_step
-        global_step+=1
         input_var = Variable(input.cuda())
         target_var = Variable(target.cuda())
         
@@ -234,9 +234,9 @@ def train(epoch):
             f.close()
 
             if not args.fixG:
-                global best_psnr
-                is_best = vpsnr > best_psnr
-                best_psnr = max(vpsnr, best_psnr)
+                global best_gen_loss
+                is_best = gen_loss.data[0] > best_gen_loss
+                best_gen_loss = max(gen_loss.data[0] , best_gen_loss)
             else:
                 global best_disc_loss
                 is_best = disc_loss.data[0] > best_disc_loss
@@ -249,6 +249,8 @@ def train(epoch):
                 'disc_state_dict':disc.state_dict(),
                 'best_psnr': best_psnr,
             }, is_best,args.logdir)
+
+        global_step+=1
 
 for epoch in range(args.start_epoch, args.epochs):
     train(epoch)
