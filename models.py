@@ -55,6 +55,7 @@ class DeconvBlock(nn.Module):
 class GenNet(nn.Module):
     def __init__(self):
         super(GenNet,self).__init__()
+        self.train_mode=True
         self.relu = nn.ReLU()
         self.tanh = nn.Hardtanh()
         #self.tanh = nn.Tanh()
