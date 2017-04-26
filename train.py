@@ -172,12 +172,14 @@ def save_checkpoint(state, is_best,logdir):
         shutil.copyfile(filename, os.path.join(logdir,'best_'+args.model_name))
 
 def train(epoch):
+    gloss=100
+    dloss=100
     for i, (input, target) in enumerate(train_loader):
         global global_step
         input_var = Variable(input.cuda())
         target_var = Variable(target.cuda())
         
-        if not args.fixD:
+        if dloss>0.001 and not args.fixD:
             if args.separate:
                 real_loss=((disc(target_var)-1)**2).mean()
                 disc_optimizer.zero_grad()
@@ -206,7 +208,7 @@ def train(epoch):
                 disc_loss=(fake_loss+real_loss)/2
                 disc_optimizer.step()
 
-        if not args.fixG:
+        if gloss>0.001 and not args.fixG:
             gen_optimizer.zero_grad()
             G_z=gen(input_var)
             fake_feature=vgg(normalize(G_z))

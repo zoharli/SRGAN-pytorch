@@ -17,7 +17,7 @@ snapshot*
 bicubic
 oldlog
 .*sw*
-
+nohup.out
 # Any Images
 */*.jpg
 */*.JPG
