@@ -179,7 +179,7 @@ def train(epoch):
         input_var = Variable(input.cuda())
         target_var = Variable(target.cuda())
         
-        if dloss>0.001 and not args.fixD:
+        if (i%10==0 or dloss>0.001) and not args.fixD:
             if args.separate:
                 real_loss=((disc(target_var)-1)**2).mean()
                 disc_optimizer.zero_grad()
@@ -207,8 +207,9 @@ def train(epoch):
                 fake_loss.backward()
                 disc_loss=(fake_loss+real_loss)/2
                 disc_optimizer.step()
-
-        if gloss>0.001 and not args.fixG:
+                dloss=disc_loss.data[0]
+            
+        if (i%10==0 or gloss>0.001) and not args.fixG:
             gen_optimizer.zero_grad()
             G_z=gen(input_var)
             fake_feature=vgg(normalize(G_z))
@@ -222,6 +223,7 @@ def train(epoch):
             if args.clip is not None:
                 torch.nn.utils.clip_grad_norm(gen.parameters(),args.clip)
             gen_optimizer.step()
+            gloss=gen_loss.data[0]
             
         if i % args.print_freq == 0:
             s=time.strftime('%dth-%H:%M:%S',time.localtime(time.time()))+' | epoch%d(%d) | lr=%g'%(epoch,global_step,args.lr)
