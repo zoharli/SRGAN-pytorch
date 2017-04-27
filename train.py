@@ -51,7 +51,7 @@ parser.add_argument('--traindir',default='r375-400.bin',
         help=' the global name of training set dir')
 parser.add_argument('--valdir',default='b100',type=str,
         help='the global name of validation set dir')
-parser.add_argument('--weight',default=0.05,type=float,
+parser.add_argument('--weight',default=0.1,type=float,
         help='the weight of adversarial loss,i.e. gen_loss=content_loss+weight*adv_loss')
 parser.add_argument('--separate',action='store_true',
         help='wheather to separate real and fake minibatch when training discriminator')
@@ -115,9 +115,7 @@ if args.generator:
     else:
         print("=>no checkpoint found at '{}'".format(args.generator))
 
-label=Variable(torch.FloatTensor(args.batch_size)).cuda()
 cont_criterion = nn.MSELoss().cuda()
-adv_criterion = nn.BCELoss().cuda()
 
 
 gen_optimizer = torch.optim.Adam(gen.parameters(), args.lr)
@@ -199,13 +197,11 @@ def train(epoch):
             
             else:
                 disc_optimizer.zero_grad()
-                label.data.fill_(1)
                 output=disc(target_var)
-                real_loss=adv_criterion(output,label)
-                label.data.fill_(0)
+                real_loss=((output-1)**2).mean()
                 output=disc(gen(input_var).detach())
-                fake_loss=adv_criterion(output,label)
-                disc_loss=args.weight*(fake_loss+real_loss)/2
+                fake_loss=(output**2).mean()
+                disc_loss=args.weight*(fake_loss+real_loss)*2
                 disc_loss.backward()
                 disc_optimizer.step()
             
@@ -215,10 +211,9 @@ def train(epoch):
             fake_feature=vgg(normalize(G_z))
             real_feature=vgg(normalize(target_var)).detach()
             content_loss=cont_criterion(fake_feature,real_feature)
-            label.data.fill_(1)
             output=disc(G_z)
-            adv_loss=adv_criterion(output,label)
-            gen_loss=args.weight*adv_loss+0.1*content_loss
+            adv_loss=((output-1)**2).mean()
+            gen_loss=args.weight*adv_loss+content_loss
             gen_loss.backward()
             if args.clip is not None:
                 torch.nn.utils.clip_grad_norm(gen.parameters(),args.clip)
