@@ -177,8 +177,6 @@ def save_checkpoint(state, is_best,logdir):
         shutil.copyfile(filename, os.path.join(logdir,'best_'+args.model_name))
 
 def train(epoch):
-    gloss=100
-    dloss=100
     for i, (input, target) in enumerate(train_loader):
         global global_step
         input_var = Variable(input.cuda())
@@ -210,11 +208,10 @@ def train(epoch):
                 output=disc(gen(input_var).detach())
                 fake_loss=adv_criterion(output,label)
                 fake_loss.backward()
-                disc_loss=(fake_loss+real_loss)/2
+                disc_loss=args.weight*(fake_loss+real_loss)/2
                 disc_optimizer.step()
-                dloss=disc_loss.data[0]
             
-        if i%100==0 and not args.fixG:
+        if not args.fixG:
             gen_optimizer.zero_grad()
             G_z=gen(input_var)
             fake_feature=vgg(normalize(G_z))
@@ -223,12 +220,11 @@ def train(epoch):
             label.data.fill_(1)
             output=disc(G_z)
             adv_loss=adv_criterion(output,label)
-            gen_loss=0.1*args.weight*adv_loss+content_loss
+            gen_loss=args.weight*adv_loss+0.1*content_loss
             gen_loss.backward()
             if args.clip is not None:
                 torch.nn.utils.clip_grad_norm(gen.parameters(),args.clip)
             gen_optimizer.step()
-            gloss=gen_loss.data[0]
             
         if i % args.print_freq == 0:
             s=time.strftime('%dth-%H:%M:%S',time.localtime(time.time()))+' | epoch%d(%d) | lr=%g'%(epoch,global_step,args.lr)

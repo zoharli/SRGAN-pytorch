@@ -5105,3 +5105,5 @@ ImportError: No module named setproctitle
 27th-13:45:32===>epoch1=>lr=0.000100=>psnr=26.138=>ypsnr=27.577
 27th-13:49:44===>epoch1=>lr=0.000100=>psnr=26.137=>ypsnr=27.599
 27th-13:53:37===>epoch1=>lr=0.000100=>psnr=26.100=>ypsnr=27.566
+=> loading checkpoint 'save/b16_v0.0001_Adam_hardtanh_revised.pth'
+=> loaded checkpoint
