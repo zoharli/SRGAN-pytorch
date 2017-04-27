@@ -205,11 +205,11 @@ def train(epoch):
                 label.data.fill_(0)
                 output=disc(gen(input_var).detach())
                 fake_loss=adv_criterion(output,label)
-                disc_loss=args.weight*(fake_loss+real_loss)*100
+                disc_loss=args.weight*(fake_loss+real_loss)
                 disc_loss.backward()
                 disc_optimizer.step()
             
-        if  not args.fixG:
+        if  not args.fixG and i%10==0:
             gen_optimizer.zero_grad()
             G_z=gen(input_var)
             fake_feature=vgg(normalize(G_z))
