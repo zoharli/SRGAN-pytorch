@@ -70,7 +70,7 @@ args = parser.parse_args()
 args.__dict__['upscale_factor']=4
 #args.traindir=globals()[args.traindir]
 args.valdir=globals()[args.valdir]
-args.__dict__['model_base_name']='SRGAN_v%g_w%g_%s'%(args.lr,args.weight,args.optim)+('_fixG' if args.fixG else '')+('_fixD' if args.fixD else '')+('_separate' if args.separate else '')
+args.__dict__['model_base_name']='SRGAN_pcont_v%g_w%g_%s'%(args.lr,args.weight,args.optim)+('_fixG' if args.fixG else '')+('_fixD' if args.fixD else '')+('_separate' if args.separate else '')
 args.__dict__['model_name']=args.model_base_name+'.pth'
 args.__dict__['snapshot']='snapshot_'+args.model_base_name
 
@@ -88,7 +88,6 @@ train_loader = torch.utils.data.DataLoader(
     num_workers=args.workers, pin_memory=True)
 
 gen=GenNet().cuda()
-disc=DisNet().cuda()
 vgg=vgg19_54().cuda()
 
 
@@ -182,43 +181,13 @@ def train(epoch):
         input_var = Variable(input.cuda())
         target_var = Variable(target.cuda())
         
-        if not args.fixD:
-            if args.separate:
-                real_loss=((disc(target_var)-1)**2).mean()
-                disc_optimizer.zero_grad()
-                real_loss.backward()
-                #torch.nn.utils.clip_grad_norm(disc.parameters(),args.clip)
-                disc_optimizer.step()
-                
-                fake_loss=torch.mean(disc(gen(input_var))**2)
-                disc_optimizer.zero_grad()
-                fake_loss.backward()
-                #torch.nn.utils.clip_grad_norm(disc.parameters(),args.clip)
-                disc_optimizer.step()
-                disc_loss=(fake_loss+real_loss)/2
-            
-            else:
-                disc_optimizer.zero_grad()
-                label.data.fill_(1)
-                output=disc(target_var)
-                real_loss=adv_criterion(output,label)
-                label.data.fill_(0)
-                output=disc(gen(input_var).detach())
-                fake_loss=adv_criterion(output,label)
-                disc_loss=args.weight*(fake_loss+real_loss)
-                disc_loss.backward()
-                disc_optimizer.step()
-            
-        if  not args.fixG and i%10==0:
+        if  not args.fixG:
             gen_optimizer.zero_grad()
             G_z=gen(input_var)
             fake_feature=vgg(normalize(G_z))
             real_feature=vgg(normalize(target_var)).detach()
             content_loss=cont_criterion(fake_feature,real_feature)
-            label.data.fill_(1)
-            output=disc(G_z)
-            adv_loss=adv_criterion(output,label)
-            gen_loss=args.weight*adv_loss+content_loss
+            gen_loss=content_loss
             gen_loss.backward()
             if args.clip is not None:
                 torch.nn.utils.clip_grad_norm(gen.parameters(),args.clip)
@@ -228,9 +197,7 @@ def train(epoch):
             s=time.strftime('%dth-%H:%M:%S',time.localtime(time.time()))+' | epoch%d(%d) | lr=%g'%(epoch,global_step,args.lr)
             if not args.fixG:
                 vs=validate(gen,vgg,cont_criterion,args.valdir,epoch,args.upscale_factor,gen_optimizer)
-                s+=vs+' | Loss(G):%g[Cont:%g/Adv:%g]'%(gen_loss.data[0],content_loss.data[0],adv_loss.data[0])
-            if not args.fixD:
-                s+=' | Loss(D):%g[Real:%g/Fake:%g]'%(disc_loss.data[0],real_loss.data[0],fake_loss.data[0])
+                s+=vs+' | Loss(G):%g'%(gen_loss.data[0])
             print(s)
             f=open('info.'+args.model_base_name,'a')
             f.write(s+'\n')
