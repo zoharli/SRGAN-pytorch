@@ -5113,3 +5113,7 @@ ImportError: No module named setproctitle
 => loaded checkpoint
 => loading checkpoint 'save/b16_v0.0001_Adam_hardtanh_revised.pth'
 => loaded checkpoint
+=> loading checkpoint 'save/b16_v0.0001_Adam_hardtanh_revised.pth'
+=> loaded checkpoint
+=> loading checkpoint 'save/b16_v0.0001_Adam_hardtanh_revised.pth'
+=> loaded checkpoint
