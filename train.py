@@ -201,7 +201,7 @@ def train(epoch):
                 real_loss=((output-1)**2).mean()
                 output=disc(gen(input_var).detach())
                 fake_loss=(output**2).mean()
-                disc_loss=args.weight*(fake_loss+real_loss)*2
+                disc_loss=args.weight*(fake_loss+real_loss)
                 disc_loss.backward()
                 disc_optimizer.step()
             
