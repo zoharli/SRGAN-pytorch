@@ -205,7 +205,7 @@ def train(epoch):
                 label.data.fill_(0)
                 output=disc(gen(input_var).detach())
                 fake_loss=adv_criterion(output,label)
-                disc_loss=args.weight*(fake_loss+real_loss)*10
+                disc_loss=args.weight*(fake_loss+real_loss)*100
                 disc_loss.backward()
                 disc_optimizer.step()
             
