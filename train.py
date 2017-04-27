@@ -29,7 +29,7 @@ parser.add_argument('--start-epoch', default=0, type=int,
         help='manual epoch number (useful on restarts)')
 parser.add_argument('-b', '--batch-size', default=8, type=int,
         help='mini-batch size (default: 16)')
-parser.add_argument('--crop-size','-c',default=320,type=int,
+parser.add_argument('--crop-size','-c',default=256,type=int,
         help='crop size of the hr image')
 parser.add_argument('--lr', '--learning-rate', default=1e-4, type=float,
         help='initial learning rate')
@@ -205,7 +205,7 @@ def train(epoch):
                 label.data.fill_(0)
                 output=disc(gen(input_var).detach())
                 fake_loss=adv_criterion(output,label)
-                disc_loss=args.weight*(fake_loss+real_loss)/2
+                disc_loss=args.weight*(fake_loss+real_loss)*10
                 disc_loss.backward()
                 disc_optimizer.step()
             
@@ -218,7 +218,7 @@ def train(epoch):
             label.data.fill_(1)
             output=disc(G_z)
             adv_loss=adv_criterion(output,label)
-            gen_loss=args.weight*adv_loss+0.1*content_loss
+            gen_loss=args.weight*adv_loss+0.2*content_loss
             gen_loss.backward()
             if args.clip is not None:
                 torch.nn.utils.clip_grad_norm(gen.parameters(),args.clip)
