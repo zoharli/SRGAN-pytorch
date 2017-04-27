@@ -209,7 +209,7 @@ def train(epoch):
                 disc_loss.backward()
                 disc_optimizer.step()
             
-        if  not args.fixG and i%10==0:
+        if  not args.fixG and (i%10==0:
             gen_optimizer.zero_grad()
             G_z=gen(input_var)
             fake_feature=vgg(normalize(G_z))
