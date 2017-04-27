@@ -4622,3 +4622,486 @@ torch.Size([1])  File "train.py", line 221
 SyntaxError: invalid syntax
 => loading checkpoint 'save/SRGAN_nb_l0.2_v0.0001_w0.001_Adam.pth'
 => loaded checkpoint (epoch 1)
+Traceback (most recent call last):
+  File "pretrain.py", line 161, in <module>
+    train(train_loader, model, criterion, optimizer, epoch)
+  File "pretrain.py", line 141, in train
+    loss = criterion(output, target_var)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/module.py", line 206, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/loss.py", line 24, in forward
+    return backend_fn(self.size_average)(input, target)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/_functions/thnn/auto.py", line 41, in forward
+    output, *self.additional_args)
+RuntimeError: input and target have different number of elements: input[16 x 3 x 290 x 290] has 4036800 elements, while target[16 x 3 x 320 x 320] has 4915200 elements at /py/conda-bld/pytorch_1490903321756/work/torch/lib/THCUNN/generic/MSECriterion.cu:12
+Traceback (most recent call last):
+  File "pretrain.py", line 161, in <module>
+    train(train_loader, model, criterion, optimizer, epoch)
+  File "pretrain.py", line 146, in train
+    vpsnr=validate(model,criterion,args.valdir,epoch,args.upscale_factor)
+  File "pretrain.py", line 109, in validate
+    rgb.save('snapshot7/'+os.path.basename(x))
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/PIL/Image.py", line 1725, in save
+    fp = builtins.open(filename, "w+b")
+FileNotFoundError: [Errno 2] No such file or directory: 'snapshot7/300091.jpg'
+Traceback (most recent call last):
+  File "train.py", line 21, in <module>
+    from setproctitle import *
+ImportError: No module named setproctitle
+=> loading checkpoint 'save/b16_v0.0001_Adam_hardtanh_revised.pth'
+=> loaded checkpoint
+26th-22:27:41 | epoch0(0) | lr=0.0001 | psnr=24.487 | ypsnr=26.568 | cont_mse=0.315878 | Loss(G):0.0890255[Cont:0.698501/Adv:19.1753] | Loss(D):0.800296[Real:0.81087/Fake:0.789723]
+26th-22:32:03 | epoch0(100) | lr=0.0001 | psnr=20.501 | ypsnr=22.417 | cont_mse=0.296203 | Loss(G):0.0810233[Cont:0.732742/Adv:7.74911] | Loss(D):0.0538648[Real:2.58636e-05/Fake:0.107704]
+26th-22:36:30 | epoch0(200) | lr=0.0001 | psnr=20.616 | ypsnr=23.159 | cont_mse=0.326863 | Loss(G):0.0865229[Cont:0.697475/Adv:16.7754] | Loss(D):0.00921817[Real:0.0178282/Fake:0.00060817]
+26th-22:40:46 | epoch0(300) | lr=0.0001 | psnr=18.816 | ypsnr=22.220 | cont_mse=0.33238 | Loss(G):0.0682676[Cont:0.561623/Adv:12.1054] | Loss(D):0.00310776[Real:0.00159351/Fake:0.004622]
+26th-22:45:04 | epoch0(400) | lr=0.0001 | psnr=16.363 | ypsnr=19.400 | cont_mse=0.368413 | Loss(G):0.105075[Cont:0.780355/Adv:27.0395] | Loss(D):0.000170669[Real:0.000341337/Fake:0]
+26th-22:49:25 | epoch0(500) | lr=0.0001 | psnr=14.727 | ypsnr=16.406 | cont_mse=0.356159 | Loss(G):0.0858366[Cont:0.582103/Adv:27.6263] | Loss(D):0[Real:0/Fake:0]
+26th-22:53:43 | epoch0(600) | lr=0.0001 | psnr=15.165 | ypsnr=16.997 | cont_mse=0.33716 | Loss(G):0.0804109[Cont:0.527799/Adv:27.631] | Loss(D):3.93055e-05[Real:7.86109e-05/Fake:0]
+26th-22:57:58 | epoch0(700) | lr=0.0001 | psnr=16.326 | ypsnr=18.493 | cont_mse=0.330014 | Loss(G):0.0747336[Cont:0.488764/Adv:25.8573] | Loss(D):1.69875e-06[Real:3.03987e-06/Fake:3.57628e-07]
+26th-23:02:27 | epoch0(800) | lr=0.0001 | psnr=16.931 | ypsnr=18.977 | cont_mse=0.326107 | Loss(G):0.0818209[Cont:0.554867/Adv:26.3342] | Loss(D):0[Real:0/Fake:0]
+26th-23:06:36 | epoch0(900) | lr=0.0001 | psnr=17.924 | ypsnr=20.318 | cont_mse=0.30954 | Loss(G):0.0937686[Cont:0.677976/Adv:25.9709] | Loss(D):7.45058e-09[Real:0/Fake:1.49012e-08]
+26th-23:10:46 | epoch0(1000) | lr=0.0001 | psnr=19.206 | ypsnr=22.575 | cont_mse=0.317249 | Loss(G):0.0886161[Cont:0.622582/Adv:26.3578] | Loss(D):0[Real:0/Fake:0]
+26th-23:15:03 | epoch0(1100) | lr=0.0001 | psnr=19.183 | ypsnr=22.321 | cont_mse=0.316979 | Loss(G):0.0648896[Cont:0.438754/Adv:21.0142] | Loss(D):0.0343723[Real:0/Fake:0.0687446]
+26th-23:19:24 | epoch0(1200) | lr=0.0001 | psnr=18.937 | ypsnr=22.073 | cont_mse=0.313268 | Loss(G):0.0705306[Cont:0.58321/Adv:12.2095] | Loss(D):0.0125964[Real:0/Fake:0.0251927]
+26th-23:23:50 | epoch0(1300) | lr=0.0001 | psnr=19.527 | ypsnr=22.470 | cont_mse=0.30824 | Loss(G):0.0978723[Cont:0.711199/Adv:26.7524] | Loss(D):0.000142808[Real:0.000285617/Fake:0]
+26th-23:28:13 | epoch0(1400) | lr=0.0001 | psnr=20.445 | ypsnr=23.761 | cont_mse=0.300248 | Loss(G):0.0742251[Cont:0.465941/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+26th-23:32:32 | epoch0(1500) | lr=0.0001 | psnr=20.454 | ypsnr=23.615 | cont_mse=0.30552 | Loss(G):0.11404[Cont:0.864095/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+26th-23:36:54 | epoch0(1600) | lr=0.0001 | psnr=19.721 | ypsnr=21.667 | cont_mse=0.301445 | Loss(G):0.08152[Cont:0.53889/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+26th-23:41:18 | epoch0(1700) | lr=0.0001 | psnr=21.066 | ypsnr=23.921 | cont_mse=0.28292 | Loss(G):0.0911413[Cont:0.635103/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+26th-23:45:36 | epoch0(1800) | lr=0.0001 | psnr=22.258 | ypsnr=25.140 | cont_mse=0.281779 | Loss(G):0.099602[Cont:0.71971/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+26th-23:49:47 | epoch0(1900) | lr=0.0001 | psnr=22.092 | ypsnr=24.911 | cont_mse=0.274933 | Loss(G):0.0784424[Cont:0.522523/Adv:26.1902] | Loss(D):0[Real:0/Fake:0]
+26th-23:54:06 | epoch0(2000) | lr=0.0001 | psnr=23.216 | ypsnr=26.095 | cont_mse=0.272106 | Loss(G):0.0814065[Cont:0.537755/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+26th-23:58:30 | epoch0(2100) | lr=0.0001 | psnr=23.284 | ypsnr=25.547 | cont_mse=0.265182 | Loss(G):0.066093[Cont:0.38462/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-00:02:48 | epoch0(2200) | lr=0.0001 | psnr=23.343 | ypsnr=26.250 | cont_mse=0.265969 | Loss(G):0.0870411[Cont:0.5941/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-00:06:49 | epoch0(2300) | lr=0.0001 | psnr=23.480 | ypsnr=25.785 | cont_mse=0.261043 | Loss(G):0.0746104[Cont:0.474716/Adv:27.1389] | Loss(D):0[Real:0/Fake:0]
+27th-00:10:49 | epoch0(2400) | lr=0.0001 | psnr=23.223 | ypsnr=25.549 | cont_mse=0.259712 | Loss(G):0.0765967[Cont:0.489657/Adv:27.631] | Loss(D):1.56462e-07[Real:3.12925e-07/Fake:0]
+27th-00:14:53 | epoch0(2500) | lr=0.0001 | psnr=24.061 | ypsnr=26.141 | cont_mse=0.260972 | Loss(G):0.0715597[Cont:0.439287/Adv:27.631] | Loss(D):0.251096[Real:0.502192/Fake:0]
+27th-00:18:58 | epoch0(2600) | lr=0.0001 | psnr=23.460 | ypsnr=25.497 | cont_mse=0.260401 | Loss(G):0.0660701[Cont:0.407283/Adv:25.3417] | Loss(D):0[Real:0/Fake:0]
+27th-00:22:58 | epoch0(2700) | lr=0.0001 | psnr=20.470 | ypsnr=22.563 | cont_mse=0.296152 | Loss(G):0.0831115[Cont:0.554804/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-00:27:01 | epoch0(2800) | lr=0.0001 | psnr=22.775 | ypsnr=25.515 | cont_mse=0.274468 | Loss(G):0.0749895[Cont:0.473585/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-00:31:03 | epoch0(2900) | lr=0.0001 | psnr=22.496 | ypsnr=25.637 | cont_mse=0.264815 | Loss(G):0.0792307[Cont:0.515997/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-00:35:07 | epoch0(3000) | lr=0.0001 | psnr=23.761 | ypsnr=26.111 | cont_mse=0.255714 | Loss(G):0.139774[Cont:1.12143/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-00:39:09 | epoch0(3100) | lr=0.0001 | psnr=22.229 | ypsnr=24.797 | cont_mse=0.259946 | Loss(G):0.0814229[Cont:0.537918/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-00:43:12 | epoch0(3200) | lr=0.0001 | psnr=23.609 | ypsnr=26.304 | cont_mse=0.255471 | Loss(G):0.0782587[Cont:0.506276/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-00:47:32 | epoch0(3300) | lr=0.0001 | psnr=24.062 | ypsnr=26.569 | cont_mse=0.254509 | Loss(G):0.078737[Cont:0.511059/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-00:51:51 | epoch0(3400) | lr=0.0001 | psnr=24.329 | ypsnr=26.586 | cont_mse=0.251025 | Loss(G):0.0908888[Cont:0.632578/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-00:56:04 | epoch0(3500) | lr=0.0001 | psnr=23.384 | ypsnr=26.427 | cont_mse=0.248831 | Loss(G):0.0875479[Cont:0.599169/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-01:00:06 | epoch0(3600) | lr=0.0001 | psnr=21.321 | ypsnr=23.168 | cont_mse=0.255986 | Loss(G):0.0666579[Cont:0.390268/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-01:04:09 | epoch0(3700) | lr=0.0001 | psnr=21.914 | ypsnr=24.616 | cont_mse=0.255321 | Loss(G):0.0665387[Cont:0.389077/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-01:08:09 | epoch0(3800) | lr=0.0001 | psnr=23.910 | ypsnr=26.021 | cont_mse=0.251457 | Loss(G):0.0856393[Cont:0.580083/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-01:12:30 | epoch0(3900) | lr=0.0001 | psnr=24.098 | ypsnr=26.076 | cont_mse=0.247121 | Loss(G):0.0672633[Cont:0.396323/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-01:16:52 | epoch0(4000) | lr=0.0001 | psnr=24.168 | ypsnr=26.277 | cont_mse=0.247691 | Loss(G):0.0698332[Cont:0.422022/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-01:21:09 | epoch0(4100) | lr=0.0001 | psnr=24.095 | ypsnr=26.111 | cont_mse=0.24464 | Loss(G):0.0879693[Cont:0.603383/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-01:25:22 | epoch0(4200) | lr=0.0001 | psnr=23.753 | ypsnr=26.512 | cont_mse=0.245167 | Loss(G):0.0693344[Cont:0.417034/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-01:29:46 | epoch0(4300) | lr=0.0001 | psnr=24.211 | ypsnr=26.289 | cont_mse=0.246203 | Loss(G):0.0875307[Cont:0.598997/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-01:34:03 | epoch0(4400) | lr=0.0001 | psnr=24.619 | ypsnr=26.508 | cont_mse=0.244292 | Loss(G):0.10703[Cont:0.793987/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-01:38:06 | epoch0(4500) | lr=0.0001 | psnr=24.230 | ypsnr=26.408 | cont_mse=0.242282 | Loss(G):0.0896203[Cont:0.619893/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-01:42:12 | epoch0(4600) | lr=0.0001 | psnr=24.470 | ypsnr=26.399 | cont_mse=0.24202 | Loss(G):0.0733936[Cont:0.457626/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-01:46:22 | epoch0(4700) | lr=0.0001 | psnr=24.208 | ypsnr=26.502 | cont_mse=0.241307 | Loss(G):0.077796[Cont:0.50165/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-01:50:44 | epoch0(4800) | lr=0.0001 | psnr=24.530 | ypsnr=26.563 | cont_mse=0.24516 | Loss(G):0.0595269[Cont:0.318959/Adv:27.631] | Loss(D):0[Real:0/Fake:0]26th-19:48:21===>epoch1=>lr=0.000100=>psnr=7.977=>ypsnr=11.659
+26th-19:52:41===>epoch1=>lr=0.000100=>psnr=16.738=>ypsnr=20.539
+26th-19:57:10===>epoch1=>lr=0.000100=>psnr=18.493=>ypsnr=21.777
+26th-20:01:27===>epoch1=>lr=0.000100=>psnr=19.415=>ypsnr=22.476
+26th-20:05:56===>epoch1=>lr=0.000100=>psnr=20.209=>ypsnr=23.121
+26th-20:10:12===>epoch1=>lr=0.000100=>psnr=20.685=>ypsnr=23.508
+26th-20:14:38===>epoch1=>lr=0.000100=>psnr=21.086=>ypsnr=23.821
+26th-20:18:56===>epoch1=>lr=0.000100=>psnr=21.403=>ypsnr=24.028
+26th-20:23:15===>epoch1=>lr=0.000100=>psnr=21.849=>ypsnr=24.434
+26th-20:27:44===>epoch1=>lr=0.000100=>psnr=22.069=>ypsnr=24.584
+26th-20:31:55===>epoch1=>lr=0.000100=>psnr=22.438=>ypsnr=24.928
+26th-20:36:21===>epoch1=>lr=0.000100=>psnr=22.613=>ypsnr=25.052
+26th-20:40:36===>epoch1=>lr=0.000100=>psnr=22.682=>ypsnr=25.088
+26th-20:45:02===>epoch1=>lr=0.000100=>psnr=22.898=>ypsnr=25.217
+26th-20:49:26===>epoch1=>lr=0.000100=>psnr=22.930=>ypsnr=25.255
+26th-20:53:48===>epoch1=>lr=0.000100=>psnr=23.204=>ypsnr=25.481
+26th-20:58:15===>epoch1=>lr=0.000100=>psnr=23.175=>ypsnr=25.413
+26th-21:02:27===>epoch1=>lr=0.000100=>psnr=23.245=>ypsnr=25.447
+26th-21:06:53===>epoch1=>lr=0.000100=>psnr=23.445=>ypsnr=25.597
+26th-21:11:09===>epoch1=>lr=0.000100=>psnr=23.483=>ypsnr=25.616
+26th-21:15:14===>epoch1=>lr=0.000100=>psnr=23.543=>ypsnr=25.633
+26th-21:19:12===>epoch1=>lr=0.000100=>psnr=23.573=>ypsnr=25.633
+26th-21:23:15===>epoch1=>lr=0.000100=>psnr=23.755=>ypsnr=25.836
+26th-21:27:22===>epoch1=>lr=0.000100=>psnr=23.806=>ypsnr=25.834
+26th-21:31:25===>epoch1=>lr=0.000100=>psnr=23.797=>ypsnr=25.788
+26th-21:35:29===>epoch1=>lr=0.000100=>psnr=23.699=>ypsnr=25.651
+26th-21:39:24===>epoch1=>lr=0.000100=>psnr=23.966=>ypsnr=25.924
+26th-21:43:31===>epoch1=>lr=0.000100=>psnr=23.952=>ypsnr=25.894
+26th-21:47:23===>epoch1=>lr=0.000100=>psnr=24.026=>ypsnr=25.944
+26th-21:51:26===>epoch1=>lr=0.000100=>psnr=24.074=>ypsnr=25.983
+26th-21:55:24===>epoch1=>lr=0.000100=>psnr=23.859=>ypsnr=25.735
+26th-21:59:32===>epoch1=>lr=0.000100=>psnr=24.157=>ypsnr=26.028
+26th-22:03:36===>epoch1=>lr=0.000100=>psnr=24.197=>ypsnr=26.084
+26th-22:07:36===>epoch1=>lr=0.000100=>psnr=24.239=>ypsnr=26.107
+26th-22:11:42===>epoch1=>lr=0.000100=>psnr=24.175=>ypsnr=26.089
+26th-22:15:29===>epoch1=>lr=0.000100=>psnr=24.288=>ypsnr=26.159
+26th-22:19:39===>epoch1=>lr=0.000100=>psnr=24.368=>ypsnr=26.225
+26th-22:23:41===>epoch1=>lr=0.000100=>psnr=24.347=>ypsnr=26.185
+26th-22:27:48===>epoch1=>lr=0.000100=>psnr=24.307=>ypsnr=26.128
+26th-22:31:49===>epoch1=>lr=0.000100=>psnr=24.418=>ypsnr=26.206
+26th-22:35:49===>epoch1=>lr=0.000100=>psnr=24.469=>ypsnr=26.277
+26th-22:39:55===>epoch1=>lr=0.000100=>psnr=24.425=>ypsnr=26.206
+26th-22:43:46===>epoch1=>lr=0.000100=>psnr=24.461=>ypsnr=26.244
+26th-22:47:51===>epoch1=>lr=0.000100=>psnr=24.438=>ypsnr=26.147
+26th-22:51:49===>epoch1=>lr=0.000100=>psnr=24.483=>ypsnr=26.212
+26th-22:55:50===>epoch1=>lr=0.000100=>psnr=24.431=>ypsnr=26.173
+26th-22:59:53===>epoch1=>lr=0.000100=>psnr=24.535=>ypsnr=26.285
+26th-23:03:50===>epoch1=>lr=0.000100=>psnr=24.548=>ypsnr=26.336
+26th-23:07:59===>epoch1=>lr=0.000100=>psnr=24.597=>ypsnr=26.367
+26th-23:11:50===>epoch1=>lr=0.000100=>psnr=24.454=>ypsnr=26.171
+26th-23:15:58===>epoch1=>lr=0.000100=>psnr=24.539=>ypsnr=26.335
+26th-23:19:59===>epoch1=>lr=0.000100=>psnr=24.653=>ypsnr=26.413
+26th-23:24:09===>epoch1=>lr=0.000100=>psnr=24.489=>ypsnr=26.250
+26th-23:28:00===>epoch1=>lr=0.000100=>psnr=24.695=>ypsnr=26.415
+26th-23:31:56===>epoch1=>lr=0.000100=>psnr=24.744=>ypsnr=26.458
+26th-23:36:02===>epoch1=>lr=0.000100=>psnr=24.687=>ypsnr=26.403
+26th-23:39:48===>epoch1=>lr=0.000100=>psnr=24.739=>ypsnr=26.463
+26th-23:43:46===>epoch1=>lr=0.000100=>psnr=24.766=>ypsnr=26.471
+26th-23:47:49===>epoch1=>lr=0.000100=>psnr=24.755=>ypsnr=26.463
+26th-23:51:49===>epoch1=>lr=0.000100=>psnr=24.781=>ypsnr=26.494
+26th-23:55:54===>epoch1=>lr=0.000100=>psnr=24.780=>ypsnr=26.458
+26th-23:59:54===>epoch1=>lr=0.000100=>psnr=24.868=>ypsnr=26.516
+27th-00:03:58===>epoch1=>lr=0.000100=>psnr=24.696=>ypsnr=26.469
+27th-00:07:59===>epoch1=>lr=0.000100=>psnr=24.804=>ypsnr=26.504
+27th-00:12:02===>epoch1=>lr=0.000100=>psnr=24.837=>ypsnr=26.498
+27th-00:15:58===>epoch1=>lr=0.000100=>psnr=24.826=>ypsnr=26.524
+27th-00:20:03===>epoch1=>lr=0.000100=>psnr=24.893=>ypsnr=26.570
+27th-00:24:04===>epoch1=>lr=0.000100=>psnr=24.930=>ypsnr=26.572
+27th-00:28:10===>epoch1=>lr=0.000100=>psnr=24.922=>ypsnr=26.608
+27th-00:32:06===>epoch1=>lr=0.000100=>psnr=24.949=>ypsnr=26.627
+27th-00:36:19===>epoch1=>lr=0.000100=>psnr=24.966=>ypsnr=26.660
+27th-00:40:21===>epoch1=>lr=0.000100=>psnr=24.965=>ypsnr=26.643
+27th-00:44:30===>epoch1=>lr=0.000100=>psnr=25.041=>ypsnr=26.691
+27th-00:48:28===>epoch1=>lr=0.000100=>psnr=24.934=>ypsnr=26.737
+27th-00:52:38===>epoch1=>lr=0.000100=>psnr=25.088=>ypsnr=26.743
+27th-00:56:38===>epoch1=>lr=0.000100=>psnr=24.949=>ypsnr=26.658
+27th-01:00:45===>epoch1=>lr=0.000100=>psnr=24.708=>ypsnr=26.215
+27th-01:04:46===>epoch1=>lr=0.000100=>psnr=25.031=>ypsnr=26.700
+27th-01:08:55===>epoch1=>lr=0.000100=>psnr=25.007=>ypsnr=26.727
+27th-01:12:56===>epoch1=>lr=0.000100=>psnr=25.131=>ypsnr=26.787
+27th-01:16:58===>epoch1=>lr=0.000100=>psnr=25.107=>ypsnr=26.792
+27th-01:20:51===>epoch1=>lr=0.000100=>psnr=25.040=>ypsnr=26.734
+27th-01:24:54===>epoch1=>lr=0.000100=>psnr=25.146=>ypsnr=26.800
+27th-01:28:51===>epoch1=>lr=0.000100=>psnr=25.153=>ypsnr=26.793
+27th-01:32:58===>epoch1=>lr=0.000100=>psnr=25.195=>ypsnr=26.817
+27th-01:37:04===>epoch1=>lr=0.000100=>psnr=25.071=>ypsnr=26.730
+27th-01:41:07===>epoch1=>lr=0.000100=>psnr=25.152=>ypsnr=26.802
+27th-01:45:07===>epoch1=>lr=0.000100=>psnr=25.129=>ypsnr=26.798
+27th-01:49:10===>epoch1=>lr=0.000100=>psnr=25.179=>ypsnr=26.846
+27th-01:53:12===>epoch1=>lr=0.000100=>psnr=25.204=>ypsnr=26.860
+27th-01:57:07===>epoch1=>lr=0.000100=>psnr=24.978=>ypsnr=26.796
+27th-02:01:11===>epoch1=>lr=0.000100=>psnr=25.142=>ypsnr=26.775
+27th-02:05:06===>epoch1=>lr=0.000100=>psnr=25.173=>ypsnr=26.783
+27th-02:09:17===>epoch1=>lr=0.000100=>psnr=25.212=>ypsnr=26.863
+27th-02:13:17===>epoch1=>lr=0.000100=>psnr=25.309=>ypsnr=26.939
+27th-02:17:26===>epoch1=>lr=0.000100=>psnr=25.246=>ypsnr=26.924
+27th-02:21:25===>epoch1=>lr=0.000100=>psnr=25.189=>ypsnr=26.890
+27th-02:25:31===>epoch1=>lr=0.000100=>psnr=25.217=>ypsnr=26.857
+27th-02:29:33===>epoch1=>lr=0.000100=>psnr=25.250=>ypsnr=26.892
+27th-02:33:41===>epoch1=>lr=0.000100=>psnr=25.315=>ypsnr=26.914
+27th-02:37:35===>epoch1=>lr=0.000100=>psnr=25.274=>ypsnr=26.918
+27th-02:41:41===>epoch1=>lr=0.000100=>psnr=25.191=>ypsnr=26.879
+27th-02:45:43===>epoch1=>lr=0.000100=>psnr=25.299=>ypsnr=26.933
+27th-02:49:43===>epoch1=>lr=0.000100=>psnr=25.367=>ypsnr=26.988
+27th-02:53:46===>epoch1=>lr=0.000100=>psnr=25.203=>ypsnr=26.873
+27th-02:57:46===>epoch1=>lr=0.000100=>psnr=25.357=>ypsnr=26.969
+27th-03:01:47===>epoch1=>lr=0.000100=>psnr=25.394=>ypsnr=26.997
+27th-03:05:40===>epoch1=>lr=0.000100=>psnr=25.425=>ypsnr=27.048
+27th-03:09:50===>epoch1=>lr=0.000100=>psnr=25.351=>ypsnr=26.948
+27th-03:13:45===>epoch1=>lr=0.000100=>psnr=25.362=>ypsnr=26.979
+27th-03:17:52===>epoch1=>lr=0.000100=>psnr=25.423=>ypsnr=27.005
+27th-03:21:55===>epoch1=>lr=0.000100=>psnr=25.511=>ypsnr=27.103
+27th-03:25:59===>epoch1=>lr=0.000100=>psnr=25.409=>ypsnr=26.966
+27th-03:30:01===>epoch1=>lr=0.000100=>psnr=25.389=>ypsnr=26.965
+27th-03:34:09===>epoch1=>lr=0.000100=>psnr=25.386=>ypsnr=27.017
+27th-03:38:22===>epoch1=>lr=0.000100=>psnr=25.402=>ypsnr=27.019
+27th-03:42:30===>epoch1=>lr=0.000100=>psnr=25.546=>ypsnr=27.134
+27th-03:46:29===>epoch1=>lr=0.000100=>psnr=25.470=>ypsnr=27.095
+27th-03:50:35===>epoch1=>lr=0.000100=>psnr=25.526=>ypsnr=27.118
+27th-03:54:37===>epoch1=>lr=0.000100=>psnr=25.467=>ypsnr=27.040
+27th-03:58:42===>epoch1=>lr=0.000100=>psnr=25.527=>ypsnr=27.124
+27th-04:02:33===>epoch1=>lr=0.000100=>psnr=25.481=>ypsnr=27.051
+27th-04:06:40===>epoch1=>lr=0.000100=>psnr=25.508=>ypsnr=27.117
+27th-04:10:40===>epoch1=>lr=0.000100=>psnr=25.529=>ypsnr=27.135
+27th-04:14:46===>epoch1=>lr=0.000100=>psnr=25.546=>ypsnr=27.087
+27th-04:18:42===>epoch1=>lr=0.000100=>psnr=25.635=>ypsnr=27.162
+27th-04:22:41===>epoch1=>lr=0.000100=>psnr=25.546=>ypsnr=27.119
+27th-04:26:39===>epoch1=>lr=0.000100=>psnr=25.630=>ypsnr=27.194
+27th-04:30:42===>epoch1=>lr=0.000100=>psnr=25.604=>ypsnr=27.154
+27th-01:55:03 | epoch0(4900) | lr=0.0001 | psnr=24.166 | ypsnr=26.369 | cont_mse=0.238313 | Loss(G):0.0844833[Cont:0.568522/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-01:59:17 | epoch0(5000) | lr=0.0001 | psnr=23.888 | ypsnr=26.257 | cont_mse=0.241554 | Loss(G):0.0804515[Cont:0.528204/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-02:03:26 | epoch0(5100) | lr=0.0001 | psnr=24.351 | ypsnr=26.374 | cont_mse=0.238848 | Loss(G):0.075699[Cont:0.480679/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-02:07:43 | epoch0(5200) | lr=0.0001 | psnr=24.155 | ypsnr=26.474 | cont_mse=0.240941 | Loss(G):0.0688405[Cont:0.412095/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-02:11:55 | epoch0(5300) | lr=0.0001 | psnr=24.500 | ypsnr=26.374 | cont_mse=0.242735 | Loss(G):0.0679091[Cont:0.40278/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-02:16:05 | epoch0(5400) | lr=0.0001 | psnr=24.144 | ypsnr=26.530 | cont_mse=0.238934 | Loss(G):0.0722177[Cont:0.445867/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-02:20:20 | epoch0(5500) | lr=0.0001 | psnr=24.703 | ypsnr=26.512 | cont_mse=0.239815 | Loss(G):0.0860181[Cont:0.58387/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-02:24:35 | epoch0(5600) | lr=0.0001 | psnr=24.208 | ypsnr=26.653 | cont_mse=0.24251 | Loss(G):0.0798663[Cont:0.522352/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-02:28:57 | epoch0(5700) | lr=0.0001 | psnr=24.266 | ypsnr=26.315 | cont_mse=0.235983 | Loss(G):0.0732036[Cont:0.455726/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-02:33:17 | epoch0(5800) | lr=0.0001 | psnr=24.688 | ypsnr=26.559 | cont_mse=0.238183 | Loss(G):0.0728249[Cont:0.451939/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-02:37:44 | epoch0(5900) | lr=0.0001 | psnr=24.503 | ypsnr=26.273 | cont_mse=0.238894 | Loss(G):0.0641096[Cont:0.364785/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-02:42:03 | epoch0(6000) | lr=0.0001 | psnr=24.571 | ypsnr=26.554 | cont_mse=0.23619 | Loss(G):0.0640112[Cont:0.363801/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-02:46:31 | epoch0(6100) | lr=0.0001 | psnr=24.059 | ypsnr=26.427 | cont_mse=0.238492 | Loss(G):0.0853955[Cont:0.577645/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-02:50:37 | epoch0(6200) | lr=0.0001 | psnr=24.820 | ypsnr=26.681 | cont_mse=0.236713 | Loss(G):0.0655242[Cont:0.378931/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-02:54:48 | epoch0(6300) | lr=0.0001 | psnr=24.431 | ypsnr=26.556 | cont_mse=0.234511 | Loss(G):0.0916662[Cont:0.640352/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-02:59:10 | epoch0(6400) | lr=0.0001 | psnr=24.810 | ypsnr=26.671 | cont_mse=0.234336 | Loss(G):0.0838149[Cont:0.561838/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-03:03:33 | epoch0(6500) | lr=0.0001 | psnr=24.718 | ypsnr=26.723 | cont_mse=0.235698 | Loss(G):0.0839084[Cont:0.562774/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-03:07:52 | epoch0(6600) | lr=0.0001 | psnr=24.830 | ypsnr=26.656 | cont_mse=0.23803 | Loss(G):0.0748308[Cont:0.471998/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-03:12:04 | epoch0(6700) | lr=0.0001 | psnr=24.789 | ypsnr=26.531 | cont_mse=0.235637 | Loss(G):0.0686704[Cont:0.410394/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-03:16:21 | epoch0(6800) | lr=0.0001 | psnr=24.581 | ypsnr=26.663 | cont_mse=0.240661 | Loss(G):0.0657556[Cont:0.381246/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-03:20:40 | epoch0(6900) | lr=0.0001 | psnr=24.345 | ypsnr=26.657 | cont_mse=0.237947 | Loss(G):0.0823583[Cont:0.547272/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-03:24:40 | epoch0(7000) | lr=0.0001 | psnr=24.450 | ypsnr=26.489 | cont_mse=0.236684 | Loss(G):0.082838[Cont:0.55207/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-03:28:55 | epoch0(7100) | lr=0.0001 | psnr=23.852 | ypsnr=26.354 | cont_mse=0.23787 | Loss(G):0.106152[Cont:0.785212/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-03:33:08 | epoch0(7200) | lr=0.0001 | psnr=23.976 | ypsnr=25.779 | cont_mse=0.242167 | Loss(G):0.0746598[Cont:0.470288/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-03:37:19 | epoch0(7300) | lr=0.0001 | psnr=24.789 | ypsnr=26.652 | cont_mse=0.23654 | Loss(G):0.0671391[Cont:0.39508/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-03:41:31 | epoch0(7400) | lr=0.0001 | psnr=24.796 | ypsnr=26.609 | cont_mse=0.23668 | Loss(G):0.0734774[Cont:0.458464/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-03:45:48 | epoch0(7500) | lr=0.0001 | psnr=24.163 | ypsnr=26.132 | cont_mse=0.238515 | Loss(G):0.0962862[Cont:0.686552/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-03:50:07 | epoch0(7600) | lr=0.0001 | psnr=24.274 | ypsnr=26.613 | cont_mse=0.237817 | Loss(G):0.0939967[Cont:0.663657/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-03:54:21 | epoch0(7700) | lr=0.0001 | psnr=24.710 | ypsnr=26.514 | cont_mse=0.233963 | Loss(G):0.0712701[Cont:0.436391/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-03:58:41 | epoch0(7800) | lr=0.0001 | psnr=24.492 | ypsnr=26.406 | cont_mse=0.237874 | Loss(G):0.0764341[Cont:0.488031/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-04:03:01 | epoch0(7900) | lr=0.0001 | psnr=24.790 | ypsnr=26.644 | cont_mse=0.239032 | Loss(G):0.072061[Cont:0.4443/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-04:07:05 | epoch0(8000) | lr=0.0001 | psnr=23.509 | ypsnr=26.599 | cont_mse=0.24057 | Loss(G):0.0848267[Cont:0.571957/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-04:11:13 | epoch0(8100) | lr=0.0001 | psnr=24.682 | ypsnr=26.602 | cont_mse=0.237861 | Loss(G):0.0728017[Cont:0.451707/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-04:15:07 | epoch0(8200) | lr=0.0001 | psnr=24.466 | ypsnr=26.548 | cont_mse=0.236316 | Loss(G):0.0843868[Cont:0.567557/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-04:19:18 | epoch0(8300) | lr=0.0001 | psnr=24.737 | ypsnr=26.636 | cont_mse=0.234137 | Loss(G):0.072543[Cont:0.449119/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-04:23:33 | epoch0(8400) | lr=0.0001 | psnr=24.410 | ypsnr=26.175 | cont_mse=0.235957 | Loss(G):0.0712148[Cont:0.435838/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-04:27:56 | epoch0(8500) | lr=0.0001 | psnr=23.603 | ypsnr=26.067 | cont_mse=0.235135 | Loss(G):0.0643088[Cont:0.366778/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-04:32:02 | epoch0(8600) | lr=0.0001 | psnr=24.167 | ypsnr=25.667 | cont_mse=0.234605 | Loss(G):0.070486[Cont:0.42855/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-04:36:25 | epoch0(8700) | lr=0.0001 | psnr=24.660 | ypsnr=26.520 | cont_mse=0.235691 | Loss(G):0.0757041[Cont:0.480731/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-04:40:44 | epoch0(8800) | lr=0.0001 | psnr=24.189 | ypsnr=26.413 | cont_mse=0.233672 | Loss(G):0.0772539[Cont:0.496229/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-04:45:00 | epoch0(8900) | lr=0.0001 | psnr=24.503 | ypsnr=26.203 | cont_mse=0.234223 | Loss(G):0.0678117[Cont:0.401806/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-04:49:23 | epoch0(9000) | lr=0.0001 | psnr=24.349 | ypsnr=26.194 | cont_mse=0.236632 | Loss(G):0.0733737[Cont:0.457427/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-04:53:43 | epoch0(9100) | lr=0.0001 | psnr=24.643 | ypsnr=26.801 | cont_mse=0.232247 | Loss(G):0.069215[Cont:0.41584/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-04:57:50 | epoch0(9200) | lr=0.0001 | psnr=24.391 | ypsnr=26.111 | cont_mse=0.236408 | Loss(G):0.0734499[Cont:0.458189/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-05:01:55 | epoch0(9300) | lr=0.0001 | psnr=24.567 | ypsnr=26.592 | cont_mse=0.236128 | Loss(G):0.07975[Cont:0.52119/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-05:06:05 | epoch0(9400) | lr=0.0001 | psnr=24.468 | ypsnr=26.339 | cont_mse=0.235628 | Loss(G):0.0723757[Cont:0.447447/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-05:10:02 | epoch0(9500) | lr=0.0001 | psnr=24.696 | ypsnr=26.713 | cont_mse=0.23381 | Loss(G):0.0819348[Cont:0.543038/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-05:14:23 | epoch0(9600) | lr=0.0001 | psnr=24.720 | ypsnr=26.541 | cont_mse=0.232713 | Loss(G):0.0744056[Cont:0.467746/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-05:18:49 | epoch0(9700) | lr=0.0001 | psnr=24.616 | ypsnr=26.327 | cont_mse=0.230932 | Loss(G):0.0779189[Cont:0.502878/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-05:22:45 | epoch0(9800) | lr=0.0001 | psnr=24.567 | ypsnr=26.651 | cont_mse=0.232564 | Loss(G):0.0850616[Cont:0.574305/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-05:26:46 | epoch0(9900) | lr=0.0001 | psnr=24.519 | ypsnr=26.688 | cont_mse=0.232394 | Loss(G):0.0654935[Cont:0.378625/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-05:31:08 | epoch0(10000) | lr=0.0001 | psnr=24.732 | ypsnr=26.685 | cont_mse=0.233349 | Loss(G):0.0754883[Cont:0.478573/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-05:35:31 | epoch0(10100) | lr=0.0001 | psnr=24.669 | ypsnr=26.591 | cont_mse=0.230669 | Loss(G):0.0693565[Cont:0.417255/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-05:39:46 | epoch0(10200) | lr=0.0001 | psnr=24.538 | ypsnr=26.731 | cont_mse=0.231256 | Loss(G):0.0626251[Cont:0.349941/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-05:44:09 | epoch0(10300) | lr=0.0001 | psnr=24.607 | ypsnr=26.358 | cont_mse=0.230149 | Loss(G):0.0965752[Cont:0.689442/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-05:48:30 | epoch0(10400) | lr=0.0001 | psnr=24.345 | ypsnr=26.546 | cont_mse=0.233318 | Loss(G):0.0750087[Cont:0.473777/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-05:52:46 | epoch0(10500) | lr=0.0001 | psnr=24.180 | ypsnr=25.785 | cont_mse=0.237637 | Loss(G):0.0732375[Cont:0.456065/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-05:57:09 | epoch0(10600) | lr=0.0001 | psnr=23.316 | ypsnr=25.176 | cont_mse=0.234739 | Loss(G):0.06631[Cont:0.386789/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-06:01:23 | epoch0(10700) | lr=0.0001 | psnr=24.736 | ypsnr=26.600 | cont_mse=0.235706 | Loss(G):0.0782304[Cont:0.505994/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-06:05:48 | epoch0(10800) | lr=0.0001 | psnr=24.716 | ypsnr=26.522 | cont_mse=0.234546 | Loss(G):0.0665463[Cont:0.389153/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-06:09:49 | epoch0(10900) | lr=0.0001 | psnr=24.543 | ypsnr=26.404 | cont_mse=0.23203 | Loss(G):0.0800122[Cont:0.523812/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-06:14:08 | epoch0(11000) | lr=0.0001 | psnr=24.489 | ypsnr=26.452 | cont_mse=0.233847 | Loss(G):0.0784487[Cont:0.508177/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-06:18:26 | epoch0(11100) | lr=0.0001 | psnr=24.660 | ypsnr=26.632 | cont_mse=0.231785 | Loss(G):0.0904234[Cont:0.627924/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-06:22:37 | epoch0(11200) | lr=0.0001 | psnr=24.577 | ypsnr=26.395 | cont_mse=0.23283 | Loss(G):0.0830188[Cont:0.553877/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-06:26:48 | epoch0(11300) | lr=0.0001 | psnr=24.010 | ypsnr=25.476 | cont_mse=0.232995 | Loss(G):0.08511[Cont:0.57479/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-06:31:07 | epoch0(11400) | lr=0.0001 | psnr=24.651 | ypsnr=26.326 | cont_mse=0.234167 | Loss(G):0.0843194[Cont:0.566884/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-06:35:30 | epoch0(11500) | lr=0.0001 | psnr=23.784 | ypsnr=26.380 | cont_mse=0.23213 | Loss(G):0.0709709[Cont:0.433399/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-06:39:56 | epoch0(11600) | lr=0.0001 | psnr=24.498 | ypsnr=26.542 | cont_mse=0.233455 | Loss(G):0.0658735[Cont:0.382425/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-06:44:19 | epoch0(11700) | lr=0.0001 | psnr=24.349 | ypsnr=26.591 | cont_mse=0.231215 | Loss(G):0.0706349[Cont:0.430039/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-06:48:33 | epoch0(11800) | lr=0.0001 | psnr=24.669 | ypsnr=26.469 | cont_mse=0.232883 | Loss(G):0.0635952[Cont:0.359642/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-06:52:49 | epoch0(11900) | lr=0.0001 | psnr=24.688 | ypsnr=26.521 | cont_mse=0.236454 | Loss(G):0.0643125[Cont:0.366814/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-06:56:58 | epoch0(12000) | lr=0.0001 | psnr=24.312 | ypsnr=26.073 | cont_mse=0.232273 | Loss(G):0.0670616[Cont:0.394306/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-07:01:18 | epoch0(12100) | lr=0.0001 | psnr=24.541 | ypsnr=26.341 | cont_mse=0.237533 | Loss(G):0.0759872[Cont:0.483562/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-07:05:42 | epoch0(12200) | lr=0.0001 | psnr=24.378 | ypsnr=26.550 | cont_mse=0.239059 | Loss(G):0.064577[Cont:0.369459/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-07:09:59 | epoch0(12300) | lr=0.0001 | psnr=24.586 | ypsnr=26.428 | cont_mse=0.232373 | Loss(G):0.0795235[Cont:0.518925/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-07:14:18 | epoch0(12400) | lr=0.0001 | psnr=24.048 | ypsnr=26.336 | cont_mse=0.234084 | Loss(G):0.0824117[Cont:0.582212/Adv:24.1905] | Loss(D):2.31216[Real:1.17045/Fake:3.45388]
+27th-07:18:40 | epoch0(12500) | lr=0.0001 | psnr=23.243 | ypsnr=25.149 | cont_mse=0.244883 | Loss(G):0.0790598[Cont:0.514287/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-07:23:00 | epoch0(12600) | lr=0.0001 | psnr=22.796 | ypsnr=24.825 | cont_mse=0.243359 | Loss(G):0.0612993[Cont:0.336683/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-07:27:09 | epoch0(12700) | lr=0.0001 | psnr=23.469 | ypsnr=25.213 | cont_mse=0.236112 | Loss(G):0.0807943[Cont:0.531633/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-07:31:21 | epoch0(12800) | lr=0.0001 | psnr=23.967 | ypsnr=25.851 | cont_mse=0.236412 | Loss(G):0.0842781[Cont:0.566471/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-07:35:30 | epoch0(12900) | lr=0.0001 | psnr=23.942 | ypsnr=25.770 | cont_mse=0.232839 | Loss(G):0.0799204[Cont:0.522894/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-07:40:08 | epoch0(13000) | lr=0.0001 | psnr=24.011 | ypsnr=25.841 | cont_mse=0.231478 | Loss(G):0.0814361[Cont:0.538051/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-07:44:41 | epoch0(13100) | lr=0.0001 | psnr=24.056 | ypsnr=25.985 | cont_mse=0.234614 | Loss(G):0.0640539[Cont:0.364229/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-07:48:59 | epoch0(13200) | lr=0.0001 | psnr=23.747 | ypsnr=25.358 | cont_mse=0.23029 | Loss(G):0.0680177[Cont:0.403867/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-07:53:24 | epoch0(13300) | lr=0.0001 | psnr=23.874 | ypsnr=26.137 | cont_mse=0.230835 | Loss(G):0.075762[Cont:0.48131/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-07:57:50 | epoch0(13400) | lr=0.0001 | psnr=24.205 | ypsnr=26.241 | cont_mse=0.22911 | Loss(G):0.0828289[Cont:0.551979/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-08:02:17 | epoch0(13500) | lr=0.0001 | psnr=23.978 | ypsnr=26.348 | cont_mse=0.231619 | Loss(G):0.0779921[Cont:0.50361/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-08:06:43 | epoch0(13600) | lr=0.0001 | psnr=23.401 | ypsnr=25.632 | cont_mse=0.233005 | Loss(G):0.0690065[Cont:0.413755/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-08:11:02 | epoch0(13700) | lr=0.0001 | psnr=24.300 | ypsnr=26.255 | cont_mse=0.23534 | Loss(G):0.0646733[Cont:0.370422/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-08:15:28 | epoch0(13800) | lr=0.0001 | psnr=24.232 | ypsnr=26.350 | cont_mse=0.233406 | Loss(G):0.0859384[Cont:0.583074/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-08:19:48 | epoch0(13900) | lr=0.0001 | psnr=24.230 | ypsnr=26.249 | cont_mse=0.231643 | Loss(G):0.0826858[Cont:0.550547/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-08:24:06 | epoch0(14000) | lr=0.0001 | psnr=24.462 | ypsnr=26.181 | cont_mse=0.232227 | Loss(G):0.0666606[Cont:0.390295/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-08:28:37 | epoch0(14100) | lr=0.0001 | psnr=23.944 | ypsnr=25.747 | cont_mse=0.234665 | Loss(G):0.0784288[Cont:0.507978/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-08:33:09 | epoch0(14200) | lr=0.0001 | psnr=24.481 | ypsnr=26.444 | cont_mse=0.232802 | Loss(G):0.0735015[Cont:0.458704/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-08:37:25 | epoch0(14300) | lr=0.0001 | psnr=24.493 | ypsnr=26.338 | cont_mse=0.232613 | Loss(G):0.0743727[Cont:0.467417/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-08:41:50 | epoch0(14400) | lr=0.0001 | psnr=24.457 | ypsnr=26.280 | cont_mse=0.232799 | Loss(G):0.0718274[Cont:0.441964/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-08:46:16 | epoch0(14500) | lr=0.0001 | psnr=24.600 | ypsnr=26.408 | cont_mse=0.230177 | Loss(G):0.0643482[Cont:0.367172/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-08:50:45 | epoch0(14600) | lr=0.0001 | psnr=24.497 | ypsnr=26.550 | cont_mse=0.228872 | Loss(G):0.075613[Cont:0.47982/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-08:55:12 | epoch0(14700) | lr=0.0001 | psnr=24.685 | ypsnr=26.626 | cont_mse=0.230663 | Loss(G):0.0700787[Cont:0.424476/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-08:59:46 | epoch0(14800) | lr=0.0001 | psnr=23.949 | ypsnr=25.970 | cont_mse=0.230519 | Loss(G):0.100148[Cont:0.725168/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-09:04:04 | epoch0(14900) | lr=0.0001 | psnr=24.576 | ypsnr=26.475 | cont_mse=0.230535 | Loss(G):0.0732288[Cont:0.455978/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-09:08:14 | epoch0(15000) | lr=0.0001 | psnr=24.244 | ypsnr=26.535 | cont_mse=0.232069 | Loss(G):0.0667011[Cont:0.390701/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-09:12:28 | epoch0(15100) | lr=0.0001 | psnr=23.925 | ypsnr=25.730 | cont_mse=0.229365 | Loss(G):0.0774647[Cont:0.498337/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-09:16:52 | epoch0(15200) | lr=0.0001 | psnr=24.474 | ypsnr=26.490 | cont_mse=0.232601 | Loss(G):0.0822262[Cont:0.545952/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-09:21:32 | epoch0(15300) | lr=0.0001 | psnr=24.463 | ypsnr=26.442 | cont_mse=0.232643 | Loss(G):0.0715694[Cont:0.439384/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-09:25:45 | epoch0(15400) | lr=0.0001 | psnr=23.702 | ypsnr=25.319 | cont_mse=0.238765 | Loss(G):0.0401594[Cont:0.401594/Adv:0] | Loss(D):13.8155[Real:0/Fake:27.631]
+27th-09:30:18 | epoch0(15500) | lr=0.0001 | psnr=23.830 | ypsnr=26.403 | cont_mse=0.235669 | Loss(G):0.0518383[Cont:0.518383/Adv:0] | Loss(D):13.8155[Real:0/Fake:27.631]
+27th-09:34:43 | epoch0(15600) | lr=0.0001 | psnr=24.281 | ypsnr=26.640 | cont_mse=0.234929 | Loss(G):0.0495063[Cont:0.495063/Adv:0] | Loss(D):13.8155[Real:0/Fake:27.631]
+27th-09:39:00 | epoch0(15700) | lr=0.0001 | psnr=23.780 | ypsnr=25.851 | cont_mse=0.232671 | Loss(G):0.0374611[Cont:0.374611/Adv:0] | Loss(D):13.8155[Real:0/Fake:27.631]
+27th-09:43:03 | epoch0(15800) | lr=0.0001 | psnr=24.351 | ypsnr=26.617 | cont_mse=0.230174 | Loss(G):0.0456658[Cont:0.456658/Adv:0] | Loss(D):13.8155[Real:0/Fake:27.631]
+27th-09:47:15 | epoch0(15900) | lr=0.0001 | psnr=24.288 | ypsnr=26.582 | cont_mse=0.231159 | Loss(G):0.040108[Cont:0.40108/Adv:0] | Loss(D):13.8155[Real:0/Fake:27.631]
+27th-09:51:26 | epoch0(16000) | lr=0.0001 | psnr=24.461 | ypsnr=26.540 | cont_mse=0.230983 | Loss(G):0.0406367[Cont:0.406367/Adv:0] | Loss(D):13.8155[Real:0/Fake:27.631]
+27th-09:55:29 | epoch0(16100) | lr=0.0001 | psnr=23.931 | ypsnr=26.095 | cont_mse=0.228723 | Loss(G):0.0438489[Cont:0.438489/Adv:0] | Loss(D):13.8155[Real:0/Fake:27.631]
+27th-09:59:33 | epoch0(16200) | lr=0.0001 | psnr=24.099 | ypsnr=26.531 | cont_mse=0.232489 | Loss(G):0.0426188[Cont:0.426188/Adv:0] | Loss(D):13.8155[Real:0/Fake:27.631]
+27th-10:03:40 | epoch0(16300) | lr=0.0001 | psnr=24.344 | ypsnr=26.513 | cont_mse=0.232149 | Loss(G):0.0489466[Cont:0.489466/Adv:0] | Loss(D):13.8155[Real:0/Fake:27.631]
+27th-10:07:52 | epoch0(16400) | lr=0.0001 | psnr=24.132 | ypsnr=26.414 | cont_mse=0.230127 | Loss(G):0.0413777[Cont:0.413777/Adv:0] | Loss(D):13.8155[Real:0/Fake:27.631]
+27th-10:12:05 | epoch0(16500) | lr=0.0001 | psnr=20.593 | ypsnr=25.116 | cont_mse=0.251971 | Loss(G):0.0889029[Cont:0.612719/Adv:27.631] | Loss(D):1.72694[Real:0/Fake:3.45388]
+27th-10:16:12 | epoch0(16600) | lr=0.0001 | psnr=22.541 | ypsnr=26.349 | cont_mse=0.242323 | Loss(G):0.060312[Cont:0.60312/Adv:0] | Loss(D):13.8155[Real:0/Fake:27.631]
+27th-10:20:20 | epoch0(16700) | lr=0.0001 | psnr=23.300 | ypsnr=25.451 | cont_mse=0.238301 | Loss(G):0.0593614[Cont:0.593614/Adv:0] | Loss(D):13.8155[Real:0/Fake:27.631]
+27th-10:49:25 | epoch0(16800) | lr=0.0001 | psnr=24.194 | ypsnr=26.109 | cont_mse=0.235931 | Loss(G):0.0478926[Cont:0.478926/Adv:0] | Loss(D):13.8155[Real:0/Fake:27.631]
+27th-11:12:11 | epoch0(16900) | lr=0.0001 | psnr=24.174 | ypsnr=26.487 | cont_mse=0.233714 | Loss(G):0.0503898[Cont:0.503898/Adv:0] | Loss(D):13.8155[Real:0/Fake:27.631]
+27th-11:16:24 | epoch0(17000) | lr=0.0001 | psnr=24.492 | ypsnr=26.560 | cont_mse=0.232154 | Loss(G):0.0419676[Cont:0.419676/Adv:0] | Loss(D):13.8155[Real:0/Fake:27.631]
+27th-11:20:27 | epoch0(17100) | lr=0.0001 | psnr=24.406 | ypsnr=26.459 | cont_mse=0.230111 | Loss(G):0.0460392[Cont:0.460392/Adv:0] | Loss(D):13.8155[Real:0/Fake:27.631]
+27th-11:24:39 | epoch0(17200) | lr=0.0001 | psnr=24.225 | ypsnr=25.972 | cont_mse=0.230607 | Loss(G):0.0392476[Cont:0.392476/Adv:0] | Loss(D):13.8155[Real:0/Fake:27.631]
+27th-11:28:51 | epoch0(17300) | lr=0.0001 | psnr=24.514 | ypsnr=26.408 | cont_mse=0.228572 | Loss(G):0.0590389[Cont:0.590389/Adv:0] | Loss(D):13.8155[Real:0/Fake:27.631]
+27th-11:32:58 | epoch0(17400) | lr=0.0001 | psnr=24.455 | ypsnr=26.299 | cont_mse=0.226806 | Loss(G):0.0478746[Cont:0.478746/Adv:0] | Loss(D):13.8155[Real:0/Fake:27.631]
+27th-11:37:20 | epoch0(17500) | lr=0.0001 | psnr=24.695 | ypsnr=26.493 | cont_mse=0.228969 | Loss(G):0.0462857[Cont:0.462857/Adv:0] | Loss(D):13.8155[Real:0/Fake:27.631]
+27th-11:41:42 | epoch0(17600) | lr=0.0001 | psnr=24.121 | ypsnr=26.387 | cont_mse=0.228982 | Loss(G):0.061683[Cont:0.61683/Adv:0] | Loss(D):13.8155[Real:0/Fake:27.631]
+27th-11:46:07 | epoch0(17700) | lr=0.0001 | psnr=24.436 | ypsnr=26.326 | cont_mse=0.227934 | Loss(G):0.0381475[Cont:0.381475/Adv:0] | Loss(D):13.8155[Real:0/Fake:27.631]
+27th-11:50:34 | epoch0(17800) | lr=0.0001 | psnr=24.110 | ypsnr=26.276 | cont_mse=0.231899 | Loss(G):0.0504849[Cont:0.504849/Adv:0] | Loss(D):13.8155[Real:0/Fake:27.631]
+27th-11:54:54 | epoch0(17900) | lr=0.0001 | psnr=24.311 | ypsnr=26.135 | cont_mse=0.23028 | Loss(G):0.0446614[Cont:0.446614/Adv:0] | Loss(D):13.8155[Real:0/Fake:27.631]
+27th-11:59:08 | epoch0(18000) | lr=0.0001 | psnr=24.096 | ypsnr=26.686 | cont_mse=0.229158 | Loss(G):0.0629057[Cont:0.629057/Adv:0] | Loss(D):13.8155[Real:0/Fake:27.631]
+27th-12:03:19 | epoch0(18100) | lr=0.0001 | psnr=24.518 | ypsnr=26.488 | cont_mse=0.227721 | Loss(G):0.0527204[Cont:0.527204/Adv:0] | Loss(D):13.8155[Real:0/Fake:27.631]
+27th-12:07:42 | epoch0(18200) | lr=0.0001 | psnr=24.311 | ypsnr=25.931 | cont_mse=0.227317 | Loss(G):0.0691587[Cont:0.691587/Adv:0] | Loss(D):13.8155[Real:0/Fake:27.631]
+27th-12:12:07 | epoch0(18300) | lr=0.0001 | psnr=24.501 | ypsnr=26.617 | cont_mse=0.228681 | Loss(G):0.0399192[Cont:0.399192/Adv:0] | Loss(D):13.8155[Real:0/Fake:27.631]
+27th-12:16:23 | epoch0(18400) | lr=0.0001 | psnr=24.598 | ypsnr=26.733 | cont_mse=0.226637 | Loss(G):0.0565393[Cont:0.565393/Adv:0] | Loss(D):13.8155[Real:0/Fake:27.631]
+27th-12:20:26 | epoch0(18500) | lr=0.0001 | psnr=24.457 | ypsnr=26.710 | cont_mse=0.229072 | Loss(G):0.078009[Cont:0.50378/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-12:24:14 | epoch0(18600) | lr=0.0001 | psnr=24.431 | ypsnr=26.283 | cont_mse=0.227336 | Loss(G):0.0892566[Cont:0.616256/Adv:27.631] | Loss(D):3.45388[Real:6.90776/Fake:0]
+27th-12:28:07 | epoch0(18700) | lr=0.0001 | psnr=24.300 | ypsnr=26.527 | cont_mse=0.229359 | Loss(G):0.0763024[Cont:0.486713/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-12:31:59 | epoch0(18800) | lr=0.0001 | psnr=23.803 | ypsnr=26.373 | cont_mse=0.227925 | Loss(G):0.0810217[Cont:0.533907/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-12:35:55 | epoch0(18900) | lr=0.0001 | psnr=24.428 | ypsnr=26.672 | cont_mse=0.22892 | Loss(G):0.0816732[Cont:0.540422/Adv:27.631] | Loss(D):1.72694[Real:3.45388/Fake:0]
+27th-12:39:49 | epoch0(19000) | lr=0.0001 | psnr=24.675 | ypsnr=26.451 | cont_mse=0.22738 | Loss(G):0.077323[Cont:0.49692/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-12:43:46 | epoch0(19100) | lr=0.0001 | psnr=24.723 | ypsnr=26.594 | cont_mse=0.226478 | Loss(G):0.0704734[Cont:0.428424/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-12:48:09 | epoch0(19200) | lr=0.0001 | psnr=24.655 | ypsnr=26.629 | cont_mse=0.22598 | Loss(G):0.0735394[Cont:0.459084/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-12:52:33 | epoch0(19300) | lr=0.0001 | psnr=24.093 | ypsnr=26.361 | cont_mse=0.230346 | Loss(G):0.0720025[Cont:0.443715/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-12:57:02 | epoch0(19400) | lr=0.0001 | psnr=24.191 | ypsnr=26.158 | cont_mse=0.227412 | Loss(G):0.0566218[Cont:0.289908/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-13:01:30 | epoch0(19500) | lr=0.0001 | psnr=24.672 | ypsnr=26.533 | cont_mse=0.228721 | Loss(G):0.0776954[Cont:0.500644/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-13:05:53 | epoch0(19600) | lr=0.0001 | psnr=23.779 | ypsnr=25.575 | cont_mse=0.228625 | Loss(G):0.0870608[Cont:0.594298/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-13:10:16 | epoch0(19700) | lr=0.0001 | psnr=24.716 | ypsnr=26.676 | cont_mse=0.227941 | Loss(G):0.0772905[Cont:0.496595/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-13:14:22 | epoch0(19800) | lr=0.0001 | psnr=24.715 | ypsnr=26.730 | cont_mse=0.227483 | Loss(G):0.0648442[Cont:0.372132/Adv:27.631] | Loss(D):0[Real:0/Fake:0]
+27th-04:34:41===>epoch1=>lr=0.000100=>psnr=25.586=>ypsnr=27.145
+27th-04:38:50===>epoch1=>lr=0.000100=>psnr=25.590=>ypsnr=27.200
+27th-04:42:50===>epoch1=>lr=0.000100=>psnr=25.590=>ypsnr=27.174
+27th-04:46:50===>epoch1=>lr=0.000100=>psnr=25.512=>ypsnr=27.004
+27th-04:50:56===>epoch1=>lr=0.000100=>psnr=25.584=>ypsnr=27.152
+27th-04:54:56===>epoch1=>lr=0.000100=>psnr=25.670=>ypsnr=27.227
+27th-04:59:03===>epoch1=>lr=0.000100=>psnr=25.525=>ypsnr=27.104
+27th-05:03:01===>epoch1=>lr=0.000100=>psnr=25.559=>ypsnr=27.131
+27th-05:07:07===>epoch1=>lr=0.000100=>psnr=25.634=>ypsnr=27.174
+27th-05:11:04===>epoch1=>lr=0.000100=>psnr=25.267=>ypsnr=26.788
+27th-05:15:14===>epoch1=>lr=0.000100=>psnr=25.726=>ypsnr=27.234
+27th-05:19:07===>epoch1=>lr=0.000100=>psnr=25.660=>ypsnr=27.207
+27th-05:23:14===>epoch1=>lr=0.000100=>psnr=25.691=>ypsnr=27.227
+27th-05:27:14===>epoch1=>lr=0.000100=>psnr=25.759=>ypsnr=27.303
+27th-05:31:20===>epoch1=>lr=0.000100=>psnr=25.741=>ypsnr=27.273
+27th-05:35:13===>epoch1=>lr=0.000100=>psnr=25.710=>ypsnr=27.249
+27th-05:39:21===>epoch1=>lr=0.000100=>psnr=25.749=>ypsnr=27.217
+27th-05:43:17===>epoch1=>lr=0.000100=>psnr=25.679=>ypsnr=27.258
+27th-05:47:21===>epoch1=>lr=0.000100=>psnr=25.730=>ypsnr=27.256
+27th-05:51:26===>epoch1=>lr=0.000100=>psnr=25.760=>ypsnr=27.284
+27th-05:55:27===>epoch1=>lr=0.000100=>psnr=25.764=>ypsnr=27.275
+27th-05:59:27===>epoch1=>lr=0.000100=>psnr=25.780=>ypsnr=27.296
+27th-06:03:27===>epoch1=>lr=0.000100=>psnr=25.796=>ypsnr=27.300
+27th-06:07:36===>epoch1=>lr=0.000100=>psnr=25.741=>ypsnr=27.266
+27th-06:11:37===>epoch1=>lr=0.000100=>psnr=25.743=>ypsnr=27.232
+27th-06:15:44===>epoch1=>lr=0.000100=>psnr=25.744=>ypsnr=27.257
+27th-06:19:42===>epoch1=>lr=0.000100=>psnr=25.815=>ypsnr=27.296
+27th-06:23:49===>epoch1=>lr=0.000100=>psnr=25.783=>ypsnr=27.272
+27th-06:27:46===>epoch1=>lr=0.000100=>psnr=25.550=>ypsnr=26.978
+27th-06:31:54===>epoch1=>lr=0.000100=>psnr=25.796=>ypsnr=27.313
+27th-06:35:50===>epoch1=>lr=0.000100=>psnr=25.867=>ypsnr=27.354
+27th-06:39:59===>epoch1=>lr=0.000100=>psnr=25.728=>ypsnr=27.230
+27th-06:43:50===>epoch1=>lr=0.000100=>psnr=25.762=>ypsnr=27.319
+27th-06:47:55===>epoch1=>lr=0.000100=>psnr=25.687=>ypsnr=27.154
+27th-06:51:54===>epoch1=>lr=0.000100=>psnr=25.890=>ypsnr=27.376
+27th-06:55:57===>epoch1=>lr=0.000100=>psnr=25.878=>ypsnr=27.379
+27th-07:00:01===>epoch1=>lr=0.000100=>psnr=25.826=>ypsnr=27.324
+27th-07:04:05===>epoch1=>lr=0.000100=>psnr=25.764=>ypsnr=27.309
+27th-07:08:10===>epoch1=>lr=0.000100=>psnr=25.779=>ypsnr=27.252
+27th-07:12:14===>epoch1=>lr=0.000100=>psnr=25.854=>ypsnr=27.354
+27th-07:16:15===>epoch1=>lr=0.000100=>psnr=25.855=>ypsnr=27.363
+27th-07:20:15===>epoch1=>lr=0.000100=>psnr=25.825=>ypsnr=27.387
+27th-07:24:20===>epoch1=>lr=0.000100=>psnr=25.843=>ypsnr=27.301
+27th-07:28:14===>epoch1=>lr=0.000100=>psnr=25.885=>ypsnr=27.389
+27th-07:32:19===>epoch1=>lr=0.000100=>psnr=25.856=>ypsnr=27.360
+27th-07:36:19===>epoch1=>lr=0.000100=>psnr=25.890=>ypsnr=27.405
+27th-07:40:28===>epoch1=>lr=0.000100=>psnr=25.924=>ypsnr=27.436
+27th-07:44:19===>epoch1=>lr=0.000100=>psnr=25.909=>ypsnr=27.427
+27th-07:48:25===>epoch1=>lr=0.000100=>psnr=25.747=>ypsnr=27.419
+27th-07:52:31===>epoch1=>lr=0.000100=>psnr=25.922=>ypsnr=27.409
+27th-07:56:34===>epoch1=>lr=0.000100=>psnr=25.931=>ypsnr=27.419
+27th-08:00:34===>epoch1=>lr=0.000100=>psnr=25.981=>ypsnr=27.466
+27th-08:04:39===>epoch1=>lr=0.000100=>psnr=25.954=>ypsnr=27.438
+27th-08:08:42===>epoch1=>lr=0.000100=>psnr=25.929=>ypsnr=27.396
+27th-08:12:43===>epoch1=>lr=0.000100=>psnr=25.979=>ypsnr=27.471
+27th-08:16:49===>epoch1=>lr=0.000100=>psnr=25.956=>ypsnr=27.434
+27th-08:20:51===>epoch1=>lr=0.000100=>psnr=25.944=>ypsnr=27.451
+27th-08:24:59===>epoch1=>lr=0.000100=>psnr=25.999=>ypsnr=27.489
+27th-08:28:57===>epoch1=>lr=0.000100=>psnr=25.967=>ypsnr=27.434
+27th-08:33:02===>epoch1=>lr=0.000100=>psnr=25.902=>ypsnr=27.451
+27th-08:36:52===>epoch1=>lr=0.000100=>psnr=25.915=>ypsnr=27.431
+27th-08:40:56===>epoch1=>lr=0.000100=>psnr=25.338=>ypsnr=27.352
+27th-08:44:54===>epoch1=>lr=0.000100=>psnr=25.998=>ypsnr=27.473
+27th-08:48:57===>epoch1=>lr=0.000100=>psnr=25.979=>ypsnr=27.464
+27th-08:52:59===>epoch1=>lr=0.000100=>psnr=25.955=>ypsnr=27.423
+27th-08:57:05===>epoch1=>lr=0.000100=>psnr=25.986=>ypsnr=27.445
+27th-09:01:13===>epoch1=>lr=0.000100=>psnr=25.980=>ypsnr=27.452
+27th-09:05:19===>epoch1=>lr=0.000100=>psnr=25.985=>ypsnr=27.467
+27th-09:09:24===>epoch1=>lr=0.000100=>psnr=25.912=>ypsnr=27.360
+27th-09:13:22===>epoch1=>lr=0.000100=>psnr=25.969=>ypsnr=27.444
+27th-09:17:32===>epoch1=>lr=0.000100=>psnr=26.035=>ypsnr=27.502
+27th-09:21:27===>epoch1=>lr=0.000100=>psnr=25.965=>ypsnr=27.467
+27th-09:25:30===>epoch1=>lr=0.000100=>psnr=25.992=>ypsnr=27.483
+27th-09:29:23===>epoch1=>lr=0.000100=>psnr=25.963=>ypsnr=27.448
+27th-09:33:26===>epoch1=>lr=0.000100=>psnr=26.048=>ypsnr=27.524
+27th-09:37:27===>epoch1=>lr=0.000100=>psnr=26.004=>ypsnr=27.459
+27th-09:41:30===>epoch1=>lr=0.000100=>psnr=26.042=>ypsnr=27.474
+27th-09:45:33===>epoch1=>lr=0.000100=>psnr=26.040=>ypsnr=27.489
+27th-09:49:28===>epoch1=>lr=0.000100=>psnr=26.036=>ypsnr=27.526
+27th-09:53:42===>epoch1=>lr=0.000100=>psnr=26.051=>ypsnr=27.519
+27th-09:57:47===>epoch1=>lr=0.000100=>psnr=26.061=>ypsnr=27.554
+27th-10:01:50===>epoch1=>lr=0.000100=>psnr=26.028=>ypsnr=27.500
+27th-10:05:51===>epoch1=>lr=0.000100=>psnr=26.034=>ypsnr=27.512
+27th-10:10:00===>epoch1=>lr=0.000100=>psnr=25.996=>ypsnr=27.528
+27th-10:13:58===>epoch1=>lr=0.000100=>psnr=26.036=>ypsnr=27.523
+27th-10:18:11===>epoch1=>lr=0.000100=>psnr=26.049=>ypsnr=27.532
+27th-10:22:14===>epoch1=>lr=0.000100=>psnr=26.061=>ypsnr=27.528
+27th-11:11:14===>epoch1=>lr=0.000100=>psnr=26.049=>ypsnr=27.527
+27th-11:15:20===>epoch1=>lr=0.000100=>psnr=25.975=>ypsnr=27.482
+27th-11:19:23===>epoch1=>lr=0.000100=>psnr=26.040=>ypsnr=27.521
+27th-11:23:27===>epoch1=>lr=0.000100=>psnr=26.058=>ypsnr=27.536
+27th-11:27:31===>epoch1=>lr=0.000100=>psnr=26.062=>ypsnr=27.530
+27th-11:31:36===>epoch1=>lr=0.000100=>psnr=26.050=>ypsnr=27.500
+27th-11:35:41===>epoch1=>lr=0.000100=>psnr=26.087=>ypsnr=27.562
+27th-11:39:34===>epoch1=>lr=0.000100=>psnr=26.054=>ypsnr=27.553
+27th-11:43:45===>epoch1=>lr=0.000100=>psnr=25.999=>ypsnr=27.430
+27th-11:47:47===>epoch1=>lr=0.000100=>psnr=26.055=>ypsnr=27.522
+27th-11:51:56===>epoch1=>lr=0.000100=>psnr=26.120=>ypsnr=27.589
+27th-11:56:02===>epoch1=>lr=0.000100=>psnr=26.096=>ypsnr=27.571
+27th-12:00:07===>epoch1=>lr=0.000100=>psnr=26.053=>ypsnr=27.517
+27th-12:04:05===>epoch1=>lr=0.000100=>psnr=26.039=>ypsnr=27.507
+27th-12:08:15===>epoch1=>lr=0.000100=>psnr=26.081=>ypsnr=27.557
+27th-12:12:10===>epoch1=>lr=0.000100=>psnr=25.853=>ypsnr=27.429
+27th-12:16:23===>epoch1=>lr=0.000100=>psnr=26.071=>ypsnr=27.530
+27th-12:20:20===>epoch1=>lr=0.000100=>psnr=26.113=>ypsnr=27.595
+27th-12:24:27===>epoch1=>lr=0.000100=>psnr=26.100=>ypsnr=27.580
+27th-12:28:28===>epoch1=>lr=0.000100=>psnr=26.101=>ypsnr=27.577
+27th-12:32:32===>epoch1=>lr=0.000100=>psnr=26.104=>ypsnr=27.576
+27th-12:36:38===>epoch1=>lr=0.000100=>psnr=26.118=>ypsnr=27.580
+27th-12:40:48===>epoch1=>lr=0.000100=>psnr=26.114=>ypsnr=27.578
+27th-12:44:55===>epoch1=>lr=0.000100=>psnr=26.058=>ypsnr=27.501
+27th-12:49:04===>epoch1=>lr=0.000100=>psnr=26.005=>ypsnr=27.446
+27th-12:53:02===>epoch1=>lr=0.000100=>psnr=26.088=>ypsnr=27.544
+27th-12:57:00===>epoch1=>lr=0.000100=>psnr=26.117=>ypsnr=27.590
+27th-13:01:01===>epoch1=>lr=0.000100=>psnr=26.097=>ypsnr=27.571
+27th-13:05:05===>epoch1=>lr=0.000100=>psnr=26.110=>ypsnr=27.586
+27th-13:09:07===>epoch1=>lr=0.000100=>psnr=26.126=>ypsnr=27.559
+27th-13:13:13===>epoch1=>lr=0.000100=>psnr=26.137=>ypsnr=27.590
+27th-13:17:12===>epoch1=>lr=0.000100=>psnr=26.134=>ypsnr=27.596
+27th-13:21:11===>epoch1=>lr=0.000100=>psnr=26.078=>ypsnr=27.547
+27th-13:25:14===>epoch1=>lr=0.000100=>psnr=26.143=>ypsnr=27.601
+27th-13:29:07===>epoch1=>lr=0.000100=>psnr=26.078=>ypsnr=27.545
+27th-13:33:19===>epoch1=>lr=0.000100=>psnr=26.097=>ypsnr=27.567
+27th-13:37:23===>epoch1=>lr=0.000100=>psnr=26.113=>ypsnr=27.576
+27th-13:41:35===>epoch1=>lr=0.000100=>psnr=26.119=>ypsnr=27.605
+27th-13:45:32===>epoch1=>lr=0.000100=>psnr=26.138=>ypsnr=27.577
+27th-13:49:44===>epoch1=>lr=0.000100=>psnr=26.137=>ypsnr=27.599
+27th-13:53:37===>epoch1=>lr=0.000100=>psnr=26.100=>ypsnr=27.566

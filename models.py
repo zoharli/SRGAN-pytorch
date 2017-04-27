@@ -11,7 +11,7 @@ from torchvision import models
 class ResBlock(nn.Module):
     def __init__(self, n=64, s=1, f=3):
         super(ResBlock,self).__init__()
-        self.relu = nn.ReLU()
+        self.relu = nn.PReLU()
         self.conv1 = nn.Conv2d(
             in_channels=n,
             out_channels=n,
@@ -20,7 +20,7 @@ class ResBlock(nn.Module):
             padding=(f-1)//2
             )
         kaiming_normal(self.conv1.weight)
-        self.bn1 = nn.BatchNorm2d(n,affine=False)
+        self.bn1 = nn.BatchNorm2d(n)
         self.conv2 = nn.Conv2d(
             in_channels=n,
             out_channels=n,
@@ -29,7 +29,7 @@ class ResBlock(nn.Module):
             padding=(f-1)//2
             )
         kaiming_normal(self.conv2.weight)
-        self.bn2 = nn.BatchNorm2d(n,affine=False)
+        self.bn2 = nn.BatchNorm2d(n)
 
     def forward(self, x):
         y = self.relu(self.bn1(self.conv1(x)))
@@ -40,26 +40,26 @@ class ResBlock(nn.Module):
 class DeconvBlock(nn.Module):
     def __init__(self,  n=64, f=3, upscale_factor=2):
         super(DeconvBlock,self).__init__()
-        self.upsample = nn.UpsamplingNearest2d(scale_factor=2)
+        self.relu= nn.PReLU()
+        self.ps = nn.PixelShuffle(2)
         self.conv = nn.Conv2d(
             in_channels=n,
-            out_channels=n,
+            out_channels=n*(upscale_factor**2),
             kernel_size=f,
             stride=1,
             padding=(f-1)//2)
         kaiming_normal(self.conv.weight)
     def forward(self, x):
-        return self.conv(self.upsample(x))
+        return self.relu(self.ps(self.conv(x)))
 
 
 class GenNet(nn.Module):
     def __init__(self):
         super(GenNet,self).__init__()
-        self.train_mode=True
-        self.relu = nn.ReLU()
+        self.relu = nn.PReLU()
         self.tanh = nn.Hardtanh()
         #self.tanh = nn.Tanh()
-        self.conv1 = nn.Conv2d(3, 64, 3, 1, 1)
+        self.conv1 = nn.Conv2d(3, 64, 9, 1, (9-1)//2)
         kaiming_normal(self.conv1.weight)
         layers = []
         for i in range(16):
@@ -67,10 +67,10 @@ class GenNet(nn.Module):
         self.resblocks = nn.Sequential(*layers)
         self.conv2 = nn.Conv2d(64, 64, 3, 1, 1)
         kaiming_normal(self.conv2.weight)
-        self.bn = nn.BatchNorm2d(64,affine=False)
+        self.bn = nn.BatchNorm2d(64)
         self.deconv1 = DeconvBlock()
         self.deconv2 = DeconvBlock()
-        self.conv3 = nn.Conv2d(64, 3, 3, 1, 1)
+        self.conv3 = nn.Conv2d(64, 3, 9, 1, (9-1)//2)
         kaiming_normal(self.conv3.weight)
 
     def forward(self, x):
@@ -79,8 +79,8 @@ class GenNet(nn.Module):
         x = self.resblocks(xs)
         x = self.bn(self.conv2(x))
         x = x + xs
-        x = self.relu(self.deconv1(x))
-        x = self.relu(self.deconv2(x))
+        x = self.deconv1(x)
+        x = self.deconv2(x)
         x = self.conv3(x)
         x = self.tanh(x)
         x = (x+1)/2.0
@@ -143,7 +143,6 @@ netspec_opts['stride'] = [1, 0,
                           1, 0, 0,
                           2, 0, 0]
 
-
 def make_layers(nopts):
     n = len(nopts['layer_type'])
     layers = []
@@ -157,24 +156,22 @@ def make_layers(nopts):
                 nopts['kernel_size'][i],
                 nopts['stride'][i],
                 (nopts['kernel_size'][i]-1)//2,
-                bias=False),
-                )
+                ))
             prev_filters = curr_filters
         elif nopts['layer_type'][i] == 'lrelu':
             layers.append(nn.LeakyReLU(0.2))
         elif nopts['layer_type'][i] == 'bn':
             curr_filters = nopts['num_filters'][i]
-            layers.append(nn.BatchNorm2d(curr_filters,affine=False))
+            layers.append(nn.BatchNorm2d(curr_filters))
             prev_filters = curr_filters
     return nn.Sequential(*layers)
-
 
 class DisNet(nn.Module):
     def __init__(self):
         super(DisNet,self).__init__()
         self.features = make_layers(netspec_opts)
         self.classifier = nn.Sequential(
-            nn.Linear(16 * 16 * 512, 1024),
+            nn.Linear(20 * 20 * 512, 1024),
             nn.LeakyReLU(0.2),
             nn.Linear(1024, 1),
             nn.Sigmoid()

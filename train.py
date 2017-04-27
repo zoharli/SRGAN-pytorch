@@ -27,14 +27,12 @@ parser.add_argument('--epochs', default=40, type=int,
         help='number of total epochs to run')
 parser.add_argument('--start-epoch', default=0, type=int,
         help='manual epoch number (useful on restarts)')
-parser.add_argument('-b', '--batch-size', default=16, type=int,
+parser.add_argument('-b', '--batch-size', default=8, type=int,
         help='mini-batch size (default: 16)')
-parser.add_argument('--crop-size','-c',default=256,type=int,
+parser.add_argument('--crop-size','-c',default=320,type=int,
         help='crop size of the hr image')
 parser.add_argument('--lr', '--learning-rate', default=1e-4, type=float,
         help='initial learning rate')
-parser.add_argument('--beta1',default=0.5,type=float,
-        help='beta1 value if use adam or rmsprop optimizer')
 parser.add_argument('--momentum','-m',default=0.9,type=float,
         help='momentum if using sgd optimization')
 parser.add_argument('--weight-decay', '--wd', default=1e-4, type=float,
@@ -72,7 +70,7 @@ args = parser.parse_args()
 args.__dict__['upscale_factor']=4
 #args.traindir=globals()[args.traindir]
 args.valdir=globals()[args.valdir]
-args.__dict__['model_base_name']='SRGAN_nb_l0.2_v%g_w%g_%s'%(args.lr,args.weight,args.optim)+('_fixG' if args.fixG else '')+('_fixD' if args.fixD else '')+('_separate' if args.separate else '')
+args.__dict__['model_base_name']='SRGAN_revised_v%g_w%g_%s'%(args.lr,args.weight,args.optim)+('_fixG' if args.fixG else '')+('_fixD' if args.fixD else '')+('_separate' if args.separate else '')
 args.__dict__['model_name']=args.model_base_name+'.pth'
 args.__dict__['snapshot']='snapshot_'+args.model_base_name
 
@@ -137,17 +135,22 @@ def rgb2y_matlab(img):   #convert a PIL rgb image to y-channel image in `matlab`
     img=65.481*img[:,:,0]+128.553*img[:,:,1]+24.966*img[:,:,2]+16.0
     return img
 
-def validate(model,criterion,valdir,epoch,factor,optimizer):
+def validate(model,vgg,criterion,valdir,epoch,factor,optimizer):
     cnt=0
     sum=0
     ysum=0
+    cont_loss=0
+    model.eval()
     for x in [os.path.join(valdir,y) for y in os.listdir(valdir)]:
         im=Image.open(x)
         im=im.resize((im.size[0]-im.size[0]%factor,im.size[1]-im.size[1]%factor),Image.BICUBIC)
         target=Variable(torch.stack([transforms.ToTensor()(im)],0),volatile=True).cuda()
+        f_target=vgg(normalize(target))
         input=torch.stack([transforms.ToTensor()(im.resize((im.size[0]//args.upscale_factor,im.size[1]//args.upscale_factor),Image.BICUBIC))],0)
         input_var=Variable(input,volatile=True).cuda()
         output=model(input_var)
+        f_output=vgg(normalize(output))
+        cont_loss+=criterion(f_target,f_output).cpu().data[0]
         loss=criterion(target,output).cpu().data[0]
         img=torch.squeeze(output.data.cpu())
         rgb=transforms.ToPILImage()(img)
@@ -162,8 +165,10 @@ def validate(model,criterion,valdir,epoch,factor,optimizer):
         cnt+=1
     psnr=float(sum)/cnt
     ypsnr=float(ysum)/cnt
-    s=' | psnr=%.3f | ypsnr=%.3f'%(psnr,ypsnr)
-    return s,psnr
+    cont_loss=float(cont_loss)/cnt
+    s=' | psnr=%.3f | ypsnr=%.3f | cont_mse=%g'%(psnr,ypsnr,cont_loss)
+    model.train()
+    return s
     
 def save_checkpoint(state, is_best,logdir):
     filename=os.path.join(logdir,args.model_name)
@@ -179,7 +184,7 @@ def train(epoch):
         input_var = Variable(input.cuda())
         target_var = Variable(target.cuda())
         
-        if (i%10==0 or dloss>0.001) and not args.fixD:
+        if not args.fixD:
             if args.separate:
                 real_loss=((disc(target_var)-1)**2).mean()
                 disc_optimizer.zero_grad()
@@ -209,7 +214,7 @@ def train(epoch):
                 disc_optimizer.step()
                 dloss=disc_loss.data[0]
             
-        if (i%10==0 or gloss>0.001) and not args.fixG:
+        if i%100==0 and not args.fixG:
             gen_optimizer.zero_grad()
             G_z=gen(input_var)
             fake_feature=vgg(normalize(G_z))
@@ -218,7 +223,7 @@ def train(epoch):
             label.data.fill_(1)
             output=disc(G_z)
             adv_loss=adv_criterion(output,label)
-            gen_loss=args.weight*adv_loss+content_loss
+            gen_loss=0.1*args.weight*adv_loss+content_loss
             gen_loss.backward()
             if args.clip is not None:
                 torch.nn.utils.clip_grad_norm(gen.parameters(),args.clip)
@@ -228,8 +233,8 @@ def train(epoch):
         if i % args.print_freq == 0:
             s=time.strftime('%dth-%H:%M:%S',time.localtime(time.time()))+' | epoch%d(%d) | lr=%g'%(epoch,global_step,args.lr)
             if not args.fixG:
-                vs,vpsnr=validate(gen,cont_criterion,args.valdir,epoch,args.upscale_factor,gen_optimizer)
-                s+=vs+' | Loss(G):%.3f[Cont:%.3f/Adv:%g]'%(gen_loss.data[0],content_loss.data[0],adv_loss.data[0])
+                vs=validate(gen,vgg,cont_criterion,args.valdir,epoch,args.upscale_factor,gen_optimizer)
+                s+=vs+' | Loss(G):%g[Cont:%g/Adv:%g]'%(gen_loss.data[0],content_loss.data[0],adv_loss.data[0])
             if not args.fixD:
                 s+=' | Loss(D):%g[Real:%g/Fake:%g]'%(disc_loss.data[0],real_loss.data[0],fake_loss.data[0])
             print(s)

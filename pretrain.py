@@ -28,7 +28,7 @@ parser.add_argument('--start-epoch', default=1, type=int,
         help='manual epoch number (useful on restarts)')
 parser.add_argument('-b', '--batch-size', default=16, type=int,
         help='mini-batch size (default: 16)')
-parser.add_argument('--crop-size','-c',default=300,type=int,
+parser.add_argument('--crop-size','-c',default=320,type=int,
         help='crop size of the hr image')
 parser.add_argument('--lr', '--learning-rate', default=1e-4, type=float,
         help='initial learning rate')
@@ -42,7 +42,7 @@ parser.add_argument('--resume', default='', type=str,
         help='path to latest checkpoint (default: none)')
 parser.add_argument('--logdir','-s',default='save',type=str,
         help='path to save checkpoint')
-parser.add_argument('--optim','-o',default='SGD',
+parser.add_argument('--optim','-o',default='Adam',
         help='the optimization method to be employed')
 parser.add_argument('--traindir',default='r375-400.bin',
         help=' the global name of training set dir')
@@ -54,7 +54,7 @@ args = parser.parse_args()
 args.__dict__['upscale_factor']=4
 #args.traindir=globals()[args.traindir]
 args.valdir=globals()[args.valdir]
-args.__dict__['model_name']='b%d_v%.4f_%s_hardtanh_conBn_varv2_nowd.pth'%(args.batch_size,args.lr,args.optim)
+args.__dict__['model_name']='b%d_v%g_%s_hardtanh_revised.pth'%(args.batch_size,args.lr,args.optim)
 if not os.path.exists(args.logdir):
     os.makedirs(args.logdir)
 cudnn.benchmark = True
@@ -81,7 +81,7 @@ if args.resume:
 
 criterion = nn.MSELoss().cuda()
 
-optimizer = torch.optim.SGD(model.parameters(), args.lr,args.momentum)
+optimizer = torch.optim.Adam(model.parameters(), args.lr)
 
 #if args.evaluate:
 #    validate(val_loader, model, criterion)
@@ -106,7 +106,7 @@ def validate( model,criterion,valdir,epoch,factor):
         loss=criterion(target,output).cpu().data[0]
         img=torch.squeeze(output.data.cpu())
         rgb=transforms.ToPILImage()(img)
-        rgb.save('snapshot6/'+os.path.basename(x))
+        rgb.save('snapshot7/'+os.path.basename(x))
         yorigin=rgb2y_matlab(np.asarray(im))
         youtput=rgb2y_matlab(np.asarray(rgb))
         ymse=np.mean((yorigin-youtput)**2)
@@ -136,12 +136,12 @@ def train(train_loader, model, criterion, optimizer, epoch):
         input_var = Variable(input.cuda())
         target_var = Variable(target.cuda())
 
+        optimizer.zero_grad()
         output = model(input_var)
         loss = criterion(output, target_var)
-
-        optimizer.zero_grad()
         loss.backward()
         optimizer.step()
+
         if i % args.print_freq == 0:
             vpsnr=validate(model,criterion,args.valdir,epoch,args.upscale_factor)
             global best_psnr
@@ -152,10 +152,10 @@ def train(train_loader, model, criterion, optimizer, epoch):
                 'state_dict': model.state_dict(),
                 'best_psnr': best_psnr,
             }, is_best,args.logdir)
-global_lr=0.001
+#global_lr=0.001
 for epoch in range(args.start_epoch, args.epochs):
-    if epoch :
-        lr=global_lr*(0.1**(epoch%2))
-        for pg in optimizer.param_groups:
-            pg['lr']=lr
+#    if epoch :
+#        lr=global_lr*(0.1**(epoch%2))
+#        for pg in optimizer.param_groups:
+#            pg['lr']=lr
     train(train_loader, model, criterion, optimizer, epoch)
