@@ -120,7 +120,6 @@ adv_criterion = nn.BCELoss().cuda()
 
 
 gen_optimizer = torch.optim.Adam(gen.parameters(), args.lr)
-disc_optimizer = torch.optim.Adam(disc.parameters(),args.lr)
 
 def normalize(tensor):
     r,g,b=torch.split(tensor,1,1)
@@ -207,16 +206,11 @@ def train(epoch):
                 global best_gen_loss
                 is_best = gen_loss.data[0] > best_gen_loss
                 best_gen_loss = max(gen_loss.data[0] , best_gen_loss)
-            else:
-                global best_disc_loss
-                is_best = disc_loss.data[0] > best_disc_loss
-                best_disc_loss = max(disc_loss.data[0],best_disc_loss)
                 
             save_checkpoint({
                 'epoch': epoch + 1,
                 'global_step':global_step,
                 'gen_state_dict': gen.state_dict(),
-                'disc_state_dict':disc.state_dict(),
                 'best_psnr': best_psnr,
             }, is_best,args.logdir)
 
