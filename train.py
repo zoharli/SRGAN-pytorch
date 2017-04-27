@@ -205,7 +205,7 @@ def train(epoch):
                 label.data.fill_(0)
                 output=disc(gen(input_var).detach())
                 fake_loss=adv_criterion(output,label)
-                disc_loss=args.weight*(fake_loss+real_loss)*10
+                disc_loss=args.weight*(fake_loss+real_loss)
                 disc_loss.backward()
                 disc_optimizer.step()
             
@@ -218,7 +218,7 @@ def train(epoch):
             label.data.fill_(1)
             output=disc(G_z)
             adv_loss=adv_criterion(output,label)
-            gen_loss=args.weight*adv_loss+0.2*content_loss
+            gen_loss=args.weight*adv_loss+content_loss
             gen_loss.backward()
             if args.clip is not None:
                 torch.nn.utils.clip_grad_norm(gen.parameters(),args.clip)
