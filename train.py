@@ -29,7 +29,7 @@ parser.add_argument('--start-epoch', default=0, type=int,
         help='manual epoch number (useful on restarts)')
 parser.add_argument('-b', '--batch-size', default=8, type=int,
         help='mini-batch size (default: 16)')
-parser.add_argument('--crop-size','-c',default=320,type=int,
+parser.add_argument('--crop-size','-c',default=256,type=int,
         help='crop size of the hr image')
 parser.add_argument('--lr', '--learning-rate', default=1e-4, type=float,
         help='initial learning rate')
@@ -51,7 +51,7 @@ parser.add_argument('--traindir',default='r375-400.bin',
         help=' the global name of training set dir')
 parser.add_argument('--valdir',default='b100',type=str,
         help='the global name of validation set dir')
-parser.add_argument('--weight',default=0.001,type=float,
+parser.add_argument('--weight',default=0.05,type=float,
         help='the weight of adversarial loss,i.e. gen_loss=content_loss+weight*adv_loss')
 parser.add_argument('--separate',action='store_true',
         help='wheather to separate real and fake minibatch when training discriminator')
