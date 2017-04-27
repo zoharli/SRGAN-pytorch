@@ -70,7 +70,7 @@ args = parser.parse_args()
 args.__dict__['upscale_factor']=4
 #args.traindir=globals()[args.traindir]
 args.valdir=globals()[args.valdir]
-args.__dict__['model_base_name']='SRGAN_revised_v%g_w%g_%s'%(args.lr,args.weight,args.optim)+('_fixG' if args.fixG else '')+('_fixD' if args.fixD else '')+('_separate' if args.separate else '')
+args.__dict__['model_base_name']='SRGAN_v%g_w%g_%s'%(args.lr,args.weight,args.optim)+('_fixG' if args.fixG else '')+('_fixD' if args.fixD else '')+('_separate' if args.separate else '')
 args.__dict__['model_name']=args.model_base_name+'.pth'
 args.__dict__['snapshot']='snapshot_'+args.model_base_name
 
@@ -202,13 +202,11 @@ def train(epoch):
                 label.data.fill_(1)
                 output=disc(target_var)
                 real_loss=adv_criterion(output,label)
-                real_loss.backward()
-                
                 label.data.fill_(0)
                 output=disc(gen(input_var).detach())
                 fake_loss=adv_criterion(output,label)
-                fake_loss.backward()
                 disc_loss=args.weight*(fake_loss+real_loss)/2
+                disc_loss.backward()
                 disc_optimizer.step()
             
         if not args.fixG:
