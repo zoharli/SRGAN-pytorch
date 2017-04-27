@@ -5129,3 +5129,5 @@ Traceback (most recent call last):
   File "train.py", line 123, in <module>
     gen_optimizer = torch.optim.Adam(gen.parameters(), args.lr)
 NameError: name 'disc' is not defined
+=> loading checkpoint 'save/b16_v0.0001_Adam_hardtanh_revised.pth'
+=> loaded checkpoint
