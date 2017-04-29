@@ -5113,3 +5113,11 @@ ImportError: No module named setproctitle
 => loaded checkpoint
 => loading checkpoint 'save/SRGAN_ls_v0.0001_w0.1_Adam.pth'
 => loaded checkpoint (epoch 1)
+usage: train.py [-h] [-j WORKERS] [--epochs EPOCHS]
+                [--start-epoch START_EPOCH] [-b BATCH_SIZE]
+                [--crop-size CROP_SIZE] [--lr LR] [--momentum MOMENTUM]
+                [--weight-decay WEIGHT_DECAY] [--print-freq PRINT_FREQ]
+                [--resume RESUME] [--generator GENERATOR] [--logdir LOGDIR]
+                [--optim OPTIM] [--traindir TRAINDIR] [--valdir VALDIR]
+                [--weight WEIGHT] [--separate] [--fixG] [--fixD] [--clip CLIP]
+train.py: error: unrecognized arguments: weight=0.01
