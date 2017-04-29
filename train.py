@@ -99,7 +99,6 @@ if args.resume:
         global_step=checkpoint['global_step']
         best_psnr = checkpoint['best_psnr']
         gen.load_state_dict(checkpoint['gen_state_dict'])
-        disc.load_state_dict(checkpoint['disc_state_dict'])
         print("=> loaded checkpoint (epoch {})"
                 .format( checkpoint['epoch']))
     else:
