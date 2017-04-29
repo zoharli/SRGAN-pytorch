@@ -99,7 +99,7 @@ class Skip(nn.Module):
 
 
 def vgg19_54():
-    model = models.vgg19(pretrained=True)
+    model = models.vgg13(pretrained=True)
     # remove last max pooling
     model.features = nn.Sequential(*list(model.features.children())[:-1])
     model.classifier = Skip()

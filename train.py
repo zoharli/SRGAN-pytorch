@@ -117,7 +117,6 @@ label=Variable(torch.FloatTensor(args.batch_size)).cuda()
 cont_criterion = nn.MSELoss().cuda()
 adv_criterion = nn.BCELoss().cuda()
 
-
 gen_optimizer = torch.optim.Adam(gen.parameters(), args.lr)
 
 def normalize(tensor):
