@@ -70,7 +70,7 @@ args = parser.parse_args()
 args.__dict__['upscale_factor']=4
 #args.traindir=globals()[args.traindir]
 args.valdir=globals()[args.valdir]
-args.__dict__['model_base_name']='SRGAN_pcont_v%g_w%g_%s'%(args.lr,args.weight,args.optim)+('_fixG' if args.fixG else '')+('_fixD' if args.fixD else '')+('_separate' if args.separate else '')
+args.__dict__['model_base_name']='SRGAN13_pcont_v%g_w%g_%s'%(args.lr,args.weight,args.optim)+('_fixG' if args.fixG else '')+('_fixD' if args.fixD else '')+('_separate' if args.separate else '')
 args.__dict__['model_name']=args.model_base_name+'.pth'
 args.__dict__['snapshot']='snapshot_'+args.model_base_name
 
