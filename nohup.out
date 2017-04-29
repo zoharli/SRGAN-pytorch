@@ -5121,3 +5121,5 @@ usage: train.py [-h] [-j WORKERS] [--epochs EPOCHS]
                 [--optim OPTIM] [--traindir TRAINDIR] [--valdir VALDIR]
                 [--weight WEIGHT] [--separate] [--fixG] [--fixD] [--clip CLIP]
 train.py: error: unrecognized arguments: weight=0.01
+=> loading checkpoint 'save/best_b16_v0.0001_Adam_hardtanh_revised.pth'
+=> loaded checkpoint
