@@ -6228,4 +6228,7 @@ NameError: name 'disc' is not defined
 29th-16:00:57 | epoch1(109316) | lr=0.0001 | psnr=25.157 | ypsnr=27.028 | cont_mse=0.213828 | Loss(G):0.492628[Cont:0.464997/Adv:27.631] | Loss(D):2.7631[Real:27.631/Fake:0]
 29th-16:03:26 | epoch1(109416) | lr=0.0001 | psnr=25.144 | ypsnr=27.000 | cont_mse=0.214631 | Loss(G):0.385758[Cont:0.358127/Adv:27.631] | Loss(D):2.7631[Real:27.631/Fake:0]
 29th-16:05:48 | epoch1(109516) | lr=0.0001 | psnr=25.111 | ypsnr=26.958 | cont_mse=0.214728 | Loss(G):0.519907[Cont:0.492276/Adv:27.631] | Loss(D):2.7631[Real:27.631/Fake:0]
-29th-16:08:12 | epoch1(109616) | lr=0.0001 | psnr=25.142 | ypsnr=27.006 | cont_mse=0.213828 | Loss(G):0.790119[Cont:0.762487/Adv:27.631] | Loss(D):2.7631[Real:27.631/Fake:0]
+29th-16:08:12 | epoch1(109616) | lr=0.0001 | psnr=25.142 | ypsnr=27.006 | cont_mse=0.213828 | Loss(G):0.790119[Cont:0.762487/Adv:27.631] | Loss(D):2.7631[Real:27.631/Fake:0]=> loading checkpoint 'save/b16_v0.0001_Adam_hardtanh_revised.pth'
+=> loaded checkpoint (epoch 7)
+=> loading checkpoint 'save/best_b16_v0.0001_Adam_hardtanh_revised.pth'
+=> loaded checkpoint (epoch 6)
