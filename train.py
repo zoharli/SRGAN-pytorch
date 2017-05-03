@@ -138,7 +138,6 @@ def validate(model,vgg,criterion,valdir,epoch,factor,optimizer):
     sum=0
     ysum=0
     cont_loss=0
-    model.eval()
     for x in [os.path.join(valdir,y) for y in os.listdir(valdir)]:
         im=Image.open(x)
         im=im.resize((im.size[0]-im.size[0]%factor,im.size[1]-im.size[1]%factor),Image.BICUBIC)
@@ -165,7 +164,6 @@ def validate(model,vgg,criterion,valdir,epoch,factor,optimizer):
     ypsnr=float(ysum)/cnt
     cont_loss=float(cont_loss)/cnt
     s=' | psnr=%.3f | ypsnr=%.3f | cont_mse=%g'%(psnr,ypsnr,cont_loss)
-    model.train()
     return s
     
 def save_checkpoint(state, is_best,logdir):
