@@ -106,7 +106,7 @@ def validate( model,criterion,valdir,epoch,factor):
         loss=criterion(target,output).cpu().data[0]
         img=torch.squeeze(output.data.cpu())
         rgb=transforms.ToPILImage()(img)
-        rgb.save('snapshot7/'+os.path.basename(x))
+        rgb.save('snapshot8/'+os.path.basename(x))
         yorigin=rgb2y_matlab(np.asarray(im))
         youtput=rgb2y_matlab(np.asarray(rgb))
         ymse=np.mean((yorigin-youtput)**2)

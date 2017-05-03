@@ -91,6 +91,7 @@ gen=GenNet().cuda()
 disc=DisNet().cuda()
 vgg=vgg19_54().cuda()
 
+fclip=Clip().cuda()
 
 if args.resume:
     if os.path.isfile(args.resume):
@@ -148,6 +149,7 @@ def validate(model,vgg,criterion,valdir,epoch,factor,optimizer):
         output=model(input_var)
         f_output=vgg(normalize(output))
         cont_loss+=criterion(f_target,f_output).cpu().data[0]
+        output=fclip(output)
         loss=criterion(target,output).cpu().data[0]
         img=torch.squeeze(output.data.cpu())
         rgb=transforms.ToPILImage()(img)

@@ -7,6 +7,16 @@ from torchvision import models
 """ Generator
 """
 
+class Clip(nn.Module):
+    def __init__(self):
+        super(Clip,self).__init__()
+        self.clip=nn.Hardtanh()
+
+    def forward(self,x):
+        x=x*2.0-1
+        x=self.clip(x)
+        x=(x+1)/2.0
+        return x
 
 class ResBlock(nn.Module):
     def __init__(self, n=64, s=1, f=3):
@@ -82,7 +92,6 @@ class GenNet(nn.Module):
         x = self.deconv1(x)
         x = self.deconv2(x)
         x = self.conv3(x)
-        x = self.tanh(x)
         x = (x+1)/2.0
         return x
 
@@ -174,7 +183,6 @@ class DisNet(nn.Module):
             nn.Linear(16 * 16 * 512, 1024),
             nn.LeakyReLU(0.2),
             nn.Linear(1024, 1),
-            nn.Sigmoid()
             )
         self._init_weights()
 

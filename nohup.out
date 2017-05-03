@@ -5415,3 +5415,26 @@ RuntimeError: cuda runtime error (30) : unknown error at /py/conda-bld/pytorch_1
 => loaded checkpoint (epoch 3)
 => loading checkpoint 'save/best_SRGAN_ls_v5e-06_w0.1_Adam.pth'
 => loaded checkpoint (epoch 4)
+usage: train.py [-h] [-j WORKERS] [--epochs EPOCHS]
+                [--start-epoch START_EPOCH] [-b BATCH_SIZE]
+                [--crop-size CROP_SIZE] [--lr LR] [--momentum MOMENTUM]
+                [--weight-decay WEIGHT_DECAY] [--print-freq PRINT_FREQ]
+                [--resume RESUME] [--generator GENERATOR] [--logdir LOGDIR]
+                [--optim OPTIM] [--traindir TRAINDIR] [--valdir VALDIR]
+                [--weight WEIGHT] [--separate] [--fixG] [--fixD] [--clip CLIP]
+train.py: error: unrecognized arguments: lr=1e-5
+Traceback (most recent call last):
+  File "train.py", line 94, in <module>
+    fclip=Clip().cuda()
+  File "/media/H/zohar/SRGAN-pytorch/models.py", line 12, in __init__
+    self.clip=nn.Hardtanh()
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/module.py", line 263, in __setattr__
+    "cannot assign module before Module.__init__() call")
+AttributeError: cannot assign module before Module.__init__() call
+=> loading checkpoint 'save/best_SRGAN_ncl_ls_v1e-05_w1_Adam.pth'
+Traceback (most recent call last):
+  File "train.py", line 104, in <module>
+    disc.load_state_dict(checkpoint['disc_state_dict'])
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/module.py", line 334, in load_state_dict
+    own_state[name].copy_(param)
+RuntimeError: sizes do not match at /py/conda-bld/pytorch_1490903321756/work/torch/lib/THC/THCTensorCopy.cu:31
