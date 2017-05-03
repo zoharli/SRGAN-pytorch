@@ -7,12 +7,17 @@ __pycache__/
 .DS_Store
 
 # dataset
-dataset
 r128-256.bin
 test_r128-512.bin
 data
+r375-400.bin
+info*
 save
-
+snapshot*
+bicubic
+oldlog
+.*sw*
+nohup.out
 # Any Images
 */*.jpg
 */*.JPG
