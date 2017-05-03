@@ -76,6 +76,7 @@ args.__dict__['model_name']=args.model_base_name+'.pth'
 args.__dict__['snapshot']='snapshot_'+args.model_base_name
 
 setproctitle(args.model_base_name)
+
 if not os.path.exists(args.logdir):
     os.makedirs(args.logdir)
 if not os.path.exists(args.snapshot):
@@ -91,7 +92,6 @@ train_loader = torch.utils.data.DataLoader(
 gen=GenNet().cuda()
 disc=DisNet().cuda()
 vgg=vgg19_54().cuda()
-
 fclip=Clip().cuda()
 
 if args.resume:
@@ -117,8 +117,9 @@ if args.generator:
     else:
         print("=>no checkpoint found at '{}'".format(args.generator))
 
+label=Variable(torch.FloatTensor(args.batch_size)).cuda()
 cont_criterion = nn.MSELoss().cuda()
-
+adv_criterion = nn.BCELoss().cuda()
 
 gen_optimizer = torch.optim.Adam(gen.parameters(), args.lr)
 disc_optimizer = torch.optim.Adam(disc.parameters(),args.lr)
@@ -166,7 +167,7 @@ def validate(model,vgg,criterion,valdir,epoch,factor,optimizer):
     psnr=float(sum)/cnt
     ypsnr=float(ysum)/cnt
     cont_loss=float(cont_loss)/cnt
-    s=' | psnr=%.3f | ypsnr=%.3f | cont_mse=%g'%(psnr,ypsnr,cont_loss)
+    s=' | psnr=%.4f | ypsnr=%.4f | cont_mse=%g'%(psnr,ypsnr,cont_loss)
     return s
     
 def save_checkpoint(state, is_best,logdir):
@@ -198,11 +199,13 @@ def train(epoch):
             
             else:
                 disc_optimizer.zero_grad()
+                label.data.fill_(1)
                 output=disc(target_var)
-                real_loss=((output-1)**2).mean()
+                real_loss=adv_criterion(output,label)
+                label.data.fill_(0)
                 output=disc(gen(input_var).detach())
-                fake_loss=(output**2).mean()
-                disc_loss=args.weight*(fake_loss+real_loss)
+                fake_loss=adv_criterion(output,label)
+                disc_loss=(fake_loss+real_loss)
                 disc_loss.backward()
                 disc_optimizer.step()
             
@@ -212,14 +215,13 @@ def train(epoch):
             fake_feature=vgg(normalize(G_z))
             real_feature=vgg(normalize(target_var)).detach()
             content_loss=cont_criterion(fake_feature,real_feature)
+            label.data.fill_(1)
             output=disc(G_z)
-            adv_loss=((output-1)**2).mean()
+            adv_loss=adv_criterion(output,label)
             gen_loss=args.weight*adv_loss+content_loss
             gen_loss.backward()
-            if args.clip is not None:
-                torch.nn.utils.clip_grad_norm(gen.parameters(),args.clip)
             gen_optimizer.step()
-            
+
         if i % args.print_freq == 0:
             s=time.strftime('%dth-%H:%M:%S',time.localtime(time.time()))+' | epoch%d(%d) | lr=%g'%(epoch,global_step,args.lr)
             if not args.fixG:
