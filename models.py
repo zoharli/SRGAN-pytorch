@@ -171,10 +171,9 @@ class DisNet(nn.Module):
         super(DisNet,self).__init__()
         self.features = make_layers(netspec_opts)
         self.classifier = nn.Sequential(
-            nn.Linear(16 * 16 * 512, 1024),
+            nn.Linear(16 * 16 * 512, 2048),
             nn.LeakyReLU(0.2),
-            nn.Linear(1024, 1),
-            nn.Sigmoid()
+            nn.Linear(2048, 1),
             )
         self._init_weights()
 
