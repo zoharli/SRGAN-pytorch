@@ -215,8 +215,6 @@ def train(epoch):
             adv_loss=((output-1)**2).mean()
             gen_loss=args.weight*adv_loss+content_loss
             gen_loss.backward()
-            if args.clip is not None:
-                torch.nn.utils.clip_grad_norm(gen.parameters(),args.clip)
             gen_optimizer.step()
             
         if i % args.print_freq == 0:
