@@ -5155,3 +5155,7 @@ KeyError: 'global_step'
 => loaded checkpoint (epoch 1)
 => loading checkpoint 'save/SRGAN_pcont_v1e-05_w0.001_Adam.pth'
 => loaded checkpoint (epoch 4)
+=> loading checkpoint 'save/SRGAN_pcont_v1e-05_w0.001_Adam.pth'
+=> loaded checkpoint (epoch 5)
+=> loading checkpoint 'save/SRGAN_pcont_v1e-05_w0.001_Adam.pth'
+=> loaded checkpoint (epoch 5)
