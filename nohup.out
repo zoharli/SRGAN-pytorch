@@ -5413,3 +5413,5 @@ RuntimeError: cuda runtime error (30) : unknown error at /py/conda-bld/pytorch_1
 => loaded checkpoint (epoch 2)
 => loading checkpoint 'save/SRGAN_ls_v1e-05_w0.1_Adam.pth'
 => loaded checkpoint (epoch 3)
+=> loading checkpoint 'save/best_SRGAN_ls_v5e-06_w0.1_Adam.pth'
+=> loaded checkpoint (epoch 4)
