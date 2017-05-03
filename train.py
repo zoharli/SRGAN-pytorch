@@ -28,15 +28,15 @@ parser.add_argument('--epochs', default=40, type=int,
 parser.add_argument('--start-epoch', default=0, type=int,
         help='manual epoch number (useful on restarts)')
 parser.add_argument('-b', '--batch-size', default=8, type=int,
-        help='mini-batch size (default: 16)')
+        help='mini-batch size (default: 8)')
 parser.add_argument('--crop-size','-c',default=256,type=int,
         help='crop size of the hr image')
 parser.add_argument('--lr', '--learning-rate', default=1e-4, type=float,
         help='initial learning rate')
 parser.add_argument('--momentum','-m',default=0.9,type=float,
-        help='momentum if using sgd optimization')
+        help='momentum if using sgd optimizer')
 parser.add_argument('--weight-decay', '--wd', default=1e-4, type=float,
-        help='weight decay (default: 1e-4)')
+        help='specify weight decay value(default: 1e-4) if used')
 parser.add_argument('--print-freq', '-p', default=100, type=int,
         help='print frequency (default: 20)')
 parser.add_argument('--resume', default='', type=str,
@@ -51,7 +51,7 @@ parser.add_argument('--traindir',default='r375-400.bin',
         help=' the global name of training set dir')
 parser.add_argument('--valdir',default='b100',type=str,
         help='the global name of validation set dir')
-parser.add_argument('--weight',default=0.1,type=float,
+parser.add_argument('--weight',default=0.001,type=float,
         help='the weight of adversarial loss,i.e. gen_loss=content_loss+weight*adv_loss')
 parser.add_argument('--separate',action='store_true',
         help='wheather to separate real and fake minibatch when training discriminator')
@@ -60,12 +60,13 @@ parser.add_argument('--fixG',action='store_true',
 parser.add_argument('--fixD',action='store_true',
         help='wheather to fix discriminator and only train generator')
 parser.add_argument('--clip',default=None,type=float,
-        help='gradient clip norm')
+        help='specify gradient clip norm if used')
 
 global_step=0
 best_psnr = -100
 best_gen_loss=10000
 best_disc_loss= 10000
+
 args = parser.parse_args()
 args.__dict__['upscale_factor']=4
 #args.traindir=globals()[args.traindir]
@@ -119,8 +120,8 @@ if args.generator:
 cont_criterion = nn.MSELoss().cuda()
 
 
-gen_optimizer = torch.optim.Adam(gen.parameters(), args.lr,betas=(0.5,0.9))
-disc_optimizer = torch.optim.Adam(disc.parameters(),args.lr,betas=(0.5,0.9))
+gen_optimizer = torch.optim.Adam(gen.parameters(), args.lr)
+disc_optimizer = torch.optim.Adam(disc.parameters(),args.lr)
 
 def normalize(tensor):
     r,g,b=torch.split(tensor,1,1)
