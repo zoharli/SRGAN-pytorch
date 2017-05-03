@@ -6236,3 +6236,10 @@ NameError: name 'disc' is not defined
 => loaded checkpoint (epoch 7)
 => loading checkpoint 'save/b16_v0.0001_Adam_hardtanh_revised.pth'
 => loaded checkpoint (epoch 9)
+=> loading checkpoint 'save/SRGAN_ls_v1e-05_w0.1_Adam.pth'
+Traceback (most recent call last):
+  File "train.py", line 103, in <module>
+    disc.load_state_dict(checkpoint['disc_state_dict'])
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/module.py", line 334, in load_state_dict
+    own_state[name].copy_(param)
+RuntimeError: sizes do not match at /py/conda-bld/pytorch_1490903321756/work/torch/lib/THC/THCTensorCopy.cu:31
