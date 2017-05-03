@@ -5438,3 +5438,29 @@ Traceback (most recent call last):
   File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/module.py", line 334, in load_state_dict
     own_state[name].copy_(param)
 RuntimeError: sizes do not match at /py/conda-bld/pytorch_1490903321756/work/torch/lib/THC/THCTensorCopy.cu:31
+=> loading checkpoint 'save/best_SRGAN_ncl_ls_v1e-05_w1_Adam.pth'
+=> loaded checkpoint (epoch 2)
+Traceback (most recent call last):
+  File "pretrain.py", line 69, in <module>
+    fclip=Clip().cuda()
+NameError: name 'Clip' is not defined
+Traceback (most recent call last):
+  File "pretrain.py", line 162, in <module>
+    train(train_loader, model, criterion, optimizer, epoch)
+  File "pretrain.py", line 147, in train
+    vpsnr=validate(model,criterion,args.valdir,epoch,args.upscale_factor)
+  File "pretrain.py", line 110, in validate
+    rgb.save('snapshot8/'+os.path.basename(x))
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/PIL/Image.py", line 1725, in save
+    fp = builtins.open(filename, "w+b")
+FileNotFoundError: [Errno 2] No such file or directory: 'snapshot8/300091.jpg'
+Traceback (most recent call last):
+  File "pretrain.py", line 168, in <module>
+    train(train_loader, model, criterion, optimizer, epoch)
+  File "pretrain.py", line 152, in train
+    vpsnr=validate(model,criterion,args.valdir,epoch,args.upscale_factor)
+  File "pretrain.py", line 115, in validate
+    rgb.save('snapshot8/'+os.path.basename(x))
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/PIL/Image.py", line 1725, in save
+    fp = builtins.open(filename, "w+b")
+FileNotFoundError: [Errno 2] No such file or directory: 'snapshot8/300091.jpg'

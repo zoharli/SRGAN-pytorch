@@ -15,7 +15,7 @@ import torchvision.transforms as transforms
 import torchvision.datasets as datasets
 import torchvision.models as models
 from torch.autograd import Variable
-from models import GenNet
+from models import GenNet,Clip
 from dataset import *
 import numpy as np
 
@@ -54,9 +54,15 @@ args = parser.parse_args()
 args.__dict__['upscale_factor']=4
 #args.traindir=globals()[args.traindir]
 args.valdir=globals()[args.valdir]
-args.__dict__['model_name']='b%d_v%g_%s_hardtanh_revised.pth'%(args.batch_size,args.lr,args.optim)
+args.__dict__['model_base_name']='ResNet_b%d_v%g_%s'%(args.batch_size,args.lr,args.optim)
+args.__dict__['model_name']=args.model_base_name+'.pth'
+args.__dict__['snapshot']='snapshot_'+args.model_base_name
+
+if not os.path.exists(args.snapshot):
+    os.makedirs(args.snapshot)
 if not os.path.exists(args.logdir):
     os.makedirs(args.logdir)
+
 cudnn.benchmark = True
 
 train_loader = torch.utils.data.DataLoader(
@@ -65,16 +71,16 @@ train_loader = torch.utils.data.DataLoader(
     num_workers=args.workers, pin_memory=True)
 
 model=GenNet().cuda()
-#model = torch.nn.DataParallel(model).cuda()
+fclip=Clip().cuda()
 
 if args.resume:
     if os.path.isfile(args.resume):
-        print("=> loading checkpoint '{}'".format(args.resume))
+        print("=>  loading checkpoint '{}'".format(args.resume))
         checkpoint = torch.load(args.resume)
         args.start_epoch = checkpoint['epoch']
         best_psnr = checkpoint['best_psnr']
         model.load_state_dict(checkpoint['state_dict'])
-        print("=> loaded checkpoint (epoch {})"
+        print("=>  loaded checkpoint (epoch {})"
                 .format( checkpoint['epoch']))
     else:
         print("=> no checkpoint found at '{}'".format(args.resume))
@@ -102,11 +108,11 @@ def validate( model,criterion,valdir,epoch,factor):
         target=Variable(torch.stack([transforms.ToTensor()(im)],0),volatile=True).cuda()
         input=torch.stack([transforms.ToTensor()(im.resize((im.size[0]//args.upscale_factor,im.size[1]//args.upscale_factor),Image.BICUBIC))],0)
         input_var=Variable(input,volatile=True).cuda()
-        output=model(input_var)
+        output=fclip(model(input_var))
         loss=criterion(target,output).cpu().data[0]
         img=torch.squeeze(output.data.cpu())
         rgb=transforms.ToPILImage()(img)
-        rgb.save('snapshot8/'+os.path.basename(x))
+        rgb.save(os.path.join(args.snapshot,os.path.basename(x)))
         yorigin=rgb2y_matlab(np.asarray(im))
         youtput=rgb2y_matlab(np.asarray(rgb))
         ymse=np.mean((yorigin-youtput)**2)
@@ -118,7 +124,7 @@ def validate( model,criterion,valdir,epoch,factor):
     psnr=float(sum)/cnt
     ypsnr=float(ysum)/cnt
     lr=optimizer.param_groups[0]['lr']
-    s=time.strftime('%dth-%H:%M:%S',time.localtime(time.time()))+'===>epoch%d=>lr=%.6f=>psnr=%.3f=>ypsnr=%.3f'%(epoch,lr,psnr,ypsnr)
+    s=time.strftime('%dth-%H:%M:%S',time.localtime(time.time()))+' | epoch%d | lr=%g | psnr=%.4f | ypsnr=%.4f'%(epoch,lr,psnr,ypsnr)
     print(s)
     f=open('info.'+args.model_name,'a')
     f.write(s+'\n')
@@ -152,6 +158,7 @@ def train(train_loader, model, criterion, optimizer, epoch):
                 'state_dict': model.state_dict(),
                 'best_psnr': best_psnr,
             }, is_best,args.logdir)
+
 #global_lr=0.001
 for epoch in range(args.start_epoch, args.epochs):
 #    if epoch :
