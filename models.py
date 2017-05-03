@@ -183,6 +183,7 @@ class DisNet(nn.Module):
             nn.Linear(16 * 16 * 512, 2048),
             nn.LeakyReLU(0.2),
             nn.Linear(2048, 1),
+            nn.Sigmoid()
             )
         self._init_weights()
 

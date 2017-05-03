@@ -5466,3 +5466,5 @@ Traceback (most recent call last):
 FileNotFoundError: [Errno 2] No such file or directory: 'snapshot8/300091.jpg'
 => loading checkpoint 'save/SRGAN_ls_v0.0001_w0.001_Adam_fixG.pth'
 => loaded checkpoint (epoch 1)
+=> loading checkpoint 'save/best_b16_v0.0001_Adam_hardtanh_revised.pth'
+=> loaded checkpoint
