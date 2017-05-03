@@ -6234,3 +6234,5 @@ NameError: name 'disc' is not defined
 => loaded checkpoint (epoch 6)
 => loading checkpoint 'save/best_b16_v0.0001_Adam_hardtanh_revised.pth'
 => loaded checkpoint (epoch 7)
+=> loading checkpoint 'save/b16_v0.0001_Adam_hardtanh_revised.pth'
+=> loaded checkpoint (epoch 9)
