@@ -233,12 +233,12 @@ def train(epoch):
 
             if not args.fixG:
                 global best_gen_loss
-                is_best = gen_loss.data[0] > best_gen_loss
-                best_gen_loss = max(gen_loss.data[0] , best_gen_loss)
+                is_best = gen_loss.data[0] < best_gen_loss
+                best_gen_loss = min(gen_loss.data[0] , best_gen_loss)
             else:
                 global best_disc_loss
-                is_best = disc_loss.data[0] > best_disc_loss
-                best_disc_loss = max(disc_loss.data[0],best_disc_loss)
+                is_best = disc_loss.data[0] < best_disc_loss
+                best_disc_loss = min(disc_loss.data[0],best_disc_loss)
                 
             save_checkpoint({
                 'epoch': epoch + 1,
