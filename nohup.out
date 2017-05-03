@@ -5415,3 +5415,77 @@ RuntimeError: cuda runtime error (30) : unknown error at /py/conda-bld/pytorch_1
 => loaded checkpoint (epoch 3)
 => loading checkpoint 'save/b16_v0.0001_Adam_hardtanh_revised.pth'
 => loaded checkpoint
+=> loading checkpoint 'save/SRGAN_ls_v0.0001_w0.001_Adam_fixG.pth'
+=> loaded checkpoint (epoch 1)
+03th-18:15:07 | epoch1(2800) | lr=0.0001 | psnr=26.286 | ypsnr=26.178 | cont_mse=0.235554 | Loss(G):25.909[Cont:1.25619/Adv:24.6528] | Loss(D):0.615575[Real:0.278421/Fake:0.337155]
+03th-18:19:22 | epoch1(2900) | lr=0.0001 | psnr=20.645 | ypsnr=20.275 | cont_mse=0.38906 | Loss(G):1.24589[Cont:0.557946/Adv:0.687941] | Loss(D):2.15828[Real:1.45845/Fake:0.699823]
+Process Process-4:
+Traceback (most recent call last):
+  File "/home/zohar/.local/anaconda3/lib/python3.6/multiprocessing/process.py", line 249, in _bootstrap
+    self.run()
+  File "/home/zohar/.local/anaconda3/lib/python3.6/multiprocessing/process.py", line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/utils/data/dataloader.py", line 28, in _worker_loop
+    r = index_queue.get()
+  File "/home/zohar/.local/anaconda3/lib/python3.6/multiprocessing/queues.py", line 343, in get
+    res = self._reader.recv_bytes()
+  File "/home/zohar/.local/anaconda3/lib/python3.6/multiprocessing/connection.py", line 216, in recv_bytes
+    buf = self._recv_bytes(maxlength)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/multiprocessing/connection.py", line 407, in _recv_bytes
+    buf = self._recv(4)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/multiprocessing/connection.py", line 379, in _recv
+    chunk = read(handle, remaining)
+KeyboardInterrupt
+Process Process-3:
+Traceback (most recent call last):
+  File "/home/zohar/.local/anaconda3/lib/python3.6/multiprocessing/process.py", line 249, in _bootstrap
+    self.run()
+  File "/home/zohar/.local/anaconda3/lib/python3.6/multiprocessing/process.py", line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/utils/data/dataloader.py", line 28, in _worker_loop
+    r = index_queue.get()
+  File "/home/zohar/.local/anaconda3/lib/python3.6/multiprocessing/queues.py", line 342, in get
+    with self._rlock:
+  File "/home/zohar/.local/anaconda3/lib/python3.6/multiprocessing/synchronize.py", line 96, in __enter__
+    return self._semlock.__enter__()
+KeyboardInterrupt
+Process Process-2:
+Traceback (most recent call last):
+  File "/home/zohar/.local/anaconda3/lib/python3.6/multiprocessing/process.py", line 249, in _bootstrap
+    self.run()
+  File "/home/zohar/.local/anaconda3/lib/python3.6/multiprocessing/process.py", line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/utils/data/dataloader.py", line 28, in _worker_loop
+    r = index_queue.get()
+  File "/home/zohar/.local/anaconda3/lib/python3.6/multiprocessing/queues.py", line 342, in get
+    with self._rlock:
+  File "/home/zohar/.local/anaconda3/lib/python3.6/multiprocessing/synchronize.py", line 96, in __enter__
+    return self._semlock.__enter__()
+KeyboardInterrupt
+Process Process-1:
+Traceback (most recent call last):
+  File "/home/zohar/.local/anaconda3/lib/python3.6/multiprocessing/process.py", line 249, in _bootstrap
+    self.run()
+  File "/home/zohar/.local/anaconda3/lib/python3.6/multiprocessing/process.py", line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/utils/data/dataloader.py", line 28, in _worker_loop
+    r = index_queue.get()
+  File "/home/zohar/.local/anaconda3/lib/python3.6/multiprocessing/queues.py", line 342, in get
+    with self._rlock:
+  File "/home/zohar/.local/anaconda3/lib/python3.6/multiprocessing/synchronize.py", line 96, in __enter__
+    return self._semlock.__enter__()
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "train.py", line 254, in <module>
+    train(epoch)
+  File "train.py", line 225, in train
+    vs=validate(gen,vgg,cont_criterion,args.valdir,epoch,args.upscale_factor,gen_optimizer)
+  File "train.py", line 155, in validate
+    rgb.save(os.path.join(args.snapshot,os.path.basename(x)))
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/PIL/Image.py", line 1728, in save
+    save_handler(self, fp, filename)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/PIL/JpegImagePlugin.py", line 734, in _save
+    ImageFile._save(im, fp, [("jpeg", (0, 0)+im.size, 0, rawmode)], bufsize)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/PIL/ImageFile.py", line 493, in _save
+    s = e.encode_to_file(fh, bufsize)
+KeyboardInterrupt

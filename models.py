@@ -82,7 +82,6 @@ class GenNet(nn.Module):
         x = self.deconv1(x)
         x = self.deconv2(x)
         x = self.conv3(x)
-        x = self.tanh(x)
         x = (x+1)/2.0
         return x
 

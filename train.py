@@ -70,7 +70,7 @@ args = parser.parse_args()
 args.__dict__['upscale_factor']=4
 #args.traindir=globals()[args.traindir]
 args.valdir=globals()[args.valdir]
-args.__dict__['model_base_name']='SRGAN_ls_v%g_w%g_%s'%(args.lr,args.weight,args.optim)+('_fixG' if args.fixG else '')+('_fixD' if args.fixD else '')+('_separate' if args.separate else '')
+args.__dict__['model_base_name']='SRGAN_ncl_ls_v%g_w%g_%s'%(args.lr,args.weight,args.optim)+('_fixG' if args.fixG else '')+('_fixD' if args.fixD else '')+('_separate' if args.separate else '')
 args.__dict__['model_name']=args.model_base_name+'.pth'
 args.__dict__['snapshot']='snapshot_'+args.model_base_name
 
@@ -138,7 +138,6 @@ def validate(model,vgg,criterion,valdir,epoch,factor,optimizer):
     sum=0
     ysum=0
     cont_loss=0
-    model.eval()
     for x in [os.path.join(valdir,y) for y in os.listdir(valdir)]:
         im=Image.open(x)
         im=im.resize((im.size[0]-im.size[0]%factor,im.size[1]-im.size[1]%factor),Image.BICUBIC)
@@ -165,7 +164,6 @@ def validate(model,vgg,criterion,valdir,epoch,factor,optimizer):
     ypsnr=float(ysum)/cnt
     cont_loss=float(cont_loss)/cnt
     s=' | psnr=%.3f | ypsnr=%.3f | cont_mse=%g'%(psnr,ypsnr,cont_loss)
-    model.train()
     return s
     
 def save_checkpoint(state, is_best,logdir):
