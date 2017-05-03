@@ -5464,3 +5464,5 @@ Traceback (most recent call last):
   File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/PIL/Image.py", line 1725, in save
     fp = builtins.open(filename, "w+b")
 FileNotFoundError: [Errno 2] No such file or directory: 'snapshot8/300091.jpg'
+=> loading checkpoint 'save/SRGAN_ls_v0.0001_w0.001_Adam_fixG.pth'
+=> loaded checkpoint (epoch 1)

@@ -119,8 +119,8 @@ if args.generator:
 cont_criterion = nn.MSELoss().cuda()
 
 
-gen_optimizer = torch.optim.Adam(gen.parameters(), args.lr)
-disc_optimizer = torch.optim.Adam(disc.parameters(),args.lr)
+gen_optimizer = torch.optim.Adam(gen.parameters(), args.lr,betas=(0.5,0.9))
+disc_optimizer = torch.optim.Adam(disc.parameters(),args.lr,betas=(0.5,0.9))
 
 def normalize(tensor):
     r,g,b=torch.split(tensor,1,1)
