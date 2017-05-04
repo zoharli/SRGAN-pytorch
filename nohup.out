@@ -5640,4 +5640,22 @@ FileNotFoundError: [Errno 2] No such file or directory: 'snapshot8/300091.jpg'
 04th-09:17:51 | epoch1(22300) | lr=0.0001 | psnr=24.496 | ypsnr=26.831 | cont_mse=0.19911 | Loss(G):0.394161[Cont:0.393176/Adv:0.984592] | Loss(D):0.000510959[Real:0.000462217/Fake:4.87415e-05]
 04th-09:22:08 | epoch1(22400) | lr=0.0001 | psnr=24.401 | ypsnr=26.856 | cont_mse=0.201146 | Loss(G):0.362706[Cont:0.361651/Adv:1.05462] | Loss(D):0.000338071[Real:0.000222851/Fake:0.000115221]
 04th-09:26:24 | epoch1(22500) | lr=0.0001 | psnr=24.718 | ypsnr=27.196 | cont_mse=0.201744 | Loss(G):0.316502[Cont:0.315444/Adv:1.05797] | Loss(D):0.000419271[Real:8.22525e-05/Fake:0.000337018]
-04th-09:30:38 | epoch1(22600) | lr=0.0001 | psnr=24.569 | ypsnr=26.956 | cont_mse=0.201575 | Loss(G):0.481447[Cont:0.480348/Adv:1.09919] | Loss(D):0.000795872[Real:0.00032314/Fake:0.000472732]
+04th-09:30:38 | epoch1(22600) | lr=0.0001 | psnr=24.569 | ypsnr=26.956 | cont_mse=0.201575 | Loss(G):0.481447[Cont:0.480348/Adv:1.09919] | Loss(D):0.000795872[Real:0.00032314/Fake:0.000472732]=> loading checkpoint 'save/best_SRGAN_ls_v0.0001_w0.001_Adam_fixG.pth'
+=> loaded checkpoint (epoch 1)
+=> loading checkpoint 'save/best_ResNet_b16_v0.0001_Adam.pth'
+=> loaded checkpoint
+=> loading checkpoint 'save/best_SRGAN_ls_v0.0001_w0.1_Adam_fixG.pth'
+Traceback (most recent call last):
+  File "train.py", line 104, in <module>
+    disc.load_state_dict(checkpoint['disc_state_dict'])
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/module.py", line 334, in load_state_dict
+    own_state[name].copy_(param)
+RuntimeError: sizes do not match at /py/conda-bld/pytorch_1490903321756/work/torch/lib/THC/THCTensorCopy.cu:31
+=> loading checkpoint 'save/best_ResNet_b16_v0.0001_Adam.pth'
+=> loaded checkpoint
+=> loading checkpoint 'save/best_ResNet_b16_v0.0001_Adam.pth'
+=> loaded checkpoint
+=> loading checkpoint 'save/SRGAN_ls_v0.0001_w0.1_Adam_fixG.pth'
+=> loaded checkpoint (epoch 1)
+=> loading checkpoint 'save/best_ResNet_b16_v0.0001_Adam.pth'
+=> loaded checkpoint

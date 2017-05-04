@@ -119,8 +119,10 @@ if args.generator:
 cont_criterion = nn.MSELoss().cuda()
 
 
-gen_optimizer = torch.optim.Adam(gen.parameters(), args.lr,betas=(0.5,0.9))
-disc_optimizer = torch.optim.Adam(disc.parameters(),args.lr,betas=(0.5,0.9))
+#gen_optimizer = torch.optim.RMSprop(gen.parameters(), args.lr)
+#disc_optimizer = torch.optim.RMSprop(disc.parameters(),args.lr)
+gen_optimizer = torch.optim.Adam(gen.parameters(), args.lr)
+disc_optimizer = torch.optim.Adam(disc.parameters(),args.lr)
 
 def normalize(tensor):
     r,g,b=torch.split(tensor,1,1)
@@ -197,10 +199,10 @@ def train(epoch):
             
             else:
                 disc_optimizer.zero_grad()
-                output=disc(target_var)
-                real_loss=((output-1)**2).mean()
-                output=disc(gen(input_var).detach())
-                fake_loss=(output**2).mean()
+                real_output=disc(target_var)
+                real_loss=((real_output-1)**2).mean()
+                fake_output=disc(gen(input_var).detach())
+                fake_loss=(fake_output**2).mean()
                 disc_loss=fake_loss+real_loss
                 disc_loss.backward()
                 disc_optimizer.step()
