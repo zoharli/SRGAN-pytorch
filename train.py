@@ -70,7 +70,7 @@ args = parser.parse_args()
 args.__dict__['upscale_factor']=4
 #args.traindir=globals()[args.traindir]
 args.valdir=globals()[args.valdir]
-args.__dict__['model_base_name']='SRGAN_ls_v%g_w%g_%s'%(args.lr,args.weight,args.optim)+('_fixG' if args.fixG else '')+('_fixD' if args.fixD else '')+('_separate' if args.separate else '')
+args.__dict__['model_base_name']='SRGAN_lscomb_v%g_%s'%(args.lr,args.optim)+('_fixG' if args.fixG else '')+('_fixD' if args.fixD else '')+('_separate' if args.separate else '')
 args.__dict__['model_name']=args.model_base_name+'.pth'
 args.__dict__['snapshot']='snapshot_'+args.model_base_name
 
@@ -118,11 +118,12 @@ if args.generator:
 
 cont_criterion = nn.MSELoss().cuda()
 
-
-#gen_optimizer = torch.optim.RMSprop(gen.parameters(), args.lr)
-#disc_optimizer = torch.optim.RMSprop(disc.parameters(),args.lr)
-gen_optimizer = torch.optim.Adam(gen.parameters(), args.lr)
-disc_optimizer = torch.optim.Adam(disc.parameters(),args.lr)
+if args.optim=='RMSP':
+    gen_optimizer = torch.optim.RMSprop(gen.parameters(), args.lr)
+    disc_optimizer = torch.optim.RMSprop(disc.parameters(),args.lr)
+elif args.optim=='Adam':
+    gen_optimizer = torch.optim.Adam(gen.parameters(), args.lr)
+    disc_optimizer = torch.optim.Adam(disc.parameters(),args.lr)
 
 def normalize(tensor):
     r,g,b=torch.split(tensor,1,1)
@@ -145,12 +146,9 @@ def validate(model,vgg,criterion,valdir,epoch,factor,optimizer):
         im=Image.open(x)
         im=im.resize((im.size[0]-im.size[0]%factor,im.size[1]-im.size[1]%factor),Image.BICUBIC)
         target=Variable(torch.stack([transforms.ToTensor()(im)],0),volatile=True).cuda()
-        f_target=vgg(normalize(target))
         input=torch.stack([transforms.ToTensor()(im.resize((im.size[0]//args.upscale_factor,im.size[1]//args.upscale_factor),Image.BICUBIC))],0)
         input_var=Variable(input,volatile=True).cuda()
         output=model(input_var)
-        f_output=vgg(normalize(output))
-        cont_loss+=criterion(f_target,f_output).cpu().data[0]
         output=fclip(output)
         loss=criterion(target,output).cpu().data[0]
         img=torch.squeeze(output.data.cpu())
@@ -166,8 +164,7 @@ def validate(model,vgg,criterion,valdir,epoch,factor,optimizer):
         cnt+=1
     psnr=float(sum)/cnt
     ypsnr=float(ysum)/cnt
-    cont_loss=float(cont_loss)/cnt
-    s=' | psnr=%.3f | ypsnr=%.3f | cont_mse=%g'%(psnr,ypsnr,cont_loss)
+    s=' | psnr=%.3f | ypsnr=%.3f'%(psnr,ypsnr)
     return s
     
 def save_checkpoint(state, is_best,logdir):
@@ -199,31 +196,30 @@ def train(epoch):
             
             else:
                 disc_optimizer.zero_grad()
-                real_output=disc(target_var)
+                real_output=disc(vgg(normalize(target_var)).detach())
                 real_loss=((real_output-1)**2).mean()
-                fake_output=disc(gen(input_var).detach())
+                real_loss.backward()
+                fake_output=disc(vgg(normalize(gen(input_var))).detach())
                 fake_loss=(fake_output**2).mean()
+                fake_loss.backward()
                 disc_loss=fake_loss+real_loss
-                disc_loss.backward()
                 disc_optimizer.step()
             
         if not args.fixG:
             gen_optimizer.zero_grad()
             G_z=gen(input_var)
             fake_feature=vgg(normalize(G_z))
-            real_feature=vgg(normalize(target_var)).detach()
-            content_loss=cont_criterion(fake_feature,real_feature)
-            output=disc(G_z)
+            output=disc(fake_feature)
             adv_loss=((output-1)**2).mean()
-            gen_loss=args.weight*adv_loss+content_loss
-            gen_loss.backward()
+            adv_loss.backward()
+            gen_loss=adv_loss
             gen_optimizer.step()
             
         if i % args.print_freq == 0:
             s=time.strftime('%dth-%H:%M:%S',time.localtime(time.time()))+' | epoch%d(%d) | lr=%g'%(epoch,global_step,args.lr)
             if not args.fixG:
                 vs=validate(gen,vgg,cont_criterion,args.valdir,epoch,args.upscale_factor,gen_optimizer)
-                s+=vs+' | Loss(G):%g[Cont:%g/Adv:%g]'%(gen_loss.data[0],content_loss.data[0],adv_loss.data[0])
+                s+=vs+' | Loss(G):%g'%(adv_loss.data[0])
             if not args.fixD:
                 s+=' | Loss(D):%g[Real:%g/Fake:%g]'%(disc_loss.data[0],real_loss.data[0],fake_loss.data[0])
             print(s)

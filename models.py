@@ -102,8 +102,8 @@ class GenNet(nn.Module):
 class Skip(nn.Module):
     def __init__(self):
         super(Skip,self).__init__()
-
     def forward(self, input):
+        input=input.view(input.size(0),512,16,16)
         return input
 
 
@@ -118,7 +118,7 @@ def vgg19_54():
 """
 
 netspec_opts = dict()
-netspec_opts['input_channels'] = 3
+netspec_opts['input_channels'] = 512
 netspec_opts['layer_type'] = ['conv', 'lrelu',
                               'conv', 'lrelu', 'bn',
                               'conv', 'lrelu', 'bn',
@@ -127,12 +127,12 @@ netspec_opts['layer_type'] = ['conv', 'lrelu',
                               'conv', 'lrelu', 'bn',
                               'conv', 'lrelu', 'bn',
                               'conv', 'lrelu', 'bn']
-netspec_opts['num_filters'] = [64, 0,
-                               64, 0, 64,
-                               128, 0, 128,
-                               128, 0, 128,
-                               256, 0, 256,
-                               256, 0, 256,
+netspec_opts['num_filters'] = [512, 0,
+                               512, 0, 512,
+                               512, 0, 512,
+                               512, 0, 512,
+                               512, 0, 512,
+                               512, 0, 512,
                                512, 0, 512,
                                512, 0, 512]
 netspec_opts['kernel_size'] = [3, 0,
@@ -144,13 +144,13 @@ netspec_opts['kernel_size'] = [3, 0,
                                3, 0, 0,
                                3, 0, 0]
 netspec_opts['stride'] = [1, 0,
-                          2, 0, 0,
                           1, 0, 0,
-                          2, 0, 0,
                           1, 0, 0,
-                          2, 0, 0,
                           1, 0, 0,
-                          2, 0, 0]
+                          1, 0, 0,
+                          1, 0, 0,
+                          1, 0, 0,
+                          1, 0, 0]
 
 def make_layers(nopts):
     n = len(nopts['layer_type'])
