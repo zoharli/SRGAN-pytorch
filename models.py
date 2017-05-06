@@ -110,8 +110,9 @@ class Skip(nn.Module):
 def vgg19_54():
     model = models.vgg19(pretrained=True)
     # remove last max pooling
-    model.features = nn.Sequential(*list(model.features.children())[:-1])
-    model.classifier = Skip()
+    model.trans()
+    model.features=Skip()
+    model.classifier=Skip()
     return model
 
 """ Discriminator

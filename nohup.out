@@ -5659,3 +5659,1026 @@ RuntimeError: sizes do not match at /py/conda-bld/pytorch_1490903321756/work/tor
 => loaded checkpoint (epoch 1)
 => loading checkpoint 'save/best_ResNet_b16_v0.0001_Adam.pth'
 => loaded checkpoint
+=> loading checkpoint 'save/ResNet_b16_v0.0001_Adam.pth'
+=> loaded checkpoint
+=> loading checkpoint 'save/ResNet_b16_v0.0001_Adam.pth'
+=> loaded checkpoint
+=> loading checkpoint 'save/ResNet_b16_v0.0001_Adam.pth'
+=> loaded checkpoint
+=> loading checkpoint 'save/SRGAN_ls_v0.0001_w0.1_Adam_fixG.pth'
+=> loaded checkpoint (epoch 1)
+Traceback (most recent call last):
+  File "train.py", line 258, in <module>
+    train(epoch)
+  File "train.py", line 209, in train
+    fake*loss.backward()
+NameError: name 'fake' is not defined
+=> loading checkpoint 'save/SRGAN_ls_v0.0001_w0.1_Adam_fixG.pth'
+=> loaded checkpoint (epoch 1)
+=> loading checkpoint 'save/SRGAN_ls_v0.0001_w0.1_Adam_fixG.pth'
+=> loaded checkpoint (epoch 1)
+=> loading checkpoint 'save/SRGAN_ls_v0.0001_w0.1_Adam_fixG.pth'
+=> loaded checkpoint (epoch 1)
+=> loading checkpoint 'save/SRGAN_ls_v0.0001_w0.1_Adam_fixG.pth'
+=> loaded checkpoint (epoch 1)
+THCudaCheck FAIL file=/py/conda-bld/pytorch_1493680494901/work/torch/lib/THC/generic/THCStorage.cu line=66 error=2 : out of memory
+Traceback (most recent call last):
+  File "train.py", line 258, in <module>
+    train(epoch)
+  File "train.py", line 206, in train
+    real_loss.backward()
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/autograd/variable.py", line 146, in backward
+    self._execution_engine.run_backward((self,), (gradient,), retain_variables)
+RuntimeError: cuda runtime error (2) : out of memory at /py/conda-bld/pytorch_1493680494901/work/torch/lib/THC/generic/THCStorage.cu:66
+=> loading checkpoint 'save/SRGAN_v0.0001_w0.001_Adam_fixG.pth'
+Traceback (most recent call last):
+  File "train.py", line 101, in <module>
+    checkpoint = torch.load(args.resume)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/serialization.py", line 229, in load
+    return _load(f, map_location, pickle_module)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/serialization.py", line 384, in _load
+    deserialized_objects[key]._set_from_file(f, offset)
+RuntimeError: unexpected EOF. The file might be corrupted.
+=> loading checkpoint 'save/SRGAN_ls_v0.0001_w0.1_Adam_fixG.pth'
+=> loaded checkpoint (epoch 1)
+=> loading checkpoint 'save/SRGAN_ls_v0.0001_w0.1_Adam_fixG.pth'
+=> loaded checkpoint (epoch 1)
+=> loading checkpoint 'save/SRGAN_ls_v0.0001_w0.1_Adam_fixG.pth'
+=> loaded checkpoint (epoch 1)
+=> loading checkpoint 'save/ResNet_b16_v0.0001_Adam.pth'
+=> loaded checkpoint
+=> loading checkpoint 'save/ResNet_b16_v0.0001_Adam.pth'
+=> loaded checkpoint
+=> loading checkpoint 'save/best_SRGAN__mixls_v1e-05_w1_Adam_fixG.pth'
+=> loaded checkpoint (epoch 1)
+=> loading checkpoint 'save/best_SRGAN__mixls_v1e-05_w1_Adam_fixG.pth'
+=> loaded checkpoint (epoch 1)
+=> loading checkpoint 'save/best_SRGAN__mixls_v1e-05_w1_Adam_fixG.pth'
+=> loaded checkpoint (epoch 1)
+=> loading checkpoint 'save/best_SRGAN__mixls_v1e-05_w1_Adam_fixG.pth'
+=> loaded checkpoint (epoch 1)
+05th-20:52:28 | epoch1(400) | lr=5e-06 | psnr=26.467 | ypsnr=27.879 | cont_mse=1.88687 | Loss(G):2.7196[Cont:2.60858/Adv:0.111023] | Loss(D):0.222967[Real:0.185246/Fake:0.0377213]
+05th-20:56:30 | epoch1(500) | lr=5e-06 | psnr=25.764 | ypsnr=27.128 | cont_mse=1.8132 | Loss(G):5.22863[Cont:5.15692/Adv:0.0717105] | Loss(D):0.0888865[Real:0.0556988/Fake:0.0331877]
+05th-21:00:31 | epoch1(600) | lr=5e-06 | psnr=25.186 | ypsnr=26.527 | cont_mse=1.80456 | Loss(G):2.29851[Cont:2.23829/Adv:0.0602216] | Loss(D):0.0640417[Real:0.026003/Fake:0.0380387]
+05th-21:04:42 | epoch1(700) | lr=5e-06 | psnr=24.621 | ypsnr=25.962 | cont_mse=1.79808 | Loss(G):2.1774[Cont:2.106/Adv:0.0714003] | Loss(D):0.0705051[Real:0.054941/Fake:0.0155641]
+05th-21:08:47 | epoch1(800) | lr=5e-06 | psnr=24.103 | ypsnr=25.490 | cont_mse=1.79496 | Loss(G):3.20931[Cont:3.09552/Adv:0.113793] | Loss(D):0.0433274[Real:0.0284663/Fake:0.0148611]
+05th-21:12:46 | epoch1(900) | lr=5e-06 | psnr=23.750 | ypsnr=25.268 | cont_mse=1.79195 | Loss(G):2.53333[Cont:2.47525/Adv:0.0580841] | Loss(D):0.0491754[Real:0.0270643/Fake:0.0221111]
+05th-21:16:44 | epoch1(1000) | lr=5e-06 | psnr=23.673 | ypsnr=25.227 | cont_mse=1.78628 | Loss(G):2.82457[Cont:2.74748/Adv:0.0770985] | Loss(D):0.148512[Real:0.0644979/Fake:0.0840144]
+05th-21:20:49 | epoch1(1100) | lr=5e-06 | psnr=23.532 | ypsnr=25.057 | cont_mse=1.78988 | Loss(G):2.17554[Cont:2.13239/Adv:0.0431521] | Loss(D):0.0518382[Real:0.0326711/Fake:0.0191671]
+05th-21:24:51 | epoch1(1200) | lr=5e-06 | psnr=23.639 | ypsnr=25.098 | cont_mse=1.78466 | Loss(G):2.2952[Cont:2.20912/Adv:0.0860839] | Loss(D):0.053462[Real:0.0290715/Fake:0.0243905]
+05th-21:28:49 | epoch1(1300) | lr=5e-06 | psnr=23.479 | ypsnr=24.913 | cont_mse=1.78267 | Loss(G):2.06367[Cont:2.01932/Adv:0.0443507] | Loss(D):0.0321582[Real:0.00378237/Fake:0.0283759]
+05th-21:32:55 | epoch1(1400) | lr=5e-06 | psnr=23.111 | ypsnr=24.461 | cont_mse=1.78419 | Loss(G):2.53492[Cont:2.44635/Adv:0.0885669] | Loss(D):0.0444441[Real:0.0312908/Fake:0.0131532]
+05th-21:36:56 | epoch1(1500) | lr=5e-06 | psnr=22.885 | ypsnr=24.193 | cont_mse=1.78369 | Loss(G):3.33673[Cont:3.31668/Adv:0.020055] | Loss(D):0.0801471[Real:0.0208156/Fake:0.0593315]
+05th-21:40:54 | epoch1(1600) | lr=5e-06 | psnr=22.913 | ypsnr=24.250 | cont_mse=1.78432 | Loss(G):2.2321[Cont:2.15636/Adv:0.0757412] | Loss(D):0.0216825[Real:0.011313/Fake:0.0103695]
+05th-21:44:52 | epoch1(1700) | lr=5e-06 | psnr=22.763 | ypsnr=24.055 | cont_mse=1.78549 | Loss(G):3.98061[Cont:3.90096/Adv:0.0796506] | Loss(D):0.0233931[Real:0.0110981/Fake:0.012295]
+05th-21:48:57 | epoch1(1800) | lr=5e-06 | psnr=22.541 | ypsnr=23.829 | cont_mse=1.78155 | Loss(G):2.28622[Cont:2.26514/Adv:0.0210779] | Loss(D):0.0573743[Real:0.0231535/Fake:0.0342207]
+05th-21:52:57 | epoch1(1900) | lr=5e-06 | psnr=22.524 | ypsnr=23.853 | cont_mse=1.78256 | Loss(G):2.62463[Cont:2.5659/Adv:0.0587277] | Loss(D):0.0397436[Real:0.0166079/Fake:0.0231357]
+05th-21:56:56 | epoch1(2000) | lr=5e-06 | psnr=22.391 | ypsnr=23.697 | cont_mse=1.78729 | Loss(G):1.86769[Cont:1.75979/Adv:0.107897] | Loss(D):0.03156[Real:0.0274311/Fake:0.00412888]
+05th-22:01:04 | epoch1(2100) | lr=5e-06 | psnr=22.418 | ypsnr=23.802 | cont_mse=1.78175 | Loss(G):2.30465[Cont:2.19814/Adv:0.106513] | Loss(D):0.0166488[Real:0.0114757/Fake:0.00517313]
+05th-22:05:05 | epoch1(2200) | lr=5e-06 | psnr=22.529 | ypsnr=23.903 | cont_mse=1.77545 | Loss(G):3.50532[Cont:3.45999/Adv:0.0453299] | Loss(D):0.026185[Real:0.00880605/Fake:0.0173789]
+05th-22:09:06 | epoch1(2300) | lr=5e-06 | psnr=22.664 | ypsnr=24.012 | cont_mse=1.77958 | Loss(G):2.15771[Cont:2.05155/Adv:0.106154] | Loss(D):0.0413944[Real:0.0317154/Fake:0.00967895]
+05th-22:13:02 | epoch1(2400) | lr=5e-06 | psnr=22.786 | ypsnr=24.113 | cont_mse=1.7775 | Loss(G):1.83348[Cont:1.71511/Adv:0.118375] | Loss(D):0.0643252[Real:0.0481909/Fake:0.0161342]
+05th-22:17:08 | epoch1(2500) | lr=5e-06 | psnr=22.742 | ypsnr=24.016 | cont_mse=1.77366 | Loss(G):2.32605[Cont:2.27979/Adv:0.0462599] | Loss(D):0.023399[Real:0.00383812/Fake:0.0195609]
+05th-22:21:05 | epoch1(2600) | lr=5e-06 | psnr=22.860 | ypsnr=24.153 | cont_mse=1.77431 | Loss(G):3.20697[Cont:3.13868/Adv:0.0682893] | Loss(D):0.0157461[Real:0.00568356/Fake:0.0100626]
+05th-22:25:03 | epoch1(2700) | lr=5e-06 | psnr=22.755 | ypsnr=24.056 | cont_mse=1.77293 | Loss(G):1.63901[Cont:1.57666/Adv:0.0623476] | Loss(D):0.022484[Real:0.0123955/Fake:0.0100885]
+05th-22:29:08 | epoch1(2800) | lr=5e-06 | psnr=22.826 | ypsnr=24.178 | cont_mse=1.76937 | Loss(G):4.12996[Cont:4.098/Adv:0.0319633] | Loss(D):0.104566[Real:0.0412747/Fake:0.0632915]
+05th-22:33:07 | epoch1(2900) | lr=5e-06 | psnr=22.781 | ypsnr=24.122 | cont_mse=1.7666 | Loss(G):2.03753[Cont:1.94513/Adv:0.0924027] | Loss(D):0.0525637[Real:0.0485581/Fake:0.00400563]
+05th-22:37:09 | epoch1(3000) | lr=5e-06 | psnr=22.496 | ypsnr=23.879 | cont_mse=1.78147 | Loss(G):2.44856[Cont:2.39069/Adv:0.0578638] | Loss(D):0.0238933[Real:0.00771809/Fake:0.0161752]
+05th-22:41:10 | epoch1(3100) | lr=5e-06 | psnr=22.426 | ypsnr=23.794 | cont_mse=1.77172 | Loss(G):2.09448[Cont:2.03189/Adv:0.062591] | Loss(D):0.0105622[Real:0.00539215/Fake:0.00517003]
+05th-22:45:17 | epoch1(3200) | lr=5e-06 | psnr=22.414 | ypsnr=23.776 | cont_mse=1.77475 | Loss(G):3.18642[Cont:3.13596/Adv:0.0504644] | Loss(D):0.0614408[Real:0.0186351/Fake:0.0428057]
+05th-22:49:19 | epoch1(3300) | lr=5e-06 | psnr=22.652 | ypsnr=23.984 | cont_mse=1.7724 | Loss(G):2.40893[Cont:2.30817/Adv:0.100761] | Loss(D):0.0193222[Real:0.0102461/Fake:0.00907604]
+05th-22:53:20 | epoch1(3400) | lr=5e-06 | psnr=22.597 | ypsnr=23.915 | cont_mse=1.78018 | Loss(G):3.36327[Cont:3.27337/Adv:0.0899053] | Loss(D):0.03037[Real:0.0188182/Fake:0.0115518]
+05th-22:57:36 | epoch1(3500) | lr=5e-06 | psnr=22.754 | ypsnr=24.067 | cont_mse=1.77709 | Loss(G):2.57791[Cont:2.50647/Adv:0.0714417] | Loss(D):0.0182013[Real:0.00783409/Fake:0.0103672]
+05th-23:01:39 | epoch1(3600) | lr=5e-06 | psnr=22.607 | ypsnr=23.964 | cont_mse=1.77438 | Loss(G):3.93867[Cont:3.81656/Adv:0.122109] | Loss(D):0.0252551[Real:0.00711007/Fake:0.018145]
+05th-23:05:41 | epoch1(3700) | lr=5e-06 | psnr=22.709 | ypsnr=24.065 | cont_mse=1.77163 | Loss(G):3.39757[Cont:3.38024/Adv:0.0173383] | Loss(D):0.0776603[Real:0.0204362/Fake:0.0572241]
+05th-23:09:46 | epoch1(3800) | lr=5e-06 | psnr=22.711 | ypsnr=24.100 | cont_mse=1.76958 | Loss(G):2.58944[Cont:2.50965/Adv:0.0797861] | Loss(D):0.0131513[Real:0.0081369/Fake:0.0050144]
+05th-23:13:49 | epoch1(3900) | lr=5e-06 | psnr=23.021 | ypsnr=24.494 | cont_mse=1.76966 | Loss(G):1.86377[Cont:1.75185/Adv:0.111918] | Loss(D):0.0288048[Real:0.0226481/Fake:0.00615669]
+05th-23:17:54 | epoch1(4000) | lr=5e-06 | psnr=22.791 | ypsnr=24.226 | cont_mse=1.77623 | Loss(G):2.6801[Cont:2.60938/Adv:0.0707197] | Loss(D):0.0451962[Real:0.0373806/Fake:0.00781568]
+05th-23:22:00 | epoch1(4100) | lr=5e-06 | psnr=22.845 | ypsnr=24.270 | cont_mse=1.7738 | Loss(G):2.11878[Cont:2.0268/Adv:0.0919794] | Loss(D):0.0380647[Real:0.0317208/Fake:0.00634397]
+05th-23:26:07 | epoch1(4200) | lr=5e-06 | psnr=22.639 | ypsnr=24.095 | cont_mse=1.77266 | Loss(G):3.46907[Cont:3.38087/Adv:0.0882006] | Loss(D):0.0255107[Real:0.0197937/Fake:0.00571698]
+05th-23:30:10 | epoch1(4300) | lr=5e-06 | psnr=22.501 | ypsnr=23.891 | cont_mse=1.77093 | Loss(G):2.43923[Cont:2.33915/Adv:0.100082] | Loss(D):0.0352776[Real:0.026051/Fake:0.00922664]
+05th-23:34:11 | epoch1(4400) | lr=5e-06 | psnr=22.800 | ypsnr=24.173 | cont_mse=1.77267 | Loss(G):2.93599[Cont:2.8604/Adv:0.0755921] | Loss(D):0.00889601[Real:0.00523502/Fake:0.003661]
+05th-23:38:21 | epoch1(4500) | lr=5e-06 | psnr=22.973 | ypsnr=24.363 | cont_mse=1.7711 | Loss(G):2.37742[Cont:2.24014/Adv:0.137283] | Loss(D):0.0573115[Real:0.0417008/Fake:0.0156107]
+05th-23:42:24 | epoch1(4600) | lr=5e-06 | psnr=23.027 | ypsnr=24.441 | cont_mse=1.76535 | Loss(G):2.54129[Cont:2.4399/Adv:0.10139] | Loss(D):0.0115237[Real:0.00809128/Fake:0.00343242]
+05th-23:46:25 | epoch1(4700) | lr=5e-06 | psnr=22.905 | ypsnr=24.353 | cont_mse=1.76943 | Loss(G):2.52643[Cont:2.43383/Adv:0.0926054] | Loss(D):0.047252[Real:0.0403872/Fake:0.00686481]
+05th-23:50:21 | epoch1(4800) | lr=5e-06 | psnr=22.573 | ypsnr=24.060 | cont_mse=1.77718 | Loss(G):2.21419[Cont:2.0768/Adv:0.137397] | Loss(D):0.00965744[Real:0.00470778/Fake:0.00494966]=> loading checkpoint 'save/SRGAN__mixls_v5e-06_w0.1_Adam.pth'
+=> loaded checkpoint (epoch 2)
+=> loading checkpoint 'save/SRGAN__mixls_v5e-06_w0.1_Adam.pth'
+=> loaded checkpoint (epoch 2)
+=> loading checkpoint 'save/SRGAN__mixls_v5e-06_w0.1_Adam.pth'
+=> loaded checkpoint (epoch 2)
+=> loading checkpoint 'save/SRGAN__mixls_v5e-06_w0.1_Adam.pth'
+=> loaded checkpoint (epoch 2)
+=> loading checkpoint 'save/SRGAN__mixls_v5e-06_w0.1_Adam.pth'
+Traceback (most recent call last):
+  File "train.py", line 99, in <module>
+    checkpoint = torch.load(args.resume)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/serialization.py", line 229, in load
+    return _load(f, map_location, pickle_module)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/serialization.py", line 384, in _load
+    deserialized_objects[key]._set_from_file(f, offset)
+RuntimeError: unexpected EOF. The file might be corrupted.
+=> loading checkpoint 'save/SRGAN__mixls_v5e-06_w0.1_Adam.pth'
+=> loaded checkpoint (epoch 2)
+=> loading checkpoint 'save/SRGAN__mixls_v5e-06_w0.1_Adam.pth'
+=> loaded checkpoint (epoch 2)
+05th-23:58:26 | epoch2(4900) | lr=5e-06 | psnr=22.367 | ypsnr=23.808 | cont_mse=1.7854 | Loss(G):969.812[Cont:3.41216/Adv:966.4] | Loss(D):9.92001[Real:4.53854/Fake:5.38147]
+06th-00:01:56 | epoch2(5000) | lr=5e-06 | psnr=18.979 | ypsnr=20.428 | cont_mse=2.39085 | Loss(G):40.378[Cont:3.23035/Adv:37.1476] | Loss(D):16.462[Real:1.86637/Fake:14.5956]
+06th-00:05:36 | epoch2(5100) | lr=5e-06 | psnr=19.341 | ypsnr=21.486 | cont_mse=2.58345 | Loss(G):16.4648[Cont:5.06519/Adv:11.3996] | Loss(D):11.7009[Real:5.82971/Fake:5.87122]
+06th-00:09:13 | epoch2(5200) | lr=5e-06 | psnr=20.395 | ypsnr=22.994 | cont_mse=2.5213 | Loss(G):47.7267[Cont:4.63419/Adv:43.0925] | Loss(D):21.4239[Real:3.54996/Fake:17.8739]
+06th-00:12:45 | epoch2(5300) | lr=5e-06 | psnr=21.048 | ypsnr=23.611 | cont_mse=2.60508 | Loss(G):15.269[Cont:3.71263/Adv:11.5564] | Loss(D):9.30542[Real:6.1813/Fake:3.12412]
+06th-00:16:23 | epoch2(5400) | lr=5e-06 | psnr=21.633 | ypsnr=23.621 | cont_mse=2.71202 | Loss(G):18.8427[Cont:3.65787/Adv:15.1849] | Loss(D):13.2833[Real:6.59162/Fake:6.69172]
+06th-00:19:55 | epoch2(5500) | lr=5e-06 | psnr=21.360 | ypsnr=23.218 | cont_mse=2.73318 | Loss(G):27.5418[Cont:3.02763/Adv:24.5142] | Loss(D):10.2103[Real:2.30325/Fake:7.90708]
+06th-00:23:36 | epoch2(5600) | lr=5e-06 | psnr=21.186 | ypsnr=22.961 | cont_mse=2.71756 | Loss(G):31.3055[Cont:4.0294/Adv:27.2761] | Loss(D):17.2276[Real:2.3365/Fake:14.8911]
+06th-00:27:11 | epoch2(5700) | lr=5e-06 | psnr=21.025 | ypsnr=22.872 | cont_mse=2.78013 | Loss(G):45.6016[Cont:3.91911/Adv:41.6825] | Loss(D):11.058[Real:2.09991/Fake:8.95804]
+06th-00:30:57 | epoch2(5800) | lr=5e-06 | psnr=21.232 | ypsnr=22.974 | cont_mse=2.81617 | Loss(G):15.7207[Cont:4.32332/Adv:11.3974] | Loss(D):12.1024[Real:5.54672/Fake:6.55566]
+06th-00:34:31 | epoch2(5900) | lr=5e-06 | psnr=21.199 | ypsnr=22.771 | cont_mse=2.75826 | Loss(G):28.671[Cont:3.47357/Adv:25.1974] | Loss(D):11.5092[Real:1.82607/Fake:9.68312]
+06th-00:38:07 | epoch2(6000) | lr=5e-06 | psnr=21.493 | ypsnr=23.047 | cont_mse=2.68552 | Loss(G):21.0237[Cont:3.37323/Adv:17.6504] | Loss(D):9.63987[Real:3.93937/Fake:5.7005]
+06th-00:41:49 | epoch2(6100) | lr=5e-06 | psnr=21.294 | ypsnr=22.849 | cont_mse=2.683 | Loss(G):7.88025[Cont:2.81986/Adv:5.0604] | Loss(D):13.4507[Real:10.5327/Fake:2.91794]
+06th-00:45:36 | epoch2(6200) | lr=5e-06 | psnr=21.037 | ypsnr=22.417 | cont_mse=2.71324 | Loss(G):30.9045[Cont:3.70083/Adv:27.2036] | Loss(D):14.702[Real:2.4803/Fake:12.2217]
+06th-00:49:19 | epoch2(6300) | lr=5e-06 | psnr=21.160 | ypsnr=22.590 | cont_mse=2.67697 | Loss(G):5.53633[Cont:3.39785/Adv:2.13848] | Loss(D):12.763[Real:10.9865/Fake:1.77647]
+06th-00:53:06 | epoch2(6400) | lr=5e-06 | psnr=21.527 | ypsnr=23.058 | cont_mse=2.64862 | Loss(G):13.4405[Cont:4.42931/Adv:9.0112] | Loss(D):11.7752[Real:6.93252/Fake:4.84266]
+06th-00:56:47 | epoch2(6500) | lr=5e-06 | psnr=21.239 | ypsnr=22.822 | cont_mse=2.68783 | Loss(G):26.7553[Cont:3.7542/Adv:23.0011] | Loss(D):9.07625[Real:3.26106/Fake:5.81519]
+06th-01:00:18 | epoch2(6600) | lr=5e-06 | psnr=21.051 | ypsnr=22.473 | cont_mse=2.73307 | Loss(G):49.3178[Cont:3.41368/Adv:45.9041] | Loss(D):16.0601[Real:1.3804/Fake:14.6797]
+06th-01:03:57 | epoch2(6700) | lr=5e-06 | psnr=20.966 | ypsnr=22.508 | cont_mse=2.70461 | Loss(G):5.87582[Cont:3.40908/Adv:2.46674] | Loss(D):18.0041[Real:15.95/Fake:2.05406]
+06th-01:07:30 | epoch2(6800) | lr=5e-06 | psnr=20.523 | ypsnr=22.010 | cont_mse=2.70684 | Loss(G):19.7501[Cont:3.17791/Adv:16.5722] | Loss(D):8.08367[Real:4.62245/Fake:3.46122]
+06th-01:11:01 | epoch2(6900) | lr=5e-06 | psnr=20.446 | ypsnr=21.649 | cont_mse=2.69253 | Loss(G):6.60732[Cont:3.90328/Adv:2.70404] | Loss(D):9.73281[Real:7.89894/Fake:1.83387]
+06th-01:14:35 | epoch2(7000) | lr=5e-06 | psnr=20.656 | ypsnr=21.751 | cont_mse=2.71992 | Loss(G):28.3155[Cont:4.60121/Adv:23.7143] | Loss(D):17.2137[Real:8.82269/Fake:8.39101]
+06th-01:18:01 | epoch2(7100) | lr=5e-06 | psnr=20.603 | ypsnr=21.769 | cont_mse=2.73161 | Loss(G):40.8752[Cont:3.4788/Adv:37.3964] | Loss(D):14.1514[Real:2.9474/Fake:11.204]
+06th-01:21:29 | epoch2(7200) | lr=5e-06 | psnr=20.664 | ypsnr=21.986 | cont_mse=2.72211 | Loss(G):15.7507[Cont:3.86591/Adv:11.8848] | Loss(D):8.76582[Real:5.5496/Fake:3.21622]
+06th-01:24:52 | epoch2(7300) | lr=5e-06 | psnr=20.946 | ypsnr=22.582 | cont_mse=2.68847 | Loss(G):45.7272[Cont:4.09081/Adv:41.6364] | Loss(D):15.334[Real:5.39771/Fake:9.93626]
+06th-01:28:18 | epoch2(7400) | lr=5e-06 | psnr=20.840 | ypsnr=22.415 | cont_mse=2.7164 | Loss(G):17.0392[Cont:3.20181/Adv:13.8374] | Loss(D):8.19255[Real:4.1976/Fake:3.99495]
+06th-01:31:45 | epoch2(7500) | lr=5e-06 | psnr=20.833 | ypsnr=22.464 | cont_mse=2.72009 | Loss(G):16.6171[Cont:3.9939/Adv:12.6232] | Loss(D):11.66[Real:6.05347/Fake:5.60653]
+06th-01:35:22 | epoch2(7600) | lr=5e-06 | psnr=20.418 | ypsnr=22.201 | cont_mse=2.78613 | Loss(G):14.7906[Cont:4.26944/Adv:10.5212] | Loss(D):19.1448[Real:6.74376/Fake:12.401]
+06th-01:38:52 | epoch2(7700) | lr=5e-06 | psnr=20.645 | ypsnr=22.247 | cont_mse=2.86266 | Loss(G):27.4069[Cont:5.05578/Adv:22.3511] | Loss(D):10.9724[Real:3.35982/Fake:7.61256]
+06th-01:42:37 | epoch2(7800) | lr=5e-06 | psnr=20.832 | ypsnr=22.445 | cont_mse=2.88544 | Loss(G):26.9423[Cont:3.32389/Adv:23.6184] | Loss(D):11.8345[Real:3.27626/Fake:8.55821]
+06th-01:46:02 | epoch2(7900) | lr=5e-06 | psnr=21.444 | ypsnr=23.424 | cont_mse=2.72598 | Loss(G):21.7375[Cont:3.87285/Adv:17.8647] | Loss(D):10.8232[Real:3.37624/Fake:7.44695]
+06th-01:49:39 | epoch2(8000) | lr=5e-06 | psnr=21.854 | ypsnr=23.749 | cont_mse=2.65087 | Loss(G):4.55634[Cont:3.43852/Adv:1.11782] | Loss(D):15.2357[Real:13.1865/Fake:2.04926]
+06th-01:53:07 | epoch2(8100) | lr=5e-06 | psnr=21.831 | ypsnr=23.568 | cont_mse=2.63368 | Loss(G):15.1725[Cont:3.29532/Adv:11.8772] | Loss(D):11.2269[Real:6.69722/Fake:4.52969]
+06th-01:56:41 | epoch2(8200) | lr=5e-06 | psnr=21.594 | ypsnr=23.314 | cont_mse=2.64105 | Loss(G):22.2299[Cont:4.1127/Adv:18.1172] | Loss(D):11.2587[Real:2.4774/Fake:8.78134]
+06th-02:00:22 | epoch2(8300) | lr=5e-06 | psnr=21.301 | ypsnr=22.952 | cont_mse=2.64017 | Loss(G):8.32754[Cont:2.9309/Adv:5.39665] | Loss(D):11.6378[Real:7.43277/Fake:4.20506]
+06th-02:03:59 | epoch2(8400) | lr=5e-06 | psnr=21.036 | ypsnr=22.457 | cont_mse=2.66452 | Loss(G):26.6728[Cont:3.41156/Adv:23.2612] | Loss(D):11.3651[Real:3.03833/Fake:8.32675]
+06th-02:07:26 | epoch2(8500) | lr=5e-06 | psnr=20.526 | ypsnr=21.850 | cont_mse=2.71565 | Loss(G):24.1876[Cont:3.89982/Adv:20.2878] | Loss(D):12.3258[Real:3.86669/Fake:8.45916]
+06th-02:11:01 | epoch2(8600) | lr=5e-06 | psnr=20.435 | ypsnr=21.746 | cont_mse=2.71674 | Loss(G):19.2611[Cont:4.36285/Adv:14.8983] | Loss(D):9.37995[Real:3.89998/Fake:5.47997]
+06th-02:14:28 | epoch2(8700) | lr=5e-06 | psnr=20.655 | ypsnr=22.212 | cont_mse=2.68736 | Loss(G):18.8974[Cont:2.84052/Adv:16.0569] | Loss(D):12.2248[Real:5.63092/Fake:6.59385]
+06th-02:17:59 | epoch2(8800) | lr=5e-06 | psnr=20.943 | ypsnr=22.462 | cont_mse=2.71338 | Loss(G):16.4632[Cont:3.94798/Adv:12.5152] | Loss(D):8.20433[Real:4.65655/Fake:3.54778]
+06th-02:21:36 | epoch2(8900) | lr=5e-06 | psnr=21.023 | ypsnr=22.495 | cont_mse=2.7519 | Loss(G):12.7979[Cont:3.28175/Adv:9.51611] | Loss(D):11.2102[Real:6.75002/Fake:4.46013]
+06th-02:25:10 | epoch2(9000) | lr=5e-06 | psnr=21.385 | ypsnr=22.895 | cont_mse=2.78169 | Loss(G):14.6946[Cont:4.48606/Adv:10.2086] | Loss(D):14.656[Real:8.02507/Fake:6.63096]
+06th-02:28:38 | epoch2(9100) | lr=5e-06 | psnr=21.651 | ypsnr=23.314 | cont_mse=2.72797 | Loss(G):20.1202[Cont:3.73541/Adv:16.3848] | Loss(D):7.86761[Real:3.1018/Fake:4.76581]
+06th-02:32:12 | epoch2(9200) | lr=5e-06 | psnr=21.192 | ypsnr=22.917 | cont_mse=2.75077 | Loss(G):53.3838[Cont:5.71219/Adv:47.6716] | Loss(D):22.3018[Real:2.72304/Fake:19.5787]
+06th-02:35:44 | epoch2(9300) | lr=5e-06 | psnr=21.029 | ypsnr=22.622 | cont_mse=2.82613 | Loss(G):23.8055[Cont:3.93968/Adv:19.8658] | Loss(D):16.8376[Real:6.50498/Fake:10.3326]
+06th-02:39:06 | epoch2(9400) | lr=5e-06 | psnr=20.866 | ypsnr=22.456 | cont_mse=2.83373 | Loss(G):31.1488[Cont:3.26082/Adv:27.888] | Loss(D):16.8891[Real:6.85281/Fake:10.0363]
+06th-02:42:34 | epoch2(9500) | lr=5e-06 | psnr=21.294 | ypsnr=22.887 | cont_mse=2.76886 | Loss(G):34.1005[Cont:3.87827/Adv:30.2222] | Loss(D):13.2957[Real:3.0685/Fake:10.2272]
+05th-23:54:18 | epoch1(4900) | lr=5e-06 | psnr=22.547 | ypsnr=24.033 | cont_mse=1.7785 | Loss(G):2.40833[Cont:2.26721/Adv:0.141119] | Loss(D):0.0301938[Real:0.0199213/Fake:0.0102726]
+05th-23:58:14 | epoch1(5000) | lr=5e-06 | psnr=22.606 | ypsnr=24.092 | cont_mse=1.77306 | Loss(G):2.92078[Cont:2.8286/Adv:0.0921828] | Loss(D):0.0261735[Real:0.0143332/Fake:0.0118403]
+06th-00:02:25 | epoch1(5100) | lr=5e-06 | psnr=22.453 | ypsnr=23.945 | cont_mse=1.77747 | Loss(G):4.16177[Cont:4.08269/Adv:0.0790854] | Loss(D):0.0283656[Real:0.00761332/Fake:0.0207523]
+06th-00:06:44 | epoch1(5200) | lr=5e-06 | psnr=22.319 | ypsnr=23.775 | cont_mse=1.77845 | Loss(G):2.31665[Cont:2.18278/Adv:0.133865] | Loss(D):0.0394089[Real:0.0198568/Fake:0.0195522]
+06th-00:11:12 | epoch1(5300) | lr=5e-06 | psnr=21.970 | ypsnr=23.447 | cont_mse=1.77932 | Loss(G):3.05499[Cont:2.98493/Adv:0.0700603] | Loss(D):0.0227789[Real:0.013386/Fake:0.0093929]
+06th-00:15:28 | epoch1(5400) | lr=5e-06 | psnr=22.103 | ypsnr=23.638 | cont_mse=1.78152 | Loss(G):2.7151[Cont:2.65107/Adv:0.0640207] | Loss(D):0.0188259[Real:0.0103316/Fake:0.00849424]
+06th-00:19:36 | epoch1(5500) | lr=5e-06 | psnr=22.538 | ypsnr=24.073 | cont_mse=1.76906 | Loss(G):2.79207[Cont:2.62775/Adv:0.164326] | Loss(D):0.0587626[Real:0.0275101/Fake:0.0312525]
+06th-00:23:54 | epoch1(5600) | lr=5e-06 | psnr=22.725 | ypsnr=24.211 | cont_mse=1.77604 | Loss(G):3.65909[Cont:3.58393/Adv:0.0751645] | Loss(D):0.029828[Real:0.0135005/Fake:0.0163275]
+06th-00:28:09 | epoch1(5700) | lr=5e-06 | psnr=22.868 | ypsnr=24.285 | cont_mse=1.77523 | Loss(G):2.07433[Cont:1.99639/Adv:0.0779393] | Loss(D):0.028467[Real:0.0210782/Fake:0.0073888]
+06th-00:32:21 | epoch1(5800) | lr=5e-06 | psnr=22.804 | ypsnr=24.207 | cont_mse=1.777 | Loss(G):3.16803[Cont:3.09383/Adv:0.0741984] | Loss(D):0.0193526[Real:0.00549123/Fake:0.0138613]
+06th-00:36:42 | epoch1(5900) | lr=5e-06 | psnr=22.812 | ypsnr=24.306 | cont_mse=1.77449 | Loss(G):3.71134[Cont:3.65127/Adv:0.060069] | Loss(D):0.0187674[Real:0.00875704/Fake:0.0100103]
+06th-00:41:04 | epoch1(6000) | lr=5e-06 | psnr=22.675 | ypsnr=24.232 | cont_mse=1.77667 | Loss(G):3.94415[Cont:3.88044/Adv:0.0637095] | Loss(D):0.0265168[Real:0.00879837/Fake:0.0177184]
+06th-00:45:22 | epoch1(6100) | lr=5e-06 | psnr=22.538 | ypsnr=24.137 | cont_mse=1.77875 | Loss(G):3.42325[Cont:3.2792/Adv:0.144052] | Loss(D):0.0237129[Real:0.0118944/Fake:0.0118185]
+06th-00:49:36 | epoch1(6200) | lr=5e-06 | psnr=22.736 | ypsnr=24.327 | cont_mse=1.77596 | Loss(G):2.65448[Cont:2.58255/Adv:0.0719336] | Loss(D):0.0118035[Real:0.00285109/Fake:0.00895244]
+06th-00:54:02 | epoch1(6300) | lr=5e-06 | psnr=22.706 | ypsnr=24.223 | cont_mse=1.78991 | Loss(G):2.60233[Cont:2.48997/Adv:0.112358] | Loss(D):0.0243535[Real:0.0208399/Fake:0.00351358]
+06th-00:58:15 | epoch1(6400) | lr=5e-06 | psnr=22.868 | ypsnr=24.373 | cont_mse=1.78109 | Loss(G):3.23331[Cont:3.17969/Adv:0.0536189] | Loss(D):0.0368493[Real:0.0128697/Fake:0.0239796]
+06th-01:02:37 | epoch1(6500) | lr=5e-06 | psnr=22.856 | ypsnr=24.365 | cont_mse=1.78153 | Loss(G):3.28696[Cont:3.22742/Adv:0.0595484] | Loss(D):0.0243314[Real:0.00515289/Fake:0.0191785]
+06th-01:06:53 | epoch1(6600) | lr=5e-06 | psnr=22.840 | ypsnr=24.340 | cont_mse=1.78259 | Loss(G):2.93326[Cont:2.85179/Adv:0.0814748] | Loss(D):0.0199637[Real:0.00812822/Fake:0.0118355]
+06th-01:11:06 | epoch1(6700) | lr=5e-06 | psnr=22.750 | ypsnr=24.366 | cont_mse=1.78097 | Loss(G):3.18761[Cont:3.15043/Adv:0.0371854] | Loss(D):0.0619737[Real:0.0294429/Fake:0.0325309]
+06th-01:15:17 | epoch1(6800) | lr=5e-06 | psnr=22.482 | ypsnr=24.067 | cont_mse=1.79003 | Loss(G):3.2925[Cont:3.22289/Adv:0.0696171] | Loss(D):0.0287521[Real:0.0115333/Fake:0.0172188]
+06th-01:19:22 | epoch1(6900) | lr=5e-06 | psnr=22.513 | ypsnr=24.131 | cont_mse=1.78054 | Loss(G):4.09001[Cont:3.97867/Adv:0.111343] | Loss(D):0.0233076[Real:0.00333512/Fake:0.0199725]
+06th-01:23:29 | epoch1(7000) | lr=5e-06 | psnr=22.461 | ypsnr=24.012 | cont_mse=1.78156 | Loss(G):1.93059[Cont:1.74688/Adv:0.183711] | Loss(D):0.052642[Real:0.0219977/Fake:0.0306444]
+06th-01:27:46 | epoch1(7100) | lr=5e-06 | psnr=22.746 | ypsnr=24.298 | cont_mse=1.77632 | Loss(G):2.89259[Cont:2.78495/Adv:0.107648] | Loss(D):0.0176194[Real:0.0119589/Fake:0.00566049]
+06th-01:31:57 | epoch1(7200) | lr=5e-06 | psnr=22.657 | ypsnr=24.211 | cont_mse=1.77682 | Loss(G):3.15025[Cont:3.08147/Adv:0.0687833] | Loss(D):0.0274891[Real:0.0197684/Fake:0.00772065]
+06th-01:36:12 | epoch1(7300) | lr=5e-06 | psnr=22.794 | ypsnr=24.366 | cont_mse=1.78012 | Loss(G):2.77115[Cont:2.6981/Adv:0.0730546] | Loss(D):0.0179896[Real:0.0061131/Fake:0.0118765]
+06th-01:40:15 | epoch1(7400) | lr=5e-06 | psnr=22.607 | ypsnr=24.195 | cont_mse=1.78318 | Loss(G):1.80196[Cont:1.63793/Adv:0.164035] | Loss(D):0.113328[Real:0.0818389/Fake:0.0314892]
+06th-01:44:20 | epoch1(7500) | lr=5e-06 | psnr=22.699 | ypsnr=24.327 | cont_mse=1.782 | Loss(G):4.85926[Cont:4.7626/Adv:0.0966622] | Loss(D):0.0254741[Real:0.0180112/Fake:0.00746294]
+06th-01:48:30 | epoch1(7600) | lr=5e-06 | psnr=22.465 | ypsnr=24.045 | cont_mse=1.7827 | Loss(G):2.37099[Cont:2.23017/Adv:0.140824] | Loss(D):0.0463023[Real:0.0217877/Fake:0.0245146]
+06th-01:52:31 | epoch1(7700) | lr=5e-06 | psnr=22.289 | ypsnr=23.832 | cont_mse=1.78948 | Loss(G):1.75987[Cont:1.67883/Adv:0.081035] | Loss(D):0.0520683[Real:0.0467365/Fake:0.00533177]
+06th-01:56:58 | epoch1(7800) | lr=5e-06 | psnr=22.168 | ypsnr=23.655 | cont_mse=1.78945 | Loss(G):2.64021[Cont:2.53066/Adv:0.109552] | Loss(D):0.0461892[Real:0.0404105/Fake:0.0057787]
+06th-02:01:09 | epoch1(7900) | lr=5e-06 | psnr=22.277 | ypsnr=23.704 | cont_mse=1.78722 | Loss(G):2.37885[Cont:2.30979/Adv:0.0690626] | Loss(D):0.038912[Real:0.01781/Fake:0.0211021]
+06th-02:05:15 | epoch1(8000) | lr=5e-06 | psnr=22.629 | ypsnr=24.078 | cont_mse=1.77925 | Loss(G):3.02182[Cont:2.95583/Adv:0.0659924] | Loss(D):0.0185681[Real:0.0120992/Fake:0.0064688]
+06th-02:09:22 | epoch1(8100) | lr=5e-06 | psnr=22.491 | ypsnr=23.971 | cont_mse=1.78749 | Loss(G):3.60491[Cont:3.5384/Adv:0.066504] | Loss(D):0.0163544[Real:0.0053055/Fake:0.0110489]
+06th-02:13:28 | epoch1(8200) | lr=5e-06 | psnr=22.672 | ypsnr=24.172 | cont_mse=1.78684 | Loss(G):1.96781[Cont:1.88007/Adv:0.0877389] | Loss(D):0.00672636[Real:0.00464189/Fake:0.00208447]
+06th-02:17:35 | epoch1(8300) | lr=5e-06 | psnr=22.594 | ypsnr=24.129 | cont_mse=1.78878 | Loss(G):3.32793[Cont:3.17293/Adv:0.154998] | Loss(D):0.0372797[Real:0.0144719/Fake:0.0228078]
+06th-02:21:47 | epoch1(8400) | lr=5e-06 | psnr=22.400 | ypsnr=24.054 | cont_mse=1.79264 | Loss(G):3.06432[Cont:2.92682/Adv:0.137505] | Loss(D):0.0294172[Real:0.0184724/Fake:0.0109448]
+06th-02:26:06 | epoch1(8500) | lr=5e-06 | psnr=22.503 | ypsnr=24.086 | cont_mse=1.78931 | Loss(G):2.42529[Cont:2.29421/Adv:0.131084] | Loss(D):0.0270931[Real:0.0129115/Fake:0.0141816]
+06th-02:30:17 | epoch1(8600) | lr=5e-06 | psnr=22.687 | ypsnr=24.199 | cont_mse=1.78945 | Loss(G):2.92068[Cont:2.88588/Adv:0.0348007] | Loss(D):0.0400974[Real:0.0035368/Fake:0.0365606]
+06th-02:34:30 | epoch1(8700) | lr=5e-06 | psnr=22.985 | ypsnr=24.545 | cont_mse=1.78305 | Loss(G):3.12966[Cont:2.99183/Adv:0.137833] | Loss(D):0.0184722[Real:0.0103268/Fake:0.0081454]
+06th-02:38:36 | epoch1(8800) | lr=5e-06 | psnr=22.841 | ypsnr=24.394 | cont_mse=1.78451 | Loss(G):2.97232[Cont:2.88902/Adv:0.0832996] | Loss(D):0.0278061[Real:0.00817675/Fake:0.0196293]
+06th-02:42:43 | epoch1(8900) | lr=5e-06 | psnr=22.637 | ypsnr=24.248 | cont_mse=1.78789 | Loss(G):2.05969[Cont:2.01528/Adv:0.0444112] | Loss(D):0.0477723[Real:0.012465/Fake:0.0353073]
+06th-02:47:03 | epoch1(9000) | lr=5e-06 | psnr=22.401 | ypsnr=24.012 | cont_mse=1.79236 | Loss(G):3.42069[Cont:3.33163/Adv:0.0890601] | Loss(D):0.01452[Real:0.00780084/Fake:0.00671912]
+06th-02:51:12 | epoch1(9100) | lr=5e-06 | psnr=22.284 | ypsnr=23.885 | cont_mse=1.79115 | Loss(G):2.46101[Cont:2.40097/Adv:0.0600374] | Loss(D):0.0127727[Real:0.00303121/Fake:0.0097415]
+06th-02:55:22 | epoch1(9200) | lr=5e-06 | psnr=22.051 | ypsnr=23.701 | cont_mse=1.79895 | Loss(G):3.10363[Cont:3.05213/Adv:0.0514993] | Loss(D):0.0224661[Real:0.00716102/Fake:0.0153051]
+06th-02:59:28 | epoch1(9300) | lr=5e-06 | psnr=22.308 | ypsnr=23.960 | cont_mse=1.78725 | Loss(G):3.13693[Cont:2.95371/Adv:0.18322] | Loss(D):0.0284556[Real:0.00424332/Fake:0.0242123]  File "train.py", line 212
+    +torch.pow(exp,weights[1])/denom*cont_criterion(x2,y2)
+    ^
+IndentationError: unexpected indent
+  File "train.py", line 212
+    +torch.pow(exp,weights[1])/denom*cont_criterion(x2,y2)
+    ^
+IndentationError: unexpected indent
+  File "train.py", line 212
+    +torch.pow(exp,weights[1])/denom*cont_criterion(x2,y2)
+    ^
+IndentationError: unexpected indent
+=> loading checkpoint 'save/SRGAN__mixls_v5e-06_w0.1_Adam.pth'
+=> loaded checkpoint (epoch 2)
+Traceback (most recent call last):
+  File "train.py", line 130, in <module>
+    weights=torch.Variable(torch.FloatTensor(torch.zeros(7)))
+AttributeError: module 'torch' has no attribute 'Variable'
+=> loading checkpoint 'save/SRGAN__mixls_v5e-06_w0.1_Adam.pth'
+=> loaded checkpoint (epoch 2)
+Traceback (most recent call last):
+  File "train.py", line 132, in <module>
+    exp=Variable(torch.FloatTensor(math.e))
+TypeError: torch.FloatTensor constructor received an invalid combination of arguments - got (float), but expected one of:
+ * no arguments
+ * (int ...)
+      didn't match because some of the arguments have invalid types: (!float!)
+ * (torch.FloatTensor viewed_tensor)
+      didn't match because some of the arguments have invalid types: (!float!)
+ * (torch.Size size)
+      didn't match because some of the arguments have invalid types: (!float!)
+ * (torch.FloatStorage data)
+      didn't match because some of the arguments have invalid types: (!float!)
+ * (Sequence data)
+      didn't match because some of the arguments have invalid types: (!float!)
+
+=> loading checkpoint 'save/SRGAN__mixls_v5e-06_w0.1_Adam.pth'
+=> loaded checkpoint (epoch 2)
+Traceback (most recent call last):
+  File "train.py", line 255, in <module>
+    train(epoch)
+  File "train.py", line 217, in train
+    +torch.pow(exp,weights[6])/denom*adv_loss
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/autograd/variable.py", line 761, in __mul__
+    return self.mul(other)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/autograd/variable.py", line 303, in mul
+    return Mul()(self, other)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/autograd/_functions/basic_ops.py", line 45, in forward
+    return a.mul(b)
+TypeError: mul received an invalid combination of arguments - got (torch.cuda.FloatTensor), but expected one of:
+ * (float value)
+      didn't match because some of the arguments have invalid types: (!torch.cuda.FloatTensor!)
+ * (torch.FloatTensor other)
+      didn't match because some of the arguments have invalid types: (!torch.cuda.FloatTensor!)
+
+=> loading checkpoint 'save/SRGAN__mixls_v5e-06_w0.1_Adam.pth'
+=> loaded checkpoint (epoch 2)
+Traceback (most recent call last):
+  File "train.py", line 255, in <module>
+    train(epoch)
+  File "train.py", line 217, in train
+    +torch.pow(exp,weights[6])/denom*adv_loss
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/module.py", line 206, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/loss.py", line 22, in forward
+    _assert_no_grad(target)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/loss.py", line 11, in _assert_no_grad
+    "nn criterions don't compute the gradient w.r.t. targets - please " \
+AssertionError: nn criterions don't compute the gradient w.r.t. targets - please mark these variables as volatile or not requiring gradients
+=> loading checkpoint 'save/SRGAN__mixls_v5e-06_w0.1_Adam.pth'
+=> loaded checkpoint (epoch 2)
+Traceback (most recent call last):
+  File "train.py", line 255, in <module>
+    train(epoch)
+  File "train.py", line 226, in train
+    vs=validate(gen,vgg,cont_criterion,args.valdir,epoch,args.upscale_factor,gen_optimizer)
+  File "train.py", line 160, in validate
+    cont_loss+=criterion(f_target,f_output).cpu().data[0]
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/module.py", line 206, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/loss.py", line 22, in forward
+    _assert_no_grad(target)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/loss.py", line 10, in _assert_no_grad
+    assert not variable.requires_grad, \
+AttributeError: 'tuple' object has no attribute 'requires_grad'
+06th-01:52:10 | epoch2(7600) | lr=5e-06 | psnr=22.688 | ypsnr=24.412 | cont_mse=1.7974 | Loss(G):656.765[Cont:4.68014/Adv:652.085] | Loss(D):2.84846[Real:1.18943/Fake:1.65903]
+06th-01:55:57 | epoch2(7700) | lr=5e-06 | psnr=20.730 | ypsnr=22.231 | cont_mse=2.28314 | Loss(G):27.4421[Cont:7.51998/Adv:19.9221] | Loss(D):7.72391[Real:2.96129/Fake:4.76263]
+06th-01:59:50 | epoch2(7800) | lr=5e-06 | psnr=21.105 | ypsnr=22.631 | cont_mse=2.52363 | Loss(G):28.1406[Cont:6.40327/Adv:21.7373] | Loss(D):14.4538[Real:2.22023/Fake:12.2335]
+06th-02:03:25 | epoch2(7900) | lr=5e-06 | psnr=21.730 | ypsnr=23.911 | cont_mse=2.62635 | Loss(G):11.8599[Cont:7.76037/Adv:4.09957] | Loss(D):11.9357[Real:10.6591/Fake:1.27656]
+06th-02:07:05 | epoch2(8000) | lr=5e-06 | psnr=21.927 | ypsnr=24.408 | cont_mse=2.68571 | Loss(G):12.3997[Cont:4.9674/Adv:7.43225] | Loss(D):27.7962[Real:26.4278/Fake:1.3684]
+06th-02:10:45 | epoch2(8100) | lr=5e-06 | psnr=22.561 | ypsnr=24.855 | cont_mse=2.60672 | Loss(G):37.1757[Cont:7.04945/Adv:30.1263] | Loss(D):13.214[Real:3.65984/Fake:9.55413]
+06th-02:14:25 | epoch2(8200) | lr=5e-06 | psnr=22.585 | ypsnr=24.804 | cont_mse=2.6717 | Loss(G):22.2173[Cont:4.9102/Adv:17.3071] | Loss(D):11.9977[Real:4.12085/Fake:7.87688]
+06th-02:18:04 | epoch2(8300) | lr=5e-06 | psnr=22.709 | ypsnr=24.967 | cont_mse=2.68243 | Loss(G):5.85017[Cont:4.88098/Adv:0.969196] | Loss(D):13.6809[Real:12.0653/Fake:1.61562]
+06th-02:21:49 | epoch2(8400) | lr=5e-06 | psnr=22.792 | ypsnr=24.980 | cont_mse=2.65998 | Loss(G):10.7442[Cont:6.00511/Adv:4.73911] | Loss(D):28.2181[Real:25.9416/Fake:2.27655]
+06th-02:25:32 | epoch2(8500) | lr=5e-06 | psnr=22.737 | ypsnr=24.982 | cont_mse=2.69562 | Loss(G):14.6193[Cont:7.34803/Adv:7.27128] | Loss(D):10.3331[Real:5.81185/Fake:4.52122]
+06th-02:29:10 | epoch2(8600) | lr=5e-06 | psnr=22.630 | ypsnr=24.841 | cont_mse=2.69393 | Loss(G):26.9662[Cont:6.65187/Adv:20.3143] | Loss(D):9.54779[Real:3.93208/Fake:5.61572]
+06th-02:32:49 | epoch2(8700) | lr=5e-06 | psnr=22.420 | ypsnr=24.581 | cont_mse=2.73205 | Loss(G):28.9807[Cont:5.06129/Adv:23.9194] | Loss(D):15.6919[Real:4.7539/Fake:10.938]
+06th-02:36:32 | epoch2(8800) | lr=5e-06 | psnr=22.319 | ypsnr=24.301 | cont_mse=2.71521 | Loss(G):46.442[Cont:5.52942/Adv:40.9126] | Loss(D):20.0663[Real:3.58628/Fake:16.48]
+06th-02:40:04 | epoch2(8900) | lr=5e-06 | psnr=22.268 | ypsnr=24.185 | cont_mse=2.72078 | Loss(G):9.48462[Cont:7.01403/Adv:2.47059] | Loss(D):17.0566[Real:11.8087/Fake:5.2479]
+06th-02:43:37 | epoch2(9000) | lr=5e-06 | psnr=22.486 | ypsnr=24.477 | cont_mse=2.70261 | Loss(G):64.0681[Cont:5.15797/Adv:58.9101] | Loss(D):14.6321[Real:4.89506/Fake:9.737]
+06th-02:47:24 | epoch2(9100) | lr=5e-06 | psnr=22.465 | ypsnr=24.392 | cont_mse=2.77064 | Loss(G):19.1322[Cont:4.5863/Adv:14.5458] | Loss(D):10.5734[Real:4.72841/Fake:5.84498]
+06th-02:51:06 | epoch2(9200) | lr=5e-06 | psnr=22.591 | ypsnr=24.528 | cont_mse=2.75848 | Loss(G):7.61331[Cont:5.25023/Adv:2.36308] | Loss(D):23.153[Real:22.4205/Fake:0.732553]
+06th-02:54:45 | epoch2(9300) | lr=5e-06 | psnr=22.579 | ypsnr=24.562 | cont_mse=2.79152 | Loss(G):26.2047[Cont:6.79685/Adv:19.4079] | Loss(D):12.2805[Real:4.40561/Fake:7.87486]
+06th-02:58:17 | epoch2(9400) | lr=5e-06 | psnr=22.474 | ypsnr=24.498 | cont_mse=2.76031 | Loss(G):4.71833[Cont:3.63056/Adv:1.08777] | Loss(D):8.3848[Real:6.61424/Fake:1.77056]
+06th-03:02:05 | epoch2(9500) | lr=5e-06 | psnr=22.526 | ypsnr=24.516 | cont_mse=2.76797 | Loss(G):22.899[Cont:6.73714/Adv:16.1618] | Loss(D):9.71535[Real:3.13625/Fake:6.57911]
+06th-03:05:38 | epoch2(9600) | lr=5e-06 | psnr=22.673 | ypsnr=24.681 | cont_mse=2.75444 | Loss(G):35.1376[Cont:4.17149/Adv:30.9661] | Loss(D):12.3389[Real:4.53285/Fake:7.80604]
+06th-03:09:09 | epoch2(9700) | lr=5e-06 | psnr=22.964 | ypsnr=24.967 | cont_mse=2.72185 | Loss(G):30.9279[Cont:6.16702/Adv:24.7609] | Loss(D):12.8924[Real:2.28583/Fake:10.6066]
+06th-03:12:41 | epoch2(9800) | lr=5e-06 | psnr=22.790 | ypsnr=24.771 | cont_mse=2.74352 | Loss(G):20.6628[Cont:5.21952/Adv:15.4433] | Loss(D):8.86964[Real:4.26814/Fake:4.6015]
+06th-03:16:19 | epoch2(9900) | lr=5e-06 | psnr=22.324 | ypsnr=24.223 | cont_mse=2.81799 | Loss(G):25.7876[Cont:6.84825/Adv:18.9394] | Loss(D):9.03762[Real:2.5318/Fake:6.50582]
+06th-03:19:58 | epoch2(10000) | lr=5e-06 | psnr=22.361 | ypsnr=24.272 | cont_mse=2.82204 | Loss(G):9.48014[Cont:5.30984/Adv:4.1703] | Loss(D):10.5138[Real:8.33178/Fake:2.18204]
+06th-03:23:44 | epoch2(10100) | lr=5e-06 | psnr=22.578 | ypsnr=24.634 | cont_mse=2.75079 | Loss(G):50.6934[Cont:6.11039/Adv:44.583] | Loss(D):18.0341[Real:2.60248/Fake:15.4316]
+06th-03:27:26 | epoch2(10200) | lr=5e-06 | psnr=22.547 | ypsnr=24.792 | cont_mse=2.76095 | Loss(G):21.6682[Cont:4.67612/Adv:16.9921] | Loss(D):11.9766[Real:5.87137/Fake:6.10525]
+06th-03:31:03 | epoch2(10300) | lr=5e-06 | psnr=22.447 | ypsnr=24.788 | cont_mse=2.80775 | Loss(G):17.4124[Cont:5.63808/Adv:11.7743] | Loss(D):7.69414[Real:4.14513/Fake:3.54902]
+06th-03:34:40 | epoch2(10400) | lr=5e-06 | psnr=22.513 | ypsnr=24.805 | cont_mse=2.82903 | Loss(G):8.85144[Cont:5.55811/Adv:3.29333] | Loss(D):9.76341[Real:8.4618/Fake:1.30162]
+06th-03:38:15 | epoch2(10500) | lr=5e-06 | psnr=22.751 | ypsnr=25.004 | cont_mse=2.78153 | Loss(G):8.60898[Cont:5.25473/Adv:3.35425] | Loss(D):12.0285[Real:10.2803/Fake:1.74819]
+06th-03:42:04 | epoch2(10600) | lr=5e-06 | psnr=22.745 | ypsnr=25.109 | cont_mse=2.76933 | Loss(G):42.2049[Cont:6.35845/Adv:35.8465] | Loss(D):13.1154[Real:3.04687/Fake:10.0685]
+06th-03:45:51 | epoch2(10700) | lr=5e-06 | psnr=22.877 | ypsnr=25.118 | cont_mse=2.76169 | Loss(G):18.4264[Cont:6.95015/Adv:11.4763] | Loss(D):6.83195[Real:4.07014/Fake:2.76181]
+06th-03:49:34 | epoch2(10800) | lr=5e-06 | psnr=22.766 | ypsnr=24.849 | cont_mse=2.80861 | Loss(G):16.6035[Cont:6.1424/Adv:10.4611] | Loss(D):13.4119[Real:7.59684/Fake:5.81502]
+06th-03:53:19 | epoch2(10900) | lr=5e-06 | psnr=22.756 | ypsnr=24.817 | cont_mse=2.80693 | Loss(G):68.9571[Cont:4.17456/Adv:64.7825] | Loss(D):26.3662[Real:9.20327/Fake:17.163]
+06th-03:57:00 | epoch2(11000) | lr=5e-06 | psnr=22.842 | ypsnr=25.108 | cont_mse=2.74981 | Loss(G):5.30817[Cont:4.25265/Adv:1.05552] | Loss(D):21.0171[Real:16.8181/Fake:4.19894]
+06th-04:00:37 | epoch2(11100) | lr=5e-06 | psnr=22.699 | ypsnr=24.990 | cont_mse=2.78422 | Loss(G):25.1704[Cont:6.22351/Adv:18.9469] | Loss(D):15.4195[Real:6.04562/Fake:9.37383]
+06th-04:04:14 | epoch2(11200) | lr=5e-06 | psnr=22.730 | ypsnr=25.027 | cont_mse=2.771 | Loss(G):9.71564[Cont:4.66921/Adv:5.04643] | Loss(D):11.0317[Real:8.75688/Fake:2.2748]
+06th-04:08:01 | epoch2(11300) | lr=5e-06 | psnr=22.742 | ypsnr=24.979 | cont_mse=2.76731 | Loss(G):7.13714[Cont:4.00553/Adv:3.13161] | Loss(D):15.1674[Real:8.95942/Fake:6.208]
+06th-04:11:49 | epoch2(11400) | lr=5e-06 | psnr=22.634 | ypsnr=24.917 | cont_mse=2.8158 | Loss(G):28.1032[Cont:4.53313/Adv:23.5701] | Loss(D):8.46628[Real:2.61013/Fake:5.85615]
+06th-04:15:22 | epoch2(11500) | lr=5e-06 | psnr=22.534 | ypsnr=24.799 | cont_mse=2.87476 | Loss(G):27.8667[Cont:5.10913/Adv:22.7575] | Loss(D):11.7722[Real:2.67454/Fake:9.09768]
+06th-04:18:54 | epoch2(11600) | lr=5e-06 | psnr=22.714 | ypsnr=24.800 | cont_mse=2.84078 | Loss(G):6.74675[Cont:5.43048/Adv:1.31626] | Loss(D):18.9139[Real:16.3719/Fake:2.54195]
+06th-04:22:27 | epoch2(11700) | lr=5e-06 | psnr=22.790 | ypsnr=24.871 | cont_mse=2.83118 | Loss(G):13.3383[Cont:5.96025/Adv:7.378] | Loss(D):16.098[Real:11.4634/Fake:4.63457]
+06th-04:26:03 | epoch2(11800) | lr=5e-06 | psnr=22.797 | ypsnr=24.887 | cont_mse=2.81494 | Loss(G):15.8668[Cont:7.15275/Adv:8.71402] | Loss(D):8.89204[Real:7.65402/Fake:1.23802]
+06th-04:29:33 | epoch2(11900) | lr=5e-06 | psnr=22.764 | ypsnr=24.792 | cont_mse=2.83466 | Loss(G):95.414[Cont:4.74519/Adv:90.6688] | Loss(D):32.7396[Real:5.5621/Fake:27.1775]
+06th-04:33:16 | epoch2(12000) | lr=5e-06 | psnr=22.806 | ypsnr=24.837 | cont_mse=2.81197 | Loss(G):18.2332[Cont:6.36366/Adv:11.8696] | Loss(D):9.52[Real:4.99016/Fake:4.52983]
+06th-04:36:56 | epoch2(12100) | lr=5e-06 | psnr=22.824 | ypsnr=24.865 | cont_mse=2.78296 | Loss(G):7.98943[Cont:4.25804/Adv:3.73139] | Loss(D):18.6428[Real:13.269/Fake:5.37381]
+06th-04:40:31 | epoch2(12200) | lr=5e-06 | psnr=22.857 | ypsnr=24.948 | cont_mse=2.78764 | Loss(G):55.6404[Cont:6.11738/Adv:49.523] | Loss(D):18.92[Real:0.551898/Fake:18.3681]=> loading checkpoint 'save/SRGAN__mixls_v5e-06_w0.1_Adam.pth'
+=> loaded checkpoint (epoch 2)
+06th-02:27:27 | epoch2(8500) | lr=5e-06 | psnr=22.035 | ypsnr=23.640 | cont_mse=1.81791 | Loss(G):204.924[Cont:6.25709/Adv:198.667] | Loss(D):0.383766[Real:0.124293/Fake:0.259473]
+06th-02:32:25 | epoch2(8600) | lr=5e-06 | psnr=24.407 | ypsnr=26.541 | cont_mse=2.00081 | Loss(G):4.71329[Cont:3.72443/Adv:0.988862] | Loss(D):0.844721[Real:0.466473/Fake:0.378247]
+06th-02:37:41 | epoch2(8700) | lr=5e-06 | psnr=24.226 | ypsnr=26.370 | cont_mse=2.13648 | Loss(G):12.4165[Cont:5.93745/Adv:6.47904] | Loss(D):2.76678[Real:0.46049/Fake:2.30629]
+06th-02:42:38 | epoch2(8800) | lr=5e-06 | psnr=24.055 | ypsnr=26.322 | cont_mse=2.17817 | Loss(G):8.09645[Cont:5.61402/Adv:2.48243] | Loss(D):0.642273[Real:0.0888343/Fake:0.553438]
+06th-02:47:50 | epoch2(8900) | lr=5e-06 | psnr=24.011 | ypsnr=26.224 | cont_mse=2.20988 | Loss(G):3.72204[Cont:2.92411/Adv:0.797932] | Loss(D):1.20383[Real:0.733749/Fake:0.470079]
+06th-02:52:59 | epoch2(9000) | lr=5e-06 | psnr=24.087 | ypsnr=26.334 | cont_mse=2.19285 | Loss(G):5.05039[Cont:4.2172/Adv:0.833196] | Loss(D):0.743223[Real:0.528404/Fake:0.21482]
+06th-02:58:00 | epoch2(9100) | lr=5e-06 | psnr=24.080 | ypsnr=26.408 | cont_mse=2.2074 | Loss(G):5.99607[Cont:5.08371/Adv:0.912354] | Loss(D):1.44002[Real:0.751857/Fake:0.688165]
+06th-03:03:06 | epoch2(9200) | lr=5e-06 | psnr=24.072 | ypsnr=26.376 | cont_mse=2.19215 | Loss(G):6.06083[Cont:6.01806/Adv:0.0427659] | Loss(D):2.42959[Real:1.81536/Fake:0.614224]
+06th-03:08:11 | epoch2(9300) | lr=5e-06 | psnr=24.095 | ypsnr=26.356 | cont_mse=2.19268 | Loss(G):9.75963[Cont:5.81707/Adv:3.94256] | Loss(D):1.71733[Real:0.167371/Fake:1.54996]
+06th-03:13:09 | epoch2(9400) | lr=5e-06 | psnr=23.996 | ypsnr=26.226 | cont_mse=2.23103 | Loss(G):3.59617[Cont:3.45756/Adv:0.138613] | Loss(D):1.56443[Real:1.39794/Fake:0.166489]
+06th-03:18:16 | epoch2(9500) | lr=5e-06 | psnr=24.122 | ypsnr=26.311 | cont_mse=2.21345 | Loss(G):9.05267[Cont:5.46673/Adv:3.58594] | Loss(D):1.31194[Real:0.235734/Fake:1.0762]
+06th-03:23:16 | epoch2(9600) | lr=5e-06 | psnr=24.038 | ypsnr=26.169 | cont_mse=2.23123 | Loss(G):5.27502[Cont:4.56674/Adv:0.708285] | Loss(D):1.19335[Real:0.950631/Fake:0.242721]
+06th-03:28:22 | epoch2(9700) | lr=5e-06 | psnr=24.107 | ypsnr=26.305 | cont_mse=2.22241 | Loss(G):17.6683[Cont:5.46089/Adv:12.2074] | Loss(D):7.24042[Real:1.43989/Fake:5.80054]
+06th-03:33:31 | epoch2(9800) | lr=5e-06 | psnr=24.180 | ypsnr=26.342 | cont_mse=2.20158 | Loss(G):8.31993[Cont:5.43388/Adv:2.88605] | Loss(D):1.17087[Real:0.161887/Fake:1.00899]
+06th-03:38:32 | epoch2(9900) | lr=5e-06 | psnr=24.191 | ypsnr=26.343 | cont_mse=2.19244 | Loss(G):12.5459[Cont:6.37977/Adv:6.16609] | Loss(D):3.39467[Real:0.618953/Fake:2.77572]
+06th-03:43:48 | epoch2(10000) | lr=5e-06 | psnr=24.210 | ypsnr=26.317 | cont_mse=2.20422 | Loss(G):11.4699[Cont:6.74855/Adv:4.72138] | Loss(D):1.04562[Real:0.198923/Fake:0.8467]
+06th-03:48:51 | epoch2(10100) | lr=5e-06 | psnr=24.154 | ypsnr=26.249 | cont_mse=2.21987 | Loss(G):6.87516[Cont:4.16239/Adv:2.71277] | Loss(D):1.45172[Real:0.195054/Fake:1.25666]
+06th-03:53:52 | epoch2(10200) | lr=5e-06 | psnr=24.076 | ypsnr=26.189 | cont_mse=2.24145 | Loss(G):7.26438[Cont:6.45445/Adv:0.809926] | Loss(D):0.550895[Real:0.480584/Fake:0.0703105]
+06th-03:58:55 | epoch2(10300) | lr=5e-06 | psnr=24.241 | ypsnr=26.328 | cont_mse=2.20353 | Loss(G):2.8231[Cont:2.74038/Adv:0.08272] | Loss(D):1.47416[Real:1.22161/Fake:0.252557]
+06th-04:04:10 | epoch2(10400) | lr=5e-06 | psnr=24.183 | ypsnr=26.234 | cont_mse=2.21639 | Loss(G):8.8853[Cont:3.19852/Adv:5.68678] | Loss(D):1.83422[Real:0.197734/Fake:1.63648]
+06th-04:09:23 | epoch2(10500) | lr=5e-06 | psnr=24.165 | ypsnr=26.188 | cont_mse=2.22759 | Loss(G):4.21785[Cont:3.3627/Adv:0.855142] | Loss(D):1.44677[Real:0.847009/Fake:0.599759]
+06th-04:14:25 | epoch2(10600) | lr=5e-06 | psnr=24.188 | ypsnr=26.258 | cont_mse=2.2002 | Loss(G):8.14521[Cont:4.93097/Adv:3.21424] | Loss(D):0.752509[Real:0.181261/Fake:0.571248]
+06th-04:19:23 | epoch2(10700) | lr=5e-06 | psnr=24.167 | ypsnr=26.189 | cont_mse=2.2106 | Loss(G):9.99981[Cont:6.60209/Adv:3.39771] | Loss(D):1.29867[Real:0.236291/Fake:1.06237]
+06th-04:24:21 | epoch2(10800) | lr=5e-06 | psnr=24.227 | ypsnr=26.267 | cont_mse=2.21039 | Loss(G):3.98284[Cont:3.73393/Adv:0.2489] | Loss(D):1.68878[Real:1.3652/Fake:0.323587]
+06th-04:29:24 | epoch2(10900) | lr=5e-06 | psnr=24.290 | ypsnr=26.311 | cont_mse=2.20154 | Loss(G):5.1885[Cont:4.11779/Adv:1.0707] | Loss(D):0.852077[Real:0.489585/Fake:0.362492]
+06th-04:34:38 | epoch2(11000) | lr=5e-06 | psnr=24.321 | ypsnr=26.294 | cont_mse=2.20443 | Loss(G):6.07573[Cont:3.67765/Adv:2.39808] | Loss(D):1.37705[Real:0.442165/Fake:0.934888]
+06th-04:39:37 | epoch2(11100) | lr=5e-06 | psnr=24.239 | ypsnr=26.250 | cont_mse=2.21005 | Loss(G):8.52225[Cont:4.75864/Adv:3.76361] | Loss(D):1.34072[Real:0.267656/Fake:1.07306]
+06th-04:44:54 | epoch2(11200) | lr=5e-06 | psnr=24.256 | ypsnr=26.244 | cont_mse=2.21694 | Loss(G):5.97815[Cont:5.34908/Adv:0.629068] | Loss(D):0.743608[Real:0.633661/Fake:0.109947]
+06th-04:49:52 | epoch2(11300) | lr=5e-06 | psnr=24.237 | ypsnr=26.190 | cont_mse=2.22934 | Loss(G):4.43458[Cont:3.92936/Adv:0.505225] | Loss(D):1.17076[Real:1.02583/Fake:0.144938]
+06th-04:55:02 | epoch2(11400) | lr=5e-06 | psnr=24.205 | ypsnr=26.203 | cont_mse=2.22349 | Loss(G):5.5677[Cont:4.62814/Adv:0.939552] | Loss(D):0.90547[Real:0.523467/Fake:0.382003]
+06th-05:00:14 | epoch2(11500) | lr=5e-06 | psnr=24.299 | ypsnr=26.319 | cont_mse=2.21149 | Loss(G):4.90483[Cont:4.81174/Adv:0.0930886] | Loss(D):1.45284[Real:1.34277/Fake:0.110069]
+06th-05:05:19 | epoch2(11600) | lr=5e-06 | psnr=24.347 | ypsnr=26.332 | cont_mse=2.19584 | Loss(G):4.08066[Cont:2.25942/Adv:1.82125] | Loss(D):0.941673[Real:0.315999/Fake:0.625675]
+06th-05:10:18 | epoch2(11700) | lr=5e-06 | psnr=24.174 | ypsnr=26.185 | cont_mse=2.22156 | Loss(G):4.44686[Cont:3.51509/Adv:0.931767] | Loss(D):1.30238[Real:0.660727/Fake:0.641654]
+06th-05:15:19 | epoch2(11800) | lr=5e-06 | psnr=24.267 | ypsnr=26.257 | cont_mse=2.21223 | Loss(G):3.53371[Cont:3.44386/Adv:0.0898575] | Loss(D):2.12351[Real:1.97603/Fake:0.147484]
+06th-05:20:24 | epoch2(11900) | lr=5e-06 | psnr=24.225 | ypsnr=26.214 | cont_mse=2.22608 | Loss(G):4.26271[Cont:3.88979/Adv:0.372921] | Loss(D):1.03731[Real:0.827158/Fake:0.210152]
+06th-05:25:32 | epoch2(12000) | lr=5e-06 | psnr=24.199 | ypsnr=26.195 | cont_mse=2.2225 | Loss(G):6.08711[Cont:4.43254/Adv:1.65458] | Loss(D):1.33698[Real:0.542227/Fake:0.794753]
+06th-05:30:32 | epoch2(12100) | lr=5e-06 | psnr=24.163 | ypsnr=26.140 | cont_mse=2.22348 | Loss(G):5.83745[Cont:5.36876/Adv:0.468692] | Loss(D):1.18814[Real:0.881496/Fake:0.306641]
+06th-05:35:34 | epoch2(12200) | lr=5e-06 | psnr=24.140 | ypsnr=26.089 | cont_mse=2.22841 | Loss(G):5.71025[Cont:4.46397/Adv:1.24627] | Loss(D):0.868445[Real:0.459019/Fake:0.409426]
+06th-05:40:31 | epoch2(12300) | lr=5e-06 | psnr=24.161 | ypsnr=26.073 | cont_mse=2.23368 | Loss(G):4.8302[Cont:3.23447/Adv:1.59574] | Loss(D):1.25402[Real:0.52994/Fake:0.724083]
+06th-05:45:34 | epoch2(12400) | lr=5e-06 | psnr=24.126 | ypsnr=26.084 | cont_mse=2.23784 | Loss(G):6.26509[Cont:4.30886/Adv:1.95623] | Loss(D):0.634313[Real:0.208107/Fake:0.426206]
+06th-05:50:38 | epoch2(12500) | lr=5e-06 | psnr=24.195 | ypsnr=26.150 | cont_mse=2.22724 | Loss(G):7.79349[Cont:5.01986/Adv:2.77363] | Loss(D):0.694512[Real:0.149462/Fake:0.54505]
+06th-05:55:36 | epoch2(12600) | lr=5e-06 | psnr=24.181 | ypsnr=26.125 | cont_mse=2.21706 | Loss(G):17.0794[Cont:4.49601/Adv:12.5834] | Loss(D):5.26766[Real:1.45938/Fake:3.80829]
+06th-06:00:36 | epoch2(12700) | lr=5e-06 | psnr=24.162 | ypsnr=26.082 | cont_mse=2.23336 | Loss(G):3.63316[Cont:3.04914/Adv:0.584027] | Loss(D):3.10044[Real:2.78342/Fake:0.317022]
+06th-06:05:37 | epoch2(12800) | lr=5e-06 | psnr=24.184 | ypsnr=26.101 | cont_mse=2.22843 | Loss(G):5.19973[Cont:4.16986/Adv:1.02987] | Loss(D):0.894736[Real:0.470392/Fake:0.424344]
+06th-06:10:37 | epoch2(12900) | lr=5e-06 | psnr=24.092 | ypsnr=26.032 | cont_mse=2.25553 | Loss(G):5.39484[Cont:4.06093/Adv:1.33391] | Loss(D):1.18234[Real:0.661269/Fake:0.521069]
+06th-06:15:41 | epoch2(13000) | lr=5e-06 | psnr=24.170 | ypsnr=26.096 | cont_mse=2.22847 | Loss(G):4.31755[Cont:3.96228/Adv:0.355274] | Loss(D):1.06819[Real:0.996258/Fake:0.0719286]
+06th-04:44:07 | epoch2(12300) | lr=5e-06 | psnr=22.878 | ypsnr=24.896 | cont_mse=2.80523 | Loss(G):35.2726[Cont:7.4165/Adv:27.8561] | Loss(D):15.0833[Real:3.71088/Fake:11.3724]
+06th-04:47:41 | epoch2(12400) | lr=5e-06 | psnr=22.794 | ypsnr=24.842 | cont_mse=2.80183 | Loss(G):20.6564[Cont:6.37817/Adv:14.2782] | Loss(D):14.0523[Real:7.00718/Fake:7.0451]
+06th-04:51:33 | epoch2(12500) | lr=5e-06 | psnr=22.717 | ypsnr=24.723 | cont_mse=2.79784 | Loss(G):15.4141[Cont:4.19802/Adv:11.2161] | Loss(D):10.4932[Real:5.14787/Fake:5.34531]
+06th-04:55:11 | epoch2(12600) | lr=5e-06 | psnr=22.676 | ypsnr=24.531 | cont_mse=2.81284 | Loss(G):15.0081[Cont:5.82477/Adv:9.18336] | Loss(D):7.68318[Real:3.85566/Fake:3.82752]
+06th-04:58:54 | epoch2(12700) | lr=5e-06 | psnr=22.612 | ypsnr=24.359 | cont_mse=2.82325 | Loss(G):10.3815[Cont:4.88211/Adv:5.49937] | Loss(D):15.4713[Real:11.0898/Fake:4.38153]
+06th-05:02:34 | epoch2(12800) | lr=5e-06 | psnr=22.387 | ypsnr=24.118 | cont_mse=2.92298 | Loss(G):19.5566[Cont:6.46783/Adv:13.0887] | Loss(D):8.04811[Real:5.4164/Fake:2.63171]
+06th-05:06:14 | epoch2(12900) | lr=5e-06 | psnr=22.300 | ypsnr=24.003 | cont_mse=2.98878 | Loss(G):31.37[Cont:5.9817/Adv:25.3883] | Loss(D):10.8232[Real:2.0282/Fake:8.79497]
+06th-05:09:54 | epoch2(13000) | lr=5e-06 | psnr=22.530 | ypsnr=24.304 | cont_mse=2.94637 | Loss(G):37.73[Cont:4.78517/Adv:32.9448] | Loss(D):12.0416[Real:1.60088/Fake:10.4407]
+06th-05:13:31 | epoch2(13100) | lr=5e-06 | psnr=22.606 | ypsnr=24.486 | cont_mse=2.89842 | Loss(G):35.6953[Cont:6.38744/Adv:29.3079] | Loss(D):9.16497[Real:1.76409/Fake:7.40088]
+06th-05:17:04 | epoch2(13200) | lr=5e-06 | psnr=22.843 | ypsnr=24.771 | cont_mse=2.83624 | Loss(G):15.7931[Cont:5.2637/Adv:10.5294] | Loss(D):12.0032[Real:7.46377/Fake:4.53941]
+06th-05:20:33 | epoch2(13300) | lr=5e-06 | psnr=22.691 | ypsnr=24.651 | cont_mse=2.84775 | Loss(G):15.4735[Cont:5.9286/Adv:9.54494] | Loss(D):6.83456[Real:4.31693/Fake:2.51763]
+06th-05:24:15 | epoch2(13400) | lr=5e-06 | psnr=22.573 | ypsnr=24.485 | cont_mse=2.81426 | Loss(G):36.8023[Cont:4.95264/Adv:31.8496] | Loss(D):7.63155[Real:1.71921/Fake:5.91234]
+06th-05:27:46 | epoch2(13500) | lr=5e-06 | psnr=22.604 | ypsnr=24.400 | cont_mse=2.82574 | Loss(G):23.7831[Cont:5.51678/Adv:18.2663] | Loss(D):10.8473[Real:5.83004/Fake:5.01721]
+06th-05:31:22 | epoch2(13600) | lr=5e-06 | psnr=22.624 | ypsnr=24.364 | cont_mse=2.8319 | Loss(G):38.4443[Cont:6.44814/Adv:31.9961] | Loss(D):19.6128[Real:3.70479/Fake:15.908]
+06th-05:34:55 | epoch2(13700) | lr=5e-06 | psnr=22.675 | ypsnr=24.423 | cont_mse=2.84182 | Loss(G):10.9709[Cont:4.16445/Adv:6.80641] | Loss(D):13.4522[Real:9.37279/Fake:4.07937]
+06th-05:38:27 | epoch2(13800) | lr=5e-06 | psnr=22.551 | ypsnr=24.216 | cont_mse=2.86648 | Loss(G):50.0552[Cont:5.76873/Adv:44.2864] | Loss(D):15.2353[Real:3.9258/Fake:11.3095]
+06th-05:41:56 | epoch2(13900) | lr=5e-06 | psnr=22.485 | ypsnr=24.233 | cont_mse=2.88867 | Loss(G):26.6613[Cont:4.69722/Adv:21.9641] | Loss(D):6.15481[Real:2.10974/Fake:4.04507]
+06th-05:45:26 | epoch2(14000) | lr=5e-06 | psnr=22.503 | ypsnr=24.312 | cont_mse=2.86512 | Loss(G):20.3856[Cont:6.01678/Adv:14.3688] | Loss(D):10.5329[Real:5.18256/Fake:5.35039]
+06th-05:49:04 | epoch2(14100) | lr=5e-06 | psnr=22.714 | ypsnr=24.565 | cont_mse=2.7634 | Loss(G):12.8682[Cont:5.35997/Adv:7.50819] | Loss(D):15.3711[Real:10.3529/Fake:5.01819]
+06th-05:52:32 | epoch2(14200) | lr=5e-06 | psnr=22.760 | ypsnr=24.695 | cont_mse=2.75273 | Loss(G):9.41697[Cont:4.91494/Adv:4.50203] | Loss(D):18.0374[Real:13.7941/Fake:4.24333]
+06th-05:56:11 | epoch2(14300) | lr=5e-06 | psnr=22.716 | ypsnr=24.595 | cont_mse=2.80732 | Loss(G):20.1167[Cont:4.93977/Adv:15.1769] | Loss(D):18.1163[Real:6.48465/Fake:11.6317]
+06th-05:59:45 | epoch2(14400) | lr=5e-06 | psnr=22.429 | ypsnr=24.202 | cont_mse=2.8796 | Loss(G):13.0038[Cont:7.10306/Adv:5.90076] | Loss(D):15.387[Real:11.7699/Fake:3.61708]
+06th-06:03:13 | epoch2(14500) | lr=5e-06 | psnr=22.493 | ypsnr=24.264 | cont_mse=2.88207 | Loss(G):14.4614[Cont:4.96413/Adv:9.49729] | Loss(D):14.4883[Real:8.17656/Fake:6.31178]
+06th-06:06:46 | epoch2(14600) | lr=5e-06 | psnr=22.735 | ypsnr=24.523 | cont_mse=2.78857 | Loss(G):46.6981[Cont:5.1882/Adv:41.5099] | Loss(D):12.9117[Real:4.04545/Fake:8.86629]
+06th-06:10:15 | epoch2(14700) | lr=5e-06 | psnr=22.701 | ypsnr=24.601 | cont_mse=2.74731 | Loss(G):5.60484[Cont:4.13555/Adv:1.46929] | Loss(D):15.1617[Real:12.7486/Fake:2.41314]
+06th-06:13:47 | epoch2(14800) | lr=5e-06 | psnr=22.852 | ypsnr=24.676 | cont_mse=2.70125 | Loss(G):22.7646[Cont:4.3318/Adv:18.4328] | Loss(D):13.1049[Real:3.82119/Fake:9.28374]
+06th-06:17:20 | epoch2(14900) | lr=5e-06 | psnr=22.765 | ypsnr=24.487 | cont_mse=2.73137 | Loss(G):9.03245[Cont:6.47618/Adv:2.55627] | Loss(D):21.9043[Real:20.4393/Fake:1.46507]
+06th-06:20:52 | epoch2(15000) | lr=5e-06 | psnr=22.684 | ypsnr=24.396 | cont_mse=2.71827 | Loss(G):10.6345[Cont:6.40306/Adv:4.23147] | Loss(D):12.2208[Real:8.62496/Fake:3.59588]
+06th-06:24:39 | epoch2(15100) | lr=5e-06 | psnr=22.581 | ypsnr=24.404 | cont_mse=2.71372 | Loss(G):19.2563[Cont:5.17957/Adv:14.0768] | Loss(D):9.46865[Real:4.61806/Fake:4.8506]
+06th-06:28:10 | epoch2(15200) | lr=5e-06 | psnr=22.737 | ypsnr=24.648 | cont_mse=2.67523 | Loss(G):28.9635[Cont:5.01601/Adv:23.9475] | Loss(D):11.8016[Real:3.54196/Fake:8.25967]
+06th-06:31:38 | epoch2(15300) | lr=5e-06 | psnr=22.776 | ypsnr=24.536 | cont_mse=2.69524 | Loss(G):28.2492[Cont:6.55166/Adv:21.6975] | Loss(D):10.9398[Real:4.3023/Fake:6.63752]
+06th-06:35:11 | epoch2(15400) | lr=5e-06 | psnr=22.466 | ypsnr=24.166 | cont_mse=2.76324 | Loss(G):42.2196[Cont:6.79051/Adv:35.4291] | Loss(D):17.8011[Real:3.16508/Fake:14.636]
+06th-06:38:41 | epoch2(15500) | lr=5e-06 | psnr=22.668 | ypsnr=24.449 | cont_mse=2.74141 | Loss(G):9.58063[Cont:4.88057/Adv:4.70006] | Loss(D):12.0769[Real:8.80727/Fake:3.26967]
+06th-06:42:10 | epoch2(15600) | lr=5e-06 | psnr=22.442 | ypsnr=24.221 | cont_mse=2.78265 | Loss(G):34.0506[Cont:6.46431/Adv:27.5863] | Loss(D):13.0916[Real:0.905119/Fake:12.1865]
+06th-06:45:41 | epoch2(15700) | lr=5e-06 | psnr=22.316 | ypsnr=24.050 | cont_mse=2.79691 | Loss(G):11.5742[Cont:4.98229/Adv:6.59195] | Loss(D):12.3025[Real:7.54345/Fake:4.75905]
+06th-06:49:20 | epoch2(15800) | lr=5e-06 | psnr=22.439 | ypsnr=24.231 | cont_mse=2.8182 | Loss(G):23.2074[Cont:5.51847/Adv:17.6889] | Loss(D):7.60783[Real:4.29014/Fake:3.31769]
+06th-06:52:51 | epoch2(15900) | lr=5e-06 | psnr=22.628 | ypsnr=24.459 | cont_mse=2.82532 | Loss(G):14.2267[Cont:5.66561/Adv:8.56113] | Loss(D):8.57415[Real:5.65653/Fake:2.91762]
+06th-06:56:21 | epoch2(16000) | lr=5e-06 | psnr=22.610 | ypsnr=24.439 | cont_mse=2.856 | Loss(G):16.8299[Cont:5.49534/Adv:11.3346] | Loss(D):11.8477[Real:5.34854/Fake:6.49915]
+06th-06:59:55 | epoch2(16100) | lr=5e-06 | psnr=22.666 | ypsnr=24.473 | cont_mse=2.83955 | Loss(G):14.1309[Cont:7.53006/Adv:6.60085] | Loss(D):13.4925[Real:11.8581/Fake:1.63442]
+06th-07:03:28 | epoch2(16200) | lr=5e-06 | psnr=22.523 | ypsnr=24.285 | cont_mse=2.8865 | Loss(G):33.8845[Cont:5.83045/Adv:28.054] | Loss(D):13.57[Real:2.07554/Fake:11.4944]
+06th-07:06:57 | epoch2(16300) | lr=5e-06 | psnr=22.435 | ypsnr=24.098 | cont_mse=2.88502 | Loss(G):15.5625[Cont:5.09939/Adv:10.4631] | Loss(D):10.181[Real:7.07853/Fake:3.10245]
+06th-07:10:25 | epoch2(16400) | lr=5e-06 | psnr=22.377 | ypsnr=23.952 | cont_mse=2.88981 | Loss(G):24.3392[Cont:8.06479/Adv:16.2744] | Loss(D):6.82258[Real:2.27906/Fake:4.54352]
+06th-07:13:56 | epoch2(16500) | lr=5e-06 | psnr=22.544 | ypsnr=24.229 | cont_mse=2.88071 | Loss(G):11.7415[Cont:5.29965/Adv:6.44185] | Loss(D):8.38367[Real:6.05964/Fake:2.32403]
+06th-07:17:29 | epoch2(16600) | lr=5e-06 | psnr=22.691 | ypsnr=24.432 | cont_mse=2.82474 | Loss(G):10.8532[Cont:4.69807/Adv:6.15508] | Loss(D):8.19187[Real:5.01036/Fake:3.18152]
+06th-07:21:03 | epoch2(16700) | lr=5e-06 | psnr=22.630 | ypsnr=24.358 | cont_mse=2.82939 | Loss(G):16.694[Cont:4.67338/Adv:12.0206] | Loss(D):12.6648[Real:8.00542/Fake:4.65939]
+06th-07:24:43 | epoch2(16800) | lr=5e-06 | psnr=22.542 | ypsnr=24.360 | cont_mse=2.82152 | Loss(G):24.2813[Cont:5.78205/Adv:18.4993] | Loss(D):12.742[Real:8.96146/Fake:3.78058]
+06th-07:28:13 | epoch2(16900) | lr=5e-06 | psnr=22.454 | ypsnr=24.302 | cont_mse=2.84896 | Loss(G):60.6473[Cont:6.89313/Adv:53.7541] | Loss(D):19.3317[Real:2.15685/Fake:17.1748]06th-04:59:47 | epoch2(12100) | lr=5e-06 | psnr=23.021 | ypsnr=24.961 | Loss(G):5.2886[Cont:5.2886/Adv:23.0248] | Loss(D):0.320356[Real:0.218177/Fake:0.102179]
+06th-05:02:53 | epoch2(12200) | lr=5e-06 | psnr=22.909 | ypsnr=24.980 | Loss(G):3.24694[Cont:3.24694/Adv:1.2881] | Loss(D):0.241555[Real:0.0700871/Fake:0.171468]
+06th-05:06:12 | epoch2(12300) | lr=5e-06 | psnr=22.857 | ypsnr=24.965 | Loss(G):1.97731[Cont:1.97731/Adv:0.0574724] | Loss(D):0.80017[Real:0.490358/Fake:0.309812]
+06th-05:09:26 | epoch2(12400) | lr=5e-06 | psnr=22.703 | ypsnr=24.706 | Loss(G):2.62665[Cont:2.62665/Adv:2.44034] | Loss(D):0.659115[Real:0.15507/Fake:0.504045]
+06th-05:12:31 | epoch2(12500) | lr=5e-06 | psnr=23.000 | ypsnr=24.979 | Loss(G):2.17752[Cont:2.17752/Adv:0.15347] | Loss(D):1.25719[Real:1.01494/Fake:0.242253]
+06th-05:15:33 | epoch2(12600) | lr=5e-06 | psnr=22.825 | ypsnr=24.874 | Loss(G):2.17964[Cont:2.17964/Adv:0.172233] | Loss(D):0.389316[Real:0.352403/Fake:0.0369127]
+06th-05:18:45 | epoch2(12700) | lr=5e-06 | psnr=23.039 | ypsnr=25.018 | Loss(G):3.25813[Cont:3.25813/Adv:1.26781] | Loss(D):0.974092[Real:0.53733/Fake:0.436762]
+06th-05:21:49 | epoch2(12800) | lr=5e-06 | psnr=22.924 | ypsnr=24.871 | Loss(G):2.17672[Cont:2.17672/Adv:0.141471] | Loss(D):0.783814[Real:0.488559/Fake:0.295256]
+06th-05:24:58 | epoch2(12900) | lr=5e-06 | psnr=22.720 | ypsnr=24.662 | Loss(G):3.38986[Cont:3.38986/Adv:1.52425] | Loss(D):0.199114[Real:0.0796216/Fake:0.119492]
+06th-05:28:02 | epoch2(13000) | lr=5e-06 | psnr=22.639 | ypsnr=24.785 | Loss(G):2.16476[Cont:2.16476/Adv:0.455057] | Loss(D):0.253048[Real:0.145507/Fake:0.107542]
+06th-05:31:13 | epoch2(13100) | lr=5e-06 | psnr=22.572 | ypsnr=24.792 | Loss(G):1.84735[Cont:1.84735/Adv:0.399733] | Loss(D):0.500307[Real:0.290097/Fake:0.21021]
+06th-05:34:25 | epoch2(13200) | lr=5e-06 | psnr=22.606 | ypsnr=24.776 | Loss(G):2.77538[Cont:2.77538/Adv:0.178492] | Loss(D):1.17135[Real:0.931174/Fake:0.240177]
+06th-05:37:28 | epoch2(13300) | lr=5e-06 | psnr=22.592 | ypsnr=24.619 | Loss(G):2.49492[Cont:2.49492/Adv:0.0533399] | Loss(D):0.781505[Real:0.58321/Fake:0.198295]
+06th-05:40:33 | epoch2(13400) | lr=5e-06 | psnr=22.897 | ypsnr=24.855 | Loss(G):2.14217[Cont:2.14217/Adv:0.242795] | Loss(D):0.444241[Real:0.320714/Fake:0.123527]
+06th-05:43:39 | epoch2(13500) | lr=5e-06 | psnr=22.652 | ypsnr=24.625 | Loss(G):2.1915[Cont:2.1915/Adv:0.773699] | Loss(D):0.541926[Real:0.36287/Fake:0.179056]
+06th-05:46:46 | epoch2(13600) | lr=5e-06 | psnr=22.512 | ypsnr=24.459 | Loss(G):2.11437[Cont:2.11437/Adv:0.0294496] | Loss(D):0.837852[Real:0.692656/Fake:0.145196]
+06th-05:49:49 | epoch2(13700) | lr=5e-06 | psnr=22.790 | ypsnr=24.801 | Loss(G):2.39385[Cont:2.39385/Adv:0.284576] | Loss(D):0.341203[Real:0.296107/Fake:0.0450961]
+06th-05:52:53 | epoch2(13800) | lr=5e-06 | psnr=22.576 | ypsnr=24.482 | Loss(G):1.70349[Cont:1.70349/Adv:0.253337] | Loss(D):1.19825[Real:1.0759/Fake:0.122353]
+06th-05:56:08 | epoch2(13900) | lr=5e-06 | psnr=22.756 | ypsnr=24.678 | Loss(G):2.15121[Cont:2.15121/Adv:0.41795] | Loss(D):0.501996[Real:0.400139/Fake:0.101857]
+06th-05:59:16 | epoch2(14000) | lr=5e-06 | psnr=22.710 | ypsnr=24.610 | Loss(G):2.43388[Cont:2.43388/Adv:1.18549] | Loss(D):0.177805[Real:0.0825462/Fake:0.0952584]
+06th-06:02:20 | epoch2(14100) | lr=5e-06 | psnr=22.623 | ypsnr=24.583 | Loss(G):2.39252[Cont:2.39252/Adv:1.65991] | Loss(D):0.284494[Real:0.0989242/Fake:0.18557]
+06th-06:05:24 | epoch2(14200) | lr=5e-06 | psnr=22.589 | ypsnr=24.542 | Loss(G):2.63739[Cont:2.63739/Adv:5.62575] | Loss(D):1.87503[Real:0.626485/Fake:1.24855]
+06th-06:08:36 | epoch2(14300) | lr=5e-06 | psnr=22.606 | ypsnr=24.564 | Loss(G):2.55555[Cont:2.55555/Adv:0.813605] | Loss(D):0.339466[Real:0.15532/Fake:0.184146]
+06th-06:11:41 | epoch2(14400) | lr=5e-06 | psnr=22.622 | ypsnr=24.585 | Loss(G):1.99121[Cont:1.99121/Adv:0.0525335] | Loss(D):0.874165[Real:0.681232/Fake:0.192933]
+06th-06:14:45 | epoch2(14500) | lr=5e-06 | psnr=22.572 | ypsnr=24.487 | Loss(G):3.07513[Cont:3.07513/Adv:0.523539] | Loss(D):0.172382[Real:0.139766/Fake:0.0326157]
+06th-06:17:49 | epoch2(14600) | lr=5e-06 | psnr=22.654 | ypsnr=24.569 | Loss(G):2.15617[Cont:2.15617/Adv:0.4429] | Loss(D):0.507401[Real:0.252207/Fake:0.255194]
+06th-06:20:55 | epoch2(14700) | lr=5e-06 | psnr=22.652 | ypsnr=24.573 | Loss(G):1.74493[Cont:1.74493/Adv:0.552686] | Loss(D):0.301103[Real:0.201137/Fake:0.0999662]
+06th-06:24:05 | epoch2(14800) | lr=5e-06 | psnr=22.789 | ypsnr=24.742 | Loss(G):2.38536[Cont:2.38536/Adv:1.38979] | Loss(D):0.241973[Real:0.0729832/Fake:0.16899]
+06th-06:27:10 | epoch2(14900) | lr=5e-06 | psnr=22.860 | ypsnr=24.860 | Loss(G):2.5045[Cont:2.5045/Adv:1.71859] | Loss(D):0.460293[Real:0.157184/Fake:0.303109]
+06th-06:30:22 | epoch2(15000) | lr=5e-06 | psnr=22.921 | ypsnr=24.891 | Loss(G):2.08154[Cont:2.08154/Adv:0.145318] | Loss(D):0.464202[Real:0.249795/Fake:0.214407]
+06th-06:33:27 | epoch2(15100) | lr=5e-06 | psnr=22.755 | ypsnr=24.665 | Loss(G):3.95036[Cont:3.95036/Adv:7.30991] | Loss(D):3.4046[Real:1.40832/Fake:1.99627]
+06th-06:36:32 | epoch2(15200) | lr=5e-06 | psnr=22.779 | ypsnr=24.748 | Loss(G):2.35922[Cont:2.35922/Adv:2.23154] | Loss(D):0.470583[Real:0.25241/Fake:0.218173]
+06th-06:39:38 | epoch2(15300) | lr=5e-06 | psnr=22.997 | ypsnr=24.942 | Loss(G):2.29662[Cont:2.29662/Adv:0.254735] | Loss(D):0.38049[Real:0.205345/Fake:0.175145]
+06th-06:42:43 | epoch2(15400) | lr=5e-06 | psnr=22.830 | ypsnr=24.864 | Loss(G):2.53382[Cont:2.53382/Adv:0.90454] | Loss(D):0.142729[Real:0.0437714/Fake:0.0989571]
+06th-06:45:51 | epoch2(15500) | lr=5e-06 | psnr=22.847 | ypsnr=24.835 | Loss(G):3.22963[Cont:3.22963/Adv:3.36165] | Loss(D):0.891595[Real:0.314894/Fake:0.576701]
+06th-06:49:00 | epoch2(15600) | lr=5e-06 | psnr=22.659 | ypsnr=24.622 | Loss(G):1.98253[Cont:1.98253/Adv:1.10509] | Loss(D):0.510716[Real:0.274406/Fake:0.236309]
+06th-06:52:07 | epoch2(15700) | lr=5e-06 | psnr=22.730 | ypsnr=24.713 | Loss(G):2.36078[Cont:2.36078/Adv:1.54508] | Loss(D):0.81744[Real:0.140337/Fake:0.677103]
+06th-06:55:11 | epoch2(15800) | lr=5e-06 | psnr=22.910 | ypsnr=24.955 | Loss(G):2.18373[Cont:2.18373/Adv:0.883022] | Loss(D):0.298278[Real:0.113602/Fake:0.184675]
+06th-06:58:17 | epoch2(15900) | lr=5e-06 | psnr=22.980 | ypsnr=24.911 | Loss(G):3.00463[Cont:3.00463/Adv:2.86854] | Loss(D):1.00169[Real:0.143392/Fake:0.858297]
+06th-07:01:21 | epoch2(16000) | lr=5e-06 | psnr=22.892 | ypsnr=24.921 | Loss(G):2.15476[Cont:2.15476/Adv:0.959568] | Loss(D):0.264743[Real:0.132828/Fake:0.131914]
+06th-07:04:29 | epoch2(16100) | lr=5e-06 | psnr=22.802 | ypsnr=24.835 | Loss(G):1.64045[Cont:1.64045/Adv:0.156895] | Loss(D):0.954447[Real:0.676738/Fake:0.277709]
+06th-07:07:43 | epoch2(16200) | lr=5e-06 | psnr=22.563 | ypsnr=24.532 | Loss(G):1.88894[Cont:1.88894/Adv:0.0922213] | Loss(D):0.870103[Real:0.612321/Fake:0.257782]
+06th-07:10:48 | epoch2(16300) | lr=5e-06 | psnr=22.563 | ypsnr=24.579 | Loss(G):3.38893[Cont:3.38893/Adv:1.29314] | Loss(D):0.170543[Real:0.0823813/Fake:0.0881617]
+06th-07:13:55 | epoch2(16400) | lr=5e-06 | psnr=22.953 | ypsnr=24.973 | Loss(G):1.88505[Cont:1.88505/Adv:0.734908] | Loss(D):0.254963[Real:0.159998/Fake:0.0949649]
+06th-07:17:02 | epoch2(16500) | lr=5e-06 | psnr=22.813 | ypsnr=24.815 | Loss(G):2.57696[Cont:2.57696/Adv:1.44005] | Loss(D):0.231333[Real:0.139777/Fake:0.0915563]
+06th-07:20:11 | epoch2(16600) | lr=5e-06 | psnr=22.913 | ypsnr=24.940 | Loss(G):1.76334[Cont:1.76334/Adv:0.691532] | Loss(D):0.341509[Real:0.267105/Fake:0.0744041]
+06th-07:23:16 | epoch2(16700) | lr=5e-06 | psnr=22.880 | ypsnr=24.956 | Loss(G):2.4882[Cont:2.4882/Adv:0.988187] | Loss(D):0.350507[Real:0.127376/Fake:0.223131]
+06th-07:26:24 | epoch2(16800) | lr=5e-06 | psnr=22.842 | ypsnr=24.934 | Loss(G):3.5733[Cont:3.5733/Adv:1.73521] | Loss(D):0.56576[Real:0.328552/Fake:0.237208]
+06th-07:29:35 | epoch2(16900) | lr=5e-06 | psnr=22.867 | ypsnr=24.862 | Loss(G):2.34186[Cont:2.34186/Adv:1.74388] | Loss(D):0.555919[Real:0.176388/Fake:0.379531]
+06th-07:32:44 | epoch2(17000) | lr=5e-06 | psnr=22.737 | ypsnr=24.760 | Loss(G):3.00264[Cont:3.00264/Adv:3.93748] | Loss(D):0.834102[Real:0.227399/Fake:0.606704]
+06th-07:35:52 | epoch2(17100) | lr=5e-06 | psnr=22.835 | ypsnr=24.845 | Loss(G):3.00577[Cont:3.00577/Adv:0.710165] | Loss(D):0.2756[Real:0.195366/Fake:0.0802337]
+06th-06:20:42 | epoch2(13100) | lr=5e-06 | psnr=24.178 | ypsnr=26.080 | cont_mse=2.22438 | Loss(G):7.2602[Cont:4.26944/Adv:2.99076] | Loss(D):1.61884[Real:0.150635/Fake:1.4682]
+06th-06:25:56 | epoch2(13200) | lr=5e-06 | psnr=24.093 | ypsnr=26.014 | cont_mse=2.24328 | Loss(G):5.54548[Cont:4.75713/Adv:0.788344] | Loss(D):1.35108[Real:0.771628/Fake:0.579456]
+06th-06:30:53 | epoch2(13300) | lr=5e-06 | psnr=24.100 | ypsnr=25.993 | cont_mse=2.25224 | Loss(G):7.05339[Cont:5.85856/Adv:1.19483] | Loss(D):1.2292[Real:0.679636/Fake:0.549561]
+06th-06:35:53 | epoch2(13400) | lr=5e-06 | psnr=24.211 | ypsnr=26.108 | cont_mse=2.23095 | Loss(G):4.16012[Cont:3.35109/Adv:0.809033] | Loss(D):1.13408[Real:0.630307/Fake:0.503769]
+06th-06:40:56 | epoch2(13500) | lr=5e-06 | psnr=24.144 | ypsnr=26.057 | cont_mse=2.22218 | Loss(G):5.63411[Cont:4.68834/Adv:0.945767] | Loss(D):0.603505[Real:0.451677/Fake:0.151828]
+06th-06:45:52 | epoch2(13600) | lr=5e-06 | psnr=24.131 | ypsnr=26.043 | cont_mse=2.22233 | Loss(G):4.03724[Cont:3.68233/Adv:0.354907] | Loss(D):1.43939[Real:1.25197/Fake:0.187426]
+06th-06:50:59 | epoch2(13700) | lr=5e-06 | psnr=24.136 | ypsnr=26.036 | cont_mse=2.23021 | Loss(G):6.76513[Cont:4.43817/Adv:2.32696] | Loss(D):0.678378[Real:0.261001/Fake:0.417377]
+06th-06:55:58 | epoch2(13800) | lr=5e-06 | psnr=24.101 | ypsnr=25.995 | cont_mse=2.23665 | Loss(G):5.40514[Cont:3.49079/Adv:1.91434] | Loss(D):1.28198[Real:0.326627/Fake:0.955352]
+06th-07:01:02 | epoch2(13900) | lr=5e-06 | psnr=24.183 | ypsnr=26.065 | cont_mse=2.23372 | Loss(G):8.49613[Cont:5.12627/Adv:3.36986] | Loss(D):1.38696[Real:0.473191/Fake:0.913766]
+06th-07:06:04 | epoch2(14000) | lr=5e-06 | psnr=24.214 | ypsnr=26.116 | cont_mse=2.22823 | Loss(G):11.1585[Cont:4.75231/Adv:6.40624] | Loss(D):1.70794[Real:0.117019/Fake:1.59092]
+06th-07:11:02 | epoch2(14100) | lr=5e-06 | psnr=24.270 | ypsnr=26.160 | cont_mse=2.21402 | Loss(G):3.27401[Cont:3.16207/Adv:0.111942] | Loss(D):2.4072[Real:2.29112/Fake:0.116076]
+06th-07:16:01 | epoch2(14200) | lr=5e-06 | psnr=24.177 | ypsnr=26.130 | cont_mse=2.22274 | Loss(G):5.64761[Cont:4.58782/Adv:1.05978] | Loss(D):1.89849[Real:0.919082/Fake:0.979405]
+06th-07:21:04 | epoch2(14300) | lr=5e-06 | psnr=24.188 | ypsnr=26.113 | cont_mse=2.2243 | Loss(G):6.04523[Cont:3.41188/Adv:2.63336] | Loss(D):0.822482[Real:0.211442/Fake:0.61104]
+06th-07:26:15 | epoch2(14400) | lr=5e-06 | psnr=24.116 | ypsnr=26.010 | cont_mse=2.2417 | Loss(G):5.97922[Cont:4.86458/Adv:1.11464] | Loss(D):0.687459[Real:0.458818/Fake:0.228641]
+06th-07:31:18 | epoch2(14500) | lr=5e-06 | psnr=24.074 | ypsnr=25.979 | cont_mse=2.24209 | Loss(G):6.00454[Cont:5.28322/Adv:0.721318] | Loss(D):0.856465[Real:0.394406/Fake:0.462058]
+06th-07:36:19 | epoch2(14600) | lr=5e-06 | psnr=24.047 | ypsnr=25.920 | cont_mse=2.25404 | Loss(G):7.46069[Cont:5.44898/Adv:2.01171] | Loss(D):0.578462[Real:0.313724/Fake:0.264738]
+06th-07:41:16 | epoch2(14700) | lr=5e-06 | psnr=24.109 | ypsnr=25.985 | cont_mse=2.25539 | Loss(G):11.2656[Cont:3.43756/Adv:7.82799] | Loss(D):3.52054[Real:0.426432/Fake:3.09411]
+06th-07:46:15 | epoch2(14800) | lr=5e-06 | psnr=24.091 | ypsnr=25.999 | cont_mse=2.25698 | Loss(G):4.01875[Cont:3.8602/Adv:0.158558] | Loss(D):1.48376[Real:1.36374/Fake:0.120026]
+06th-07:51:20 | epoch2(14900) | lr=5e-06 | psnr=24.107 | ypsnr=25.958 | cont_mse=2.26334 | Loss(G):7.20383[Cont:5.97954/Adv:1.22429] | Loss(D):1.56653[Real:1.15002/Fake:0.416505]
+06th-07:56:24 | epoch2(15000) | lr=5e-06 | psnr=24.116 | ypsnr=25.964 | cont_mse=2.26079 | Loss(G):5.64084[Cont:4.17766/Adv:1.46318] | Loss(D):1.0136[Real:0.418199/Fake:0.595402]
+06th-08:01:33 | epoch2(15100) | lr=5e-06 | psnr=24.117 | ypsnr=25.981 | cont_mse=2.26061 | Loss(G):5.83438[Cont:4.55297/Adv:1.2814] | Loss(D):0.934877[Real:0.426363/Fake:0.508513]
+06th-08:06:36 | epoch2(15200) | lr=5e-06 | psnr=24.110 | ypsnr=25.995 | cont_mse=2.26597 | Loss(G):5.27585[Cont:4.70199/Adv:0.573868] | Loss(D):1.08548[Real:0.765789/Fake:0.319694]
+06th-08:11:37 | epoch2(15300) | lr=5e-06 | psnr=24.069 | ypsnr=25.939 | cont_mse=2.27586 | Loss(G):6.24102[Cont:5.16254/Adv:1.07849] | Loss(D):1.30364[Real:0.956684/Fake:0.346961]
+06th-08:16:41 | epoch2(15400) | lr=5e-06 | psnr=24.047 | ypsnr=25.897 | cont_mse=2.28196 | Loss(G):8.18871[Cont:6.8324/Adv:1.35631] | Loss(D):1.07339[Real:0.680061/Fake:0.393332]
+06th-08:21:45 | epoch2(15500) | lr=5e-06 | psnr=24.179 | ypsnr=26.044 | cont_mse=2.25657 | Loss(G):9.54727[Cont:5.85779/Adv:3.68947] | Loss(D):1.90472[Real:0.278414/Fake:1.62631]
+06th-08:26:52 | epoch2(15600) | lr=5e-06 | psnr=24.154 | ypsnr=26.041 | cont_mse=2.2618 | Loss(G):5.14194[Cont:4.21674/Adv:0.925203] | Loss(D):0.914803[Real:0.71902/Fake:0.195782]
+06th-08:31:54 | epoch2(15700) | lr=5e-06 | psnr=24.058 | ypsnr=25.979 | cont_mse=2.2794 | Loss(G):6.06863[Cont:4.48703/Adv:1.5816] | Loss(D):1.24189[Real:0.469252/Fake:0.772642]
+06th-08:37:00 | epoch2(15800) | lr=5e-06 | psnr=24.195 | ypsnr=26.061 | cont_mse=2.2576 | Loss(G):8.57287[Cont:6.90253/Adv:1.67033] | Loss(D):1.31059[Real:0.309941/Fake:1.00065]
+06th-08:41:57 | epoch2(15900) | lr=5e-06 | psnr=24.152 | ypsnr=26.005 | cont_mse=2.2633 | Loss(G):6.85872[Cont:4.30866/Adv:2.55007] | Loss(D):1.04325[Real:0.134667/Fake:0.908581]
+06th-08:46:58 | epoch2(16000) | lr=5e-06 | psnr=24.108 | ypsnr=25.952 | cont_mse=2.27669 | Loss(G):4.68551[Cont:3.7708/Adv:0.914704] | Loss(D):1.97886[Real:1.1305/Fake:0.848359]
+06th-08:52:02 | epoch2(16100) | lr=5e-06 | psnr=24.014 | ypsnr=25.818 | cont_mse=2.28851 | Loss(G):5.46968[Cont:4.44345/Adv:1.02622] | Loss(D):1.08936[Real:0.869588/Fake:0.219768]
+06th-08:57:06 | epoch2(16200) | lr=5e-06 | psnr=24.016 | ypsnr=25.853 | cont_mse=2.2975 | Loss(G):5.77527[Cont:4.90795/Adv:0.867319] | Loss(D):0.980332[Real:0.72391/Fake:0.256421]
+06th-09:02:12 | epoch2(16300) | lr=5e-06 | psnr=24.161 | ypsnr=26.003 | cont_mse=2.27542 | Loss(G):3.61866[Cont:3.50933/Adv:0.109333] | Loss(D):1.63287[Real:1.44463/Fake:0.188243]
+06th-09:07:13 | epoch2(16400) | lr=5e-06 | psnr=24.153 | ypsnr=25.972 | cont_mse=2.26857 | Loss(G):4.91419[Cont:4.32716/Adv:0.587029] | Loss(D):1.22995[Real:0.889913/Fake:0.340035]
+06th-09:12:13 | epoch2(16500) | lr=5e-06 | psnr=24.139 | ypsnr=25.988 | cont_mse=2.26606 | Loss(G):6.56156[Cont:4.4632/Adv:2.09836] | Loss(D):0.902542[Real:0.225062/Fake:0.67748]
+06th-09:17:14 | epoch2(16600) | lr=5e-06 | psnr=24.153 | ypsnr=26.001 | cont_mse=2.26223 | Loss(G):7.56569[Cont:4.60767/Adv:2.95801] | Loss(D):1.44165[Real:0.252895/Fake:1.18876]
+06th-09:22:13 | epoch2(16700) | lr=5e-06 | psnr=24.062 | ypsnr=25.899 | cont_mse=2.2807 | Loss(G):3.74373[Cont:3.04858/Adv:0.695155] | Loss(D):1.78085[Real:1.13338/Fake:0.647466]
+06th-09:27:24 | epoch2(16800) | lr=5e-06 | psnr=24.075 | ypsnr=25.917 | cont_mse=2.28766 | Loss(G):5.82108[Cont:4.18787/Adv:1.63321] | Loss(D):1.3954[Real:0.696931/Fake:0.698474]
+06th-09:32:22 | epoch2(16900) | lr=5e-06 | psnr=24.120 | ypsnr=25.964 | cont_mse=2.27877 | Loss(G):6.12005[Cont:5.45144/Adv:0.668617] | Loss(D):1.29515[Real:0.753547/Fake:0.541607]
+06th-09:37:22 | epoch2(17000) | lr=5e-06 | psnr=24.102 | ypsnr=25.976 | cont_mse=2.28117 | Loss(G):7.5572[Cont:6.77321/Adv:0.783989] | Loss(D):0.687962[Real:0.482646/Fake:0.205316]
+06th-09:42:22 | epoch2(17100) | lr=5e-06 | psnr=24.113 | ypsnr=25.960 | cont_mse=2.28227 | Loss(G):11.5545[Cont:5.39596/Adv:6.15853] | Loss(D):1.99139[Real:0.446314/Fake:1.54508]
+06th-09:47:18 | epoch2(17200) | lr=5e-06 | psnr=24.114 | ypsnr=25.984 | cont_mse=2.28231 | Loss(G):6.04433[Cont:5.16693/Adv:0.877403] | Loss(D):0.799945[Real:0.59358/Fake:0.206364]
+06th-09:52:31 | epoch2(17300) | lr=5e-06 | psnr=23.980 | ypsnr=25.858 | cont_mse=2.29414 | Loss(G):4.25488[Cont:3.63518/Adv:0.619701] | Loss(D):1.39576[Real:1.19041/Fake:0.205355]
+06th-09:57:33 | epoch2(17400) | lr=5e-06 | psnr=23.911 | ypsnr=25.760 | cont_mse=2.32014 | Loss(G):6.61169[Cont:4.3862/Adv:2.22549] | Loss(D):0.932849[Real:0.369279/Fake:0.56357]
+06th-10:02:35 | epoch2(17500) | lr=5e-06 | psnr=23.927 | ypsnr=25.835 | cont_mse=2.3106 | Loss(G):6.52191[Cont:4.78164/Adv:1.74027] | Loss(D):1.02615[Real:0.430257/Fake:0.595891]
+06th-10:07:42 | epoch2(17600) | lr=5e-06 | psnr=23.979 | ypsnr=25.862 | cont_mse=2.30229 | Loss(G):5.3746[Cont:4.11156/Adv:1.26304] | Loss(D):1.8341[Real:0.955451/Fake:0.878646]
+06th-07:39:01 | epoch2(17200) | lr=5e-06 | psnr=22.999 | ypsnr=25.057 | Loss(G):2.75716[Cont:2.75716/Adv:1.06133] | Loss(D):0.225013[Real:0.0812474/Fake:0.143766]
+06th-07:42:13 | epoch2(17300) | lr=5e-06 | psnr=22.871 | ypsnr=24.898 | Loss(G):1.76011[Cont:1.76011/Adv:0.193946] | Loss(D):1.5114[Real:1.22347/Fake:0.287925]
+06th-07:45:17 | epoch2(17400) | lr=5e-06 | psnr=22.896 | ypsnr=24.964 | Loss(G):2.08137[Cont:2.08137/Adv:0.668516] | Loss(D):0.375364[Real:0.258054/Fake:0.11731]
+06th-07:48:23 | epoch2(17500) | lr=5e-06 | psnr=22.793 | ypsnr=24.791 | Loss(G):2.14905[Cont:2.14905/Adv:0.394642] | Loss(D):0.434452[Real:0.290436/Fake:0.144016]
+06th-07:51:32 | epoch2(17600) | lr=5e-06 | psnr=22.739 | ypsnr=24.742 | Loss(G):2.25928[Cont:2.25928/Adv:0.329211] | Loss(D):0.405902[Real:0.344737/Fake:0.0611655]
+06th-07:54:43 | epoch2(17700) | lr=5e-06 | psnr=22.668 | ypsnr=24.696 | Loss(G):2.36717[Cont:2.36717/Adv:1.65522] | Loss(D):0.506196[Real:0.136724/Fake:0.369472]
+06th-07:57:49 | epoch2(17800) | lr=5e-06 | psnr=22.657 | ypsnr=24.675 | Loss(G):1.80661[Cont:1.80661/Adv:0.09293] | Loss(D):0.860675[Real:0.641714/Fake:0.218961]
+06th-08:00:55 | epoch2(17900) | lr=5e-06 | psnr=22.791 | ypsnr=24.751 | Loss(G):1.70765[Cont:1.70765/Adv:0.330052] | Loss(D):0.384984[Real:0.294163/Fake:0.0908214]
+06th-08:04:02 | epoch2(18000) | lr=5e-06 | psnr=22.898 | ypsnr=24.893 | Loss(G):2.19177[Cont:2.19177/Adv:0.916556] | Loss(D):0.334407[Real:0.136117/Fake:0.19829]
+06th-08:07:10 | epoch2(18100) | lr=5e-06 | psnr=22.875 | ypsnr=24.851 | Loss(G):2.05483[Cont:2.05483/Adv:0.144783] | Loss(D):0.417965[Real:0.380479/Fake:0.0374855]
+06th-08:10:20 | epoch2(18200) | lr=5e-06 | psnr=22.801 | ypsnr=24.837 | Loss(G):1.78278[Cont:1.78278/Adv:0.361626] | Loss(D):0.320824[Real:0.237469/Fake:0.0833547]
+06th-08:13:30 | epoch2(18300) | lr=5e-06 | psnr=22.709 | ypsnr=24.766 | Loss(G):1.88714[Cont:1.88714/Adv:0.157244] | Loss(D):1.17984[Real:0.95539/Fake:0.224451]
+06th-08:16:35 | epoch2(18400) | lr=5e-06 | psnr=22.940 | ypsnr=25.024 | Loss(G):2.80669[Cont:2.80669/Adv:1.94019] | Loss(D):0.450963[Real:0.223948/Fake:0.227015]
+06th-08:19:41 | epoch2(18500) | lr=5e-06 | psnr=22.819 | ypsnr=24.847 | Loss(G):2.6709[Cont:2.6709/Adv:0.769569] | Loss(D):0.306[Real:0.20343/Fake:0.10257]
+06th-08:22:47 | epoch2(18600) | lr=5e-06 | psnr=22.848 | ypsnr=24.868 | Loss(G):2.37779[Cont:2.37779/Adv:0.651221] | Loss(D):0.194664[Real:0.146219/Fake:0.0484444]
+06th-08:25:55 | epoch2(18700) | lr=5e-06 | psnr=22.829 | ypsnr=24.797 | Loss(G):1.49954[Cont:1.49954/Adv:0.988811] | Loss(D):0.350953[Real:0.21609/Fake:0.134863]
+06th-08:29:04 | epoch2(18800) | lr=5e-06 | psnr=22.893 | ypsnr=24.850 | Loss(G):2.1643[Cont:2.1643/Adv:0.516573] | Loss(D):0.228315[Real:0.115953/Fake:0.112362]
+06th-08:32:12 | epoch2(18900) | lr=5e-06 | psnr=22.996 | ypsnr=24.946 | Loss(G):2.02805[Cont:2.02805/Adv:0.0708106] | Loss(D):0.422898[Real:0.246101/Fake:0.176797]
+06th-08:35:23 | epoch2(19000) | lr=5e-06 | psnr=22.884 | ypsnr=24.858 | Loss(G):1.82873[Cont:1.82873/Adv:0.0488435] | Loss(D):0.690928[Real:0.484893/Fake:0.206035]
+06th-08:38:29 | epoch2(19100) | lr=5e-06 | psnr=22.897 | ypsnr=24.848 | Loss(G):1.93596[Cont:1.93596/Adv:0.496916] | Loss(D):0.231452[Real:0.120625/Fake:0.110826]
+06th-08:41:36 | epoch2(19200) | lr=5e-06 | psnr=22.876 | ypsnr=24.897 | Loss(G):3.19012[Cont:3.19012/Adv:2.53459] | Loss(D):0.864013[Real:0.224206/Fake:0.639806]
+06th-08:44:44 | epoch2(19300) | lr=5e-06 | psnr=22.882 | ypsnr=24.889 | Loss(G):2.18556[Cont:2.18556/Adv:2.00461] | Loss(D):0.719165[Real:0.184871/Fake:0.534295]
+06th-08:47:53 | epoch2(19400) | lr=5e-06 | psnr=23.106 | ypsnr=25.154 | Loss(G):1.68343[Cont:1.68343/Adv:0.256752] | Loss(D):0.594108[Real:0.492941/Fake:0.101167]
+06th-08:50:59 | epoch2(19500) | lr=5e-06 | psnr=23.179 | ypsnr=25.252 | Loss(G):2.26541[Cont:2.26541/Adv:0.887993] | Loss(D):0.526065[Real:0.233505/Fake:0.292561]
+06th-08:54:08 | epoch2(19600) | lr=5e-06 | psnr=23.119 | ypsnr=25.253 | Loss(G):2.34457[Cont:2.34457/Adv:0.503574] | Loss(D):0.223607[Real:0.129131/Fake:0.0944763]
+06th-08:57:22 | epoch2(19700) | lr=5e-06 | psnr=23.020 | ypsnr=25.134 | Loss(G):2.40535[Cont:2.40535/Adv:0.183799] | Loss(D):0.589047[Real:0.417521/Fake:0.171526]
+06th-09:00:31 | epoch2(19800) | lr=5e-06 | psnr=23.221 | ypsnr=25.318 | Loss(G):2.08363[Cont:2.08363/Adv:1.03445] | Loss(D):0.279579[Real:0.141461/Fake:0.138118]
+06th-09:03:41 | epoch2(19900) | lr=5e-06 | psnr=22.987 | ypsnr=25.079 | Loss(G):2.81174[Cont:2.81174/Adv:1.06044] | Loss(D):0.2644[Real:0.149499/Fake:0.114901]
+06th-09:06:49 | epoch2(20000) | lr=5e-06 | psnr=22.977 | ypsnr=25.070 | Loss(G):3.46926[Cont:3.46926/Adv:1.2763] | Loss(D):0.213882[Real:0.110776/Fake:0.103106]
+06th-09:09:57 | epoch2(20100) | lr=5e-06 | psnr=22.963 | ypsnr=24.948 | Loss(G):2.30515[Cont:2.30515/Adv:2.24824] | Loss(D):0.513265[Real:0.197853/Fake:0.315411]
+06th-09:13:02 | epoch2(20200) | lr=5e-06 | psnr=22.822 | ypsnr=24.846 | Loss(G):3.08591[Cont:3.08591/Adv:2.22362] | Loss(D):0.537539[Real:0.259181/Fake:0.278358]
+06th-09:16:10 | epoch2(20300) | lr=5e-06 | psnr=22.823 | ypsnr=24.908 | Loss(G):2.613[Cont:2.613/Adv:2.2836] | Loss(D):0.480573[Real:0.148364/Fake:0.332209]
+06th-09:19:14 | epoch2(20400) | lr=5e-06 | psnr=22.910 | ypsnr=24.940 | Loss(G):2.81808[Cont:2.81808/Adv:0.900689] | Loss(D):0.120989[Real:0.0695363/Fake:0.0514528]
+06th-09:22:22 | epoch2(20500) | lr=5e-06 | psnr=22.976 | ypsnr=24.986 | Loss(G):2.06198[Cont:2.06198/Adv:1.47488] | Loss(D):0.318539[Real:0.0395387/Fake:0.279]
+06th-09:25:34 | epoch2(20600) | lr=5e-06 | psnr=23.023 | ypsnr=25.057 | Loss(G):2.73043[Cont:2.73043/Adv:2.41801] | Loss(D):0.655546[Real:0.179706/Fake:0.47584]
+06th-09:28:40 | epoch2(20700) | lr=5e-06 | psnr=23.042 | ypsnr=25.141 | Loss(G):2.59901[Cont:2.59901/Adv:0.356665] | Loss(D):0.335252[Real:0.235562/Fake:0.0996903]
+06th-09:31:47 | epoch2(20800) | lr=5e-06 | psnr=23.125 | ypsnr=25.178 | Loss(G):2.46922[Cont:2.46922/Adv:0.692748] | Loss(D):0.238208[Real:0.159858/Fake:0.0783505]
+06th-09:34:51 | epoch2(20900) | lr=5e-06 | psnr=23.100 | ypsnr=25.213 | Loss(G):2.54884[Cont:2.54884/Adv:0.285839] | Loss(D):0.286674[Real:0.243773/Fake:0.0429012]
+06th-09:37:59 | epoch2(21000) | lr=5e-06 | psnr=23.103 | ypsnr=25.206 | Loss(G):3.11721[Cont:3.11721/Adv:1.33907] | Loss(D):0.406066[Real:0.245892/Fake:0.160174]
+06th-09:41:06 | epoch2(21100) | lr=5e-06 | psnr=23.230 | ypsnr=25.393 | Loss(G):2.6877[Cont:2.6877/Adv:2.67751] | Loss(D):0.794937[Real:0.131412/Fake:0.663526]
+06th-09:44:14 | epoch2(21200) | lr=5e-06 | psnr=23.046 | ypsnr=25.218 | Loss(G):2.74028[Cont:2.74028/Adv:1.86474] | Loss(D):0.372565[Real:0.149796/Fake:0.222769]
+06th-09:47:29 | epoch2(21300) | lr=5e-06 | psnr=22.953 | ypsnr=25.094 | Loss(G):2.21286[Cont:2.21286/Adv:0.188329] | Loss(D):0.525798[Real:0.466017/Fake:0.0597815]
+06th-09:50:38 | epoch2(21400) | lr=5e-06 | psnr=22.994 | ypsnr=25.129 | Loss(G):2.25308[Cont:2.25308/Adv:0.57096] | Loss(D):0.571185[Real:0.421279/Fake:0.149906]
+06th-09:53:44 | epoch2(21500) | lr=5e-06 | psnr=22.810 | ypsnr=24.905 | Loss(G):2.41489[Cont:2.41489/Adv:0.460091] | Loss(D):0.369246[Real:0.310737/Fake:0.0585097]
+06th-09:56:53 | epoch2(21600) | lr=5e-06 | psnr=22.831 | ypsnr=24.899 | Loss(G):2.09303[Cont:2.09303/Adv:0.311466] | Loss(D):0.65928[Real:0.508534/Fake:0.150746]
+06th-10:00:02 | epoch2(21700) | lr=5e-06 | psnr=22.870 | ypsnr=24.949 | Loss(G):1.89354[Cont:1.89354/Adv:0.228369] | Loss(D):0.427838[Real:0.318512/Fake:0.109326]
+06th-10:03:06 | epoch2(21800) | lr=5e-06 | psnr=22.809 | ypsnr=24.904 | Loss(G):3.11035[Cont:3.11035/Adv:1.38949] | Loss(D):0.238865[Real:0.0451641/Fake:0.193701]
+06th-10:06:17 | epoch2(21900) | lr=5e-06 | psnr=22.890 | ypsnr=25.046 | Loss(G):2.80457[Cont:2.80457/Adv:0.828855] | Loss(D):0.208573[Real:0.110002/Fake:0.098571]
+06th-10:09:27 | epoch2(22000) | lr=5e-06 | psnr=22.846 | ypsnr=25.000 | Loss(G):2.49672[Cont:2.49672/Adv:0.997103] | Loss(D):0.134404[Real:0.0682717/Fake:0.0661323]
+06th-10:12:39 | epoch2(22100) | lr=5e-06 | psnr=23.085 | ypsnr=25.235 | Loss(G):2.19705[Cont:2.19705/Adv:0.717946] | Loss(D):0.361376[Real:0.127358/Fake:0.234019]
+06th-10:15:51 | epoch2(22200) | lr=5e-06 | psnr=22.884 | ypsnr=24.967 | Loss(G):2.13535[Cont:2.13535/Adv:0.157421] | Loss(D):0.38096[Real:0.277218/Fake:0.103742]
+06th-07:31:48 | epoch2(17000) | lr=5e-06 | psnr=22.556 | ypsnr=24.331 | cont_mse=2.84224 | Loss(G):26.7487[Cont:6.10683/Adv:20.6419] | Loss(D):9.02122[Real:3.731/Fake:5.29022]
+06th-07:35:22 | epoch2(17100) | lr=5e-06 | psnr=22.415 | ypsnr=24.089 | cont_mse=2.82766 | Loss(G):25.7821[Cont:6.93834/Adv:18.8438] | Loss(D):10.9626[Real:4.31433/Fake:6.6483]
+06th-07:38:58 | epoch2(17200) | lr=5e-06 | psnr=22.046 | ypsnr=23.646 | cont_mse=2.87606 | Loss(G):38.8225[Cont:8.71205/Adv:30.1105] | Loss(D):9.41848[Real:3.15467/Fake:6.2638]
+06th-07:42:32 | epoch2(17300) | lr=5e-06 | psnr=22.183 | ypsnr=23.832 | cont_mse=2.86876 | Loss(G):7.01927[Cont:5.99328/Adv:1.02599] | Loss(D):14.1238[Real:11.6842/Fake:2.43955]
+06th-07:46:02 | epoch2(17400) | lr=5e-06 | psnr=22.407 | ypsnr=24.110 | cont_mse=2.86029 | Loss(G):52.1383[Cont:6.14293/Adv:45.9954] | Loss(D):16.4677[Real:2.66866/Fake:13.799]
+06th-07:49:42 | epoch2(17500) | lr=5e-06 | psnr=22.525 | ypsnr=24.303 | cont_mse=2.84566 | Loss(G):41.5846[Cont:5.97467/Adv:35.61] | Loss(D):17.5831[Real:1.70808/Fake:15.875]
+06th-07:53:13 | epoch2(17600) | lr=5e-06 | psnr=22.566 | ypsnr=24.304 | cont_mse=2.86052 | Loss(G):28.751[Cont:5.74191/Adv:23.0091] | Loss(D):12.6752[Real:3.32837/Fake:9.3468]
+06th-07:56:43 | epoch2(17700) | lr=5e-06 | psnr=22.663 | ypsnr=24.438 | cont_mse=2.82783 | Loss(G):5.53801[Cont:4.79894/Adv:0.739069] | Loss(D):19.3245[Real:16.6093/Fake:2.71524]
+06th-08:00:24 | epoch2(17800) | lr=5e-06 | psnr=22.494 | ypsnr=24.319 | cont_mse=2.83418 | Loss(G):25.0782[Cont:7.39172/Adv:17.6865] | Loss(D):6.8175[Real:2.99623/Fake:3.82127]
+06th-08:03:55 | epoch2(17900) | lr=5e-06 | psnr=22.416 | ypsnr=24.227 | cont_mse=2.84137 | Loss(G):26.3881[Cont:4.40696/Adv:21.9811] | Loss(D):8.01002[Real:3.49719/Fake:4.51282]
+06th-08:07:30 | epoch2(18000) | lr=5e-06 | psnr=22.319 | ypsnr=24.066 | cont_mse=2.86244 | Loss(G):38.0134[Cont:6.69339/Adv:31.32] | Loss(D):9.91823[Real:1.37304/Fake:8.54519]
+06th-08:11:02 | epoch2(18100) | lr=5e-06 | psnr=22.374 | ypsnr=24.071 | cont_mse=2.88547 | Loss(G):29.3877[Cont:5.99167/Adv:23.396] | Loss(D):16.9928[Real:4.57177/Fake:12.421]
+06th-08:14:33 | epoch2(18200) | lr=5e-06 | psnr=22.414 | ypsnr=24.029 | cont_mse=2.86478 | Loss(G):13.8944[Cont:5.43254/Adv:8.46189] | Loss(D):9.11144[Real:6.88543/Fake:2.22601]
+06th-08:18:08 | epoch2(18300) | lr=5e-06 | psnr=22.287 | ypsnr=23.932 | cont_mse=2.84752 | Loss(G):14.4039[Cont:5.06164/Adv:9.34221] | Loss(D):11.3379[Real:5.75922/Fake:5.57864]
+06th-08:21:38 | epoch2(18400) | lr=5e-06 | psnr=22.610 | ypsnr=24.353 | cont_mse=2.78935 | Loss(G):14.9754[Cont:7.27998/Adv:7.69545] | Loss(D):6.78448[Real:5.77857/Fake:1.00591]
+06th-08:25:15 | epoch2(18500) | lr=5e-06 | psnr=22.544 | ypsnr=24.309 | cont_mse=2.82276 | Loss(G):25.1834[Cont:7.54105/Adv:17.6424] | Loss(D):7.99854[Real:4.65384/Fake:3.3447]
+06th-08:28:48 | epoch2(18600) | lr=5e-06 | psnr=22.485 | ypsnr=24.174 | cont_mse=2.84871 | Loss(G):7.02319[Cont:5.33999/Adv:1.68319] | Loss(D):20.1909[Real:17.6351/Fake:2.55577]
+06th-08:32:26 | epoch2(18700) | lr=5e-06 | psnr=22.487 | ypsnr=24.162 | cont_mse=2.90412 | Loss(G):11.8456[Cont:4.6956/Adv:7.14999] | Loss(D):18.8424[Real:11.346/Fake:7.49634]
+06th-08:36:05 | epoch2(18800) | lr=5e-06 | psnr=22.636 | ypsnr=24.349 | cont_mse=2.85233 | Loss(G):31.7[Cont:4.72529/Adv:26.9747] | Loss(D):13.0568[Real:2.57777/Fake:10.4791]
+06th-08:39:38 | epoch2(18900) | lr=5e-06 | psnr=22.498 | ypsnr=24.222 | cont_mse=2.87872 | Loss(G):16.6158[Cont:5.18703/Adv:11.4288] | Loss(D):13.788[Real:6.36068/Fake:7.4273]
+06th-08:43:08 | epoch2(19000) | lr=5e-06 | psnr=22.454 | ypsnr=24.170 | cont_mse=2.87946 | Loss(G):28.7505[Cont:5.12693/Adv:23.6235] | Loss(D):14.4281[Real:5.6762/Fake:8.7519]
+06th-08:46:41 | epoch2(19100) | lr=5e-06 | psnr=22.315 | ypsnr=24.028 | cont_mse=2.8962 | Loss(G):21.8163[Cont:5.89185/Adv:15.9244] | Loss(D):8.60926[Real:2.41202/Fake:6.19724]
+06th-08:50:19 | epoch2(19200) | lr=5e-06 | psnr=22.225 | ypsnr=23.933 | cont_mse=2.92083 | Loss(G):16.7202[Cont:6.41441/Adv:10.3058] | Loss(D):11.9243[Real:6.84141/Fake:5.08287]
+06th-08:53:50 | epoch2(19300) | lr=5e-06 | psnr=22.101 | ypsnr=23.840 | cont_mse=2.92697 | Loss(G):30.5525[Cont:7.20089/Adv:23.3516] | Loss(D):15.2648[Real:5.2475/Fake:10.0173]
+06th-08:57:30 | epoch2(19400) | lr=5e-06 | psnr=22.244 | ypsnr=23.994 | cont_mse=2.91958 | Loss(G):9.19643[Cont:6.18793/Adv:3.0085] | Loss(D):11.611[Real:9.80112/Fake:1.80988]
+06th-09:01:11 | epoch2(19500) | lr=5e-06 | psnr=22.511 | ypsnr=24.280 | cont_mse=2.82538 | Loss(G):26.6666[Cont:6.20919/Adv:20.4574] | Loss(D):10.5303[Real:2.75436/Fake:7.77596]
+06th-09:04:42 | epoch2(19600) | lr=5e-06 | psnr=22.622 | ypsnr=24.380 | cont_mse=2.77627 | Loss(G):61.2541[Cont:6.02647/Adv:55.2277] | Loss(D):16.5687[Real:1.53004/Fake:15.0387]
+06th-09:08:16 | epoch2(19700) | lr=5e-06 | psnr=22.232 | ypsnr=23.990 | cont_mse=2.82463 | Loss(G):22.8207[Cont:5.829/Adv:16.9917] | Loss(D):10.9225[Real:3.47873/Fake:7.44379]
+06th-09:11:48 | epoch2(19800) | lr=5e-06 | psnr=22.083 | ypsnr=23.864 | cont_mse=2.85826 | Loss(G):27.8064[Cont:6.80583/Adv:21.0005] | Loss(D):9.4042[Real:3.80211/Fake:5.60209]
+06th-09:15:21 | epoch2(19900) | lr=5e-06 | psnr=22.279 | ypsnr=24.091 | cont_mse=2.85824 | Loss(G):42.4428[Cont:7.39761/Adv:35.0452] | Loss(D):11.0182[Real:2.74376/Fake:8.27439]
+06th-09:18:53 | epoch2(20000) | lr=5e-06 | psnr=22.359 | ypsnr=24.107 | cont_mse=2.88936 | Loss(G):8.84484[Cont:5.20422/Adv:3.64062] | Loss(D):25.9652[Real:21.7875/Fake:4.17776]
+06th-09:22:27 | epoch2(20100) | lr=5e-06 | psnr=22.463 | ypsnr=24.213 | cont_mse=2.86823 | Loss(G):16.6269[Cont:5.5498/Adv:11.0771] | Loss(D):7.71319[Real:4.63441/Fake:3.07877]
+06th-09:26:11 | epoch2(20200) | lr=5e-06 | psnr=22.438 | ypsnr=24.273 | cont_mse=2.84334 | Loss(G):15.8971[Cont:3.85723/Adv:12.0398] | Loss(D):8.9724[Real:5.18746/Fake:3.78494]
+06th-09:29:41 | epoch2(20300) | lr=5e-06 | psnr=22.391 | ypsnr=24.293 | cont_mse=2.8309 | Loss(G):23.3278[Cont:3.74808/Adv:19.5797] | Loss(D):12.8363[Real:5.57316/Fake:7.26315]
+06th-09:33:13 | epoch2(20400) | lr=5e-06 | psnr=22.217 | ypsnr=23.988 | cont_mse=2.89201 | Loss(G):15.9455[Cont:7.64734/Adv:8.29811] | Loss(D):9.23822[Real:7.27673/Fake:1.96149]
+06th-09:36:51 | epoch2(20500) | lr=5e-06 | psnr=22.444 | ypsnr=24.171 | cont_mse=2.81295 | Loss(G):48.2684[Cont:6.20898/Adv:42.0594] | Loss(D):20.2535[Real:4.34061/Fake:15.9129]
+06th-09:40:22 | epoch2(20600) | lr=5e-06 | psnr=22.600 | ypsnr=24.271 | cont_mse=2.78788 | Loss(G):12.2777[Cont:5.21533/Adv:7.0624] | Loss(D):10.7011[Real:6.94629/Fake:3.75484]
+06th-09:43:52 | epoch2(20700) | lr=5e-06 | psnr=22.401 | ypsnr=23.985 | cont_mse=2.83726 | Loss(G):10.9184[Cont:6.60655/Adv:4.31182] | Loss(D):21.9593[Real:19.5986/Fake:2.36076]
+06th-09:47:34 | epoch2(20800) | lr=5e-06 | psnr=22.114 | ypsnr=23.683 | cont_mse=2.91628 | Loss(G):27.5248[Cont:7.59624/Adv:19.9285] | Loss(D):7.87924[Real:4.0782/Fake:3.80104]
+06th-09:51:14 | epoch2(20900) | lr=5e-06 | psnr=22.270 | ypsnr=23.946 | cont_mse=2.8965 | Loss(G):8.57248[Cont:6.58214/Adv:1.99034] | Loss(D):28.637[Real:25.1265/Fake:3.51044]
+06th-09:54:46 | epoch2(21000) | lr=5e-06 | psnr=22.189 | ypsnr=23.894 | cont_mse=2.88951 | Loss(G):12.1112[Cont:4.79484/Adv:7.31639] | Loss(D):11.752[Real:7.58695/Fake:4.16506]
+06th-09:58:17 | epoch2(21100) | lr=5e-06 | psnr=22.046 | ypsnr=23.762 | cont_mse=2.94818 | Loss(G):39.5968[Cont:7.3977/Adv:32.1991] | Loss(D):17.4518[Real:5.79263/Fake:11.6591]
+06th-10:01:49 | epoch2(21200) | lr=5e-06 | psnr=22.193 | ypsnr=23.949 | cont_mse=2.88251 | Loss(G):15.4027[Cont:4.98776/Adv:10.4149] | Loss(D):18.7207[Real:9.98788/Fake:8.73282]
+06th-10:05:24 | epoch2(21300) | lr=5e-06 | psnr=22.340 | ypsnr=24.180 | cont_mse=2.83769 | Loss(G):15.2107[Cont:4.86206/Adv:10.3486] | Loss(D):12.5822[Real:7.87697/Fake:4.70527]
+06th-10:09:01 | epoch2(21400) | lr=5e-06 | psnr=22.433 | ypsnr=24.257 | cont_mse=2.81437 | Loss(G):80.6325[Cont:4.88605/Adv:75.7465] | Loss(D):23.7931[Real:1.37778/Fake:22.4153]
+06th-10:12:35 | epoch2(21500) | lr=5e-06 | psnr=22.371 | ypsnr=24.116 | cont_mse=2.84143 | Loss(G):37.0188[Cont:6.1748/Adv:30.8439] | Loss(D):16.3212[Real:2.62485/Fake:13.6964]
+06th-10:16:22 | epoch2(21600) | lr=5e-06 | psnr=21.999 | ypsnr=23.927 | cont_mse=2.89334 | Loss(G):18.9277[Cont:6.80027/Adv:12.1274] | Loss(D):15.1179[Real:7.75355/Fake:7.36439]
+06th-10:18:55 | epoch2(22300) | lr=5e-06 | psnr=22.900 | ypsnr=25.004 | Loss(G):2.96919[Cont:2.96919/Adv:2.27822] | Loss(D):0.688475[Real:0.152865/Fake:0.53561]
+06th-10:22:00 | epoch2(22400) | lr=5e-06 | psnr=22.886 | ypsnr=25.019 | Loss(G):1.93624[Cont:1.93624/Adv:1.10005] | Loss(D):0.420865[Real:0.140002/Fake:0.280863]
+06th-10:25:17 | epoch2(22500) | lr=5e-06 | psnr=22.929 | ypsnr=24.987 | Loss(G):2.18869[Cont:2.18869/Adv:0.752019] | Loss(D):0.432847[Real:0.228592/Fake:0.204255]
+06th-10:28:25 | epoch2(22600) | lr=5e-06 | psnr=22.716 | ypsnr=24.759 | Loss(G):2.21368[Cont:2.21368/Adv:1.10539] | Loss(D):0.612818[Real:0.283062/Fake:0.329755]
+06th-10:31:38 | epoch2(22700) | lr=5e-06 | psnr=22.629 | ypsnr=24.660 | Loss(G):2.03097[Cont:2.03097/Adv:1.20327] | Loss(D):0.640609[Real:0.18439/Fake:0.456219]
+06th-10:34:44 | epoch2(22800) | lr=5e-06 | psnr=22.794 | ypsnr=24.882 | Loss(G):2.82112[Cont:2.82112/Adv:0.780697] | Loss(D):0.348541[Real:0.195092/Fake:0.153449]
+06th-10:37:56 | epoch2(22900) | lr=5e-06 | psnr=22.680 | ypsnr=24.793 | Loss(G):2.84702[Cont:2.84702/Adv:1.20724] | Loss(D):0.247926[Real:0.0300708/Fake:0.217855]
+06th-10:41:09 | epoch2(23000) | lr=5e-06 | psnr=22.829 | ypsnr=25.061 | Loss(G):2.60307[Cont:2.60307/Adv:0.648171] | Loss(D):0.260687[Real:0.107513/Fake:0.153175]
+06th-10:44:22 | epoch2(23100) | lr=5e-06 | psnr=22.770 | ypsnr=24.932 | Loss(G):2.65028[Cont:2.65028/Adv:1.28493] | Loss(D):0.418502[Real:0.142664/Fake:0.275838]
+06th-10:47:28 | epoch2(23200) | lr=5e-06 | psnr=22.648 | ypsnr=24.726 | Loss(G):3.08274[Cont:3.08274/Adv:1.84585] | Loss(D):0.409171[Real:0.122377/Fake:0.286794]
+06th-10:50:36 | epoch2(23300) | lr=5e-06 | psnr=22.705 | ypsnr=24.818 | Loss(G):2.43835[Cont:2.43835/Adv:0.622138] | Loss(D):0.279006[Real:0.141401/Fake:0.137605]
+06th-10:53:44 | epoch2(23400) | lr=5e-06 | psnr=22.645 | ypsnr=24.750 | Loss(G):2.04093[Cont:2.04093/Adv:0.22882] | Loss(D):0.376296[Real:0.304837/Fake:0.071459]
+06th-10:56:56 | epoch2(23500) | lr=5e-06 | psnr=22.690 | ypsnr=24.760 | Loss(G):1.65927[Cont:1.65927/Adv:0.406824] | Loss(D):0.404069[Real:0.256237/Fake:0.147832]
+06th-11:00:02 | epoch2(23600) | lr=5e-06 | psnr=22.766 | ypsnr=24.819 | Loss(G):2.41337[Cont:2.41337/Adv:1.21576] | Loss(D):0.294982[Real:0.0940681/Fake:0.200914]
+06th-11:03:05 | epoch2(23700) | lr=5e-06 | psnr=22.958 | ypsnr=25.066 | Loss(G):2.8129[Cont:2.8129/Adv:1.73228] | Loss(D):0.657992[Real:0.119554/Fake:0.538439]
+06th-11:06:14 | epoch2(23800) | lr=5e-06 | psnr=22.985 | ypsnr=25.061 | Loss(G):3.74485[Cont:3.74485/Adv:1.90533] | Loss(D):0.788519[Real:0.169919/Fake:0.6186]
+06th-11:09:17 | epoch2(23900) | lr=5e-06 | psnr=22.889 | ypsnr=24.980 | Loss(G):1.97585[Cont:1.97585/Adv:0.466774] | Loss(D):0.307498[Real:0.198177/Fake:0.109321]
+06th-11:12:25 | epoch2(24000) | lr=5e-06 | psnr=22.915 | ypsnr=25.063 | Loss(G):3.42317[Cont:3.42317/Adv:1.90272] | Loss(D):0.337546[Real:0.250789/Fake:0.086757]
+06th-11:15:30 | epoch2(24100) | lr=5e-06 | psnr=22.706 | ypsnr=24.822 | Loss(G):2.5627[Cont:2.5627/Adv:0.814053] | Loss(D):0.238359[Real:0.14888/Fake:0.0894797]
+06th-11:18:35 | epoch2(24200) | lr=5e-06 | psnr=22.611 | ypsnr=24.690 | Loss(G):1.76405[Cont:1.76405/Adv:0.721271] | Loss(D):0.461481[Real:0.302301/Fake:0.15918]
+06th-11:21:43 | epoch2(24300) | lr=5e-06 | psnr=22.594 | ypsnr=24.691 | Loss(G):2.31674[Cont:2.31674/Adv:0.723978] | Loss(D):0.323946[Real:0.181729/Fake:0.142217]
+06th-11:24:50 | epoch2(24400) | lr=5e-06 | psnr=22.765 | ypsnr=24.866 | Loss(G):2.01055[Cont:2.01055/Adv:0.674411] | Loss(D):0.182409[Real:0.111166/Fake:0.0712426]
+06th-11:27:57 | epoch2(24500) | lr=5e-06 | psnr=22.661 | ypsnr=24.797 | Loss(G):2.38487[Cont:2.38487/Adv:1.43429] | Loss(D):0.267272[Real:0.041074/Fake:0.226198]
+06th-11:31:07 | epoch2(24600) | lr=5e-06 | psnr=22.622 | ypsnr=24.763 | Loss(G):3.39663[Cont:3.39663/Adv:0.734447] | Loss(D):0.37485[Real:0.184271/Fake:0.190579]
+06th-11:34:15 | epoch2(24700) | lr=5e-06 | psnr=22.764 | ypsnr=24.881 | Loss(G):2.4779[Cont:2.4779/Adv:0.437556] | Loss(D):0.331914[Real:0.209633/Fake:0.122281]
+06th-11:37:28 | epoch2(24800) | lr=5e-06 | psnr=22.672 | ypsnr=24.793 | Loss(G):1.86799[Cont:1.86799/Adv:0.0772251] | Loss(D):1.17083[Real:1.11121/Fake:0.0596192]
+06th-11:40:35 | epoch2(24900) | lr=5e-06 | psnr=22.864 | ypsnr=25.011 | Loss(G):2.66796[Cont:2.66796/Adv:0.437251] | Loss(D):0.496202[Real:0.3727/Fake:0.123502]
+06th-11:43:45 | epoch2(25000) | lr=5e-06 | psnr=22.878 | ypsnr=25.044 | Loss(G):1.96401[Cont:1.96401/Adv:0.768581] | Loss(D):0.368748[Real:0.193441/Fake:0.175307]
+06th-11:46:52 | epoch2(25100) | lr=5e-06 | psnr=23.012 | ypsnr=25.233 | Loss(G):2.94097[Cont:2.94097/Adv:2.23462] | Loss(D):0.394037[Real:0.126589/Fake:0.267448]
+06th-11:49:56 | epoch2(25200) | lr=5e-06 | psnr=22.731 | ypsnr=24.978 | Loss(G):1.87468[Cont:1.87468/Adv:0.13578] | Loss(D):1.5099[Real:1.39289/Fake:0.117013]
+06th-11:53:04 | epoch2(25300) | lr=5e-06 | psnr=22.874 | ypsnr=25.075 | Loss(G):2.63679[Cont:2.63679/Adv:1.31626] | Loss(D):0.396512[Real:0.150534/Fake:0.245978]
+06th-11:56:15 | epoch2(25400) | lr=5e-06 | psnr=23.019 | ypsnr=25.275 | Loss(G):3.14479[Cont:3.14479/Adv:1.89799] | Loss(D):0.374454[Real:0.0726951/Fake:0.301759]
+06th-11:59:22 | epoch2(25500) | lr=5e-06 | psnr=23.230 | ypsnr=25.495 | Loss(G):2.45042[Cont:2.45042/Adv:0.763362] | Loss(D):0.296583[Real:0.218417/Fake:0.0781653]
+06th-12:02:28 | epoch2(25600) | lr=5e-06 | psnr=23.154 | ypsnr=25.402 | Loss(G):1.86584[Cont:1.86584/Adv:1.46296] | Loss(D):0.547612[Real:0.0898982/Fake:0.457714]
+06th-12:05:37 | epoch2(25700) | lr=5e-06 | psnr=23.062 | ypsnr=25.334 | Loss(G):2.83424[Cont:2.83424/Adv:1.52788] | Loss(D):0.524093[Real:0.257489/Fake:0.266604]
+06th-12:08:46 | epoch2(25800) | lr=5e-06 | psnr=22.948 | ypsnr=25.171 | Loss(G):2.62893[Cont:2.62893/Adv:0.425554] | Loss(D):0.385454[Real:0.262406/Fake:0.123047]
+06th-12:11:55 | epoch2(25900) | lr=5e-06 | psnr=22.866 | ypsnr=25.080 | Loss(G):1.92188[Cont:1.92188/Adv:1.01143] | Loss(D):0.205886[Real:0.0838567/Fake:0.122029]
+06th-12:15:04 | epoch2(26000) | lr=5e-06 | psnr=23.044 | ypsnr=25.322 | Loss(G):2.88796[Cont:2.88796/Adv:1.81664] | Loss(D):0.594877[Real:0.07813/Fake:0.516747]
+06th-12:18:11 | epoch2(26100) | lr=5e-06 | psnr=23.054 | ypsnr=25.291 | Loss(G):2.74884[Cont:2.74884/Adv:0.723089] | Loss(D):0.517515[Real:0.202629/Fake:0.314886]
+06th-12:21:19 | epoch2(26200) | lr=5e-06 | psnr=23.211 | ypsnr=25.520 | Loss(G):1.7864[Cont:1.7864/Adv:0.457179] | Loss(D):0.591345[Real:0.422225/Fake:0.169121]
+06th-12:24:27 | epoch2(26300) | lr=5e-06 | psnr=23.174 | ypsnr=25.485 | Loss(G):2.11638[Cont:2.11638/Adv:0.78381] | Loss(D):0.343496[Real:0.0942553/Fake:0.249241]
+06th-12:27:40 | epoch2(26400) | lr=5e-06 | psnr=23.077 | ypsnr=25.339 | Loss(G):1.91229[Cont:1.91229/Adv:0.195454] | Loss(D):0.509419[Real:0.412264/Fake:0.0971548]
+06th-12:30:46 | epoch2(26500) | lr=5e-06 | psnr=23.010 | ypsnr=25.306 | Loss(G):2.75953[Cont:2.75953/Adv:2.62198] | Loss(D):1.04893[Real:0.278665/Fake:0.770266]
+06th-12:33:50 | epoch2(26600) | lr=5e-06 | psnr=23.143 | ypsnr=25.461 | Loss(G):2.41671[Cont:2.41671/Adv:0.994704] | Loss(D):0.39033[Real:0.225866/Fake:0.164464]
+06th-12:36:55 | epoch2(26700) | lr=5e-06 | psnr=23.121 | ypsnr=25.458 | Loss(G):2.17743[Cont:2.17743/Adv:0.125817] | Loss(D):0.789834[Real:0.601938/Fake:0.187897]
+06th-12:40:01 | epoch2(26800) | lr=5e-06 | psnr=22.991 | ypsnr=25.210 | Loss(G):2.18234[Cont:2.18234/Adv:0.3695] | Loss(D):0.264862[Real:0.234401/Fake:0.0304611]
+06th-12:43:19 | epoch2(26900) | lr=5e-06 | psnr=23.036 | ypsnr=25.265 | Loss(G):2.48229[Cont:2.48229/Adv:1.60505] | Loss(D):0.322033[Real:0.0583395/Fake:0.263693]
+06th-12:46:28 | epoch2(27000) | lr=5e-06 | psnr=23.042 | ypsnr=25.321 | Loss(G):2.30787[Cont:2.30787/Adv:0.715131] | Loss(D):0.533629[Real:0.341605/Fake:0.192024]
+06th-12:49:41 | epoch2(27100) | lr=5e-06 | psnr=23.110 | ypsnr=25.326 | Loss(G):2.56251[Cont:2.56251/Adv:0.40622] | Loss(D):0.357628[Real:0.300897/Fake:0.0567308]
+06th-12:52:56 | epoch2(27200) | lr=5e-06 | psnr=23.293 | ypsnr=25.545 | Loss(G):1.76458[Cont:1.76458/Adv:0.818768] | Loss(D):0.267108[Real:0.115351/Fake:0.151758]
+06th-12:56:04 | epoch2(27300) | lr=5e-06 | psnr=23.113 | ypsnr=25.369 | Loss(G):2.04346[Cont:2.04346/Adv:1.01961] | Loss(D):0.296299[Real:0.096672/Fake:0.199627]
+06th-10:19:53 | epoch2(21700) | lr=5e-06 | psnr=22.131 | ypsnr=24.112 | cont_mse=2.85479 | Loss(G):11.5794[Cont:6.50924/Adv:5.07014] | Loss(D):18.3[Real:15.3908/Fake:2.90919]
+06th-10:23:25 | epoch2(21800) | lr=5e-06 | psnr=22.149 | ypsnr=23.981 | cont_mse=2.89728 | Loss(G):32.3135[Cont:5.47088/Adv:26.8426] | Loss(D):13.1414[Real:3.98864/Fake:9.15279]
+06th-10:27:05 | epoch2(21900) | lr=5e-06 | psnr=21.998 | ypsnr=23.773 | cont_mse=2.99477 | Loss(G):32.0336[Cont:7.70647/Adv:24.3272] | Loss(D):7.81434[Real:1.0456/Fake:6.76874]
+06th-10:30:38 | epoch2(22000) | lr=5e-06 | psnr=22.208 | ypsnr=24.015 | cont_mse=2.94954 | Loss(G):21.1698[Cont:7.64848/Adv:13.5213] | Loss(D):11.4833[Real:6.65387/Fake:4.82944]
+06th-10:34:10 | epoch2(22100) | lr=5e-06 | psnr=22.288 | ypsnr=24.158 | cont_mse=2.90083 | Loss(G):10.1958[Cont:5.52859/Adv:4.66722] | Loss(D):17.453[Real:14.9045/Fake:2.5485]
+06th-10:37:42 | epoch2(22200) | lr=5e-06 | psnr=22.265 | ypsnr=24.083 | cont_mse=2.88669 | Loss(G):8.8224[Cont:5.16418/Adv:3.65822] | Loss(D):13.5995[Real:11.2083/Fake:2.39121]
+06th-10:41:22 | epoch2(22300) | lr=5e-06 | psnr=22.219 | ypsnr=23.918 | cont_mse=2.90728 | Loss(G):17.0735[Cont:7.02042/Adv:10.053] | Loss(D):8.21665[Real:5.1202/Fake:3.09645]
+06th-10:45:01 | epoch2(22400) | lr=5e-06 | psnr=22.342 | ypsnr=24.109 | cont_mse=2.88747 | Loss(G):36.9008[Cont:6.974/Adv:29.9268] | Loss(D):8.00249[Real:2.17152/Fake:5.83098]
+06th-10:48:34 | epoch2(22500) | lr=5e-06 | psnr=22.514 | ypsnr=24.287 | cont_mse=2.84973 | Loss(G):43.2056[Cont:4.20832/Adv:38.9973] | Loss(D):15.1548[Real:3.70207/Fake:11.4527]
+06th-10:52:13 | epoch2(22600) | lr=5e-06 | psnr=22.591 | ypsnr=24.324 | cont_mse=2.82993 | Loss(G):14.0651[Cont:8.66462/Adv:5.4005] | Loss(D):13.8052[Real:11.0819/Fake:2.72332]
+06th-10:55:49 | epoch2(22700) | lr=5e-06 | psnr=22.557 | ypsnr=24.246 | cont_mse=2.80351 | Loss(G):32.7135[Cont:7.59266/Adv:25.1208] | Loss(D):13.0466[Real:2.85514/Fake:10.1915]
+06th-10:59:22 | epoch2(22800) | lr=5e-06 | psnr=22.288 | ypsnr=24.048 | cont_mse=2.84628 | Loss(G):9.5436[Cont:5.63989/Adv:3.90371] | Loss(D):20.3318[Real:16.6293/Fake:3.70257]
+06th-11:02:52 | epoch2(22900) | lr=5e-06 | psnr=22.282 | ypsnr=24.020 | cont_mse=2.88879 | Loss(G):45.6387[Cont:5.30117/Adv:40.3375] | Loss(D):16.7792[Real:0.851591/Fake:15.9276]
+06th-11:06:31 | epoch2(23000) | lr=5e-06 | psnr=22.456 | ypsnr=24.178 | cont_mse=2.85501 | Loss(G):6.68961[Cont:4.78449/Adv:1.90512] | Loss(D):17.8397[Real:16.3173/Fake:1.52243]
+06th-11:10:03 | epoch2(23100) | lr=5e-06 | psnr=22.668 | ypsnr=24.389 | cont_mse=2.79374 | Loss(G):24.3167[Cont:6.18627/Adv:18.1304] | Loss(D):11.331[Real:4.9267/Fake:6.4043]
+06th-11:13:34 | epoch2(23200) | lr=5e-06 | psnr=22.509 | ypsnr=24.176 | cont_mse=2.86189 | Loss(G):28.2105[Cont:6.43186/Adv:21.7787] | Loss(D):13.4882[Real:3.11318/Fake:10.375]
+06th-11:17:15 | epoch2(23300) | lr=5e-06 | psnr=22.271 | ypsnr=23.942 | cont_mse=2.94486 | Loss(G):19.9514[Cont:7.52219/Adv:12.4292] | Loss(D):10.2655[Real:5.7974/Fake:4.46813]
+06th-11:20:45 | epoch2(23400) | lr=5e-06 | psnr=22.118 | ypsnr=23.879 | cont_mse=2.971 | Loss(G):46.8637[Cont:6.78411/Adv:40.0796] | Loss(D):14.0277[Real:1.10137/Fake:12.9263]
+06th-11:24:21 | epoch2(23500) | lr=5e-06 | psnr=22.384 | ypsnr=24.150 | cont_mse=2.88561 | Loss(G):14.872[Cont:4.89412/Adv:9.97789] | Loss(D):15.2495[Real:7.91702/Fake:7.33251]
+06th-11:27:56 | epoch2(23600) | lr=5e-06 | psnr=22.433 | ypsnr=24.152 | cont_mse=2.86366 | Loss(G):26.4897[Cont:4.71532/Adv:21.7744] | Loss(D):14.7305[Real:3.9349/Fake:10.7956]
+06th-11:31:34 | epoch2(23700) | lr=5e-06 | psnr=22.207 | ypsnr=23.850 | cont_mse=2.92043 | Loss(G):11.1685[Cont:6.13986/Adv:5.02867] | Loss(D):11.5256[Real:9.41816/Fake:2.10743]
+06th-11:35:08 | epoch2(23800) | lr=5e-06 | psnr=22.094 | ypsnr=23.774 | cont_mse=2.96727 | Loss(G):11.9032[Cont:5.62751/Adv:6.27565] | Loss(D):12.8391[Real:8.42633/Fake:4.41281]
+06th-11:38:38 | epoch2(23900) | lr=5e-06 | psnr=22.170 | ypsnr=23.869 | cont_mse=2.93017 | Loss(G):19.917[Cont:6.30832/Adv:13.6087] | Loss(D):10.3669[Real:5.47247/Fake:4.89444]
+06th-11:42:13 | epoch2(24000) | lr=5e-06 | psnr=22.257 | ypsnr=24.009 | cont_mse=2.8964 | Loss(G):30.3564[Cont:6.89752/Adv:23.4589] | Loss(D):11.3455[Real:3.07295/Fake:8.27259]
+06th-11:45:42 | epoch2(24100) | lr=5e-06 | psnr=22.218 | ypsnr=24.013 | cont_mse=2.91141 | Loss(G):50.4074[Cont:7.24244/Adv:43.165] | Loss(D):14.4761[Real:1.75794/Fake:12.7181]
+06th-11:49:11 | epoch2(24200) | lr=5e-06 | psnr=22.176 | ypsnr=23.893 | cont_mse=2.89346 | Loss(G):37.0203[Cont:6.44111/Adv:30.5792] | Loss(D):11.0329[Real:0.881908/Fake:10.151]
+06th-11:52:49 | epoch2(24300) | lr=5e-06 | psnr=22.252 | ypsnr=23.842 | cont_mse=2.90084 | Loss(G):8.90856[Cont:5.14412/Adv:3.76444] | Loss(D):11.8373[Real:10.0295/Fake:1.8078]
+06th-11:56:26 | epoch2(24400) | lr=5e-06 | psnr=21.848 | ypsnr=23.415 | cont_mse=3.00621 | Loss(G):28.656[Cont:5.00216/Adv:23.6538] | Loss(D):17.2015[Real:8.26375/Fake:8.93775]
+06th-11:59:57 | epoch2(24500) | lr=5e-06 | psnr=21.888 | ypsnr=23.476 | cont_mse=3.00816 | Loss(G):29.4534[Cont:6.5728/Adv:22.8806] | Loss(D):11.8803[Real:2.46012/Fake:9.42022]
+06th-12:03:29 | epoch2(24600) | lr=5e-06 | psnr=22.328 | ypsnr=24.039 | cont_mse=2.92339 | Loss(G):21.8557[Cont:6.05346/Adv:15.8022] | Loss(D):8.06124[Real:4.16808/Fake:3.89316]
+06th-12:06:59 | epoch2(24700) | lr=5e-06 | psnr=22.431 | ypsnr=24.237 | cont_mse=2.88552 | Loss(G):34.6549[Cont:7.95242/Adv:26.7025] | Loss(D):14.2994[Real:2.99539/Fake:11.304]
+06th-12:10:37 | epoch2(24800) | lr=5e-06 | psnr=22.233 | ypsnr=24.074 | cont_mse=2.92866 | Loss(G):12.6814[Cont:6.31525/Adv:6.36617] | Loss(D):13.3383[Real:8.85509/Fake:4.4832]
+06th-12:14:12 | epoch2(24900) | lr=5e-06 | psnr=22.084 | ypsnr=23.883 | cont_mse=2.99441 | Loss(G):11.8185[Cont:5.39887/Adv:6.41965] | Loss(D):16.9936[Real:12.9013/Fake:4.09232]
+06th-12:17:57 | epoch2(25000) | lr=5e-06 | psnr=22.379 | ypsnr=24.150 | cont_mse=2.92774 | Loss(G):16.9649[Cont:4.57601/Adv:12.3889] | Loss(D):10.6131[Real:5.61885/Fake:4.99428]
+06th-12:21:38 | epoch2(25100) | lr=5e-06 | psnr=22.325 | ypsnr=24.049 | cont_mse=2.92372 | Loss(G):20.023[Cont:7.16384/Adv:12.8592] | Loss(D):11.7305[Real:5.43704/Fake:6.29345]
+06th-12:25:16 | epoch2(25200) | lr=5e-06 | psnr=22.286 | ypsnr=24.078 | cont_mse=2.92978 | Loss(G):31.1469[Cont:8.10712/Adv:23.0397] | Loss(D):16.5352[Real:5.10776/Fake:11.4275]
+06th-12:28:50 | epoch2(25300) | lr=5e-06 | psnr=22.338 | ypsnr=24.150 | cont_mse=2.90904 | Loss(G):36.6515[Cont:6.60096/Adv:30.0506] | Loss(D):9.96998[Real:4.33943/Fake:5.63055]
+06th-12:32:36 | epoch2(25400) | lr=5e-06 | psnr=22.398 | ypsnr=24.183 | cont_mse=2.90797 | Loss(G):15.8631[Cont:5.28131/Adv:10.5818] | Loss(D):11.0146[Real:7.61979/Fake:3.39477]
+06th-12:36:14 | epoch2(25500) | lr=5e-06 | psnr=22.230 | ypsnr=24.032 | cont_mse=2.96588 | Loss(G):22.5558[Cont:5.53375/Adv:17.022] | Loss(D):14.6047[Real:3.61424/Fake:10.9904]
+06th-12:39:52 | epoch2(25600) | lr=5e-06 | psnr=22.108 | ypsnr=23.908 | cont_mse=2.99882 | Loss(G):35.9426[Cont:6.08222/Adv:29.8604] | Loss(D):13.6577[Real:2.88914/Fake:10.7685]
+06th-12:43:37 | epoch2(25700) | lr=5e-06 | psnr=22.320 | ypsnr=24.084 | cont_mse=2.92646 | Loss(G):25.3203[Cont:6.68753/Adv:18.6328] | Loss(D):8.5781[Real:4.00362/Fake:4.57448]
+06th-12:47:18 | epoch2(25800) | lr=5e-06 | psnr=22.298 | ypsnr=24.019 | cont_mse=2.92041 | Loss(G):56.3454[Cont:6.90025/Adv:49.4451] | Loss(D):16.6402[Real:3.94096/Fake:12.6992]
+06th-12:50:53 | epoch2(25900) | lr=5e-06 | psnr=22.261 | ypsnr=24.042 | cont_mse=2.94255 | Loss(G):15.0771[Cont:7.29644/Adv:7.78064] | Loss(D):9.04735[Real:5.76734/Fake:3.28001]
+06th-12:54:34 | epoch2(26000) | lr=5e-06 | psnr=22.339 | ypsnr=24.053 | cont_mse=2.89457 | Loss(G):11.6385[Cont:4.83803/Adv:6.80044] | Loss(D):9.04848[Real:6.18953/Fake:2.85894]
+06th-12:58:17 | epoch2(26100) | lr=5e-06 | psnr=22.374 | ypsnr=24.129 | cont_mse=2.86828 | Loss(G):21.9209[Cont:6.52121/Adv:15.3997] | Loss(D):9.96577[Real:5.39945/Fake:4.56632]
+06th-13:01:54 | epoch2(26200) | lr=5e-06 | psnr=22.278 | ypsnr=24.007 | cont_mse=2.89242 | Loss(G):22.4528[Cont:4.41669/Adv:18.0361] | Loss(D):12.5039[Real:4.39942/Fake:8.10451]
+06th-13:05:34 | epoch2(26300) | lr=5e-06 | psnr=22.086 | ypsnr=23.859 | cont_mse=2.91896 | Loss(G):5.79978[Cont:5.06386/Adv:0.735926] | Loss(D):15.5928[Real:12.6943/Fake:2.89851]
+06th-10:12:43 | epoch2(17700) | lr=5e-06 | psnr=24.079 | ypsnr=25.940 | cont_mse=2.27533 | Loss(G):4.54681[Cont:4.19217/Adv:0.354645] | Loss(D):1.94542[Real:1.51207/Fake:0.433348]
+06th-10:17:58 | epoch2(17800) | lr=5e-06 | psnr=24.111 | ypsnr=25.976 | cont_mse=2.27694 | Loss(G):6.94667[Cont:4.07831/Adv:2.86836] | Loss(D):1.37703[Real:0.402801/Fake:0.974226]
+06th-10:22:55 | epoch2(17900) | lr=5e-06 | psnr=24.055 | ypsnr=25.912 | cont_mse=2.28794 | Loss(G):5.91272[Cont:5.32567/Adv:0.587046] | Loss(D):0.987172[Real:0.74599/Fake:0.241181]
+06th-10:27:55 | epoch2(18000) | lr=5e-06 | psnr=24.015 | ypsnr=25.866 | cont_mse=2.29197 | Loss(G):6.38184[Cont:4.732/Adv:1.64984] | Loss(D):0.840828[Real:0.347066/Fake:0.493762]
+06th-10:32:58 | epoch2(18100) | lr=5e-06 | psnr=23.934 | ypsnr=25.735 | cont_mse=2.30436 | Loss(G):11.5683[Cont:5.86785/Adv:5.70046] | Loss(D):2.30343[Real:0.185898/Fake:2.11753]
+06th-10:38:00 | epoch2(18200) | lr=5e-06 | psnr=23.942 | ypsnr=25.807 | cont_mse=2.30019 | Loss(G):3.44607[Cont:2.99853/Adv:0.447542] | Loss(D):1.2013[Real:0.740605/Fake:0.460697]
+06th-10:43:11 | epoch2(18300) | lr=5e-06 | psnr=24.054 | ypsnr=25.897 | cont_mse=2.27928 | Loss(G):3.68846[Cont:3.558/Adv:0.13046] | Loss(D):1.9298[Real:1.75776/Fake:0.172042]
+06th-10:48:11 | epoch2(18400) | lr=5e-06 | psnr=24.019 | ypsnr=25.866 | cont_mse=2.28354 | Loss(G):5.14814[Cont:4.71324/Adv:0.434904] | Loss(D):0.899863[Real:0.616985/Fake:0.282878]
+06th-10:53:15 | epoch2(18500) | lr=5e-06 | psnr=24.039 | ypsnr=25.916 | cont_mse=2.27958 | Loss(G):4.63388[Cont:3.76569/Adv:0.868194] | Loss(D):0.705364[Real:0.460849/Fake:0.244515]
+06th-10:58:23 | epoch2(18600) | lr=5e-06 | psnr=24.028 | ypsnr=25.871 | cont_mse=2.28166 | Loss(G):6.33554[Cont:4.31263/Adv:2.0229] | Loss(D):1.27661[Real:0.724829/Fake:0.551782]
+06th-11:03:22 | epoch2(18700) | lr=5e-06 | psnr=24.048 | ypsnr=25.894 | cont_mse=2.28381 | Loss(G):4.1374[Cont:3.73182/Adv:0.405581] | Loss(D):1.18087[Real:1.03485/Fake:0.146022]
+06th-11:08:29 | epoch2(18800) | lr=5e-06 | psnr=24.011 | ypsnr=25.876 | cont_mse=2.28617 | Loss(G):5.78304[Cont:4.09093/Adv:1.69211] | Loss(D):0.936625[Real:0.233407/Fake:0.703218]
+06th-11:13:35 | epoch2(18900) | lr=5e-06 | psnr=23.955 | ypsnr=25.803 | cont_mse=2.28964 | Loss(G):11.5499[Cont:4.52709/Adv:7.02282] | Loss(D):1.6032[Real:0.286021/Fake:1.31718]
+06th-11:18:46 | epoch2(19000) | lr=5e-06 | psnr=23.893 | ypsnr=25.767 | cont_mse=2.30554 | Loss(G):5.02704[Cont:4.05405/Adv:0.972991] | Loss(D):0.642375[Real:0.411284/Fake:0.231091]
+06th-11:23:45 | epoch2(19100) | lr=5e-06 | psnr=23.908 | ypsnr=25.773 | cont_mse=2.31293 | Loss(G):4.20015[Cont:3.86334/Adv:0.336813] | Loss(D):1.28055[Real:1.11789/Fake:0.162663]
+06th-11:28:47 | epoch2(19200) | lr=5e-06 | psnr=24.021 | ypsnr=25.873 | cont_mse=2.29507 | Loss(G):6.594[Cont:5.3875/Adv:1.2065] | Loss(D):1.03739[Real:0.578458/Fake:0.458928]
+06th-11:33:46 | epoch2(19300) | lr=5e-06 | psnr=24.071 | ypsnr=25.917 | cont_mse=2.2757 | Loss(G):3.86647[Cont:3.7048/Adv:0.161668] | Loss(D):1.4718[Real:1.1778/Fake:0.293996]
+06th-11:38:53 | epoch2(19400) | lr=5e-06 | psnr=24.009 | ypsnr=25.823 | cont_mse=2.27947 | Loss(G):8.04063[Cont:4.7745/Adv:3.26613] | Loss(D):0.907247[Real:0.0542568/Fake:0.85299]
+06th-11:43:55 | epoch2(19500) | lr=5e-06 | psnr=24.051 | ypsnr=25.892 | cont_mse=2.281 | Loss(G):6.0434[Cont:4.6006/Adv:1.4428] | Loss(D):0.855987[Real:0.420391/Fake:0.435596]
+06th-11:48:56 | epoch2(19600) | lr=5e-06 | psnr=24.021 | ypsnr=25.823 | cont_mse=2.28474 | Loss(G):3.47034[Cont:3.39381/Adv:0.0765327] | Loss(D):2.00707[Real:1.75076/Fake:0.25631]
+06th-11:54:01 | epoch2(19700) | lr=5e-06 | psnr=24.099 | ypsnr=25.897 | cont_mse=2.26914 | Loss(G):9.39557[Cont:6.63517/Adv:2.7604] | Loss(D):1.30237[Real:0.475092/Fake:0.82728]
+06th-11:58:57 | epoch2(19800) | lr=5e-06 | psnr=24.054 | ypsnr=25.864 | cont_mse=2.2862 | Loss(G):4.68052[Cont:4.5571/Adv:0.123423] | Loss(D):2.38276[Real:1.90494/Fake:0.477817]
+06th-12:03:57 | epoch2(19900) | lr=5e-06 | psnr=24.026 | ypsnr=25.860 | cont_mse=2.28163 | Loss(G):3.39643[Cont:3.15936/Adv:0.237073] | Loss(D):2.07056[Real:1.46215/Fake:0.608406]
+06th-12:08:53 | epoch2(20000) | lr=5e-06 | psnr=23.959 | ypsnr=25.782 | cont_mse=2.28084 | Loss(G):4.20377[Cont:3.12241/Adv:1.08136] | Loss(D):1.47807[Real:0.843004/Fake:0.635064]
+06th-12:13:54 | epoch2(20100) | lr=5e-06 | psnr=24.009 | ypsnr=25.842 | cont_mse=2.27188 | Loss(G):4.92078[Cont:3.96713/Adv:0.953649] | Loss(D):0.984223[Real:0.459602/Fake:0.524621]
+06th-12:18:58 | epoch2(20200) | lr=5e-06 | psnr=23.943 | ypsnr=25.768 | cont_mse=2.27503 | Loss(G):4.29022[Cont:3.66295/Adv:0.627276] | Loss(D):0.718234[Real:0.555765/Fake:0.162469]
+06th-12:23:56 | epoch2(20300) | lr=5e-06 | psnr=23.941 | ypsnr=25.756 | cont_mse=2.27575 | Loss(G):8.87823[Cont:4.47097/Adv:4.40726] | Loss(D):2.02459[Real:0.0834586/Fake:1.94113]
+06th-12:28:58 | epoch2(20400) | lr=5e-06 | psnr=24.012 | ypsnr=25.865 | cont_mse=2.27077 | Loss(G):4.41189[Cont:4.13033/Adv:0.281557] | Loss(D):1.73457[Real:1.41263/Fake:0.321938]
+06th-12:34:06 | epoch2(20500) | lr=5e-06 | psnr=23.894 | ypsnr=25.735 | cont_mse=2.28176 | Loss(G):9.59057[Cont:6.34413/Adv:3.24643] | Loss(D):1.625[Real:0.240647/Fake:1.38435]
+06th-12:39:09 | epoch2(20600) | lr=5e-06 | psnr=23.903 | ypsnr=25.745 | cont_mse=2.29393 | Loss(G):7.51353[Cont:4.90553/Adv:2.608] | Loss(D):1.5556[Real:0.600438/Fake:0.955164]
+06th-12:44:10 | epoch2(20700) | lr=5e-06 | psnr=24.027 | ypsnr=25.834 | cont_mse=2.27105 | Loss(G):5.42896[Cont:3.68656/Adv:1.7424] | Loss(D):1.54307[Real:0.343919/Fake:1.19915]
+06th-12:49:12 | epoch2(20800) | lr=5e-06 | psnr=24.035 | ypsnr=25.823 | cont_mse=2.26442 | Loss(G):9.0685[Cont:6.11002/Adv:2.95848] | Loss(D):1.2053[Real:0.349624/Fake:0.855678]
+06th-12:54:11 | epoch2(20900) | lr=5e-06 | psnr=24.088 | ypsnr=25.909 | cont_mse=2.25899 | Loss(G):6.64229[Cont:5.01609/Adv:1.6262] | Loss(D):1.49194[Real:0.683735/Fake:0.808203]
+06th-12:59:19 | epoch2(21000) | lr=5e-06 | psnr=24.057 | ypsnr=25.899 | cont_mse=2.2704 | Loss(G):4.34444[Cont:4.08918/Adv:0.255258] | Loss(D):1.14935[Real:0.888846/Fake:0.260505]
+06th-13:04:21 | epoch2(21100) | lr=5e-06 | psnr=23.967 | ypsnr=25.760 | cont_mse=2.28645 | Loss(G):5.33239[Cont:4.1314/Adv:1.20099] | Loss(D):1.24819[Real:0.671109/Fake:0.577076]
+06th-13:09:20 | epoch2(21200) | lr=5e-06 | psnr=23.850 | ypsnr=25.657 | cont_mse=2.30104 | Loss(G):7.15876[Cont:5.28541/Adv:1.87336] | Loss(D):1.24623[Real:0.329726/Fake:0.9165]
+06th-13:14:29 | epoch2(21300) | lr=5e-06 | psnr=23.949 | ypsnr=25.787 | cont_mse=2.28418 | Loss(G):7.58189[Cont:4.74569/Adv:2.83619] | Loss(D):0.589274[Real:0.144041/Fake:0.445233]
+06th-13:19:29 | epoch2(21400) | lr=5e-06 | psnr=23.833 | ypsnr=25.660 | cont_mse=2.29469 | Loss(G):5.50028[Cont:3.64151/Adv:1.85878] | Loss(D):1.7016[Real:0.227242/Fake:1.47435]
+06th-13:24:36 | epoch2(21500) | lr=5e-06 | psnr=23.890 | ypsnr=25.726 | cont_mse=2.29156 | Loss(G):5.64639[Cont:3.86633/Adv:1.78007] | Loss(D):1.27917[Real:0.418054/Fake:0.861117]
+06th-13:29:39 | epoch2(21600) | lr=5e-06 | psnr=23.865 | ypsnr=25.686 | cont_mse=2.30175 | Loss(G):3.91242[Cont:3.46041/Adv:0.452017] | Loss(D):1.22878[Real:0.971507/Fake:0.257276]
+06th-13:34:41 | epoch2(21700) | lr=5e-06 | psnr=23.748 | ypsnr=25.567 | cont_mse=2.32156 | Loss(G):6.72372[Cont:4.98619/Adv:1.73753] | Loss(D):0.941446[Real:0.355844/Fake:0.585602]
+06th-13:39:48 | epoch2(21800) | lr=5e-06 | psnr=23.714 | ypsnr=25.584 | cont_mse=2.3223 | Loss(G):5.8501[Cont:3.65394/Adv:2.19615] | Loss(D):1.95605[Real:0.44774/Fake:1.50831]
+06th-13:45:00 | epoch2(21900) | lr=5e-06 | psnr=23.879 | ypsnr=25.707 | cont_mse=2.30265 | Loss(G):6.97272[Cont:5.47821/Adv:1.49451] | Loss(D):1.0379[Real:0.792438/Fake:0.245461]
+06th-13:50:14 | epoch2(22000) | lr=5e-06 | psnr=23.925 | ypsnr=25.746 | cont_mse=2.27409 | Loss(G):9.66462[Cont:6.01725/Adv:3.64736] | Loss(D):1.0993[Real:0.292279/Fake:0.807017]
+06th-13:55:15 | epoch2(22100) | lr=5e-06 | psnr=23.947 | ypsnr=25.782 | cont_mse=2.28005 | Loss(G):4.27182[Cont:4.09308/Adv:0.17874] | Loss(D):1.49894[Real:1.37537/Fake:0.12357]
+06th-14:00:25 | epoch2(22200) | lr=5e-06 | psnr=23.926 | ypsnr=25.806 | cont_mse=2.28637 | Loss(G):4.90309[Cont:4.25964/Adv:0.643451] | Loss(D):1.40595[Real:1.19775/Fake:0.208197]
+06th-12:59:12 | epoch2(27400) | lr=5e-06 | psnr=23.014 | ypsnr=25.217 | Loss(G):2.89485[Cont:2.89485/Adv:0.532209] | Loss(D):0.175117[Real:0.107216/Fake:0.0679005]
+06th-13:02:19 | epoch2(27500) | lr=5e-06 | psnr=23.024 | ypsnr=25.255 | Loss(G):1.8433[Cont:1.8433/Adv:0.0965482] | Loss(D):0.60938[Real:0.554232/Fake:0.0551471]
+06th-13:05:36 | epoch2(27600) | lr=5e-06 | psnr=22.880 | ypsnr=25.052 | Loss(G):2.27717[Cont:2.27717/Adv:0.327941] | Loss(D):0.60463[Real:0.402337/Fake:0.202292]
+06th-13:08:48 | epoch2(27700) | lr=5e-06 | psnr=22.923 | ypsnr=25.099 | Loss(G):2.21531[Cont:2.21531/Adv:1.86619] | Loss(D):0.821592[Real:0.107635/Fake:0.713957]
+06th-13:11:55 | epoch2(27800) | lr=5e-06 | psnr=22.807 | ypsnr=25.019 | Loss(G):2.46928[Cont:2.46928/Adv:0.788336] | Loss(D):0.283226[Real:0.236411/Fake:0.046815]
+06th-13:14:59 | epoch2(27900) | lr=5e-06 | psnr=22.922 | ypsnr=25.108 | Loss(G):1.89463[Cont:1.89463/Adv:0.162246] | Loss(D):0.877779[Real:0.717038/Fake:0.160741]
+06th-13:18:08 | epoch2(28000) | lr=5e-06 | psnr=22.962 | ypsnr=25.217 | Loss(G):1.99971[Cont:1.99971/Adv:0.716519] | Loss(D):0.38556[Real:0.235923/Fake:0.149637]
+06th-13:21:13 | epoch2(28100) | lr=5e-06 | psnr=23.024 | ypsnr=25.219 | Loss(G):2.37494[Cont:2.37494/Adv:1.13148] | Loss(D):0.465215[Real:0.16473/Fake:0.300485]
+06th-13:24:16 | epoch2(28200) | lr=5e-06 | psnr=22.997 | ypsnr=25.256 | Loss(G):2.23149[Cont:2.23149/Adv:1.7596] | Loss(D):0.393695[Real:0.129539/Fake:0.264156]
+06th-13:27:22 | epoch2(28300) | lr=5e-06 | psnr=22.910 | ypsnr=25.134 | Loss(G):2.39976[Cont:2.39976/Adv:0.952744] | Loss(D):0.60742[Real:0.22786/Fake:0.37956]
+06th-13:30:40 | epoch2(28400) | lr=5e-06 | psnr=23.008 | ypsnr=25.188 | Loss(G):2.07786[Cont:2.07786/Adv:0.620418] | Loss(D):0.370753[Real:0.228279/Fake:0.142474]
+06th-13:33:49 | epoch2(28500) | lr=5e-06 | psnr=22.952 | ypsnr=25.106 | Loss(G):1.54818[Cont:1.54818/Adv:0.325377] | Loss(D):0.417202[Real:0.287146/Fake:0.130057]
+06th-13:36:58 | epoch2(28600) | lr=5e-06 | psnr=23.089 | ypsnr=25.298 | Loss(G):2.26597[Cont:2.26597/Adv:0.362205] | Loss(D):0.425113[Real:0.316137/Fake:0.108976]
+06th-13:40:07 | epoch2(28700) | lr=5e-06 | psnr=23.227 | ypsnr=25.436 | Loss(G):2.08722[Cont:2.08722/Adv:0.560008] | Loss(D):0.434564[Real:0.144236/Fake:0.290328]
+06th-13:43:18 | epoch2(28800) | lr=5e-06 | psnr=23.268 | ypsnr=25.495 | Loss(G):2.60455[Cont:2.60455/Adv:1.19209] | Loss(D):0.0862266[Real:0.0307594/Fake:0.0554672]
+06th-13:46:25 | epoch2(28900) | lr=5e-06 | psnr=23.136 | ypsnr=25.362 | Loss(G):2.7482[Cont:2.7482/Adv:1.43684] | Loss(D):0.274297[Real:0.142859/Fake:0.131437]
+06th-13:49:38 | epoch2(29000) | lr=5e-06 | psnr=23.105 | ypsnr=25.230 | Loss(G):2.30448[Cont:2.30448/Adv:1.16094] | Loss(D):0.194846[Real:0.105302/Fake:0.089544]
+06th-13:52:49 | epoch2(29100) | lr=5e-06 | psnr=23.097 | ypsnr=25.309 | Loss(G):2.76559[Cont:2.76559/Adv:1.2374] | Loss(D):0.322312[Real:0.16227/Fake:0.160042]
+06th-13:56:03 | epoch2(29200) | lr=5e-06 | psnr=23.107 | ypsnr=25.331 | Loss(G):2.53561[Cont:2.53561/Adv:1.32475] | Loss(D):0.297263[Real:0.131368/Fake:0.165895]
+06th-13:59:19 | epoch2(29300) | lr=5e-06 | psnr=22.939 | ypsnr=25.072 | Loss(G):2.04231[Cont:2.04231/Adv:0.763482] | Loss(D):0.204775[Real:0.161332/Fake:0.0434427]
+06th-14:02:25 | epoch2(29400) | lr=5e-06 | psnr=22.929 | ypsnr=25.039 | Loss(G):1.30175[Cont:1.30175/Adv:0.348357] | Loss(D):0.696516[Real:0.523925/Fake:0.172591]
+06th-14:05:41 | epoch2(29500) | lr=5e-06 | psnr=23.013 | ypsnr=25.162 | Loss(G):1.86538[Cont:1.86538/Adv:0.156893] | Loss(D):0.626133[Real:0.348331/Fake:0.277801]
+06th-14:08:51 | epoch2(29600) | lr=5e-06 | psnr=22.951 | ypsnr=25.064 | Loss(G):2.60612[Cont:2.60612/Adv:1.0447] | Loss(D):0.318822[Real:0.182795/Fake:0.136027]
+06th-14:11:58 | epoch2(29700) | lr=5e-06 | psnr=22.754 | ypsnr=24.813 | Loss(G):2.10117[Cont:2.10117/Adv:0.0206985] | Loss(D):0.845684[Real:0.639934/Fake:0.20575]
+06th-14:15:04 | epoch2(29800) | lr=5e-06 | psnr=22.920 | ypsnr=25.007 | Loss(G):3.43261[Cont:3.43261/Adv:1.43932] | Loss(D):0.421827[Real:0.199588/Fake:0.222238]
+06th-14:18:11 | epoch2(29900) | lr=5e-06 | psnr=22.883 | ypsnr=24.969 | Loss(G):1.78981[Cont:1.78981/Adv:0.353492] | Loss(D):0.342772[Real:0.274132/Fake:0.0686397]
+06th-14:21:19 | epoch2(30000) | lr=5e-06 | psnr=22.884 | ypsnr=24.966 | Loss(G):2.39296[Cont:2.39296/Adv:0.247078] | Loss(D):0.504669[Real:0.337614/Fake:0.167055]
+06th-14:24:47 | epoch2(30100) | lr=5e-06 | psnr=22.927 | ypsnr=25.010 | Loss(G):2.62128[Cont:2.62128/Adv:0.24302] | Loss(D):0.487987[Real:0.37609/Fake:0.111897]
+06th-14:27:57 | epoch2(30200) | lr=5e-06 | psnr=23.026 | ypsnr=25.176 | Loss(G):1.70132[Cont:1.70132/Adv:0.26574] | Loss(D):0.394778[Real:0.26973/Fake:0.125048]
+06th-14:31:00 | epoch2(30300) | lr=5e-06 | psnr=23.047 | ypsnr=25.141 | Loss(G):2.18696[Cont:2.18696/Adv:1.45573] | Loss(D):0.466219[Real:0.0967972/Fake:0.369422]
+06th-14:34:04 | epoch2(30400) | lr=5e-06 | psnr=22.921 | ypsnr=24.959 | Loss(G):3.09538[Cont:3.09538/Adv:0.582885] | Loss(D):0.442048[Real:0.270373/Fake:0.171675]
+06th-14:37:10 | epoch2(30500) | lr=5e-06 | psnr=22.753 | ypsnr=24.773 | Loss(G):2.20635[Cont:2.20635/Adv:0.952909] | Loss(D):0.286284[Real:0.142551/Fake:0.143732]
+06th-14:40:13 | epoch2(30600) | lr=5e-06 | psnr=22.631 | ypsnr=24.699 | Loss(G):3.22252[Cont:3.22252/Adv:1.63979] | Loss(D):0.333623[Real:0.0403037/Fake:0.29332]
+06th-14:43:19 | epoch2(30700) | lr=5e-06 | psnr=22.621 | ypsnr=24.655 | Loss(G):2.30469[Cont:2.30469/Adv:0.391991] | Loss(D):0.421101[Real:0.296544/Fake:0.124557]
+06th-14:46:32 | epoch2(30800) | lr=5e-06 | psnr=22.697 | ypsnr=24.783 | Loss(G):2.74305[Cont:2.74305/Adv:1.32931] | Loss(D):0.208788[Real:0.0801036/Fake:0.128684]
+06th-14:49:41 | epoch2(30900) | lr=5e-06 | psnr=22.759 | ypsnr=24.785 | Loss(G):2.84096[Cont:2.84096/Adv:0.151704] | Loss(D):0.712851[Real:0.543481/Fake:0.16937]
+06th-14:52:44 | epoch2(31000) | lr=5e-06 | psnr=22.826 | ypsnr=24.843 | Loss(G):2.55253[Cont:2.55253/Adv:1.23597] | Loss(D):0.244098[Real:0.146889/Fake:0.0972087]
+06th-14:55:51 | epoch2(31100) | lr=5e-06 | psnr=22.769 | ypsnr=24.810 | Loss(G):1.88681[Cont:1.88681/Adv:0.664684] | Loss(D):0.261949[Real:0.142771/Fake:0.119178]
+06th-14:59:02 | epoch2(31200) | lr=5e-06 | psnr=22.637 | ypsnr=24.694 | Loss(G):2.3714[Cont:2.3714/Adv:0.375592] | Loss(D):0.290802[Real:0.231439/Fake:0.0593621]
+06th-15:02:07 | epoch2(31300) | lr=5e-06 | psnr=22.744 | ypsnr=24.847 | Loss(G):2.16077[Cont:2.16077/Adv:0.454553] | Loss(D):0.398048[Real:0.29167/Fake:0.106377]
+06th-15:05:14 | epoch2(31400) | lr=5e-06 | psnr=22.629 | ypsnr=24.702 | Loss(G):2.47514[Cont:2.47514/Adv:1.59648] | Loss(D):0.747639[Real:0.271064/Fake:0.476575]
+06th-15:08:24 | epoch2(31500) | lr=5e-06 | psnr=22.778 | ypsnr=24.904 | Loss(G):2.63428[Cont:2.63428/Adv:0.943511] | Loss(D):0.258633[Real:0.122142/Fake:0.136491]
+06th-15:11:33 | epoch2(31600) | lr=5e-06 | psnr=22.826 | ypsnr=24.922 | Loss(G):2.15192[Cont:2.15192/Adv:0.344134] | Loss(D):0.588373[Real:0.334306/Fake:0.254067]
+06th-15:14:41 | epoch2(31700) | lr=5e-06 | psnr=22.957 | ypsnr=25.044 | Loss(G):1.86003[Cont:1.86003/Adv:0.0870221] | Loss(D):0.728112[Real:0.617866/Fake:0.110246]
+06th-15:17:46 | epoch2(31800) | lr=5e-06 | psnr=22.975 | ypsnr=25.010 | Loss(G):3.29122[Cont:3.29122/Adv:2.34323] | Loss(D):0.474544[Real:0.156716/Fake:0.317827]
+06th-15:20:57 | epoch2(31900) | lr=5e-06 | psnr=23.040 | ypsnr=25.143 | Loss(G):1.5534[Cont:1.5534/Adv:0.0529001] | Loss(D):1.03737[Real:0.941069/Fake:0.0962991]
+06th-15:24:05 | epoch2(32000) | lr=5e-06 | psnr=22.938 | ypsnr=25.027 | Loss(G):2.9353[Cont:2.9353/Adv:1.53311] | Loss(D):0.936562[Real:0.221038/Fake:0.715524]
+06th-15:27:16 | epoch2(32100) | lr=5e-06 | psnr=22.854 | ypsnr=24.923 | Loss(G):1.88025[Cont:1.88025/Adv:0.351396] | Loss(D):0.433548[Real:0.295851/Fake:0.137697]
+06th-15:30:26 | epoch2(32200) | lr=5e-06 | psnr=22.904 | ypsnr=24.948 | Loss(G):2.17934[Cont:2.17934/Adv:0.898748] | Loss(D):0.272508[Real:0.119375/Fake:0.153133]
+06th-15:33:35 | epoch2(32300) | lr=5e-06 | psnr=22.763 | ypsnr=24.769 | Loss(G):2.94192[Cont:2.94192/Adv:1.30086] | Loss(D):0.253441[Real:0.0981295/Fake:0.155311]
+06th-15:36:42 | epoch2(32400) | lr=5e-06 | psnr=22.952 | ypsnr=24.965 | Loss(G):3.08687[Cont:3.08687/Adv:0.356044] | Loss(D):0.876377[Real:0.708998/Fake:0.167379]
+06th-13:09:14 | epoch2(26400) | lr=5e-06 | psnr=22.374 | ypsnr=24.045 | cont_mse=2.88184 | Loss(G):13.595[Cont:4.64777/Adv:8.94727] | Loss(D):10.4303[Real:6.04453/Fake:4.38578]
+06th-13:12:53 | epoch2(26500) | lr=5e-06 | psnr=22.246 | ypsnr=23.964 | cont_mse=2.91101 | Loss(G):10.9533[Cont:6.373/Adv:4.58035] | Loss(D):9.72752[Real:8.61788/Fake:1.10964]
+06th-13:16:23 | epoch2(26600) | lr=5e-06 | psnr=22.229 | ypsnr=23.935 | cont_mse=2.88647 | Loss(G):49.9736[Cont:6.23156/Adv:43.742] | Loss(D):22.3354[Real:3.40657/Fake:18.9288]
+06th-13:19:50 | epoch2(26700) | lr=5e-06 | psnr=22.102 | ypsnr=23.726 | cont_mse=2.92811 | Loss(G):23.978[Cont:6.33601/Adv:17.642] | Loss(D):19.4064[Real:11.4809/Fake:7.92549]
+06th-13:23:29 | epoch2(26800) | lr=5e-06 | psnr=22.165 | ypsnr=23.883 | cont_mse=2.94777 | Loss(G):33.3501[Cont:7.47651/Adv:25.8736] | Loss(D):10.3252[Real:1.78063/Fake:8.54462]
+06th-13:26:59 | epoch2(26900) | lr=5e-06 | psnr=22.458 | ypsnr=24.240 | cont_mse=2.90668 | Loss(G):20.4461[Cont:4.66342/Adv:15.7827] | Loss(D):12.485[Real:5.50623/Fake:6.97879]
+06th-13:30:40 | epoch2(27000) | lr=5e-06 | psnr=22.672 | ypsnr=24.434 | cont_mse=2.8391 | Loss(G):24.7502[Cont:6.53535/Adv:18.2148] | Loss(D):6.00858[Real:1.76436/Fake:4.24422]
+06th-13:34:23 | epoch2(27100) | lr=5e-06 | psnr=22.548 | ypsnr=24.351 | cont_mse=2.85938 | Loss(G):26.8598[Cont:6.67009/Adv:20.1897] | Loss(D):12.2759[Real:3.40351/Fake:8.87242]
+06th-13:37:58 | epoch2(27200) | lr=5e-06 | psnr=22.427 | ypsnr=24.225 | cont_mse=2.89952 | Loss(G):22.0711[Cont:6.47591/Adv:15.5952] | Loss(D):12.1136[Real:5.14019/Fake:6.97344]
+06th-13:41:30 | epoch2(27300) | lr=5e-06 | psnr=22.175 | ypsnr=24.054 | cont_mse=2.93505 | Loss(G):9.28843[Cont:5.68856/Adv:3.59987] | Loss(D):18.7396[Real:15.6061/Fake:3.13342]
+06th-13:45:03 | epoch2(27400) | lr=5e-06 | psnr=22.019 | ypsnr=23.906 | cont_mse=2.99692 | Loss(G):10.4777[Cont:5.61137/Adv:4.86635] | Loss(D):13.3138[Real:10.5714/Fake:2.7424]
+06th-13:48:46 | epoch2(27500) | lr=5e-06 | psnr=22.184 | ypsnr=24.070 | cont_mse=2.9794 | Loss(G):23.8723[Cont:5.55926/Adv:18.3131] | Loss(D):7.50546[Real:2.79696/Fake:4.7085]
+06th-13:52:24 | epoch2(27600) | lr=5e-06 | psnr=22.219 | ypsnr=24.075 | cont_mse=2.94768 | Loss(G):15.372[Cont:5.74382/Adv:9.62813] | Loss(D):9.07529[Real:5.02479/Fake:4.0505]
+06th-13:55:58 | epoch2(27700) | lr=5e-06 | psnr=22.395 | ypsnr=24.215 | cont_mse=2.91633 | Loss(G):20.4198[Cont:4.97977/Adv:15.44] | Loss(D):9.45014[Real:4.72363/Fake:4.72651]
+06th-13:59:48 | epoch2(27800) | lr=5e-06 | psnr=22.275 | ypsnr=24.063 | cont_mse=2.93378 | Loss(G):12.5341[Cont:6.04/Adv:6.49411] | Loss(D):11.26[Real:7.74332/Fake:3.51673]
+06th-14:03:21 | epoch2(27900) | lr=5e-06 | psnr=21.860 | ypsnr=23.481 | cont_mse=3.00927 | Loss(G):9.45963[Cont:6.69547/Adv:2.76416] | Loss(D):15.6099[Real:13.041/Fake:2.56892]
+06th-14:06:56 | epoch2(28000) | lr=5e-06 | psnr=22.056 | ypsnr=23.795 | cont_mse=3.01669 | Loss(G):35.5409[Cont:7.15847/Adv:28.3825] | Loss(D):12.5699[Real:2.68391/Fake:9.88602]
+06th-14:10:29 | epoch2(28100) | lr=5e-06 | psnr=22.256 | ypsnr=24.061 | cont_mse=3.00957 | Loss(G):34.2798[Cont:4.6497/Adv:29.6301] | Loss(D):12.4548[Real:2.34755/Fake:10.1072]
+06th-14:14:09 | epoch2(28200) | lr=5e-06 | psnr=22.169 | ypsnr=23.927 | cont_mse=2.99604 | Loss(G):7.26891[Cont:3.76459/Adv:3.50432] | Loss(D):15.2472[Real:10.9955/Fake:4.25164]
+06th-14:17:43 | epoch2(28300) | lr=5e-06 | psnr=22.070 | ypsnr=23.842 | cont_mse=2.99921 | Loss(G):16.8717[Cont:4.61622/Adv:12.2554] | Loss(D):11.4635[Real:5.61169/Fake:5.85182]
+06th-14:21:19 | epoch2(28400) | lr=5e-06 | psnr=22.165 | ypsnr=23.929 | cont_mse=2.95901 | Loss(G):25.3136[Cont:6.92038/Adv:18.3932] | Loss(D):10.1368[Real:0.522491/Fake:9.61432]
+06th-14:25:18 | epoch2(28500) | lr=5e-06 | psnr=22.470 | ypsnr=24.290 | cont_mse=2.91269 | Loss(G):34.7769[Cont:6.96368/Adv:27.8132] | Loss(D):10.1682[Real:2.64498/Fake:7.52319]
+06th-14:28:49 | epoch2(28600) | lr=5e-06 | psnr=22.464 | ypsnr=24.255 | cont_mse=2.90858 | Loss(G):27.4399[Cont:6.15426/Adv:21.2856] | Loss(D):15.7329[Real:4.3324/Fake:11.4005]
+06th-14:32:20 | epoch2(28700) | lr=5e-06 | psnr=22.535 | ypsnr=24.278 | cont_mse=2.90186 | Loss(G):48.4536[Cont:6.6219/Adv:41.8317] | Loss(D):11.4513[Real:2.07747/Fake:9.37379]
+06th-14:35:49 | epoch2(28800) | lr=5e-06 | psnr=22.290 | ypsnr=24.133 | cont_mse=2.93742 | Loss(G):38.7281[Cont:5.08739/Adv:33.6407] | Loss(D):11.3223[Real:3.71343/Fake:7.60883]
+06th-14:39:26 | epoch2(28900) | lr=5e-06 | psnr=22.275 | ypsnr=24.020 | cont_mse=2.98451 | Loss(G):15.4373[Cont:4.76722/Adv:10.67] | Loss(D):8.57351[Real:4.96467/Fake:3.60883]
+06th-14:42:59 | epoch2(29000) | lr=5e-06 | psnr=22.322 | ypsnr=24.113 | cont_mse=2.95654 | Loss(G):17.7946[Cont:3.70296/Adv:14.0916] | Loss(D):13.1686[Real:5.66029/Fake:7.50833]
+06th-14:46:38 | epoch2(29100) | lr=5e-06 | psnr=22.372 | ypsnr=24.191 | cont_mse=2.93148 | Loss(G):19.3718[Cont:5.87868/Adv:13.4931] | Loss(D):8.53959[Real:6.07065/Fake:2.46893]
+06th-14:50:20 | epoch2(29200) | lr=5e-06 | psnr=22.198 | ypsnr=23.967 | cont_mse=2.93757 | Loss(G):9.51004[Cont:5.97518/Adv:3.53486] | Loss(D):16.9813[Real:11.1087/Fake:5.87265]
+06th-14:53:51 | epoch2(29300) | lr=5e-06 | psnr=22.138 | ypsnr=23.895 | cont_mse=2.95241 | Loss(G):15.1986[Cont:4.07055/Adv:11.1281] | Loss(D):7.1492[Real:5.05598/Fake:2.09322]
+06th-14:57:23 | epoch2(29400) | lr=5e-06 | psnr=22.007 | ypsnr=23.807 | cont_mse=2.95847 | Loss(G):11.7541[Cont:5.55093/Adv:6.20316] | Loss(D):9.10411[Real:6.25589/Fake:2.84822]
+06th-15:00:56 | epoch2(29500) | lr=5e-06 | psnr=22.069 | ypsnr=23.794 | cont_mse=2.95181 | Loss(G):7.81503[Cont:5.43991/Adv:2.37513] | Loss(D):11.2189[Real:9.8436/Fake:1.3753]
+06th-15:04:40 | epoch2(29600) | lr=5e-06 | psnr=22.163 | ypsnr=23.859 | cont_mse=2.9678 | Loss(G):35.5072[Cont:5.73165/Adv:29.7756] | Loss(D):12.7374[Real:1.92501/Fake:10.8124]
+06th-15:08:15 | epoch2(29700) | lr=5e-06 | psnr=22.232 | ypsnr=23.919 | cont_mse=2.96513 | Loss(G):9.30588[Cont:6.31768/Adv:2.9882] | Loss(D):16.5255[Real:13.2784/Fake:3.24707]
+06th-15:11:51 | epoch2(29800) | lr=5e-06 | psnr=22.298 | ypsnr=24.019 | cont_mse=2.92656 | Loss(G):16.7265[Cont:7.26628/Adv:9.46025] | Loss(D):15.1989[Real:8.79001/Fake:6.40889]
+06th-15:15:32 | epoch2(29900) | lr=5e-06 | psnr=22.138 | ypsnr=23.916 | cont_mse=2.94173 | Loss(G):19.8786[Cont:5.76343/Adv:14.1152] | Loss(D):9.33982[Real:5.21756/Fake:4.12226]
+06th-15:19:09 | epoch2(30000) | lr=5e-06 | psnr=22.310 | ypsnr=24.076 | cont_mse=2.91575 | Loss(G):8.35062[Cont:5.34761/Adv:3.00301] | Loss(D):15.9215[Real:14.0153/Fake:1.90622]
+06th-15:22:49 | epoch2(30100) | lr=5e-06 | psnr=22.513 | ypsnr=24.281 | cont_mse=2.85864 | Loss(G):15.9779[Cont:5.72468/Adv:10.2532] | Loss(D):12.8855[Real:4.92198/Fake:7.96351]
+06th-15:26:26 | epoch2(30200) | lr=5e-06 | psnr=22.494 | ypsnr=24.332 | cont_mse=2.84958 | Loss(G):65.657[Cont:4.54242/Adv:61.1146] | Loss(D):26.3636[Real:4.64837/Fake:21.7152]
+06th-15:30:15 | epoch2(30300) | lr=5e-06 | psnr=22.370 | ypsnr=24.261 | cont_mse=2.83358 | Loss(G):16.114[Cont:4.98545/Adv:11.1286] | Loss(D):10.9863[Real:7.1136/Fake:3.87273]
+06th-15:33:57 | epoch2(30400) | lr=5e-06 | psnr=22.205 | ypsnr=24.066 | cont_mse=2.87739 | Loss(G):33.8813[Cont:7.0825/Adv:26.7988] | Loss(D):10.1104[Real:1.1246/Fake:8.98576]
+06th-15:37:36 | epoch2(30500) | lr=5e-06 | psnr=22.091 | ypsnr=23.922 | cont_mse=2.91016 | Loss(G):18.2016[Cont:4.47328/Adv:13.7283] | Loss(D):9.88281[Real:5.69982/Fake:4.18299]
+06th-15:41:18 | epoch2(30600) | lr=5e-06 | psnr=22.217 | ypsnr=23.981 | cont_mse=2.89482 | Loss(G):52.12[Cont:5.10503/Adv:47.015] | Loss(D):23.3552[Real:2.0566/Fake:21.2986]
+06th-15:44:56 | epoch2(30700) | lr=5e-06 | psnr=22.235 | ypsnr=24.012 | cont_mse=2.89933 | Loss(G):28.4368[Cont:7.13803/Adv:21.2987] | Loss(D):11.2473[Real:3.5234/Fake:7.7239]
+06th-15:48:38 | epoch2(30800) | lr=5e-06 | psnr=22.068 | ypsnr=23.847 | cont_mse=2.91034 | Loss(G):29.6843[Cont:8.76592/Adv:20.9183] | Loss(D):7.13358[Real:4.18215/Fake:2.95143]
+06th-15:52:16 | epoch2(30900) | lr=5e-06 | psnr=21.985 | ypsnr=23.862 | cont_mse=2.90082 | Loss(G):9.97268[Cont:5.46622/Adv:4.50646] | Loss(D):8.42245[Real:7.64033/Fake:0.782118]
+06th-15:56:07 | epoch2(31000) | lr=5e-06 | psnr=22.045 | ypsnr=23.865 | cont_mse=2.90546 | Loss(G):23.7507[Cont:4.69083/Adv:19.0599] | Loss(D):9.01168[Real:3.32702/Fake:5.68466]=> loading checkpoint 'save/wd_v5e-06_w1_RMSP.pth'
+=> loaded checkpoint (epoch 3)
+=> loading checkpoint 'save/wd_v5e-06_w1_RMSP.pth'
+=> loaded checkpoint (epoch 3)
+=> loading checkpoint 'save/wd_v5e-06_w1_RMSP.pth'
+=> loaded checkpoint (epoch 3)
+
+06th-14:05:29 | epoch2(22300) | lr=5e-06 | psnr=23.968 | ypsnr=25.835 | cont_mse=2.27673 | Loss(G):5.63192[Cont:4.56805/Adv:1.06387] | Loss(D):1.11785[Real:0.540988/Fake:0.576864]
+06th-14:10:36 | epoch2(22400) | lr=5e-06 | psnr=24.023 | ypsnr=25.870 | cont_mse=2.25701 | Loss(G):6.68471[Cont:4.98041/Adv:1.7043] | Loss(D):1.24283[Real:0.511645/Fake:0.731181]
+06th-14:15:47 | epoch2(22500) | lr=5e-06 | psnr=23.939 | ypsnr=25.773 | cont_mse=2.27855 | Loss(G):7.68889[Cont:4.78454/Adv:2.90434] | Loss(D):0.988075[Real:0.161713/Fake:0.826362]
+06th-14:20:52 | epoch2(22600) | lr=5e-06 | psnr=23.945 | ypsnr=25.828 | cont_mse=2.27377 | Loss(G):6.06843[Cont:5.40792/Adv:0.660506] | Loss(D):0.79003[Real:0.570844/Fake:0.219186]
+06th-14:26:10 | epoch2(22700) | lr=5e-06 | psnr=23.937 | ypsnr=25.768 | cont_mse=2.28667 | Loss(G):6.01032[Cont:4.82118/Adv:1.18914] | Loss(D):1.22438[Real:0.635648/Fake:0.588729]
+06th-14:31:09 | epoch2(22800) | lr=5e-06 | psnr=23.774 | ypsnr=25.645 | cont_mse=2.31797 | Loss(G):4.67914[Cont:4.6087/Adv:0.0704383] | Loss(D):2.22048[Real:1.9687/Fake:0.251779]
+06th-14:36:06 | epoch2(22900) | lr=5e-06 | psnr=23.879 | ypsnr=25.753 | cont_mse=2.29987 | Loss(G):3.99735[Cont:3.60656/Adv:0.390797] | Loss(D):1.28249[Real:0.831173/Fake:0.451317]
+06th-14:41:06 | epoch2(23000) | lr=5e-06 | psnr=24.049 | ypsnr=25.898 | cont_mse=2.26725 | Loss(G):6.91703[Cont:5.875/Adv:1.04203] | Loss(D):0.593598[Real:0.365342/Fake:0.228256]
+06th-14:46:05 | epoch2(23100) | lr=5e-06 | psnr=24.014 | ypsnr=25.845 | cont_mse=2.2592 | Loss(G):4.30144[Cont:4.10051/Adv:0.200932] | Loss(D):1.12714[Real:0.945912/Fake:0.181225]
+06th-14:51:14 | epoch2(23200) | lr=5e-06 | psnr=24.032 | ypsnr=25.868 | cont_mse=2.25627 | Loss(G):6.50014[Cont:5.42426/Adv:1.07589] | Loss(D):1.04499[Real:0.610721/Fake:0.434266]
+06th-14:56:15 | epoch2(23300) | lr=5e-06 | psnr=24.017 | ypsnr=25.845 | cont_mse=2.26553 | Loss(G):7.65503[Cont:5.87958/Adv:1.77544] | Loss(D):0.890756[Real:0.284347/Fake:0.606409]
+06th-15:01:18 | epoch2(23400) | lr=5e-06 | psnr=23.978 | ypsnr=25.828 | cont_mse=2.27394 | Loss(G):6.61039[Cont:5.2348/Adv:1.37559] | Loss(D):1.19004[Real:0.716872/Fake:0.473164]
+06th-15:06:27 | epoch2(23500) | lr=5e-06 | psnr=23.984 | ypsnr=25.791 | cont_mse=2.28708 | Loss(G):4.50699[Cont:4.21869/Adv:0.288301] | Loss(D):1.3239[Real:1.03426/Fake:0.289636]
+06th-15:11:30 | epoch2(23600) | lr=5e-06 | psnr=23.946 | ypsnr=25.812 | cont_mse=2.28757 | Loss(G):6.26346[Cont:4.22828/Adv:2.03518] | Loss(D):0.800948[Real:0.36631/Fake:0.434638]
+06th-15:16:43 | epoch2(23700) | lr=5e-06 | psnr=23.836 | ypsnr=25.709 | cont_mse=2.31994 | Loss(G):6.0636[Cont:5.65681/Adv:0.406781] | Loss(D):0.841917[Real:0.647838/Fake:0.194078]
+06th-15:21:47 | epoch2(23800) | lr=5e-06 | psnr=23.843 | ypsnr=25.683 | cont_mse=2.31229 | Loss(G):4.11324[Cont:3.66598/Adv:0.447254] | Loss(D):1.64398[Real:1.41827/Fake:0.225712]
+06th-15:26:51 | epoch2(23900) | lr=5e-06 | psnr=23.798 | ypsnr=25.663 | cont_mse=2.31785 | Loss(G):5.36913[Cont:3.27565/Adv:2.09348] | Loss(D):1.48877[Real:0.272635/Fake:1.21613]
+06th-15:32:01 | epoch2(24000) | lr=5e-06 | psnr=23.809 | ypsnr=25.656 | cont_mse=2.31647 | Loss(G):7.26133[Cont:4.83294/Adv:2.4284] | Loss(D):1.05458[Real:0.285282/Fake:0.769299]
+06th-15:37:05 | epoch2(24100) | lr=5e-06 | psnr=23.923 | ypsnr=25.770 | cont_mse=2.30944 | Loss(G):4.01057[Cont:3.33609/Adv:0.674473] | Loss(D):1.00399[Real:0.667216/Fake:0.336774]
+06th-15:42:11 | epoch2(24200) | lr=5e-06 | psnr=23.915 | ypsnr=25.736 | cont_mse=2.30204 | Loss(G):4.69281[Cont:4.29933/Adv:0.393476] | Loss(D):1.09747[Real:0.750257/Fake:0.347214]
+06th-15:47:09 | epoch2(24300) | lr=5e-06 | psnr=23.950 | ypsnr=25.780 | cont_mse=2.29782 | Loss(G):6.68179[Cont:4.93173/Adv:1.75006] | Loss(D):1.00137[Real:0.371117/Fake:0.630255]
+06th-15:52:12 | epoch2(24400) | lr=5e-06 | psnr=23.944 | ypsnr=25.837 | cont_mse=2.29101 | Loss(G):7.79732[Cont:5.30288/Adv:2.49444] | Loss(D):1.02169[Real:0.339223/Fake:0.682465]
+06th-15:57:19 | epoch2(24500) | lr=5e-06 | psnr=23.855 | ypsnr=25.719 | cont_mse=2.3104 | Loss(G):5.53157[Cont:4.73187/Adv:0.799701] | Loss(D):0.86258[Real:0.683525/Fake:0.179054]
+06th-16:02:09 | epoch2(24600) | lr=5e-06 | psnr=23.795 | ypsnr=25.640 | cont_mse=2.3302 | Loss(G):3.91861[Cont:3.76992/Adv:0.148685] | Loss(D):2.20541[Real:2.16488/Fake:0.040528]
+06th-16:07:03 | epoch2(24700) | lr=5e-06 | psnr=23.906 | ypsnr=25.757 | cont_mse=2.30147 | Loss(G):6.32762[Cont:4.60423/Adv:1.72339] | Loss(D):0.760241[Real:0.364141/Fake:0.3961]
+06th-16:12:01 | epoch2(24800) | lr=5e-06 | psnr=23.890 | ypsnr=25.713 | cont_mse=2.30085 | Loss(G):5.80769[Cont:5.00237/Adv:0.805323] | Loss(D):1.29628[Real:0.798887/Fake:0.497388]
+06th-16:16:52 | epoch2(24900) | lr=5e-06 | psnr=23.867 | ypsnr=25.692 | cont_mse=2.3036 | Loss(G):6.90993[Cont:5.85737/Adv:1.05256] | Loss(D):0.867817[Real:0.675329/Fake:0.192488]
+06th-16:21:49 | epoch2(25000) | lr=5e-06 | psnr=23.874 | ypsnr=25.695 | cont_mse=2.30979 | Loss(G):4.23411[Cont:3.50622/Adv:0.727893] | Loss(D):1.28755[Real:0.723318/Fake:0.564231]
+06th-16:26:46 | epoch2(25100) | lr=5e-06 | psnr=23.972 | ypsnr=25.816 | cont_mse=2.29033 | Loss(G):5.05705[Cont:3.98193/Adv:1.07511] | Loss(D):0.638191[Real:0.322072/Fake:0.316119]
+06th-16:31:44 | epoch2(25200) | lr=5e-06 | psnr=23.981 | ypsnr=25.814 | cont_mse=2.28131 | Loss(G):7.42678[Cont:5.0795/Adv:2.34728] | Loss(D):0.827611[Real:0.168427/Fake:0.659184]
+06th-16:36:45 | epoch2(25300) | lr=5e-06 | psnr=23.888 | ypsnr=25.719 | cont_mse=2.30006 | Loss(G):7.00159[Cont:3.54242/Adv:3.45917] | Loss(D):1.59947[Real:0.277615/Fake:1.32185]
+06th-16:41:34 | epoch2(25400) | lr=5e-06 | psnr=23.832 | ypsnr=25.680 | cont_mse=2.31813 | Loss(G):5.78675[Cont:4.38665/Adv:1.4001] | Loss(D):1.17296[Real:0.431413/Fake:0.74155]
+06th-16:46:29 | epoch2(25500) | lr=5e-06 | psnr=23.778 | ypsnr=25.595 | cont_mse=2.34222 | Loss(G):5.08584[Cont:4.15177/Adv:0.934069] | Loss(D):1.53735[Real:0.999324/Fake:0.538022]
+06th-16:51:30 | epoch2(25600) | lr=5e-06 | psnr=23.819 | ypsnr=25.640 | cont_mse=2.31894 | Loss(G):10.0583[Cont:4.89601/Adv:5.16228] | Loss(D):1.97117[Real:0.425523/Fake:1.54564]
+06th-16:56:22 | epoch2(25700) | lr=5e-06 | psnr=23.814 | ypsnr=25.639 | cont_mse=2.31899 | Loss(G):7.08959[Cont:5.72044/Adv:1.36915] | Loss(D):0.810816[Real:0.490486/Fake:0.32033]
+06th-17:01:17 | epoch2(25800) | lr=5e-06 | psnr=23.803 | ypsnr=25.648 | cont_mse=2.32699 | Loss(G):8.54728[Cont:5.36523/Adv:3.18206] | Loss(D):1.20602[Real:0.298867/Fake:0.907152]
+06th-17:06:19 | epoch2(25900) | lr=5e-06 | psnr=23.850 | ypsnr=25.717 | cont_mse=2.30252 | Loss(G):7.62027[Cont:5.01929/Adv:2.60098] | Loss(D):0.926903[Real:0.232414/Fake:0.694489]
+06th-17:11:13 | epoch2(26000) | lr=5e-06 | psnr=23.715 | ypsnr=25.517 | cont_mse=2.3364 | Loss(G):6.2328[Cont:4.97921/Adv:1.25359] | Loss(D):1.21975[Real:0.760805/Fake:0.458948]
+06th-17:16:02 | epoch2(26100) | lr=5e-06 | psnr=23.699 | ypsnr=25.538 | cont_mse=2.3367 | Loss(G):5.42136[Cont:5.05605/Adv:0.365312] | Loss(D):1.16839[Real:0.987171/Fake:0.181221]
+06th-17:21:06 | epoch2(26200) | lr=5e-06 | psnr=23.721 | ypsnr=25.547 | cont_mse=2.34191 | Loss(G):4.21917[Cont:3.9464/Adv:0.272764] | Loss(D):1.14748[Real:1.0119/Fake:0.135582]
+06th-17:25:53 | epoch2(26300) | lr=5e-06 | psnr=23.783 | ypsnr=25.589 | cont_mse=2.3367 | Loss(G):9.56967[Cont:4.87071/Adv:4.69896] | Loss(D):1.88986[Real:0.125034/Fake:1.76483]
+06th-17:30:44 | epoch2(26400) | lr=5e-06 | psnr=23.804 | ypsnr=25.645 | cont_mse=2.32041 | Loss(G):4.96067[Cont:4.52275/Adv:0.437916] | Loss(D):1.04753[Real:0.672254/Fake:0.375275]
+06th-17:35:36 | epoch2(26500) | lr=5e-06 | psnr=23.817 | ypsnr=25.669 | cont_mse=2.30326 | Loss(G):7.40236[Cont:5.23194/Adv:2.17042] | Loss(D):1.03706[Real:0.384444/Fake:0.65262]
+06th-17:40:24 | epoch2(26600) | lr=5e-06 | psnr=23.865 | ypsnr=25.706 | cont_mse=2.30061 | Loss(G):4.29156[Cont:3.76561/Adv:0.525957] | Loss(D):1.91404[Real:1.70653/Fake:0.207509]
+06th-17:45:09 | epoch2(26700) | lr=5e-06 | psnr=23.793 | ypsnr=25.612 | cont_mse=2.31956 | Loss(G):5.2237[Cont:4.89495/Adv:0.328741] | Loss(D):1.34989[Real:1.07483/Fake:0.275054]
+06th-17:49:49 | epoch2(26800) | lr=5e-06 | psnr=23.617 | ypsnr=25.381 | cont_mse=2.34921 | Loss(G):5.60941[Cont:4.77888/Adv:0.830535] | Loss(D):0.703103[Real:0.494744/Fake:0.208359]=> no checkpoint found at 'save/SRGAN__mixls_v5e-06_w0.1_Adam.pth'
+Traceback (most recent call last):
+  File "train.py", line 129, in <module>
+    weight_optimizer = torch.optim.RMSprop([weights],args.lr)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/optim/rmsprop.py", line 28, in __init__
+    super(RMSprop, self).__init__(params, defaults)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/optim/optimizer.py", line 61, in __init__
+    raise ValueError("can't optimize a non-leaf Variable")
+ValueError: can't optimize a non-leaf Variable
+Traceback (most recent call last):
+  File "train.py", line 97, in <module>
+    weights=Variable(torch.FloatTensor(torch.zeros(7)),requires_grad=True,is_leaf=True).cuda()
+TypeError: 'is_leaf' is an invalid keyword argument for this function
+=> no checkpoint found at 'save/SRGAN__mixls_v5e-06_w0.1_Adam.pth'
+Traceback (most recent call last):
+  File "train.py", line 130, in <module>
+    weight_optimizer = torch.optim.RMSprop([weights],args.lr)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/optim/rmsprop.py", line 28, in __init__
+    super(RMSprop, self).__init__(params, defaults)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/optim/optimizer.py", line 61, in __init__
+    raise ValueError("can't optimize a non-leaf Variable")
+ValueError: can't optimize a non-leaf Variable
+=> no checkpoint found at 'save/SRGAN__mixls_v5e-06_w0.1_Adam.pth'
+=> loading checkpoint 'save/wd_v5e-06_w1_RMSP.pth'
+=> loaded checkpoint (epoch 3)
+
+06th-15:59:42 | epoch2(31100) | lr=5e-06 | psnr=22.283 | ypsnr=24.017 | cont_mse=2.94198 | Loss(G):14.183[Cont:5.2006/Adv:8.98241] | Loss(D):12.5059[Real:7.38746/Fake:5.11849]
+06th-16:03:21 | epoch2(31200) | lr=5e-06 | psnr=21.924 | ypsnr=23.527 | cont_mse=2.99482 | Loss(G):33.3695[Cont:8.28234/Adv:25.0871] | Loss(D):12.7123[Real:2.11772/Fake:10.5946]
+06th-16:06:55 | epoch2(31300) | lr=5e-06 | psnr=22.148 | ypsnr=23.898 | cont_mse=2.94154 | Loss(G):31.7851[Cont:5.64216/Adv:26.1429] | Loss(D):10.8839[Real:2.03663/Fake:8.8473]
+06th-16:10:36 | epoch2(31400) | lr=5e-06 | psnr=21.988 | ypsnr=23.849 | cont_mse=2.92461 | Loss(G):27.8136[Cont:6.63193/Adv:21.1817] | Loss(D):9.66098[Real:2.20958/Fake:7.4514]
+06th-16:14:11 | epoch2(31500) | lr=5e-06 | psnr=21.997 | ypsnr=23.953 | cont_mse=2.92477 | Loss(G):16.5791[Cont:4.80515/Adv:11.774] | Loss(D):15.5231[Real:7.85176/Fake:7.67131]
+06th-16:17:48 | epoch2(31600) | lr=5e-06 | psnr=22.244 | ypsnr=24.156 | cont_mse=2.91713 | Loss(G):29.3807[Cont:6.79442/Adv:22.5863] | Loss(D):6.95521[Real:4.46952/Fake:2.4857]
+06th-16:21:22 | epoch2(31700) | lr=5e-06 | psnr=22.339 | ypsnr=24.233 | cont_mse=2.89301 | Loss(G):11.703[Cont:5.18274/Adv:6.52024] | Loss(D):12.1049[Real:9.55431/Fake:2.5506]
+06th-16:24:58 | epoch2(31800) | lr=5e-06 | psnr=22.408 | ypsnr=24.212 | cont_mse=2.89067 | Loss(G):16.0377[Cont:5.20391/Adv:10.8338] | Loss(D):11.295[Real:6.10415/Fake:5.19088]
+06th-16:28:31 | epoch2(31900) | lr=5e-06 | psnr=21.989 | ypsnr=23.751 | cont_mse=2.94163 | Loss(G):38.6831[Cont:6.29198/Adv:32.3911] | Loss(D):13.3043[Real:2.5016/Fake:10.8027]
+06th-16:32:04 | epoch2(32000) | lr=5e-06 | psnr=22.311 | ypsnr=24.078 | cont_mse=2.8941 | Loss(G):5.85038[Cont:4.44379/Adv:1.40659] | Loss(D):21.0195[Real:19.4242/Fake:1.59529]
+06th-16:35:50 | epoch2(32100) | lr=5e-06 | psnr=22.481 | ypsnr=24.294 | cont_mse=2.86313 | Loss(G):23.565[Cont:6.27718/Adv:17.2879] | Loss(D):12.1416[Real:3.20229/Fake:8.93933]
+06th-16:39:31 | epoch2(32200) | lr=5e-06 | psnr=22.395 | ypsnr=24.237 | cont_mse=2.8706 | Loss(G):17.8936[Cont:4.53918/Adv:13.3545] | Loss(D):12.5457[Real:6.68575/Fake:5.85993]
+06th-16:43:09 | epoch2(32300) | lr=5e-06 | psnr=22.086 | ypsnr=23.952 | cont_mse=2.90596 | Loss(G):6.45643[Cont:5.16491/Adv:1.29152] | Loss(D):27.4747[Real:25.732/Fake:1.74265]
+06th-16:46:46 | epoch2(32400) | lr=5e-06 | psnr=22.084 | ypsnr=24.047 | cont_mse=2.90838 | Loss(G):43.0562[Cont:6.78129/Adv:36.2749] | Loss(D):18.5342[Real:0.774636/Fake:17.7596]
+06th-16:50:31 | epoch2(32500) | lr=5e-06 | psnr=22.261 | ypsnr=24.120 | cont_mse=2.90889 | Loss(G):33.745[Cont:5.70372/Adv:28.0413] | Loss(D):8.72869[Real:1.54013/Fake:7.18856]
+06th-16:54:10 | epoch2(32600) | lr=5e-06 | psnr=22.187 | ypsnr=24.070 | cont_mse=2.90353 | Loss(G):67.8956[Cont:9.63366/Adv:58.262] | Loss(D):15.8513[Real:2.46497/Fake:13.3864]
+06th-16:57:46 | epoch2(32700) | lr=5e-06 | psnr=22.253 | ypsnr=24.132 | cont_mse=2.87192 | Loss(G):20.3749[Cont:5.70679/Adv:14.6681] | Loss(D):7.73788[Real:2.88366/Fake:4.85422]
+06th-17:01:29 | epoch2(32800) | lr=5e-06 | psnr=22.325 | ypsnr=24.183 | cont_mse=2.87721 | Loss(G):11.752[Cont:5.85746/Adv:5.89449] | Loss(D):13.1702[Real:8.72572/Fake:4.44448]
+06th-17:05:12 | epoch2(32900) | lr=5e-06 | psnr=22.296 | ypsnr=24.103 | cont_mse=2.90552 | Loss(G):41.7933[Cont:7.93702/Adv:33.8563] | Loss(D):17.4249[Real:3.1543/Fake:14.2706]
+06th-17:08:54 | epoch2(33000) | lr=5e-06 | psnr=22.565 | ypsnr=24.393 | cont_mse=2.85249 | Loss(G):45.035[Cont:6.88388/Adv:38.1511] | Loss(D):13.462[Real:4.06003/Fake:9.40198]
+06th-17:12:30 | epoch2(33100) | lr=5e-06 | psnr=22.522 | ypsnr=24.325 | cont_mse=2.826 | Loss(G):14.8393[Cont:5.88779/Adv:8.95148] | Loss(D):9.92055[Real:7.53846/Fake:2.38209]
+06th-17:16:04 | epoch2(33200) | lr=5e-06 | psnr=22.193 | ypsnr=24.023 | cont_mse=2.84563 | Loss(G):8.52724[Cont:4.53505/Adv:3.99219] | Loss(D):9.4334[Real:5.89651/Fake:3.53689]
+06th-17:19:54 | epoch2(33300) | lr=5e-06 | psnr=21.751 | ypsnr=23.581 | cont_mse=2.94812 | Loss(G):27.4547[Cont:8.85894/Adv:18.5957] | Loss(D):8.61508[Real:3.13668/Fake:5.4784]
+06th-17:23:28 | epoch2(33400) | lr=5e-06 | psnr=22.326 | ypsnr=24.103 | cont_mse=2.88915 | Loss(G):9.34708[Cont:5.5259/Adv:3.82119] | Loss(D):34.1094[Real:32.5143/Fake:1.59507]
+06th-17:27:01 | epoch2(33500) | lr=5e-06 | psnr=22.538 | ypsnr=24.338 | cont_mse=2.8676 | Loss(G):9.55821[Cont:7.05715/Adv:2.50106] | Loss(D):13.5993[Real:10.417/Fake:3.18229]
+06th-17:30:27 | epoch2(33600) | lr=5e-06 | psnr=22.458 | ypsnr=24.266 | cont_mse=2.86348 | Loss(G):16.9721[Cont:5.32608/Adv:11.646] | Loss(D):9.76034[Real:5.91384/Fake:3.8465]
+06th-17:34:00 | epoch2(33700) | lr=5e-06 | psnr=22.012 | ypsnr=23.890 | cont_mse=2.90213 | Loss(G):8.81194[Cont:5.68627/Adv:3.12567] | Loss(D):21.3445[Real:16.0192/Fake:5.32531]
+06th-17:37:27 | epoch2(33800) | lr=5e-06 | psnr=22.062 | ypsnr=23.825 | cont_mse=2.95113 | Loss(G):24.9713[Cont:4.18678/Adv:20.7845] | Loss(D):8.65615[Real:2.69922/Fake:5.95693]
+06th-17:41:00 | epoch2(33900) | lr=5e-06 | psnr=22.317 | ypsnr=24.062 | cont_mse=2.94197 | Loss(G):26.2449[Cont:6.86097/Adv:19.384] | Loss(D):14.9775[Real:5.50952/Fake:9.46795]
+06th-17:44:36 | epoch2(34000) | lr=5e-06 | psnr=22.459 | ypsnr=24.196 | cont_mse=2.87534 | Loss(G):13.7233[Cont:5.33007/Adv:8.3932] | Loss(D):14.076[Real:9.4083/Fake:4.66771]
+06th-17:48:08 | epoch2(34100) | lr=5e-06 | psnr=22.480 | ypsnr=24.259 | cont_mse=2.86336 | Loss(G):18.4041[Cont:5.12346/Adv:13.2807] | Loss(D):8.60649[Real:3.48444/Fake:5.12205]
+06th-17:51:37 | epoch2(34200) | lr=5e-06 | psnr=22.300 | ypsnr=24.177 | cont_mse=2.88015 | Loss(G):10.542[Cont:4.29926/Adv:6.24277] | Loss(D):11.7147[Real:8.15018/Fake:3.56452]
+06th-17:55:05 | epoch2(34300) | lr=5e-06 | psnr=22.403 | ypsnr=24.217 | cont_mse=2.90462 | Loss(G):9.94845[Cont:4.31207/Adv:5.63638] | Loss(D):27.9803[Real:23.3774/Fake:4.60296]
+06th-17:58:35 | epoch2(34400) | lr=5e-06 | psnr=22.119 | ypsnr=23.887 | cont_mse=2.93383 | Loss(G):21.8573[Cont:5.88348/Adv:15.9738] | Loss(D):10.5339[Real:5.05841/Fake:5.47554]
+06th-18:02:06 | epoch2(34500) | lr=5e-06 | psnr=22.355 | ypsnr=24.143 | cont_mse=2.92501 | Loss(G):13.0459[Cont:6.53064/Adv:6.51527] | Loss(D):12.6536[Real:9.15668/Fake:3.4969]
+06th-18:05:33 | epoch2(34600) | lr=5e-06 | psnr=22.596 | ypsnr=24.446 | cont_mse=2.85395 | Loss(G):6.53152[Cont:4.79314/Adv:1.73838] | Loss(D):16.9897[Real:14.2636/Fake:2.72614]
+06th-18:09:00 | epoch2(34700) | lr=5e-06 | psnr=22.384 | ypsnr=24.236 | cont_mse=2.86055 | Loss(G):9.34438[Cont:5.69195/Adv:3.65242] | Loss(D):12.3478[Real:10.0393/Fake:2.30852]
+06th-18:12:31 | epoch2(34800) | lr=5e-06 | psnr=22.114 | ypsnr=23.916 | cont_mse=2.95653 | Loss(G):40.2849[Cont:5.77103/Adv:34.5139] | Loss(D):11.8366[Real:1.9666/Fake:9.87002]
+06th-18:16:02 | epoch2(34900) | lr=5e-06 | psnr=22.271 | ypsnr=24.058 | cont_mse=2.98245 | Loss(G):37.6618[Cont:6.83597/Adv:30.8258] | Loss(D):13.0418[Real:3.04259/Fake:9.99919]
+06th-18:19:28 | epoch2(35000) | lr=5e-06 | psnr=22.435 | ypsnr=24.277 | cont_mse=2.94194 | Loss(G):29.403[Cont:4.73335/Adv:24.6696] | Loss(D):9.65645[Real:2.59885/Fake:7.0576]
+06th-18:22:54 | epoch2(35100) | lr=5e-06 | psnr=22.622 | ypsnr=24.367 | cont_mse=2.87377 | Loss(G):26.1544[Cont:4.95578/Adv:21.1987] | Loss(D):10.107[Real:4.18523/Fake:5.92174]
+06th-18:26:29 | epoch2(35200) | lr=5e-06 | psnr=22.269 | ypsnr=24.036 | cont_mse=2.90427 | Loss(G):12.9184[Cont:6.37028/Adv:6.54809] | Loss(D):12.5267[Real:7.99581/Fake:4.53087]
+06th-18:29:54 | epoch2(35300) | lr=5e-06 | psnr=22.187 | ypsnr=23.845 | cont_mse=2.92719 | Loss(G):11.6474[Cont:5.98084/Adv:5.66655] | Loss(D):10.91[Real:8.04778/Fake:2.86221]
+06th-18:33:32 | epoch2(35400) | lr=5e-06 | psnr=22.117 | ypsnr=23.787 | cont_mse=2.9464 | Loss(G):9.27649[Cont:5.55005/Adv:3.72644] | Loss(D):10.9538[Real:8.743/Fake:2.2108]
+06th-18:37:02 | epoch2(35500) | lr=5e-06 | psnr=22.296 | ypsnr=23.976 | cont_mse=2.91332 | Loss(G):13.8494[Cont:4.74784/Adv:9.1016] | Loss(D):14.9343[Real:9.43445/Fake:5.49986]
+06th-18:40:51 | epoch2(35600) | lr=5e-06 | psnr=22.411 | ypsnr=24.129 | cont_mse=2.92559 | Loss(G):18.6255[Cont:5.19587/Adv:13.4297] | Loss(D):10.509[Real:6.63775/Fake:3.87124]
+06th-18:44:22 | epoch2(35700) | lr=5e-06 | psnr=22.511 | ypsnr=24.211 | cont_mse=2.87366 | Loss(G):64.4099[Cont:5.21152/Adv:59.1983] | Loss(D):15.761[Real:3.21208/Fake:12.5489]Traceback (most recent call last):
+  File "train.py", line 76, in <module>
+    args.__dict__['model_base_name']=args.prefix+'wd_v%g_v1%g_w%g_%s'%(args.lr,args.lr1,args.weight,args.optim)+('_fixG' if args.fixG else '')+('_fixD' if args.fixD else '')
+TypeError: must be real number, not str
+=> loading checkpoint 'save/wd_v5e-06_w1_RMSP.pth'
+=> loaded checkpoint (epoch 3)
+=> loading checkpoint 'save/wd_v5e-06_w1_RMSP.pth'
+=> loaded checkpoint (epoch 3)
+  File "train.py", line 222
+    content_loss=torch.pow(exp,weights[0])*0\#/denom*cont_criterion(x1,y1.detach())\
+                                                                                   ^
+SyntaxError: unexpected character after line continuation character
+  File "train.py", line 222
+    content_loss=torch.pow(exp,weights[0])*0\#/denom*cont_criterion(x1,y1.detach())
+                                                                                  ^
+SyntaxError: unexpected character after line continuation character
+  File "train.py", line 224
+    +torch.pow(exp,weights[1])/denom*cont_criterion(x2,y2.detach())\
+    ^
+IndentationError: unexpected indent
+=> loading checkpoint 'save/wd_v5e-06_w1_RMSP.pth'
+=> loaded checkpoint (epoch 3)
+=> loading checkpoint 'save/wd_v5e-06_w1_RMSP.pth'
+=> loaded checkpoint (epoch 3)
