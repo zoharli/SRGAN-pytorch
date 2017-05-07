@@ -122,7 +122,7 @@ cont_criterion = nn.MSELoss().cuda()
 
 if args.optim=='RMSP':
     gen_optimizer = torch.optim.RMSprop(gen.parameters(), args.lr)
-    disc_optimizer = torch.optim.RMSprop(disc.parameters(),args.lr*args.weight)
+    disc_optimizer = torch.optim.RMSprop(disc.parameters(),args.lr)
 elif args.optim=='Adam':
     gen_optimizer = torch.optim.Adam(gen.parameters(), args.lr)
     disc_optimizer = torch.optim.Adam(disc.parameters(),args.lr)
@@ -202,7 +202,7 @@ def train(epoch):
             disc_loss=fake_loss+real_loss
             disc_optimizer.step()
             
-        if not args.fixG:
+        if i%10==0 and not args.fixG:
             gen_optimizer.zero_grad()
             G_z=gen(input_var)
             x1,x2,x3,x4,x5,x6=vgg(normalize(G_z))
