@@ -58,7 +58,7 @@ parser.add_argument('--fixG',action='store_true',
         help='wheather to fix generator and only train discriminator')
 parser.add_argument('--fixD',action='store_true',
         help='wheather to fix discriminator and only train generator')
-parser.add_argument('--clip',default=None,type=float,
+parser.add_argument('--clip',default=1e-4,type=float,
         help='gradient clip norm')
 parser.add_argument('--prefix',default='',type=str,
         help='prefix of the model name')
@@ -91,6 +91,8 @@ train_loader = torch.utils.data.DataLoader(
 gen=GenNet().cuda()
 disc=DisNet().cuda()
 vgg=vgg19_54().cuda()
+ck=torch.load('save/vgg_v0.0001.pth')
+vgg.load_state_dict(ck['vgg_state_dict'])
 
 fclip=Clip().cuda()
 
@@ -219,6 +221,7 @@ def train(epoch):
             #content_loss=cont_criterion(fake_feature,real_feature)
             gen_loss=content_loss
             gen_loss.backward()
+            torch.nn.utils.clip_grad_norm(gen.parameters(),args.clip)
             gen_optimizer.step()
             
         if i % args.print_freq == 0:
