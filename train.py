@@ -44,6 +44,8 @@ parser.add_argument('--resume', default='', type=str,
         help='path to latest checkpoint (default: none)')
 parser.add_argument('--generator',default='',type=str,
         help='path to the pretrained srResNet if use it')
+parser.add_argument('--vgg',default='',type=str,
+        help='path to the pretrained vgg')
 parser.add_argument('--logdir','-s',default='save',type=str,
         help='path to save checkpoint')
 parser.add_argument('--optim','-o',default='Adam',
@@ -71,7 +73,7 @@ args = parser.parse_args()
 args.__dict__['upscale_factor']=4
 #args.traindir=globals()[args.traindir]
 args.valdir=globals()[args.valdir]
-args.__dict__['model_base_name']=args.prefix+'v%g_w%g_%s'%(args.lr,args.weight,args.optim)+('_fixG' if args.fixG else '')+('_fixD' if args.fixD else '')
+args.__dict__['model_base_name']=args.prefix+'vgg_v%g_w%g_%s'%(args.lr,args.weight,args.optim)+('_fixG' if args.fixG else '')+('_fixD' if args.fixD else '')
 args.__dict__['model_name']=args.model_base_name+'.pth'
 args.__dict__['snapshot']='snapshot_'+args.model_base_name
 
@@ -118,6 +120,14 @@ if args.generator:
         print("=> loaded checkpoint")
     else:
         print("=>no checkpoint found at '{}'".format(args.generator))
+if args.vgg:
+    if os.path.exists(args.vgg):
+        print("=> loading checkpoint '{}'".format(args.vgg))
+        checkpoint = torch.load(args.vgg)
+        vgg.load_state_dict(checkpoint['vgg_state_dict'])
+        print("=> loaded checkpoint")
+    else:
+         print("=> no checkpoint found at '{}'".format(args.vgg))
 
 cont_criterion = nn.MSELoss().cuda()
 
@@ -207,8 +217,8 @@ def train(epoch):
         if not args.fixG:
             gen_optimizer.zero_grad()
             G_z=gen(input_var)
-            x1,x2,x3,x4,x5,x6=vgg(normalize(G_z))
-            y1,y2,y3,y4,y5,y6=vgg(normalize(target_var))
+            x1,x2,x3,x4,x5,x6,_=vgg(normalize(G_z))
+            y1,y2,y3,y4,y5,y6,_=vgg(normalize(target_var))
             output=disc(G_z)
             adv_loss=((output-1)**2).mean()
             content_loss=cont_criterion(x1,y1.detach())\
@@ -221,7 +231,6 @@ def train(epoch):
             #content_loss=cont_criterion(fake_feature,real_feature)
             gen_loss=content_loss
             gen_loss.backward()
-            torch.nn.utils.clip_grad_norm(gen.parameters(),args.clip)
             gen_optimizer.step()
             
         if i % args.print_freq == 0:
