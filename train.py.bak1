@@ -62,6 +62,8 @@ parser.add_argument('--clip',default=None,type=float,
         help='gradient clip norm')
 parser.add_argument('--prefix',default='',type=str,
         help='prefix of the model name')
+parser.add_argument('--lr1',default=1e-4,type=float,
+        help='learning rate of the weights')
 
 global_step=0
 best_psnr = -100
@@ -71,7 +73,7 @@ args = parser.parse_args()
 args.__dict__['upscale_factor']=4
 #args.traindir=globals()[args.traindir]
 args.valdir=globals()[args.valdir]
-args.__dict__['model_base_name']=args.prefix+'_v%g_w%g_%s'%(args.lr,args.weight,args.optim)+('_fixG' if args.fixG else '')+('_fixD' if args.fixD else '')
+args.__dict__['model_base_name']=args.prefix+'lsw%g_v%g_vw%g_%s'%(args.weight,args.lr,args.lr1,args.optim)+('_fixG' if args.fixG else '')+('_fixD' if args.fixD else '')
 args.__dict__['model_name']=args.model_base_name+'.pth'
 args.__dict__['snapshot']='snapshot_'+args.model_base_name
 
@@ -94,6 +96,9 @@ vgg=vgg19_54().cuda()
 
 fclip=Clip().cuda()
 
+weights=Variable(torch.FloatTensor(torch.zeros(5)).cuda(),requires_grad=True)
+exps=Variable(torch.FloatTensor(torch.ones(5)*math.e)).cuda()
+exp=Variable(torch.FloatTensor([math.e])).cuda()
 
 if args.resume:
     if os.path.isfile(args.resume):
@@ -101,6 +106,8 @@ if args.resume:
         checkpoint = torch.load(args.resume)
         args.start_epoch = checkpoint['epoch']
         global_step=checkpoint['global_step']
+        if 'weights' in checkpoint:
+            weights=checkpoint['weights']
         gen.load_state_dict(checkpoint['gen_state_dict'])
         disc.load_state_dict(checkpoint['disc_state_dict'])
         print("=> loaded checkpoint (epoch {})"
@@ -123,13 +130,12 @@ cont_criterion = nn.MSELoss().cuda()
 if args.optim=='RMSP':
     gen_optimizer = torch.optim.RMSprop(gen.parameters(), args.lr)
     disc_optimizer = torch.optim.RMSprop(disc.parameters(),args.lr)
+    weight_optimizer = torch.optim.RMSprop([weights],args.lr1)
 elif args.optim=='Adam':
     gen_optimizer = torch.optim.Adam(gen.parameters(), args.lr)
     disc_optimizer = torch.optim.Adam(disc.parameters(),args.lr)
+    weight_optimizer = torch.optim.Adam([weights],args.lr1)
 
-weights=Variable(torch.FloatTensor(torch.zeros(7))).cuda()
-exps=Variable(torch.FloatTensor(torch.ones(7)*math.e)).cuda()
-exp=Variable(torch.FloatTensor([math.e])).cuda()
 
 def normalize(tensor):
     r,g,b=torch.split(tensor,1,1)
@@ -152,12 +158,9 @@ def validate(model,vgg,criterion,valdir,epoch,factor,optimizer):
         im=Image.open(x)
         im=im.resize((im.size[0]-im.size[0]%factor,im.size[1]-im.size[1]%factor),Image.BICUBIC)
         target=Variable(torch.stack([transforms.ToTensor()(im)],0),volatile=True).cuda()
-        f_target=vgg(normalize(target))
         input=torch.stack([transforms.ToTensor()(im.resize((im.size[0]//args.upscale_factor,im.size[1]//args.upscale_factor),Image.BICUBIC))],0)
         input_var=Variable(input,volatile=True).cuda()
         output=model(input_var)
-        f_output=vgg(normalize(output))
-        cont_loss+=criterion(f_target,f_output).cpu().data[0]
         output=fclip(output)
         loss=criterion(target,output).cpu().data[0]
         img=torch.squeeze(output.data.cpu())
@@ -173,8 +176,7 @@ def validate(model,vgg,criterion,valdir,epoch,factor,optimizer):
         cnt+=1
     psnr=float(sum)/cnt
     ypsnr=float(ysum)/cnt
-    cont_loss=float(cont_loss)/cnt
-    s=' | psnr=%.3f | ypsnr=%.3f | cont_mse=%g'%(psnr,ypsnr,cont_loss)
+    s=' | psnr=%.3f | ypsnr=%.3f'%(psnr,ypsnr)
     return s
     
 def save_checkpoint(state, is_best,logdir):
@@ -186,10 +188,18 @@ def save_checkpoint(state, is_best,logdir):
 def train(epoch):
     for i, (input, target) in enumerate(train_loader):
         global global_step
+        if(global_step%4000==0):
+            for pg in gen_optimizer.param_groups:
+                pg['lr']=pg['lr']*0.915
+            for pg in disc_optimizer.param_groups:
+                pg['lr']=pg['lr']*0.915
+            for pg in weight_optimizer.param_groups:
+                pg['lr']=pg['lr']*0.915
+
         input_var = Variable(input.cuda())
         target_var = Variable(target.cuda())
         
-        if i%2==0 and not args.fixD:
+        if not args.fixD:
             disc_optimizer.zero_grad()
             real_output=disc(target_var)
             real_loss=((real_output-1)**2).mean()
@@ -202,31 +212,33 @@ def train(epoch):
             
         if not args.fixG:
             gen_optimizer.zero_grad()
+            weight_optimizer.zero_grad()
             G_z=gen(input_var)
-            x1,x2,x3,x4,x5,x6=vgg(normalize(G_z))
-            y1,y2,y3,y4,y5,y6=vgg(normalize(target_var))
+            x1,x2,x3,x4,x5=vgg(normalize(G_z))
+            y1,y2,y3,y4,y5=vgg(normalize(target_var))
             output=disc(G_z)
             adv_loss=((output-1)**2).mean()
             denom=torch.pow(exps,weights).sum()
-            content_loss=torch.pow(exp,weights[0])/denom*cont_criterion(x1,y1.detach())\
+            cont_loss=\
+                     torch.pow(exp,weights[0])/denom*cont_criterion(x1,y1.detach())\
                      +torch.pow(exp,weights[1])/denom*cont_criterion(x2,y2.detach())\
                      +torch.pow(exp,weights[2])/denom*cont_criterion(x3,y3.detach())\
                      +torch.pow(exp,weights[3])/denom*cont_criterion(x4,y4.detach())\
-                     +torch.pow(exp,weights[4])/denom*cont_criterion(x5,y5.detach())\
-                     +torch.pow(exp,weights[5])/denom*cont_criterion(x6,y6.detach())\
-                     +torch.pow(exp,weights[6])/denom*adv_loss
-            #content_loss=cont_criterion(fake_feature,real_feature)
-            gen_loss=content_loss
+                     +torch.pow(exp,weights[4])/denom*cont_criterion(x5,y5.detach())
+            gen_loss=cont_loss+adv_loss
             gen_loss.backward()
             gen_optimizer.step()
+            weight_optimizer.step()
             
         if i % args.print_freq == 0:
             s=time.strftime('%dth-%H:%M:%S',time.localtime(time.time()))+' | epoch%d(%d) | lr=%g'%(epoch,global_step,args.lr)
-            if not args.fixG:
-                vs=validate(gen,vgg,cont_criterion,args.valdir,epoch,args.upscale_factor,gen_optimizer)
-                s+=vs+' | Loss(G):%g[Cont:%g/Adv:%g]'%(gen_loss.data[0],content_loss.data[0],adv_loss.data[0])
             if not args.fixD:
                 s+=' | Loss(D):%g[Real:%g/Fake:%g]'%(disc_loss.data[0],real_loss.data[0],fake_loss.data[0])
+            if not args.fixG:
+                vs=validate(gen,vgg,cont_criterion,args.valdir,epoch,args.upscale_factor,gen_optimizer)
+                s+=vs+' | Loss(G):%g[Cont:%g/Adv:%g]'%(gen_loss.data[0],cont_loss.data[0],adv_loss.data[0])
+                w=weights.cpu().data
+                s+=' | w0=%g | w1=%g | w2=%g | w3=%g | w4=%g'%(w[0],w[1],w[2],w[3],w[4])
             print(s)
             f=open('info.'+args.model_base_name,'a')
             f.write(s+'\n')
@@ -246,7 +258,7 @@ def train(epoch):
                 'global_step':global_step,
                 'gen_state_dict': gen.state_dict(),
                 'disc_state_dict':disc.state_dict(),
-                'best_psnr': best_psnr,
+                'weights':weights
             }, is_best,args.logdir)
 
         global_step+=1
