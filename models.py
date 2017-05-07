@@ -2,7 +2,7 @@ import torch
 from torch import nn
 from torch import autograd
 from torch.nn.init import kaiming_normal, constant
-from torchvision import models
+import vgg as models
 
 """ Generator
 """
@@ -68,7 +68,7 @@ class GenNet(nn.Module):
         super(GenNet,self).__init__()
         self.relu = nn.PReLU()
         self.tanh = nn.Hardtanh()
-        #self.tanh = nn.Tanh()
+        #self.tanh nn.Tanh()
         self.conv1 = nn.Conv2d(3, 64, 9, 1, (9-1)//2)
         kaiming_normal(self.conv1.weight)
         layers = []

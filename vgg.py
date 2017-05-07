@@ -28,6 +28,7 @@ class Classifier(nn.Module):
             nn.ReLU(True),
             nn.Dropout(),
             nn.Linear(1024, 1),
+            
         )
         for module in self.body:
             if isinstance(module,nn.Linear):
