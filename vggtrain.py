@@ -90,8 +90,8 @@ def save_checkpoint(state, logdir):
     filename=os.path.join(logdir,args.model_name)
     torch.save(state, filename)
 
-real_label=torch.FloatTensor([1]).cuda()
-fake_label=torch.FloatTensor([-1]).cuda()
+real_label=Variable(torch.FloatTensor(torch.ones(args.batch_size)).cuda())
+fake_label=Variable(torch.FloatTensor(-1*torch.ones(args.batch_size)).cuda())
 
 def train(epoch):
     for i, (input, target) in enumerate(train_loader):

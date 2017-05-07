@@ -1,7 +1,9 @@
 import torch
 import torch.nn as nn
+from torch.nn.init import kaiming_normal
 import torch.utils.model_zoo as model_zoo
 import math
+
 
 
 __all__ = [
@@ -23,10 +25,8 @@ class Classifier(nn.Module):
         self.body = nn.Sequential(
             nn.Linear(512 * 8 * 8,1024),
             nn.ReLU(True),
-            nn.Dropout(),
             nn.Linear(1024, 1024),
             nn.ReLU(True),
-            nn.Dropout(),
             nn.Linear(1024, 1),
         )
         for module in self.body:
@@ -58,6 +58,7 @@ class VGG(nn.Module):
         self.feature3=nn.Sequential(*list(self.features.children())[9:18])
         self.feature4=nn.Sequential(*list(self.features.children())[18:27])
         self.feature5=nn.Sequential(*list(self.features.children())[27:36])
+        self.feature6=list(self.features.children())[-1]
         self.classifier=Classifier()
 
     def forward(self, x):
@@ -72,7 +73,8 @@ class VGG(nn.Module):
         x4= x.view(x.size(0),-1)
         x = self.feature5(x)
         x5= x.view(x.size(0),-1)
-        y=self.classifier(x5)
+        x = self.feature6(x)
+        y=self.classifier(x.view(x.size(0),-1))
         return x0,x1,x2,x3,x4,x5,y
 
     def _initialize_weights(self):

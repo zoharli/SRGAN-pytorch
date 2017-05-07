@@ -22260,3 +22260,77 @@ Traceback (most recent call last):
   File "/media/H/zohar/SRGAN-pytorch/vgg.py", line 22, in __init__
     super(classifier,self).__init__()
 NameError: name 'classifier' is not defined
+Traceback (most recent call last):
+  File "vggtrain.py", line 55, in <module>
+    vgg=vgg19_54().cuda()
+  File "/media/H/zohar/SRGAN-pytorch/models.py", line 113, in vgg19_54
+    model.trans()
+  File "/media/H/zohar/SRGAN-pytorch/vgg.py", line 59, in trans
+    self.classifier=Classifier()
+  File "/media/H/zohar/SRGAN-pytorch/vgg.py", line 32, in __init__
+    kaiming_normal(module.weight,0)
+NameError: name 'kaiming_normal' is not defined
+=> loading checkpoint 'save/v1e-05_w1_RMSP.pth'
+=> loaded checkpoint
+Traceback (most recent call last):
+  File "vggtrain.py", line 131, in <module>
+    train(epoch)
+  File "vggtrain.py", line 107, in train
+    t=vgg(normalize(target_var))[-1]
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/module.py", line 206, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/media/H/zohar/SRGAN-pytorch/vgg.py", line 75, in forward
+    y=self.classifier(x5)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/module.py", line 206, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/media/H/zohar/SRGAN-pytorch/vgg.py", line 37, in forward
+    return self.body(x)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/module.py", line 206, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/container.py", line 64, in forward
+    input = module(input)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/module.py", line 206, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/linear.py", line 54, in forward
+    return self._backend.Linear()(input, self.weight, self.bias)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/_functions/linear.py", line 10, in forward
+    output.addmm_(0, 1, input, weight.t())
+RuntimeError: size mismatch at /py/conda-bld/pytorch_1493680494901/work/torch/lib/THC/generic/THCTensorMathBlas.cu:243
+Traceback (most recent call last):
+  File "vggtrain.py", line 55, in <module>
+    vgg=vgg19_54().cuda()
+  File "/media/H/zohar/SRGAN-pytorch/models.py", line 113, in vgg19_54
+    model.trans()
+  File "/media/H/zohar/SRGAN-pytorch/vgg.py", line 61, in trans
+    self.feature6=nn.Sequential(*list(self.features.children())[-1])
+TypeError: type object argument after * must be an iterable, not MaxPool2d
+=> loading checkpoint 'save/v1e-05_w1_RMSP.pth'
+=> loaded checkpoint
+Traceback (most recent call last):
+  File "vggtrain.py", line 131, in <module>
+    train(epoch)
+  File "vggtrain.py", line 108, in train
+    rloss=cri(t,real_label)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/module.py", line 206, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/loss.py", line 22, in forward
+    _assert_no_grad(target)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/loss.py", line 10, in _assert_no_grad
+    assert not variable.requires_grad, \
+AttributeError: 'torch.cuda.FloatTensor' object has no attribute 'requires_grad'
+=> loading checkpoint 'save/v1e-05_w1_RMSP.pth'
+=> loaded checkpoint
+Traceback (most recent call last):
+  File "vggtrain.py", line 131, in <module>
+    train(epoch)
+  File "vggtrain.py", line 108, in train
+    rloss=cri(t,real_label)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/module.py", line 206, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/loss.py", line 24, in forward
+    return backend_fn(self.size_average)(input, target)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/_functions/thnn/auto.py", line 41, in forward
+    output, *self.additional_args)
+RuntimeError: input and target have different number of elements: input[8 x 1] has 8 elements, while target[1] has 1 elements at /py/conda-bld/pytorch_1493680494901/work/torch/lib/THCUNN/generic/SoftMarginCriterion.cu:12
+=> loading checkpoint 'save/v1e-05_w1_RMSP.pth'
+=> loaded checkpoint
