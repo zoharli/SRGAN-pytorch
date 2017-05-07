@@ -31,6 +31,7 @@ parser.add_argument('--traindir',default='r375-400.bin',
         help=' the global name of training set dir')
 parser.add_argument('--generator', default=None,type=str,
         help='path to generator for producing fake image')
+parser.add_argument('--fixF',action='store_true')
 
 global_step=1
 args = parser.parse_args()
@@ -72,7 +73,11 @@ else:
     print("=>no generator checkpoint found at '{}'".format(args.generator))
     sys.exit()
 
-vgg_optimizer = torch.optim.Adam(vgg.parameters(),args.lr)
+if args.fixF:
+    vgg_optimizer = torch.optim.Adam(vgg.classifier.parameters(),args.lr)
+else:    
+    vgg_optimizer = torch.optim.Adam(vgg.parameters(),args.lr)
+cri=torch.nn.SoftMarginLoss().cuda()
 
 def normalize(tensor):
     r,g,b=torch.split(tensor,1,1)
@@ -85,6 +90,9 @@ def save_checkpoint(state, logdir):
     filename=os.path.join(logdir,args.model_name)
     torch.save(state, filename)
 
+real_label=torch.FloatTensor([1]).cuda()
+fake_label=torch.FloatTensor([-1]).cuda()
+
 def train(epoch):
     for i, (input, target) in enumerate(train_loader):
         global global_step
@@ -96,19 +104,18 @@ def train(epoch):
         target_var = Variable(target.cuda())
         
         vgg_optimizer.zero_grad()
+        t=vgg(normalize(target_var))[-1]
+        rloss=cri(t,real_label)
+        rloss.backward()
         output = gen(input_var).detach()
-        o=vgg(normalize(output))[1:]
-        t=vgg(normalize(target_var))[1:]
-        loss=0
-        for j in range(5):
-            loss-=((o[j]-t[j])**2).mean()
-            print(j)
-        loss.backward()
-        print('bdone')
+        o=vgg(normalize(output))[-1]
+        floss=cri(o,fake_label)
+        floss.backward()
+        loss=floss+rloss
         vgg_optimizer.step()    
             
         if i % args.print_freq == 0:
-            s=time.strftime('%dth-%H:%M:%S',time.localtime(time.time()))+' | epoch%d(%d) | lr=%g'%(epoch,global_step,args.lr)+' | loss=%g'%loss.cpu().data[0]
+            s=time.strftime('%dth-%H:%M:%S',time.localtime(time.time()))+' | epoch%d(%d) | lr=%g'%(epoch,global_step,args.lr)+' | loss=%g[r:%g/f:%g]'%(loss.cpu().data[0],rloss.cpu().data[0],floss.cpu().data[0])
             print(s)
             f=open('info.'+args.model_base_name,'a')
             f.write(s+'\n')

@@ -2,7 +2,7 @@ import torch
 from torch import nn
 from torch import autograd
 from torch.nn.init import kaiming_normal, constant
-from torchvision import models
+import vgg as models
 
 """ Generator
 """
@@ -112,7 +112,6 @@ def vgg19_54():
     # remove last max pooling
     model.trans()
     model.features=Skip()
-    model.classifier=Skip()
     return model
 
 """ Discriminator

@@ -19,7 +19,7 @@ model_urls = {
 
 class Classifier(nn.Module):
     def __init__(self):
-        super(classifier,self).__init__()
+        super(Classifier,self).__init__()
         self.body = nn.Sequential(
             nn.Linear(512 * 8 * 8,1024),
             nn.ReLU(True),
@@ -58,6 +58,7 @@ class VGG(nn.Module):
         self.feature3=nn.Sequential(*list(self.features.children())[9:18])
         self.feature4=nn.Sequential(*list(self.features.children())[18:27])
         self.feature5=nn.Sequential(*list(self.features.children())[27:36])
+        self.classifier=Classifier()
 
     def forward(self, x):
         x0= x.view(x.size(0),-1)
@@ -71,7 +72,8 @@ class VGG(nn.Module):
         x4= x.view(x.size(0),-1)
         x = self.feature5(x)
         x5= x.view(x.size(0),-1)
-        return x0,x1,x2,x3,x4,x5
+        y=self.classifier(x5)
+        return x0,x1,x2,x3,x4,x5,y
 
     def _initialize_weights(self):
         for m in self.modules():

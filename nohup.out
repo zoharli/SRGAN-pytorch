@@ -22244,3 +22244,19 @@ Traceback (most recent call last):
   File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/autograd/variable.py", line 146, in backward
     self._execution_engine.run_backward((self,), (gradient,), retain_variables)
 RuntimeError: CUDNN_STATUS_ALLOC_FAILED
+Traceback (most recent call last):
+  File "vggtrain.py", line 34, in <module>
+    parser.add_argument('--fixF',action='store_true',type=bool)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/argparse.py", line 1334, in add_argument
+    action = action_class(**kwargs)
+TypeError: __init__() got an unexpected keyword argument 'type'
+Traceback (most recent call last):
+  File "vggtrain.py", line 55, in <module>
+    vgg=vgg19_54().cuda()
+  File "/media/H/zohar/SRGAN-pytorch/models.py", line 113, in vgg19_54
+    model.trans()
+  File "/media/H/zohar/SRGAN-pytorch/vgg.py", line 61, in trans
+    self.classifier=Classifier()
+  File "/media/H/zohar/SRGAN-pytorch/vgg.py", line 22, in __init__
+    super(classifier,self).__init__()
+NameError: name 'classifier' is not defined
