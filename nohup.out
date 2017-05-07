@@ -22230,3 +22230,17 @@ bdone
 0
 1
 2
+=> loading checkpoint 'save/v1e-05_w1_RMSP.pth'
+=> loaded checkpoint (epoch 4)
+=> loading checkpoint 'save/v1e-05_w1_RMSP.pth'
+=> loaded checkpoint (epoch 4)
+=> loading checkpoint 'save/v1e-05_w1_RMSP.pth'
+=> loaded checkpoint (epoch 4)
+Traceback (most recent call last):
+  File "train.py", line 258, in <module>
+    train(epoch)
+  File "train.py", line 200, in train
+    real_loss.backward()
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/autograd/variable.py", line 146, in backward
+    self._execution_engine.run_backward((self,), (gradient,), retain_variables)
+RuntimeError: CUDNN_STATUS_ALLOC_FAILED
