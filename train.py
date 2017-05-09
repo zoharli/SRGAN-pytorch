@@ -122,10 +122,10 @@ cont_criterion = nn.MSELoss().cuda()
 
 if args.optim=='RMSP':
     gen_optimizer = torch.optim.RMSprop(gen.parameters(), args.lr)
-    disc_optimizer = torch.optim.RMSprop(disc.parameters(),args.lr)
+    disc_optimizer = torch.optim.RMSprop(disc.parameters(),args.lr*2)
 elif args.optim=='Adam':
     gen_optimizer = torch.optim.Adam(gen.parameters(), args.lr)
-    disc_optimizer = torch.optim.Adam(disc.parameters(),args.lr)
+    disc_optimizer = torch.optim.Adam(disc.parameters(),args.lr*2)
 
 def normalize(tensor):
     r,g,b=torch.split(tensor,1,1)
@@ -194,15 +194,15 @@ def train(epoch):
         if not args.fixD:
             disc_optimizer.zero_grad()
             real_output=disc(target_var)
-            real_loss=((real_output-1)**2).mean()
+            real_loss=((real_output-1)**2).mean()*args.weight
             real_loss.backward()
             fake_output=disc(gen(input_var).detach())
-            fake_loss=(fake_output**2).mean()
+            fake_loss=(fake_output**2).mean()*args.weight
             fake_loss.backward()
             disc_loss=fake_loss+real_loss
             disc_optimizer.step()
             
-        if i%10==0 and not args.fixG:
+        if not args.fixG:
             gen_optimizer.zero_grad()
             G_z=gen(input_var)
             x1,x2,x3,x4,x5,x6=vgg(normalize(G_z))
@@ -215,7 +215,7 @@ def train(epoch):
                      +cont_criterion(x4,y4.detach())\
                      +cont_criterion(x5,y5.detach())\
                      +cont_criterion(x6,y6.detach())\
-                     +adv_loss
+                     +adv_loss*args.weight
             #content_loss=cont_criterion(fake_feature,real_feature)
             gen_loss=content_loss
             gen_loss.backward()

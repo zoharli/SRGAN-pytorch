@@ -19270,3 +19270,11 @@ bdone
 => loaded checkpoint (epoch 4)
 => loading checkpoint 'save/v1e-05_w1_RMSP.pth'
 => loaded checkpoint (epoch 4)
+=>  loading checkpoint 'save/ResNet_b16_v0.0001_Adam.pth'
+=>  loaded checkpoint (epoch 9)
+=> loading checkpoint 'save/10:1v1e-05_w1_RMSP.pth'
+=> loaded checkpoint (epoch 5)
+=> loading checkpoint 'save/10:1v1e-05_w1_RMSP.pth'
+=> loaded checkpoint (epoch 5)
+=> loading checkpoint 'save/10:1v1e-05_w1_RMSP.pth'
+=> loaded checkpoint (epoch 5)

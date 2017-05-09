@@ -49,6 +49,7 @@ parser.add_argument('--traindir',default='r375-400.bin',
 parser.add_argument('--valdir',default='b100',type=str,
         help='the global name of validation set dir')
 
+global_step=0
 best_psnr = -100
 args = parser.parse_args()
 args.__dict__['upscale_factor']=4
@@ -124,7 +125,7 @@ def validate( model,criterion,valdir,epoch,factor):
     psnr=float(sum)/cnt
     ypsnr=float(ysum)/cnt
     lr=optimizer.param_groups[0]['lr']
-    s=time.strftime('%dth-%H:%M:%S',time.localtime(time.time()))+' | epoch%d | lr=%g | psnr=%.4f | ypsnr=%.4f'%(epoch,lr,psnr,ypsnr)
+    s=time.strftime('%dth-%H:%M:%S',time.localtime(time.time()))+' | epoch%d(%d) | lr=%g | psnr=%.4f | ypsnr=%.4f'%(epoch,global_step,lr,psnr,ypsnr)
     print(s)
     f=open('info.'+args.model_name,'a')
     f.write(s+'\n')
@@ -139,6 +140,11 @@ def save_checkpoint(state, is_best,logdir):
 
 def train(train_loader, model, criterion, optimizer, epoch):
     for i, (input, target) in enumerate(train_loader):
+        global global_step
+        if global_step%10000==0:
+            for m in optimizer.param_groups:
+                m['lr']=m['lr']*0.9
+        
         input_var = Variable(input.cuda())
         target_var = Variable(target.cuda())
 
@@ -159,7 +165,8 @@ def train(train_loader, model, criterion, optimizer, epoch):
                 'best_psnr': best_psnr,
             }, is_best,args.logdir)
 
-#global_lr=0.001
+        global_step+=1
+
 for epoch in range(args.start_epoch, args.epochs):
 #    if epoch :
 #        lr=global_lr*(0.1**(epoch%2))
