@@ -34,8 +34,6 @@ parser.add_argument('--crop-size','-c',default=256,type=int,
         help='crop size of the hr image')
 parser.add_argument('--lr', '--learning-rate', default=1e-4, type=float,
         help='initial learning rate')
-parser.add_argument('--momentum','-m',default=0.9,type=float,
-        help='momentum if using sgd optimization')
 parser.add_argument('--weight-decay', '--wd', default=1e-4, type=float,
         help='weight decay (default: 1e-4)')
 parser.add_argument('--print-freq', '-p', default=100, type=int,
@@ -46,8 +44,6 @@ parser.add_argument('--generator',default='',type=str,
         help='path to the pretrained srResNet if use it')
 parser.add_argument('--logdir','-s',default='save',type=str,
         help='path to save checkpoint')
-parser.add_argument('--optim','-o',default='Adam',
-        help='the optimization method to be employed')
 parser.add_argument('--traindir',default='r375-400.bin',
         help=' the global name of training set dir')
 parser.add_argument('--valdir',default='b100',type=str,
@@ -71,7 +67,7 @@ args = parser.parse_args()
 args.__dict__['upscale_factor']=4
 #args.traindir=globals()[args.traindir]
 args.valdir=globals()[args.valdir]
-args.__dict__['model_base_name']=args.prefix+'v%g_w%g_%s'%(args.lr,args.weight,args.optim)+('_fixG' if args.fixG else '')+('_fixD' if args.fixD else '')
+args.__dict__['model_base_name']=args.prefix+'v%g_w%g'%(args.lr,args.weight)+('_fixG' if args.fixG else '')+('_fixD' if args.fixD else '')
 args.__dict__['model_name']=args.model_base_name+'.pth'
 args.__dict__['snapshot']='snapshot_'+args.model_base_name
 
@@ -118,14 +114,13 @@ if args.generator:
         print("=>no checkpoint found at '{}'".format(args.generator))
 
 cont_criterion = nn.MSELoss().cuda()
+adv_criterion = nn.BCELoss().cuda()
+real_label=Variable(torch.FloatTensor(torch.ones(args.batch_size)).cuda())
+fake_label=Variable(torch.FloatTensor(torch.zeros(args.batch_size)).cuda())
 
 
-if args.optim=='RMSP':
-    gen_optimizer = torch.optim.RMSprop(gen.parameters(), args.lr)
-    disc_optimizer = torch.optim.RMSprop(disc.parameters(),args.lr*2)
-elif args.optim=='Adam':
-    gen_optimizer = torch.optim.Adam(gen.parameters(), args.lr)
-    disc_optimizer = torch.optim.Adam(disc.parameters(),args.lr*2)
+gen_optimizer = torch.optim.Adam(gen.parameters(), args.lr)
+disc_optimizer = torch.optim.Adam(disc.parameters(),args.lr)
 
 def normalize(tensor):
     r,g,b=torch.split(tensor,1,1)
@@ -194,13 +189,16 @@ def train(epoch):
         if not args.fixD:
             disc_optimizer.zero_grad()
             real_output=disc(target_var)
-            real_loss=((real_output-1)**2).mean()*args.weight
+            real_loss=adv_criterion(real_output,real_label)
             real_loss.backward()
-            fake_output=disc(gen(input_var).detach())
-            fake_loss=(fake_output**2).mean()*args.weight
-            fake_loss.backward()
-            disc_loss=fake_loss+real_loss
             disc_optimizer.step()
+
+            disc_optimizer.zero_grad()
+            fake_output=disc(gen(input_var).detach())
+            fake_loss=adv_criterion(fake_output,fake_label)
+            fake_loss.backward()
+            disc_optimizer.step()
+            disc_loss=fake_loss+real_loss
             
         if not args.fixG:
             gen_optimizer.zero_grad()
@@ -208,7 +206,7 @@ def train(epoch):
             x1,x2,x3,x4,x5,x6=vgg(normalize(G_z))
             y1,y2,y3,y4,y5,y6=vgg(normalize(target_var))
             output=disc(G_z)
-            adv_loss=((output-1)**2).mean()
+            adv_loss=adv_criterion(output,real_label)
             content_loss=cont_criterion(x1,y1.detach())\
                      +cont_criterion(x2,y2.detach())\
                      +cont_criterion(x3,y3.detach())\

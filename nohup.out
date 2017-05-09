@@ -19278,3 +19278,7 @@ bdone
 => loaded checkpoint (epoch 5)
 => loading checkpoint 'save/10:1v1e-05_w1_RMSP.pth'
 => loaded checkpoint (epoch 5)
+Traceback (most recent call last):
+  File "train.py", line 72, in <module>
+    args.__dict__['model_base_name']=args.prefix+'v%g_w%g_%s'%(args.lr,args.weight,args.optim)+('_fixG' if args.fixG else '')+('_fixD' if args.fixD else '')
+AttributeError: 'Namespace' object has no attribute 'optim'
