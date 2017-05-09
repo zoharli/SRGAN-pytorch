@@ -93,8 +93,6 @@ train_loader = torch.utils.data.DataLoader(
 gen=GenNet().cuda()
 disc=DisNet().cuda()
 vgg=vgg19_54().cuda()
-ck=torch.load('save/vgg_v0.0001.pth')
-vgg.load_state_dict(ck['vgg_state_dict'])
 
 fclip=Clip().cuda()
 
@@ -135,9 +133,11 @@ cont_criterion = nn.MSELoss().cuda()
 if args.optim=='RMSP':
     gen_optimizer = torch.optim.RMSprop(gen.parameters(), args.lr)
     disc_optimizer = torch.optim.RMSprop(disc.parameters(),args.lr*args.weight)
+    vgg_optimizer=torch.optim.RMSprop(vgg.parameters(),args.lr*args.weight)
 elif args.optim=='Adam':
     gen_optimizer = torch.optim.Adam(gen.parameters(), args.lr)
-    disc_optimizer = torch.optim.Adam(disc.parameters(),args.lr)
+    disc_optimizer = torch.optim.Adam(disc.parameters(),args.lr*args.weight)
+    vgg_optimizer=torch.optim.Adam(vgg.parameters(),args.lr*args.weight)
 
 def normalize(tensor):
     r,g,b=torch.split(tensor,1,1)
@@ -191,6 +191,10 @@ def save_checkpoint(state, is_best,logdir):
     if is_best:
         shutil.copyfile(filename, os.path.join(logdir,'best_'+args.model_name))
 
+softmargin=torch.nn.SoftMarginLoss().cuda()
+real_label=Variable(torch.FloatTensor(torch.rand(args.batch_size)).cuda())
+fake_label=Variable(torch.FloatTensor(torch.rand(args.batch_size)*-1).cuda())
+
 def train(epoch):
     for i, (input, target) in enumerate(train_loader):
         global global_step
@@ -203,7 +207,7 @@ def train(epoch):
         input_var = Variable(input.cuda())
         target_var = Variable(target.cuda())
         
-        if not args.fixD:
+        if i%2==0 and  not args.fixD:
             disc_optimizer.zero_grad()
             real_output=disc(target_var)
             real_loss=((real_output-1)**2).mean()
@@ -213,12 +217,23 @@ def train(epoch):
             fake_loss.backward()
             disc_loss=fake_loss+real_loss
             disc_optimizer.step()
+
+        if i%2==1:
+            vgg_optimizer.zero_grad()
+            G_z=gen(input_var)
+            x1,x2,x3,x4,x5,x6,x7=vgg(normalize(G_z).detach())
+            y1,y2,y3,y4,y5,y6,y7=vgg(normalize(target_var))
+            vrloss=softmargin(y7,real_label)
+            vrloss.backward()
+            vfloss=softmargin(x7,fake_label)
+            vfloss.backward()
+            vgg_optimizer.step()
             
-        if not args.fixG:
+        if  i%2==0 and not args.fixG:
             gen_optimizer.zero_grad()
             G_z=gen(input_var)
-            x1,x2,x3,x4,x5,x6,_=vgg(normalize(G_z))
-            y1,y2,y3,y4,y5,y6,_=vgg(normalize(target_var))
+            x1,x2,x3,x4,x5,x6,x7=vgg(normalize(G_z))
+            y1,y2,y3,y4,y5,y6,y7=vgg(normalize(target_var))
             output=disc(G_z)
             adv_loss=((output-1)**2).mean()
             content_loss=cont_criterion(x1,y1.detach())\
@@ -232,6 +247,8 @@ def train(epoch):
             gen_loss=content_loss
             gen_loss.backward()
             gen_optimizer.step()
+            
+            
             
         if i % args.print_freq == 0:
             s=time.strftime('%dth-%H:%M:%S',time.localtime(time.time()))+' | epoch%d(%d) | lr=%g'%(epoch,global_step,args.lr)

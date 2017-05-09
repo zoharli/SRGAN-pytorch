@@ -37,7 +37,7 @@ global_step=1
 args = parser.parse_args()
 args.__dict__['upscale_factor']=4
 #args.traindir=globals()[args.traindir]
-args.__dict__['model_base_name']='vgg_v%g'%(args.lr)
+args.__dict__['model_base_name']='vgg_v%g'%(args.lr)+('_fixF' if args.fixF else '')
 args.__dict__['model_name']=args.model_base_name+'.pth'
 
 setproctitle(args.model_base_name)
