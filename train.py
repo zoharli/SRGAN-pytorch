@@ -207,8 +207,8 @@ def train(epoch):
             y1,y2,y3,y4,y5,y6=vgg(normalize(target_var))
             output=disc(G_z)
             adv_loss=adv_criterion(output,real_label)
-            content_loss=cont_criterion(x1,y1.detach())\
-                     +cont_criterion(x2,y2.detach())\
+            content_loss=\
+                     cont_criterion(x2,y2.detach())\
                      +cont_criterion(x3,y3.detach())\
                      +cont_criterion(x4,y4.detach())\
                      +cont_criterion(x5,y5.detach())\

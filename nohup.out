@@ -19282,3 +19282,1028 @@ Traceback (most recent call last):
   File "train.py", line 72, in <module>
     args.__dict__['model_base_name']=args.prefix+'v%g_w%g_%s'%(args.lr,args.weight,args.optim)+('_fixG' if args.fixG else '')+('_fixD' if args.fixD else '')
 AttributeError: 'Namespace' object has no attribute 'optim'
+=> loading checkpoint 'save/10:1v1e-05_w1_RMSP.pth'
+=> loaded checkpoint (epoch 5)
+=> loading checkpoint 'save/10:1v1e-05_w1_RMSP.pth'
+=> loaded checkpoint (epoch 5)
+THCudaCheck FAIL file=/py/conda-bld/pytorch_1493680494901/work/torch/lib/THC/generic/THCStorage.cu line=66 error=2 : out of memory
+Traceback (most recent call last):
+  File "train.py", line 253, in <module>
+    train(epoch)
+  File "train.py", line 193, in train
+    real_loss.backward()
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/autograd/variable.py", line 146, in backward
+    self._execution_engine.run_backward((self,), (gradient,), retain_variables)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/_functions/linear.py", line 24, in backward
+    grad_weight = torch.mm(grad_output.t(), input)
+RuntimeError: cuda runtime error (2) : out of memory at /py/conda-bld/pytorch_1493680494901/work/torch/lib/THC/generic/THCStorage.cu:66
+=> loading checkpoint 'save/10:1v1e-05_w1_RMSP.pth'
+=> loaded checkpoint (epoch 5)
+THCudaCheck FAIL file=/py/conda-bld/pytorch_1493680494901/work/torch/lib/THC/generic/THCStorage.cu line=66 error=2 : out of memory
+Traceback (most recent call last):
+  File "train.py", line 253, in <module>
+    train(epoch)
+  File "train.py", line 193, in train
+    real_loss.backward()
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/autograd/variable.py", line 146, in backward
+    self._execution_engine.run_backward((self,), (gradient,), retain_variables)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/_functions/linear.py", line 24, in backward
+    grad_weight = torch.mm(grad_output.t(), input)
+RuntimeError: cuda runtime error (2) : out of memory at /py/conda-bld/pytorch_1493680494901/work/torch/lib/THC/generic/THCStorage.cu:66
+=> loading checkpoint 'save/10:1v1e-05_w1_RMSP.pth'
+=> loaded checkpoint (epoch 5)
+=> loading checkpoint 'save/10:1v1e-05_w1_RMSP.pth'
+=> loaded checkpoint (epoch 5)
+Traceback (most recent call last):
+  File "train.py", line 253, in <module>
+    train(epoch)
+  File "train.py", line 191, in train
+    real_output=disc(target_var)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/module.py", line 206, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/media/H/zohar/SRGAN-pytorch/models.py", line 192, in forward
+    x = self.features(x)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/module.py", line 206, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/container.py", line 64, in forward
+    input = module(input)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/module.py", line 206, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/modules/conv.py", line 237, in forward
+    self.padding, self.dilation, self.groups)
+  File "/home/zohar/.local/anaconda3/lib/python3.6/site-packages/torch/nn/functional.py", line 40, in conv2d
+    return f(input, weight, bias)
+RuntimeError: CUDNN_STATUS_ALLOC_FAILED
+=> loading checkpoint 'save/10:1v1e-05_w1_RMSP.pth'
+=> loaded checkpoint (epoch 5)
+Traceback (most recent call last):
+  File "train.py", line 253, in <module>
+    train(epoch)
+  File "train.py", line 216, in train
+    +adv_loss*args.weight
+TypeError: bad operand type for unary +: 'Variable'
+=> loading checkpoint 'save/10:1v1e-05_w1_RMSP.pth'
+=> loaded checkpoint (epoch 5)
+=> loading checkpoint 'save/10:1v1e-05_w1_RMSP.pth'
+=> loaded checkpoint (epoch 5)
+usage: train.py [-h] [-j WORKERS] [--epochs EPOCHS]
+                [--start-epoch START_EPOCH] [-b BATCH_SIZE]
+                [--crop-size CROP_SIZE] [--lr LR]
+                [--weight-decay WEIGHT_DECAY] [--print-freq PRINT_FREQ]
+                [--resume RESUME] [--generator GENERATOR] [--logdir LOGDIR]
+                [--traindir TRAINDIR] [--valdir VALDIR] [--weight WEIGHT]
+                [--fixG] [--fixD] [--clip CLIP] [--prefix PREFIX]
+train.py: error: argument --weight: invalid float value: '1e-1smi'
+=> loading checkpoint 'save/10:1v1e-05_w1_RMSP.pth'
+=> loaded checkpoint (epoch 5)
+=> loading checkpoint 'save/10:1v1e-05_w1_RMSP.pth'
+=> loaded checkpoint (epoch 5)
+09th-19:50:10 | epoch5(58800) | lr=1e-05 | psnr=24.181 | ypsnr=26.107  | Loss(G):668.176[Cont:668.176/Adv:649.738] | Loss(D):0.136969[Real:0.0785893/Fake:0.0583797]
+09th-19:53:38 | epoch5(58900) | lr=1e-05 | psnr=24.028 | ypsnr=25.971  | Loss(G):27.65[Cont:27.65/Adv:4.72414] | Loss(D):0.589783[Real:0.051795/Fake:0.537988]
+09th-19:57:14 | epoch5(59000) | lr=1e-05 | psnr=23.612 | ypsnr=25.442  | Loss(G):24.0255[Cont:24.0255/Adv:3.47365] | Loss(D):0.79575[Real:0.461329/Fake:0.334421]
+09th-20:00:47 | epoch5(59100) | lr=1e-05 | psnr=23.282 | ypsnr=25.184  | Loss(G):23.5445[Cont:23.5445/Adv:8.85302] | Loss(D):1.17295[Real:0.37356/Fake:0.799394]
+09th-20:04:23 | epoch5(59200) | lr=1e-05 | psnr=23.302 | ypsnr=25.200  | Loss(G):26.5863[Cont:26.5863/Adv:3.83847] | Loss(D):0.856543[Real:0.366331/Fake:0.490212]
+09th-20:08:02 | epoch5(59300) | lr=1e-05 | psnr=23.212 | ypsnr=25.212  | Loss(G):17.9844[Cont:17.9844/Adv:1.89341] | Loss(D):1.03988[Real:0.438534/Fake:0.601349]
+09th-20:11:38 | epoch5(59400) | lr=1e-05 | psnr=23.414 | ypsnr=25.421  | Loss(G):18.7218[Cont:18.7218/Adv:3.38771] | Loss(D):0.637386[Real:0.20186/Fake:0.435526]
+09th-20:15:08 | epoch5(59500) | lr=1e-05 | psnr=23.206 | ypsnr=25.138  | Loss(G):16.0629[Cont:16.0629/Adv:0.59203] | Loss(D):0.588792[Real:0.310129/Fake:0.278664]
+09th-20:18:45 | epoch5(59600) | lr=1e-05 | psnr=23.135 | ypsnr=24.950  | Loss(G):29.424[Cont:29.424/Adv:13.4728] | Loss(D):1.96931[Real:0.471893/Fake:1.49741]
+09th-20:22:14 | epoch5(59700) | lr=1e-05 | psnr=23.248 | ypsnr=25.135  | Loss(G):17.8147[Cont:17.8147/Adv:0.58281] | Loss(D):1.07408[Real:0.702618/Fake:0.371464]
+09th-20:25:46 | epoch5(59800) | lr=1e-05 | psnr=23.304 | ypsnr=25.137  | Loss(G):22.0158[Cont:22.0158/Adv:2.46489] | Loss(D):0.727021[Real:0.649887/Fake:0.0771339]
+09th-20:29:16 | epoch5(59900) | lr=1e-05 | psnr=23.235 | ypsnr=24.997  | Loss(G):17.0074[Cont:17.0074/Adv:0.921638] | Loss(D):0.963723[Real:0.617331/Fake:0.346392]
+09th-20:32:48 | epoch5(60000) | lr=1e-05 | psnr=23.394 | ypsnr=25.425  | Loss(G):17.4155[Cont:17.4155/Adv:1.57869] | Loss(D):0.874765[Real:0.607866/Fake:0.266899]
+09th-20:36:20 | epoch5(60100) | lr=1e-05 | psnr=23.057 | ypsnr=24.987  | Loss(G):21.0602[Cont:21.0602/Adv:2.42998] | Loss(D):0.571265[Real:0.301746/Fake:0.269519]
+09th-20:39:50 | epoch5(60200) | lr=1e-05 | psnr=23.243 | ypsnr=25.157  | Loss(G):11.6229[Cont:11.6229/Adv:0.258868] | Loss(D):0.817489[Real:0.511248/Fake:0.306241]
+09th-20:43:26 | epoch5(60300) | lr=1e-05 | psnr=23.293 | ypsnr=25.265  | Loss(G):12.8122[Cont:12.8122/Adv:1.53623] | Loss(D):0.715552[Real:0.31108/Fake:0.404472]
+09th-20:46:56 | epoch5(60400) | lr=1e-05 | psnr=23.398 | ypsnr=25.295  | Loss(G):20.6378[Cont:20.6378/Adv:5.54622] | Loss(D):1.55467[Real:0.58764/Fake:0.967032]
+09th-20:50:26 | epoch5(60500) | lr=1e-05 | psnr=23.183 | ypsnr=25.187  | Loss(G):32.6658[Cont:32.6658/Adv:18.637] | Loss(D):1.87837[Real:0.3428/Fake:1.53557]
+09th-20:53:53 | epoch5(60600) | lr=1e-05 | psnr=23.352 | ypsnr=25.267  | Loss(G):20.5423[Cont:20.5423/Adv:2.08359] | Loss(D):0.52431[Real:0.276548/Fake:0.247762]
+09th-20:57:22 | epoch5(60700) | lr=1e-05 | psnr=23.323 | ypsnr=25.267  | Loss(G):17.3338[Cont:17.3338/Adv:1.81177] | Loss(D):0.653843[Real:0.39067/Fake:0.263173]
+09th-21:00:51 | epoch5(60800) | lr=1e-05 | psnr=23.130 | ypsnr=25.064  | Loss(G):25.4006[Cont:25.4006/Adv:3.7655] | Loss(D):0.793141[Real:0.356837/Fake:0.436304]
+09th-21:04:26 | epoch5(60900) | lr=1e-05 | psnr=22.889 | ypsnr=24.663  | Loss(G):18.9681[Cont:18.9681/Adv:0.595623] | Loss(D):0.533027[Real:0.417268/Fake:0.115759]
+09th-21:07:55 | epoch5(61000) | lr=1e-05 | psnr=23.248 | ypsnr=25.146  | Loss(G):14.16[Cont:14.16/Adv:0.183335] | Loss(D):0.436056[Real:0.241803/Fake:0.194253]
+09th-21:11:27 | epoch5(61100) | lr=1e-05 | psnr=23.294 | ypsnr=25.111  | Loss(G):22.0872[Cont:22.0872/Adv:6.30912] | Loss(D):1.60604[Real:1.07314/Fake:0.5329]
+09th-21:14:57 | epoch5(61200) | lr=1e-05 | psnr=23.226 | ypsnr=25.047  | Loss(G):14.6148[Cont:14.6148/Adv:1.04713] | Loss(D):1.05632[Real:0.445869/Fake:0.610455]
+09th-21:18:27 | epoch5(61300) | lr=1e-05 | psnr=23.244 | ypsnr=25.168  | Loss(G):15.9028[Cont:15.9028/Adv:1.19162] | Loss(D):0.614487[Real:0.244673/Fake:0.369813]
+09th-21:22:01 | epoch5(61400) | lr=1e-05 | psnr=23.283 | ypsnr=25.196  | Loss(G):22.5454[Cont:22.5454/Adv:2.85569] | Loss(D):0.493991[Real:0.284305/Fake:0.209687]
+09th-21:25:32 | epoch5(61500) | lr=1e-05 | psnr=23.151 | ypsnr=25.106  | Loss(G):13.9514[Cont:13.9514/Adv:0.538444] | Loss(D):0.905408[Real:0.449284/Fake:0.456124]
+09th-21:29:06 | epoch5(61600) | lr=1e-05 | psnr=23.205 | ypsnr=25.078  | Loss(G):20.0129[Cont:20.0129/Adv:1.0858] | Loss(D):0.784208[Real:0.289436/Fake:0.494772]
+09th-21:32:39 | epoch5(61700) | lr=1e-05 | psnr=23.355 | ypsnr=25.286  | Loss(G):19.6931[Cont:19.6931/Adv:4.68777] | Loss(D):0.848258[Real:0.303484/Fake:0.544773]
+09th-21:36:11 | epoch5(61800) | lr=1e-05 | psnr=23.394 | ypsnr=25.328  | Loss(G):15.7739[Cont:15.7739/Adv:1.52456] | Loss(D):0.59349[Real:0.334964/Fake:0.258526]
+09th-21:39:42 | epoch5(61900) | lr=1e-05 | psnr=23.284 | ypsnr=25.258  | Loss(G):18.0454[Cont:18.0454/Adv:1.90073] | Loss(D):0.429991[Real:0.274661/Fake:0.15533]
+09th-21:43:12 | epoch5(62000) | lr=1e-05 | psnr=23.224 | ypsnr=25.195  | Loss(G):20.4915[Cont:20.4915/Adv:4.28177] | Loss(D):1.05788[Real:0.396552/Fake:0.661324]
+09th-21:46:42 | epoch5(62100) | lr=1e-05 | psnr=23.370 | ypsnr=25.283  | Loss(G):14.0339[Cont:14.0339/Adv:3.44017] | Loss(D):0.931915[Real:0.414721/Fake:0.517194]
+09th-21:50:15 | epoch5(62200) | lr=1e-05 | psnr=23.485 | ypsnr=25.388  | Loss(G):17.1266[Cont:17.1266/Adv:1.34896] | Loss(D):0.395182[Real:0.284033/Fake:0.111148]
+09th-21:53:47 | epoch5(62300) | lr=1e-05 | psnr=23.507 | ypsnr=25.407  | Loss(G):21.3197[Cont:21.3197/Adv:1.09754] | Loss(D):0.629267[Real:0.47709/Fake:0.152177]
+09th-21:57:19 | epoch5(62400) | lr=1e-05 | psnr=23.408 | ypsnr=25.204  | Loss(G):15.2936[Cont:15.2936/Adv:2.55347] | Loss(D):0.381558[Real:0.155552/Fake:0.226006]
+09th-22:00:50 | epoch5(62500) | lr=1e-05 | psnr=22.951 | ypsnr=24.934  | Loss(G):20.8874[Cont:20.8874/Adv:4.04223] | Loss(D):0.456355[Real:0.211339/Fake:0.245016]
+09th-22:04:20 | epoch5(62600) | lr=1e-05 | psnr=23.023 | ypsnr=24.872  | Loss(G):12.6074[Cont:12.6074/Adv:0.848622] | Loss(D):0.615439[Real:0.337962/Fake:0.277477]
+09th-22:07:55 | epoch5(62700) | lr=1e-05 | psnr=23.128 | ypsnr=24.988  | Loss(G):18.6407[Cont:18.6407/Adv:2.90953] | Loss(D):0.72646[Real:0.314984/Fake:0.411476]
+09th-22:11:27 | epoch5(62800) | lr=1e-05 | psnr=22.972 | ypsnr=24.831  | Loss(G):17.9196[Cont:17.9196/Adv:1.32447] | Loss(D):0.729559[Real:0.315212/Fake:0.414347]
+09th-22:15:02 | epoch5(62900) | lr=1e-05 | psnr=23.152 | ypsnr=25.049  | Loss(G):15.5161[Cont:15.5161/Adv:3.26732] | Loss(D):0.693287[Real:0.223057/Fake:0.47023]
+09th-22:18:32 | epoch5(63000) | lr=1e-05 | psnr=23.241 | ypsnr=25.181  | Loss(G):18.2276[Cont:18.2276/Adv:0.830766] | Loss(D):0.488934[Real:0.16141/Fake:0.327524]
+09th-22:22:08 | epoch5(63100) | lr=1e-05 | psnr=23.127 | ypsnr=25.111  | Loss(G):24.111[Cont:24.111/Adv:1.03538] | Loss(D):0.550045[Real:0.340441/Fake:0.209603]
+09th-22:25:42 | epoch5(63200) | lr=1e-05 | psnr=23.286 | ypsnr=25.286  | Loss(G):18.7489[Cont:18.7489/Adv:1.61123] | Loss(D):0.737249[Real:0.269967/Fake:0.467282]
+09th-22:29:15 | epoch5(63300) | lr=1e-05 | psnr=23.448 | ypsnr=25.358  | Loss(G):23.6697[Cont:23.6697/Adv:4.16362] | Loss(D):0.803771[Real:0.338068/Fake:0.465703]
+09th-22:32:45 | epoch5(63400) | lr=1e-05 | psnr=23.326 | ypsnr=25.305  | Loss(G):13.4198[Cont:13.4198/Adv:0.604023] | Loss(D):0.445001[Real:0.307371/Fake:0.13763]
+09th-22:36:18 | epoch5(63500) | lr=1e-05 | psnr=23.573 | ypsnr=25.421  | Loss(G):12.4577[Cont:12.4577/Adv:0.469932] | Loss(D):0.783239[Real:0.55868/Fake:0.224559]
+09th-22:39:50 | epoch5(63600) | lr=1e-05 | psnr=23.592 | ypsnr=25.539  | Loss(G):19.6706[Cont:19.6706/Adv:4.87543] | Loss(D):1.04257[Real:0.410089/Fake:0.632482]
+09th-22:43:24 | epoch5(63700) | lr=1e-05 | psnr=23.467 | ypsnr=25.342  | Loss(G):14.7556[Cont:14.7556/Adv:2.3786] | Loss(D):0.646[Real:0.414883/Fake:0.231117]
+09th-22:47:09 | epoch5(63800) | lr=1e-05 | psnr=23.451 | ypsnr=25.377  | Loss(G):14.995[Cont:14.995/Adv:0.496265] | Loss(D):0.732505[Real:0.413619/Fake:0.318886]=> loading checkpoint 'save/async_v1e-05_w1.pth'
+=> loaded checkpoint (epoch 6)
+=> loading checkpoint 'save/async_v1e-05_w0.1.pth'
+=> loaded checkpoint (epoch 6)
+09th-19:20:16 | epoch9(0) | lr=9e-05 | psnr=26.0457 | ypsnr=27.6990
+09th-19:23:15 | epoch9(100) | lr=9e-05 | psnr=26.5863 | ypsnr=27.9934
+09th-19:26:10 | epoch9(200) | lr=9e-05 | psnr=26.6020 | ypsnr=28.0031
+09th-19:29:07 | epoch9(300) | lr=9e-05 | psnr=26.6035 | ypsnr=28.0199
+09th-19:32:04 | epoch9(400) | lr=9e-05 | psnr=26.5820 | ypsnr=27.9742
+09th-19:35:02 | epoch9(500) | lr=9e-05 | psnr=26.5960 | ypsnr=28.0126
+09th-19:38:02 | epoch9(600) | lr=9e-05 | psnr=26.5932 | ypsnr=27.9943
+09th-19:40:58 | epoch9(700) | lr=9e-05 | psnr=26.5848 | ypsnr=27.9980
+09th-19:44:04 | epoch9(800) | lr=9e-05 | psnr=26.5604 | ypsnr=27.9545
+09th-19:47:02 | epoch9(900) | lr=9e-05 | psnr=26.5897 | ypsnr=27.9760
+09th-19:49:59 | epoch9(1000) | lr=9e-05 | psnr=26.5967 | ypsnr=28.0126
+09th-19:52:56 | epoch9(1100) | lr=9e-05 | psnr=26.5930 | ypsnr=27.9928
+09th-19:55:54 | epoch9(1200) | lr=9e-05 | psnr=26.5844 | ypsnr=27.9807
+09th-19:58:52 | epoch9(1300) | lr=9e-05 | psnr=26.6067 | ypsnr=28.0150
+09th-20:01:52 | epoch9(1400) | lr=9e-05 | psnr=26.5932 | ypsnr=28.0046
+09th-20:04:55 | epoch9(1500) | lr=9e-05 | psnr=26.5894 | ypsnr=27.9652
+09th-20:07:52 | epoch9(1600) | lr=9e-05 | psnr=26.5953 | ypsnr=27.9909
+09th-20:10:50 | epoch9(1700) | lr=9e-05 | psnr=26.5970 | ypsnr=27.9885
+09th-20:13:48 | epoch9(1800) | lr=9e-05 | psnr=26.5941 | ypsnr=28.0083
+09th-20:16:46 | epoch9(1900) | lr=9e-05 | psnr=26.6051 | ypsnr=28.0022
+09th-20:19:44 | epoch9(2000) | lr=9e-05 | psnr=26.5995 | ypsnr=28.0092
+09th-20:22:44 | epoch9(2100) | lr=9e-05 | psnr=26.5697 | ypsnr=27.9607
+09th-20:25:41 | epoch9(2200) | lr=9e-05 | psnr=26.5958 | ypsnr=28.0025
+09th-20:28:37 | epoch9(2300) | lr=9e-05 | psnr=26.5973 | ypsnr=28.0006
+09th-20:31:33 | epoch9(2400) | lr=9e-05 | psnr=26.6130 | ypsnr=28.0200
+09th-20:34:31 | epoch9(2500) | lr=9e-05 | psnr=26.5952 | ypsnr=28.0097
+09th-20:37:28 | epoch9(2600) | lr=9e-05 | psnr=26.5806 | ypsnr=27.9893
+09th-20:40:28 | epoch9(2700) | lr=9e-05 | psnr=26.6028 | ypsnr=27.9984
+09th-20:43:25 | epoch9(2800) | lr=9e-05 | psnr=26.5920 | ypsnr=28.0087
+09th-20:46:23 | epoch9(2900) | lr=9e-05 | psnr=26.6115 | ypsnr=28.0116
+09th-20:49:20 | epoch9(3000) | lr=9e-05 | psnr=26.5908 | ypsnr=28.0076
+09th-20:52:16 | epoch9(3100) | lr=9e-05 | psnr=26.6011 | ypsnr=27.9908
+09th-20:55:13 | epoch9(3200) | lr=9e-05 | psnr=26.5986 | ypsnr=28.0125
+09th-20:58:10 | epoch9(3300) | lr=9e-05 | psnr=26.6056 | ypsnr=28.0066
+09th-21:01:10 | epoch9(3400) | lr=9e-05 | psnr=26.5940 | ypsnr=27.9973
+09th-21:04:07 | epoch9(3500) | lr=9e-05 | psnr=26.5945 | ypsnr=27.9822
+09th-21:07:04 | epoch9(3600) | lr=9e-05 | psnr=26.6000 | ypsnr=27.9967
+09th-21:10:00 | epoch9(3700) | lr=9e-05 | psnr=26.5766 | ypsnr=27.9681
+09th-21:12:54 | epoch9(3800) | lr=9e-05 | psnr=26.5989 | ypsnr=28.0313
+09th-21:15:46 | epoch9(3900) | lr=9e-05 | psnr=26.5850 | ypsnr=27.9833
+09th-21:18:41 | epoch9(4000) | lr=9e-05 | psnr=26.6056 | ypsnr=28.0050
+09th-21:21:33 | epoch9(4100) | lr=9e-05 | psnr=26.6144 | ypsnr=28.0270
+09th-21:24:26 | epoch9(4200) | lr=9e-05 | psnr=26.5940 | ypsnr=27.9907
+09th-21:27:23 | epoch9(4300) | lr=9e-05 | psnr=26.5709 | ypsnr=27.9568
+09th-21:30:15 | epoch9(4400) | lr=9e-05 | psnr=26.5914 | ypsnr=27.9996
+09th-21:33:14 | epoch9(4500) | lr=9e-05 | psnr=26.6013 | ypsnr=28.0090
+09th-21:36:10 | epoch9(4600) | lr=9e-05 | psnr=26.6030 | ypsnr=27.9937
+09th-21:39:09 | epoch9(4700) | lr=9e-05 | psnr=26.6013 | ypsnr=28.0192
+09th-21:42:04 | epoch9(4800) | lr=9e-05 | psnr=26.5971 | ypsnr=28.0099
+09th-21:44:22 | epoch9(4900) | lr=9e-05 | psnr=26.5795 | ypsnr=27.9823
+09th-21:46:40 | epoch9(5000) | lr=9e-05 | psnr=26.6001 | ypsnr=27.9952
+09th-21:48:58 | epoch9(5100) | lr=9e-05 | psnr=26.6174 | ypsnr=28.0138
+09th-21:51:18 | epoch9(5200) | lr=9e-05 | psnr=26.5900 | ypsnr=27.9901
+09th-21:53:37 | epoch9(5300) | lr=9e-05 | psnr=26.6048 | ypsnr=28.0157
+09th-21:55:56 | epoch9(5400) | lr=9e-05 | psnr=26.6074 | ypsnr=28.0189
+09th-21:58:14 | epoch9(5500) | lr=9e-05 | psnr=26.5973 | ypsnr=28.0263
+09th-22:00:36 | epoch9(5600) | lr=9e-05 | psnr=26.5781 | ypsnr=27.9667
+09th-22:02:56 | epoch9(5700) | lr=9e-05 | psnr=26.5953 | ypsnr=28.0171
+09th-22:05:16 | epoch9(5800) | lr=9e-05 | psnr=26.5999 | ypsnr=28.0103
+09th-22:07:35 | epoch9(5900) | lr=9e-05 | psnr=26.5590 | ypsnr=27.9717
+09th-22:09:55 | epoch9(6000) | lr=9e-05 | psnr=26.6019 | ypsnr=28.0064
+09th-22:12:13 | epoch9(6100) | lr=9e-05 | psnr=26.5748 | ypsnr=27.9639
+09th-22:14:35 | epoch9(6200) | lr=9e-05 | psnr=26.5869 | ypsnr=27.9760
+09th-22:16:53 | epoch9(6300) | lr=9e-05 | psnr=26.5925 | ypsnr=27.9985
+09th-22:19:12 | epoch9(6400) | lr=9e-05 | psnr=26.5992 | ypsnr=28.0053
+09th-22:21:31 | epoch9(6500) | lr=9e-05 | psnr=26.5771 | ypsnr=27.9936
+09th-22:23:50 | epoch9(6600) | lr=9e-05 | psnr=26.5994 | ypsnr=28.0081
+09th-22:26:13 | epoch9(6700) | lr=9e-05 | psnr=26.5640 | ypsnr=27.9517
+09th-22:28:30 | epoch9(6800) | lr=9e-05 | psnr=26.5946 | ypsnr=27.9915
+09th-22:30:49 | epoch9(6900) | lr=9e-05 | psnr=26.5800 | ypsnr=27.9775
+09th-22:33:10 | epoch9(7000) | lr=9e-05 | psnr=26.6060 | ypsnr=28.0157
+09th-22:35:28 | epoch9(7100) | lr=9e-05 | psnr=26.5967 | ypsnr=28.0063
+09th-22:37:47 | epoch9(7200) | lr=9e-05 | psnr=26.6006 | ypsnr=28.0087
+09th-22:40:07 | epoch9(7300) | lr=9e-05 | psnr=26.5948 | ypsnr=27.9992
+09th-22:42:24 | epoch9(7400) | lr=9e-05 | psnr=26.5973 | ypsnr=27.9900
+09th-22:44:47 | epoch9(7500) | lr=9e-05 | psnr=26.5817 | ypsnr=27.9857
+09th-22:47:08 | epoch9(7600) | lr=9e-05 | psnr=26.5720 | ypsnr=27.9646
+09th-22:49:30 | epoch9(7700) | lr=9e-05 | psnr=26.5930 | ypsnr=28.0081
+09th-22:51:49 | epoch9(7800) | lr=9e-05 | psnr=26.6002 | ypsnr=28.0105
+09th-22:54:07 | epoch9(7900) | lr=9e-05 | psnr=26.5727 | ypsnr=27.9700
+09th-22:56:30 | epoch9(8000) | lr=9e-05 | psnr=26.6007 | ypsnr=28.0046
+09th-22:58:50 | epoch9(8100) | lr=9e-05 | psnr=26.6032 | ypsnr=27.9982
+09th-23:01:09 | epoch9(8200) | lr=9e-05 | psnr=26.6000 | ypsnr=28.0061
+09th-23:03:25 | epoch9(8300) | lr=9e-05 | psnr=26.6049 | ypsnr=28.0072
+09th-23:05:46 | epoch9(8400) | lr=9e-05 | psnr=26.6068 | ypsnr=28.0020
+09th-23:08:01 | epoch9(8500) | lr=9e-05 | psnr=26.6007 | ypsnr=28.0116
+09th-23:10:17 | epoch9(8600) | lr=9e-05 | psnr=26.5971 | ypsnr=27.9937
+09th-23:12:34 | epoch9(8700) | lr=9e-05 | psnr=26.5945 | ypsnr=28.0026
+09th-23:14:50 | epoch9(8800) | lr=9e-05 | psnr=26.6036 | ypsnr=27.9979
+09th-23:17:05 | epoch9(8900) | lr=9e-05 | psnr=26.6009 | ypsnr=28.0176
+09th-23:19:26 | epoch9(9000) | lr=9e-05 | psnr=26.5749 | ypsnr=28.0054
+09th-23:21:42 | epoch9(9100) | lr=9e-05 | psnr=26.6003 | ypsnr=28.0059
+09th-23:23:57 | epoch9(9200) | lr=9e-05 | psnr=26.5891 | ypsnr=28.0022
+09th-23:26:18 | epoch9(9300) | lr=9e-05 | psnr=26.6134 | ypsnr=28.0273
+09th-23:28:35 | epoch9(9400) | lr=9e-05 | psnr=26.6016 | ypsnr=27.9924
+09th-23:30:51 | epoch9(9500) | lr=9e-05 | psnr=26.5697 | ypsnr=27.9728
+09th-23:33:13 | epoch9(9600) | lr=9e-05 | psnr=26.5827 | ypsnr=27.9657
+09th-23:35:29 | epoch9(9700) | lr=9e-05 | psnr=26.5897 | ypsnr=27.9864
+09th-23:37:46 | epoch9(9800) | lr=9e-05 | psnr=26.6062 | ypsnr=28.0275
+09th-23:40:11 | epoch9(9900) | lr=9e-05 | psnr=26.5798 | ypsnr=27.9912
+09th-23:42:28 | epoch9(10000) | lr=8.1e-05 | psnr=26.6081 | ypsnr=28.0168
+09th-23:44:43 | epoch9(10100) | lr=8.1e-05 | psnr=26.5953 | ypsnr=28.0100
+09th-23:47:02 | epoch9(10200) | lr=8.1e-05 | psnr=26.6007 | ypsnr=27.9860
+09th-23:49:17 | epoch9(10300) | lr=8.1e-05 | psnr=26.5997 | ypsnr=28.0139
+09th-23:51:38 | epoch9(10400) | lr=8.1e-05 | psnr=26.5839 | ypsnr=27.9903
+09th-23:53:54 | epoch9(10500) | lr=8.1e-05 | psnr=26.6049 | ypsnr=28.0014
+09th-23:56:11 | epoch9(10600) | lr=8.1e-05 | psnr=26.5893 | ypsnr=27.9870
+09th-23:58:28 | epoch9(10700) | lr=8.1e-05 | psnr=26.5832 | ypsnr=27.9825
+10th-00:00:43 | epoch9(10800) | lr=8.1e-05 | psnr=26.5948 | ypsnr=27.9963
+10th-00:03:07 | epoch9(10900) | lr=8.1e-05 | psnr=26.5864 | ypsnr=28.0014
+10th-00:05:24 | epoch9(11000) | lr=8.1e-05 | psnr=26.6092 | ypsnr=28.0121
+10th-00:07:40 | epoch9(11100) | lr=8.1e-05 | psnr=26.5976 | ypsnr=27.9944
+10th-00:09:57 | epoch9(11200) | lr=8.1e-05 | psnr=26.6107 | ypsnr=28.0226
+10th-00:12:15 | epoch9(11300) | lr=8.1e-05 | psnr=26.5958 | ypsnr=28.0138
+10th-00:14:32 | epoch9(11400) | lr=8.1e-05 | psnr=26.5703 | ypsnr=27.9962
+09th-22:50:43 | epoch5(63900) | lr=1e-05 | psnr=23.304 | ypsnr=25.117  | Loss(G):17.0114[Cont:17.0114/Adv:0.484315] | Loss(D):0.491524[Real:0.285372/Fake:0.206152]
+09th-22:54:16 | epoch5(64000) | lr=1e-05 | psnr=22.996 | ypsnr=24.830  | Loss(G):16.3766[Cont:16.3766/Adv:0.798565] | Loss(D):0.387818[Real:0.206251/Fake:0.181567]
+09th-22:57:50 | epoch5(64100) | lr=1e-05 | psnr=23.221 | ypsnr=25.090  | Loss(G):20.9203[Cont:20.9203/Adv:3.38139] | Loss(D):0.42555[Real:0.0523943/Fake:0.373156]
+09th-23:01:18 | epoch5(64200) | lr=1e-05 | psnr=23.476 | ypsnr=25.409  | Loss(G):19.9675[Cont:19.9675/Adv:1.49428] | Loss(D):0.407105[Real:0.182348/Fake:0.224757]
+09th-23:04:50 | epoch5(64300) | lr=1e-05 | psnr=23.471 | ypsnr=25.264  | Loss(G):20.3082[Cont:20.3082/Adv:2.18507] | Loss(D):0.366187[Real:0.216001/Fake:0.150186]
+09th-23:08:19 | epoch5(64400) | lr=1e-05 | psnr=23.170 | ypsnr=24.991  | Loss(G):18.3759[Cont:18.3759/Adv:3.81204] | Loss(D):0.627156[Real:0.230979/Fake:0.396177]
+09th-23:11:49 | epoch5(64500) | lr=1e-05 | psnr=23.212 | ypsnr=25.119  | Loss(G):14.616[Cont:14.616/Adv:0.643159] | Loss(D):1.09493[Real:0.572723/Fake:0.522202]
+09th-23:15:23 | epoch5(64600) | lr=1e-05 | psnr=23.082 | ypsnr=24.876  | Loss(G):17.1361[Cont:17.1361/Adv:1.67938] | Loss(D):0.455361[Real:0.160353/Fake:0.295009]
+09th-23:18:53 | epoch5(64700) | lr=1e-05 | psnr=23.169 | ypsnr=24.933  | Loss(G):10.9972[Cont:10.9972/Adv:0.261554] | Loss(D):0.619768[Real:0.418064/Fake:0.201704]
+09th-23:22:29 | epoch5(64800) | lr=1e-05 | psnr=23.182 | ypsnr=24.961  | Loss(G):13.3965[Cont:13.3965/Adv:1.1004] | Loss(D):0.290123[Real:0.179642/Fake:0.110481]
+09th-23:25:59 | epoch5(64900) | lr=1e-05 | psnr=23.178 | ypsnr=24.955  | Loss(G):14.6647[Cont:14.6647/Adv:0.531021] | Loss(D):0.428197[Real:0.213175/Fake:0.215022]
+09th-23:29:32 | epoch5(65000) | lr=1e-05 | psnr=23.110 | ypsnr=24.859  | Loss(G):14.2221[Cont:14.2221/Adv:1.7857] | Loss(D):0.355943[Real:0.167491/Fake:0.188452]
+09th-23:33:01 | epoch5(65100) | lr=1e-05 | psnr=22.890 | ypsnr=24.557  | Loss(G):20.5599[Cont:20.5599/Adv:5.13609] | Loss(D):0.775219[Real:0.316771/Fake:0.458448]
+09th-23:36:35 | epoch5(65200) | lr=1e-05 | psnr=23.140 | ypsnr=24.902  | Loss(G):19.3283[Cont:19.3283/Adv:2.2983] | Loss(D):0.859449[Real:0.54232/Fake:0.317128]
+09th-23:40:05 | epoch5(65300) | lr=1e-05 | psnr=22.960 | ypsnr=24.772  | Loss(G):17.7299[Cont:17.7299/Adv:2.39726] | Loss(D):0.48717[Real:0.154002/Fake:0.333167]
+09th-23:43:37 | epoch5(65400) | lr=1e-05 | psnr=22.956 | ypsnr=24.787  | Loss(G):11.6381[Cont:11.6381/Adv:0.559375] | Loss(D):1.07471[Real:0.641182/Fake:0.433525]
+09th-23:47:14 | epoch5(65500) | lr=1e-05 | psnr=22.841 | ypsnr=24.561  | Loss(G):16.4402[Cont:16.4402/Adv:1.76771] | Loss(D):0.53739[Real:0.35703/Fake:0.18036]
+09th-23:50:44 | epoch5(65600) | lr=1e-05 | psnr=22.930 | ypsnr=24.729  | Loss(G):12.2904[Cont:12.2904/Adv:0.29515] | Loss(D):0.61784[Real:0.555087/Fake:0.0627535]
+09th-23:54:14 | epoch5(65700) | lr=1e-05 | psnr=23.092 | ypsnr=24.904  | Loss(G):19.8035[Cont:19.8035/Adv:0.397887] | Loss(D):0.474155[Real:0.274274/Fake:0.199881]
+09th-23:57:46 | epoch5(65800) | lr=1e-05 | psnr=23.033 | ypsnr=24.833  | Loss(G):18.6408[Cont:18.6408/Adv:0.128504] | Loss(D):0.668906[Real:0.391239/Fake:0.277667]
+10th-00:01:17 | epoch5(65900) | lr=1e-05 | psnr=23.045 | ypsnr=24.805  | Loss(G):21.9561[Cont:21.9561/Adv:3.79957] | Loss(D):0.693219[Real:0.327085/Fake:0.366134]
+10th-00:04:48 | epoch5(66000) | lr=1e-05 | psnr=23.236 | ypsnr=25.012  | Loss(G):13.4173[Cont:13.4173/Adv:0.64237] | Loss(D):0.447128[Real:0.385939/Fake:0.0611888]
+10th-00:08:19 | epoch5(66100) | lr=1e-05 | psnr=23.079 | ypsnr=24.781  | Loss(G):17.2685[Cont:17.2685/Adv:2.09522] | Loss(D):0.241936[Real:0.115135/Fake:0.1268]
+10th-00:11:48 | epoch5(66200) | lr=1e-05 | psnr=23.138 | ypsnr=24.914  | Loss(G):17.4564[Cont:17.4564/Adv:1.01657] | Loss(D):0.226511[Real:0.13554/Fake:0.0909708]
+10th-00:15:19 | epoch5(66300) | lr=1e-05 | psnr=23.066 | ypsnr=24.861  | Loss(G):17.5244[Cont:17.5244/Adv:0.376432] | Loss(D):1.0251[Real:0.758537/Fake:0.266564]
+10th-00:18:51 | epoch5(66400) | lr=1e-05 | psnr=22.826 | ypsnr=24.599  | Loss(G):15.2242[Cont:15.2242/Adv:2.88664] | Loss(D):0.444374[Real:0.124864/Fake:0.31951]
+10th-00:22:22 | epoch5(66500) | lr=1e-05 | psnr=23.014 | ypsnr=24.774  | Loss(G):19.4239[Cont:19.4239/Adv:0.876111] | Loss(D):0.184308[Real:0.102036/Fake:0.0822723]
+10th-00:25:53 | epoch5(66600) | lr=1e-05 | psnr=22.720 | ypsnr=24.488  | Loss(G):21.7824[Cont:21.7824/Adv:0.743504] | Loss(D):0.233641[Real:0.163382/Fake:0.0702588]
+10th-00:29:26 | epoch5(66700) | lr=1e-05 | psnr=23.089 | ypsnr=24.868  | Loss(G):18.3698[Cont:18.3698/Adv:0.543372] | Loss(D):0.663528[Real:0.437418/Fake:0.226109]
+10th-00:32:56 | epoch5(66800) | lr=1e-05 | psnr=23.168 | ypsnr=24.927  | Loss(G):17.5121[Cont:17.5121/Adv:3.72205] | Loss(D):0.89814[Real:0.340699/Fake:0.557442]
+10th-00:36:31 | epoch5(66900) | lr=1e-05 | psnr=22.950 | ypsnr=24.641  | Loss(G):24.2283[Cont:24.2283/Adv:1.27291] | Loss(D):0.677694[Real:0.399086/Fake:0.278608]
+10th-00:40:04 | epoch5(67000) | lr=1e-05 | psnr=23.026 | ypsnr=24.822  | Loss(G):14.8141[Cont:14.8141/Adv:0.48028] | Loss(D):0.484625[Real:0.38523/Fake:0.099395]
+10th-00:43:37 | epoch5(67100) | lr=1e-05 | psnr=22.707 | ypsnr=24.485  | Loss(G):19.9732[Cont:19.9732/Adv:2.63936] | Loss(D):0.460252[Real:0.227028/Fake:0.233224]
+10th-00:47:07 | epoch5(67200) | lr=1e-05 | psnr=23.194 | ypsnr=24.930  | Loss(G):16.8509[Cont:16.8509/Adv:2.3701] | Loss(D):0.39255[Real:0.217897/Fake:0.174653]
+10th-00:50:48 | epoch5(67300) | lr=1e-05 | psnr=23.235 | ypsnr=24.979  | Loss(G):16.4955[Cont:16.4955/Adv:0.420336] | Loss(D):0.593971[Real:0.428004/Fake:0.165968]
+10th-00:54:32 | epoch5(67400) | lr=1e-05 | psnr=22.957 | ypsnr=24.668  | Loss(G):16.6472[Cont:16.6472/Adv:0.543193] | Loss(D):0.257425[Real:0.13362/Fake:0.123805]
+10th-00:58:12 | epoch5(67500) | lr=1e-05 | psnr=23.031 | ypsnr=24.737  | Loss(G):13.5636[Cont:13.5636/Adv:1.20268] | Loss(D):0.140584[Real:0.0721833/Fake:0.068401]
+10th-01:01:53 | epoch5(67600) | lr=1e-05 | psnr=22.841 | ypsnr=24.514  | Loss(G):27.1321[Cont:27.1321/Adv:1.44404] | Loss(D):0.33973[Real:0.172917/Fake:0.166812]
+10th-01:05:35 | epoch5(67700) | lr=1e-05 | psnr=23.037 | ypsnr=24.806  | Loss(G):12.5923[Cont:12.5923/Adv:0.475999] | Loss(D):0.440274[Real:0.21045/Fake:0.229824]
+10th-01:09:15 | epoch5(67800) | lr=1e-05 | psnr=22.990 | ypsnr=24.723  | Loss(G):24.4693[Cont:24.4693/Adv:2.55982] | Loss(D):0.48124[Real:0.281907/Fake:0.199333]
+10th-01:12:53 | epoch5(67900) | lr=1e-05 | psnr=23.496 | ypsnr=25.231  | Loss(G):16.9384[Cont:16.9384/Adv:0.319275] | Loss(D):0.477483[Real:0.25191/Fake:0.225573]
+10th-01:16:34 | epoch5(68000) | lr=1e-05 | psnr=23.257 | ypsnr=24.981  | Loss(G):12.8248[Cont:12.8248/Adv:0.205601] | Loss(D):0.542668[Real:0.429919/Fake:0.112749]
+10th-01:20:16 | epoch5(68100) | lr=1e-05 | psnr=23.342 | ypsnr=25.054  | Loss(G):18.0377[Cont:18.0377/Adv:0.487825] | Loss(D):0.307408[Real:0.136214/Fake:0.171194]
+10th-01:24:01 | epoch5(68200) | lr=1e-05 | psnr=23.057 | ypsnr=24.845  | Loss(G):15.7777[Cont:15.7777/Adv:2.67171] | Loss(D):0.438595[Real:0.0725215/Fake:0.366074]
+10th-01:27:44 | epoch5(68300) | lr=1e-05 | psnr=23.179 | ypsnr=24.936  | Loss(G):21.5507[Cont:21.5507/Adv:1.00741] | Loss(D):0.366792[Real:0.214577/Fake:0.152215]
+10th-01:31:29 | epoch5(68400) | lr=1e-05 | psnr=23.090 | ypsnr=24.759  | Loss(G):17.4027[Cont:17.4027/Adv:1.85527] | Loss(D):0.272968[Real:0.0305041/Fake:0.242464]
+10th-01:35:15 | epoch5(68500) | lr=1e-05 | psnr=23.211 | ypsnr=24.842  | Loss(G):12.7337[Cont:12.7337/Adv:0.756088] | Loss(D):0.402203[Real:0.217911/Fake:0.184292]
+10th-01:38:58 | epoch5(68600) | lr=1e-05 | psnr=23.498 | ypsnr=25.148  | Loss(G):23.6514[Cont:23.6514/Adv:0.953025] | Loss(D):0.115418[Real:0.0735968/Fake:0.0418212]
+10th-01:42:52 | epoch5(68700) | lr=1e-05 | psnr=23.623 | ypsnr=25.357  | Loss(G):20.4154[Cont:20.4154/Adv:2.02196] | Loss(D):0.461173[Real:0.151067/Fake:0.310106]
+10th-01:46:55 | epoch5(68800) | lr=1e-05 | psnr=23.566 | ypsnr=25.317  | Loss(G):13.2486[Cont:13.2486/Adv:0.463456] | Loss(D):0.265577[Real:0.178127/Fake:0.0874498]
+10th-01:50:42 | epoch5(68900) | lr=1e-05 | psnr=23.389 | ypsnr=25.088  | Loss(G):14.238[Cont:14.238/Adv:0.353494] | Loss(D):0.603018[Real:0.413091/Fake:0.189927]09th-23:05:34 | epoch6(59200) | lr=1e-05 | psnr=22.573 | ypsnr=24.706  | Loss(G):22.929[Cont:22.929/Adv:1.9179] | Loss(D):0.680214[Real:0.369442/Fake:0.310773]
+09th-23:09:25 | epoch6(59300) | lr=1e-05 | psnr=20.557 | ypsnr=22.366  | Loss(G):20.1765[Cont:20.1765/Adv:2.70487] | Loss(D):0.204436[Real:0.0840207/Fake:0.120415]
+09th-23:13:16 | epoch6(59400) | lr=1e-05 | psnr=21.910 | ypsnr=24.002  | Loss(G):18.0656[Cont:18.0656/Adv:2.44503] | Loss(D):0.326607[Real:0.105232/Fake:0.221375]
+09th-23:17:09 | epoch6(59500) | lr=1e-05 | psnr=21.553 | ypsnr=23.488  | Loss(G):19.0088[Cont:19.0088/Adv:1.27221] | Loss(D):1.28825[Real:0.824825/Fake:0.46343]
+09th-23:20:57 | epoch6(59600) | lr=1e-05 | psnr=22.070 | ypsnr=23.745  | Loss(G):22.3024[Cont:22.3024/Adv:3.19173] | Loss(D):2.13973[Real:2.09036/Fake:0.0493722]
+09th-23:24:44 | epoch6(59700) | lr=1e-05 | psnr=22.721 | ypsnr=24.648  | Loss(G):21.9529[Cont:21.9529/Adv:2.17049] | Loss(D):0.524557[Real:0.172054/Fake:0.352504]
+09th-23:28:29 | epoch6(59800) | lr=1e-05 | psnr=21.997 | ypsnr=23.930  | Loss(G):24.5863[Cont:24.5863/Adv:3.01368] | Loss(D):0.959168[Real:0.840389/Fake:0.118779]
+09th-23:32:15 | epoch6(59900) | lr=1e-05 | psnr=22.164 | ypsnr=24.035  | Loss(G):14.0372[Cont:14.0372/Adv:1.31008] | Loss(D):1.29963[Real:0.240436/Fake:1.05919]
+09th-23:36:06 | epoch6(60000) | lr=1e-05 | psnr=22.164 | ypsnr=23.985  | Loss(G):19.4905[Cont:19.4905/Adv:2.71164] | Loss(D):0.345101[Real:0.164631/Fake:0.18047]
+09th-23:39:49 | epoch6(60100) | lr=1e-05 | psnr=21.705 | ypsnr=23.689  | Loss(G):16.3954[Cont:16.3954/Adv:2.06771] | Loss(D):0.537024[Real:0.334691/Fake:0.202333]
+09th-23:43:37 | epoch6(60200) | lr=1e-05 | psnr=22.321 | ypsnr=24.133  | Loss(G):19.3957[Cont:19.3957/Adv:1.56995] | Loss(D):1.22975[Real:0.998456/Fake:0.231294]
+09th-23:47:33 | epoch6(60300) | lr=1e-05 | psnr=21.450 | ypsnr=23.227  | Loss(G):20.0183[Cont:20.0183/Adv:2.37835] | Loss(D):0.878749[Real:0.62866/Fake:0.250088]
+09th-23:51:22 | epoch6(60400) | lr=1e-05 | psnr=22.168 | ypsnr=23.937  | Loss(G):21.0842[Cont:21.0842/Adv:1.6422] | Loss(D):0.532243[Real:0.0480699/Fake:0.484173]
+09th-23:55:10 | epoch6(60500) | lr=1e-05 | psnr=21.892 | ypsnr=23.583  | Loss(G):22.7907[Cont:22.7907/Adv:2.497] | Loss(D):0.513814[Real:0.284052/Fake:0.229762]
+09th-23:58:57 | epoch6(60600) | lr=1e-05 | psnr=20.196 | ypsnr=21.935  | Loss(G):17.9258[Cont:17.9258/Adv:3.12215] | Loss(D):0.70998[Real:0.454496/Fake:0.255484]
+10th-00:02:42 | epoch6(60700) | lr=1e-05 | psnr=22.947 | ypsnr=24.970  | Loss(G):25.7568[Cont:25.7568/Adv:2.23253] | Loss(D):0.28042[Real:0.0441478/Fake:0.236272]
+10th-00:06:31 | epoch6(60800) | lr=1e-05 | psnr=21.583 | ypsnr=23.274  | Loss(G):20.4016[Cont:20.4016/Adv:2.23199] | Loss(D):0.795233[Real:0.605292/Fake:0.18994]
+10th-00:10:17 | epoch6(60900) | lr=1e-05 | psnr=21.607 | ypsnr=23.233  | Loss(G):17.3387[Cont:17.3387/Adv:1.87765] | Loss(D):0.767612[Real:0.277795/Fake:0.489817]
+10th-00:14:03 | epoch6(61000) | lr=1e-05 | psnr=21.986 | ypsnr=23.710  | Loss(G):22.5117[Cont:22.5117/Adv:1.73357] | Loss(D):0.496207[Real:0.343938/Fake:0.152269]
+10th-00:17:50 | epoch6(61100) | lr=1e-05 | psnr=22.246 | ypsnr=24.073  | Loss(G):26.8468[Cont:26.8468/Adv:2.56586] | Loss(D):0.545462[Real:0.0824563/Fake:0.463006]
+10th-00:21:35 | epoch6(61200) | lr=1e-05 | psnr=22.291 | ypsnr=24.167  | Loss(G):22.9864[Cont:22.9864/Adv:1.90349] | Loss(D):0.624924[Real:0.0819741/Fake:0.54295]
+10th-00:25:20 | epoch6(61300) | lr=1e-05 | psnr=22.575 | ypsnr=24.434  | Loss(G):25.1257[Cont:25.1257/Adv:3.69636] | Loss(D):0.436566[Real:0.350496/Fake:0.0860693]
+10th-00:29:06 | epoch6(61400) | lr=1e-05 | psnr=21.918 | ypsnr=23.658  | Loss(G):19.4525[Cont:19.4525/Adv:1.27303] | Loss(D):0.743041[Real:0.0800073/Fake:0.663034]
+10th-00:32:52 | epoch6(61500) | lr=1e-05 | psnr=22.425 | ypsnr=24.190  | Loss(G):18.4191[Cont:18.4191/Adv:1.31085] | Loss(D):1.08149[Real:0.59996/Fake:0.481527]
+10th-00:36:40 | epoch6(61600) | lr=1e-05 | psnr=22.351 | ypsnr=23.975  | Loss(G):21.2323[Cont:21.2323/Adv:2.09326] | Loss(D):0.497667[Real:0.289296/Fake:0.208371]
+10th-00:40:29 | epoch6(61700) | lr=1e-05 | psnr=22.919 | ypsnr=24.683  | Loss(G):24.8774[Cont:24.8774/Adv:1.19938] | Loss(D):0.707846[Real:0.0463666/Fake:0.661479]
+10th-00:44:13 | epoch6(61800) | lr=1e-05 | psnr=21.803 | ypsnr=23.432  | Loss(G):18.301[Cont:18.301/Adv:1.28673] | Loss(D):0.508847[Real:0.140517/Fake:0.368329]
+10th-00:48:06 | epoch6(61900) | lr=1e-05 | psnr=21.810 | ypsnr=23.379  | Loss(G):25.2665[Cont:25.2665/Adv:2.64024] | Loss(D):0.403774[Real:0.236802/Fake:0.166972]
+10th-00:51:59 | epoch6(62000) | lr=1e-05 | psnr=22.154 | ypsnr=23.832  | Loss(G):18.1917[Cont:18.1917/Adv:1.3221] | Loss(D):0.826265[Real:0.334923/Fake:0.491343]
+10th-00:55:55 | epoch6(62100) | lr=1e-05 | psnr=22.309 | ypsnr=23.932  | Loss(G):22.6561[Cont:22.6561/Adv:2.23617] | Loss(D):0.436179[Real:0.0615628/Fake:0.374616]
+10th-00:59:52 | epoch6(62200) | lr=1e-05 | psnr=21.454 | ypsnr=23.100  | Loss(G):23.1668[Cont:23.1668/Adv:2.9284] | Loss(D):0.401991[Real:0.352238/Fake:0.049753]
+10th-01:03:43 | epoch6(62300) | lr=1e-05 | psnr=22.363 | ypsnr=24.112  | Loss(G):20.2563[Cont:20.2563/Adv:5.67075] | Loss(D):2.52109[Real:2.51296/Fake:0.00812497]
+10th-01:07:42 | epoch6(62400) | lr=1e-05 | psnr=21.353 | ypsnr=22.860  | Loss(G):22.0712[Cont:22.0712/Adv:3.25871] | Loss(D):1.08579[Real:1.03652/Fake:0.0492657]
+10th-01:11:39 | epoch6(62500) | lr=1e-05 | psnr=22.758 | ypsnr=24.490  | Loss(G):20.9847[Cont:20.9847/Adv:2.09161] | Loss(D):0.372405[Real:0.170953/Fake:0.201452]
+10th-01:15:29 | epoch6(62600) | lr=1e-05 | psnr=21.675 | ypsnr=23.410  | Loss(G):20.7242[Cont:20.7242/Adv:2.70839] | Loss(D):0.329203[Real:0.18927/Fake:0.139933]
+10th-01:19:28 | epoch6(62700) | lr=1e-05 | psnr=22.346 | ypsnr=24.203  | Loss(G):18.1735[Cont:18.1735/Adv:1.68173] | Loss(D):0.572206[Real:0.213514/Fake:0.358693]
+10th-01:23:23 | epoch6(62800) | lr=1e-05 | psnr=21.347 | ypsnr=23.075  | Loss(G):19.6852[Cont:19.6852/Adv:2.84109] | Loss(D):0.732298[Real:0.612472/Fake:0.119826]
+10th-01:27:18 | epoch6(62900) | lr=1e-05 | psnr=22.620 | ypsnr=24.440  | Loss(G):18.6251[Cont:18.6251/Adv:1.92082] | Loss(D):0.402374[Real:0.194852/Fake:0.207522]
+10th-01:31:22 | epoch6(63000) | lr=1e-05 | psnr=22.525 | ypsnr=24.261  | Loss(G):23.1635[Cont:23.1635/Adv:2.36999] | Loss(D):0.353057[Real:0.170978/Fake:0.182079]
+10th-01:35:22 | epoch6(63100) | lr=1e-05 | psnr=22.701 | ypsnr=24.553  | Loss(G):19.2061[Cont:19.2061/Adv:1.31625] | Loss(D):0.674166[Real:0.173368/Fake:0.500798]
+10th-01:39:25 | epoch6(63200) | lr=1e-05 | psnr=21.642 | ypsnr=23.204  | Loss(G):20.0485[Cont:20.0485/Adv:1.82211] | Loss(D):1.10191[Real:0.86987/Fake:0.232037]
+10th-01:43:18 | epoch6(63300) | lr=1e-05 | psnr=22.512 | ypsnr=24.211  | Loss(G):22.2607[Cont:22.2607/Adv:0.737391] | Loss(D):1.26977[Real:0.0369105/Fake:1.23286]
+10th-01:47:14 | epoch6(63400) | lr=1e-05 | psnr=22.284 | ypsnr=23.891  | Loss(G):16.3861[Cont:16.3861/Adv:1.22085] | Loss(D):0.785439[Real:0.110465/Fake:0.674974]
+10th-01:51:10 | epoch6(63500) | lr=1e-05 | psnr=22.255 | ypsnr=23.871  | Loss(G):19.0567[Cont:19.0567/Adv:0.851121] | Loss(D):0.881939[Real:0.170401/Fake:0.711538]
+10th-01:55:10 | epoch6(63600) | lr=1e-05 | psnr=22.464 | ypsnr=24.020  | Loss(G):22.2622[Cont:22.2622/Adv:1.69372] | Loss(D):0.421736[Real:0.1175/Fake:0.304236]
+10th-01:59:20 | epoch6(63700) | lr=1e-05 | psnr=23.028 | ypsnr=24.789  | Loss(G):28.4801[Cont:28.4801/Adv:1.34698] | Loss(D):0.542494[Real:0.0588092/Fake:0.483685]
+10th-02:03:28 | epoch6(63800) | lr=1e-05 | psnr=22.496 | ypsnr=24.219  | Loss(G):33.4803[Cont:33.4803/Adv:1.19874] | Loss(D):0.77334[Real:0.00513469/Fake:0.768205]
+10th-02:07:27 | epoch6(63900) | lr=1e-05 | psnr=23.089 | ypsnr=24.811  | Loss(G):16.8418[Cont:16.8418/Adv:3.02613] | Loss(D):2.40048[Real:2.35691/Fake:0.0435733]
+10th-02:11:18 | epoch6(64000) | lr=1e-05 | psnr=21.860 | ypsnr=23.444  | Loss(G):16.2526[Cont:16.2526/Adv:1.31716] | Loss(D):0.921466[Real:0.341557/Fake:0.579909]
+10th-02:15:08 | epoch6(64100) | lr=1e-05 | psnr=22.533 | ypsnr=24.316  | Loss(G):23.8218[Cont:23.8218/Adv:2.49653] | Loss(D):0.380657[Real:0.260271/Fake:0.120386]
+10th-02:18:59 | epoch6(64200) | lr=1e-05 | psnr=22.361 | ypsnr=24.087  | Loss(G):26.3985[Cont:26.3985/Adv:3.38809] | Loss(D):0.486463[Real:0.418619/Fake:0.0678442]09th-23:07:27 | epoch6(59200) | lr=1e-05 | psnr=22.274 | ypsnr=23.963  | Loss(G):9.74807[Cont:9.74807/Adv:2.14268] | Loss(D):0.942694[Real:0.883434/Fake:0.0592597]
+09th-23:11:54 | epoch6(59300) | lr=1e-05 | psnr=21.913 | ypsnr=23.960  | Loss(G):15.4308[Cont:15.4308/Adv:4.03506] | Loss(D):0.0293233[Real:0.000986609/Fake:0.0283366]
+09th-23:16:01 | epoch6(59400) | lr=1e-05 | psnr=22.118 | ypsnr=23.926  | Loss(G):16.9839[Cont:16.9839/Adv:2.6126] | Loss(D):0.227589[Real:0.00012713/Fake:0.227461]
+09th-23:20:11 | epoch6(59500) | lr=1e-05 | psnr=21.994 | ypsnr=23.655  | Loss(G):15.6173[Cont:15.6173/Adv:7.9016] | Loss(D):0.265443[Real:0.125295/Fake:0.140148]
+09th-23:24:39 | epoch6(59600) | lr=1e-05 | psnr=21.706 | ypsnr=23.446  | Loss(G):16.0741[Cont:16.0741/Adv:5.42947] | Loss(D):0.0344889[Real:0.0119869/Fake:0.022502]
+09th-23:28:44 | epoch6(59700) | lr=1e-05 | psnr=21.143 | ypsnr=22.895  | Loss(G):18.5094[Cont:18.5094/Adv:3.63563] | Loss(D):0.0522318[Real:0.0033695/Fake:0.0488623]
+09th-23:32:57 | epoch6(59800) | lr=1e-05 | psnr=21.456 | ypsnr=23.187  | Loss(G):16.4828[Cont:16.4828/Adv:6.78557] | Loss(D):0.0355692[Real:0.0283458/Fake:0.00722348]
+09th-23:37:21 | epoch6(59900) | lr=1e-05 | psnr=21.321 | ypsnr=23.104  | Loss(G):16.8092[Cont:16.8092/Adv:9.38063] | Loss(D):0.0422233[Real:0.041914/Fake:0.000309285]
+09th-23:41:27 | epoch6(60000) | lr=1e-05 | psnr=21.522 | ypsnr=23.264  | Loss(G):14.1869[Cont:14.1869/Adv:8.28343] | Loss(D):0.0298939[Real:0.0247659/Fake:0.00512802]
+09th-23:45:36 | epoch6(60100) | lr=1e-05 | psnr=21.950 | ypsnr=23.620  | Loss(G):20.2593[Cont:20.2593/Adv:3.01649] | Loss(D):0.155289[Real:0.00649272/Fake:0.148797]
+09th-23:49:47 | epoch6(60200) | lr=1e-05 | psnr=21.708 | ypsnr=23.382  | Loss(G):15.1359[Cont:15.1359/Adv:3.08367] | Loss(D):0.595415[Real:0.0135462/Fake:0.581869]
+09th-23:53:55 | epoch6(60300) | lr=1e-05 | psnr=21.922 | ypsnr=23.738  | Loss(G):16.413[Cont:16.413/Adv:9.44177] | Loss(D):0.349146[Real:0.349085/Fake:6.02337e-05]
+09th-23:58:04 | epoch6(60400) | lr=1e-05 | psnr=22.036 | ypsnr=23.827  | Loss(G):18.2741[Cont:18.2741/Adv:4.49398] | Loss(D):0.0197976[Real:0.000284347/Fake:0.0195133]
+10th-00:02:21 | epoch6(60500) | lr=1e-05 | psnr=21.420 | ypsnr=23.109  | Loss(G):10.8209[Cont:10.8209/Adv:7.36009] | Loss(D):0.772861[Real:0.772243/Fake:0.000617835]
+10th-00:06:31 | epoch6(60600) | lr=1e-05 | psnr=21.590 | ypsnr=23.206  | Loss(G):15.6678[Cont:15.6678/Adv:7.93087] | Loss(D):0.00991776[Real:0.00898764/Fake:0.000930119]
+10th-00:10:41 | epoch6(60700) | lr=1e-05 | psnr=21.442 | ypsnr=23.059  | Loss(G):14.2773[Cont:14.2773/Adv:5.76139] | Loss(D):0.0134125[Real:0.00257841/Fake:0.0108341]
+10th-00:14:51 | epoch6(60800) | lr=1e-05 | psnr=21.507 | ypsnr=23.214  | Loss(G):18.7527[Cont:18.7527/Adv:10.2753] | Loss(D):0.0148349[Real:0.0144747/Fake:0.00036022]
+10th-00:19:00 | epoch6(60900) | lr=1e-05 | psnr=21.655 | ypsnr=23.200  | Loss(G):24.4937[Cont:24.4937/Adv:1.34768] | Loss(D):1.32422[Real:2.69712e-06/Fake:1.32421]
+10th-00:23:10 | epoch6(61000) | lr=1e-05 | psnr=21.749 | ypsnr=23.414  | Loss(G):17.8537[Cont:17.8537/Adv:5.26352] | Loss(D):0.213968[Real:0.205303/Fake:0.00866578]
+10th-00:27:16 | epoch6(61100) | lr=1e-05 | psnr=21.691 | ypsnr=23.276  | Loss(G):19.0303[Cont:19.0303/Adv:7.43807] | Loss(D):0.0292946[Real:0.00849482/Fake:0.0207998]
+10th-00:31:27 | epoch6(61200) | lr=1e-05 | psnr=22.006 | ypsnr=23.581  | Loss(G):15.9162[Cont:15.9162/Adv:4.64361] | Loss(D):0.0288253[Real:0.0173821/Fake:0.0114432]
+10th-00:35:40 | epoch6(61300) | lr=1e-05 | psnr=21.702 | ypsnr=23.335  | Loss(G):13.6793[Cont:13.6793/Adv:9.57601] | Loss(D):0.515261[Real:0.515105/Fake:0.00015536]
+10th-00:39:50 | epoch6(61400) | lr=1e-05 | psnr=22.390 | ypsnr=24.097  | Loss(G):12.7622[Cont:12.7622/Adv:3.79082] | Loss(D):0.109217[Real:0.0605672/Fake:0.04865]
+10th-00:44:01 | epoch6(61500) | lr=1e-05 | psnr=22.627 | ypsnr=24.527  | Loss(G):14.5698[Cont:14.5698/Adv:14.2676] | Loss(D):0.0261785[Real:0.025993/Fake:0.000185504]
+10th-00:48:14 | epoch6(61600) | lr=1e-05 | psnr=22.471 | ypsnr=24.135  | Loss(G):20.0433[Cont:20.0433/Adv:6.81368] | Loss(D):0.00407336[Real:0.00201689/Fake:0.00205647]
+10th-00:52:26 | epoch6(61700) | lr=1e-05 | psnr=22.150 | ypsnr=23.830  | Loss(G):12.5393[Cont:12.5393/Adv:5.1039] | Loss(D):0.16961[Real:0.105137/Fake:0.064473]
+10th-00:56:40 | epoch6(61800) | lr=1e-05 | psnr=22.727 | ypsnr=24.489  | Loss(G):20.3593[Cont:20.3593/Adv:5.85548] | Loss(D):0.00833525[Real:0.00222108/Fake:0.00611417]
+10th-01:00:52 | epoch6(61900) | lr=1e-05 | psnr=22.334 | ypsnr=23.993  | Loss(G):13.107[Cont:13.107/Adv:6.16216] | Loss(D):2.22777[Real:2.21901/Fake:0.00875315]
+10th-01:05:12 | epoch6(62000) | lr=1e-05 | psnr=22.359 | ypsnr=24.059  | Loss(G):17.3362[Cont:17.3362/Adv:4.59199] | Loss(D):0.0933483[Real:0.0333147/Fake:0.0600335]
+10th-01:09:25 | epoch6(62100) | lr=1e-05 | psnr=22.566 | ypsnr=24.233  | Loss(G):24.3892[Cont:24.3892/Adv:3.44094] | Loss(D):0.119056[Real:0.000233861/Fake:0.118823]
+10th-01:13:42 | epoch6(62200) | lr=1e-05 | psnr=22.283 | ypsnr=23.942  | Loss(G):16.9519[Cont:16.9519/Adv:4.59899] | Loss(D):0.01703[Real:0.00425/Fake:0.01278]
+10th-01:17:57 | epoch6(62300) | lr=1e-05 | psnr=22.362 | ypsnr=23.958  | Loss(G):23.5687[Cont:23.5687/Adv:3.53058] | Loss(D):0.137804[Real:8.03621e-05/Fake:0.137723]
+10th-01:22:04 | epoch6(62400) | lr=1e-05 | psnr=21.998 | ypsnr=23.521  | Loss(G):12.0142[Cont:12.0142/Adv:3.28902] | Loss(D):0.4434[Real:0.0220013/Fake:0.421399]
+10th-01:26:13 | epoch6(62500) | lr=1e-05 | psnr=22.210 | ypsnr=23.881  | Loss(G):22.3869[Cont:22.3869/Adv:4.00165] | Loss(D):0.0384292[Real:0.000188483/Fake:0.0382407]
+10th-01:30:24 | epoch6(62600) | lr=1e-05 | psnr=22.051 | ypsnr=23.624  | Loss(G):16.3825[Cont:16.3825/Adv:2.7409] | Loss(D):0.162688[Real:0.0525428/Fake:0.110145]
+10th-01:34:33 | epoch6(62700) | lr=1e-05 | psnr=22.391 | ypsnr=23.985  | Loss(G):19.2113[Cont:19.2113/Adv:12.7465] | Loss(D):0.136916[Real:0.136897/Fake:1.85971e-05]
+10th-01:38:46 | epoch6(62800) | lr=1e-05 | psnr=22.129 | ypsnr=23.833  | Loss(G):18.1832[Cont:18.1832/Adv:2.95122] | Loss(D):0.166889[Real:9.5486e-05/Fake:0.166793]
+10th-01:42:48 | epoch6(62900) | lr=1e-05 | psnr=22.320 | ypsnr=23.980  | Loss(G):23.257[Cont:23.257/Adv:2.66508] | Loss(D):0.329099[Real:8.82166e-06/Fake:0.32909]
+10th-01:46:50 | epoch6(63000) | lr=1e-05 | psnr=22.150 | ypsnr=23.885  | Loss(G):13.534[Cont:13.534/Adv:7.8421] | Loss(D):0.00904912[Real:0.00776419/Fake:0.00128493]
+10th-01:50:51 | epoch6(63100) | lr=1e-05 | psnr=22.297 | ypsnr=23.968  | Loss(G):14.1587[Cont:14.1587/Adv:8.00532] | Loss(D):0.107047[Real:0.106084/Fake:0.000962284]
+10th-01:54:54 | epoch6(63200) | lr=1e-05 | psnr=22.291 | ypsnr=23.943  | Loss(G):22.5662[Cont:22.5662/Adv:3.69947] | Loss(D):0.106303[Real:0.000747265/Fake:0.105556]
+10th-01:59:00 | epoch6(63300) | lr=1e-05 | psnr=22.123 | ypsnr=23.757  | Loss(G):18.8795[Cont:18.8795/Adv:0.253463] | Loss(D):3.84102[Real:6.82484e-06/Fake:3.84102]
+10th-02:02:56 | epoch6(63400) | lr=1e-05 | psnr=22.378 | ypsnr=24.072  | Loss(G):21.9714[Cont:21.9714/Adv:6.57933] | Loss(D):0.0065187[Real:0.00304769/Fake:0.00347101]
+10th-02:06:56 | epoch6(63500) | lr=1e-05 | psnr=22.334 | ypsnr=23.939  | Loss(G):18.7593[Cont:18.7593/Adv:2.23085] | Loss(D):0.291346[Real:0.00157865/Fake:0.289767]
+10th-02:10:54 | epoch6(63600) | lr=1e-05 | psnr=22.592 | ypsnr=24.237  | Loss(G):15.7076[Cont:15.7076/Adv:6.97201] | Loss(D):0.00813832[Real:0.00544486/Fake:0.00269346]
+10th-02:14:51 | epoch6(63700) | lr=1e-05 | psnr=22.605 | ypsnr=24.240  | Loss(G):18.6731[Cont:18.6731/Adv:4.32108] | Loss(D):0.0518792[Real:0.00487575/Fake:0.0470035]
+10th-02:18:48 | epoch6(63800) | lr=1e-05 | psnr=22.873 | ypsnr=24.464  | Loss(G):16.5797[Cont:16.5797/Adv:4.11014] | Loss(D):0.0564654[Real:0.0171667/Fake:0.0392986]
+10th-02:22:46 | epoch6(63900) | lr=1e-05 | psnr=23.041 | ypsnr=24.653  | Loss(G):16.2173[Cont:16.2173/Adv:4.58698] | Loss(D):0.0326959[Real:0.0194664/Fake:0.0132295]
+10th-02:26:47 | epoch6(64000) | lr=1e-05 | psnr=23.184 | ypsnr=24.829  | Loss(G):15.7757[Cont:15.7757/Adv:5.01964] | Loss(D):0.0573187[Real:0.00855675/Fake:0.048762]
+10th-02:30:57 | epoch6(64100) | lr=1e-05 | psnr=22.950 | ypsnr=24.610  | Loss(G):15.8137[Cont:15.8137/Adv:3.2352] | Loss(D):0.151798[Real:9.48279e-05/Fake:0.151703]
+10th-00:16:49 | epoch9(11500) | lr=8.1e-05 | psnr=26.5852 | ypsnr=27.9755
+10th-00:19:11 | epoch9(11600) | lr=8.1e-05 | psnr=26.6144 | ypsnr=28.0237
+10th-00:21:27 | epoch9(11700) | lr=8.1e-05 | psnr=26.6061 | ypsnr=28.0110
+10th-00:23:45 | epoch9(11800) | lr=8.1e-05 | psnr=26.5955 | ypsnr=28.0045
+10th-00:26:04 | epoch9(11900) | lr=8.1e-05 | psnr=26.6033 | ypsnr=28.0151
+10th-00:28:19 | epoch9(12000) | lr=8.1e-05 | psnr=26.5969 | ypsnr=28.0076
+10th-00:30:36 | epoch9(12100) | lr=8.1e-05 | psnr=26.5988 | ypsnr=28.0062
+10th-00:32:52 | epoch9(12200) | lr=8.1e-05 | psnr=26.6108 | ypsnr=28.0231
+10th-00:35:08 | epoch9(12300) | lr=8.1e-05 | psnr=26.6050 | ypsnr=28.0019
+10th-00:37:25 | epoch9(12400) | lr=8.1e-05 | psnr=26.5947 | ypsnr=28.0010
+10th-00:39:41 | epoch9(12500) | lr=8.1e-05 | psnr=26.6087 | ypsnr=27.9996
+10th-00:41:57 | epoch9(12600) | lr=8.1e-05 | psnr=26.6117 | ypsnr=28.0156
+10th-00:44:21 | epoch9(12700) | lr=8.1e-05 | psnr=26.5946 | ypsnr=28.0127
+10th-00:46:37 | epoch9(12800) | lr=8.1e-05 | psnr=26.6031 | ypsnr=28.0128
+10th-00:48:56 | epoch9(12900) | lr=8.1e-05 | psnr=26.5943 | ypsnr=27.9884
+10th-00:51:12 | epoch9(13000) | lr=8.1e-05 | psnr=26.6102 | ypsnr=28.0167
+10th-00:53:27 | epoch9(13100) | lr=8.1e-05 | psnr=26.5953 | ypsnr=28.0032
+10th-00:55:44 | epoch9(13200) | lr=8.1e-05 | psnr=26.6094 | ypsnr=28.0280
+10th-00:58:00 | epoch9(13300) | lr=8.1e-05 | psnr=26.5696 | ypsnr=27.9879
+10th-01:00:17 | epoch9(13400) | lr=8.1e-05 | psnr=26.6071 | ypsnr=27.9991
+10th-01:02:34 | epoch9(13500) | lr=8.1e-05 | psnr=26.5661 | ypsnr=27.9848
+10th-01:04:50 | epoch9(13600) | lr=8.1e-05 | psnr=26.5960 | ypsnr=28.0044
+10th-01:07:05 | epoch9(13700) | lr=8.1e-05 | psnr=26.6049 | ypsnr=28.0126
+10th-01:09:23 | epoch9(13800) | lr=8.1e-05 | psnr=26.6008 | ypsnr=28.0098
+10th-01:11:40 | epoch9(13900) | lr=8.1e-05 | psnr=26.6103 | ypsnr=28.0158
+10th-01:14:01 | epoch9(14000) | lr=8.1e-05 | psnr=26.6084 | ypsnr=28.0134
+10th-01:16:17 | epoch9(14100) | lr=8.1e-05 | psnr=26.6067 | ypsnr=28.0027
+10th-01:18:36 | epoch9(14200) | lr=8.1e-05 | psnr=26.5961 | ypsnr=27.9902
+10th-01:20:53 | epoch9(14300) | lr=8.1e-05 | psnr=26.5925 | ypsnr=28.0018
+10th-01:23:10 | epoch9(14400) | lr=8.1e-05 | psnr=26.5946 | ypsnr=28.0156
+10th-01:25:25 | epoch9(14500) | lr=8.1e-05 | psnr=26.6148 | ypsnr=28.0239
+10th-01:27:43 | epoch9(14600) | lr=8.1e-05 | psnr=26.6014 | ypsnr=28.0078
+10th-01:29:59 | epoch9(14700) | lr=8.1e-05 | psnr=26.6184 | ypsnr=28.0287
+10th-01:32:15 | epoch9(14800) | lr=8.1e-05 | psnr=26.6090 | ypsnr=28.0220
+10th-01:34:32 | epoch9(14900) | lr=8.1e-05 | psnr=26.5838 | ypsnr=27.9916
+10th-01:36:47 | epoch9(15000) | lr=8.1e-05 | psnr=26.6047 | ypsnr=28.0136
+10th-01:39:09 | epoch9(15100) | lr=8.1e-05 | psnr=26.5999 | ypsnr=27.9959
+10th-01:41:25 | epoch9(15200) | lr=8.1e-05 | psnr=26.6172 | ypsnr=28.0213
+10th-01:43:51 | epoch9(15300) | lr=8.1e-05 | psnr=26.5932 | ypsnr=27.9965
+10th-01:46:07 | epoch9(15400) | lr=8.1e-05 | psnr=26.6077 | ypsnr=28.0104
+10th-01:48:23 | epoch9(15500) | lr=8.1e-05 | psnr=26.6046 | ypsnr=28.0162
+10th-01:50:38 | epoch9(15600) | lr=8.1e-05 | psnr=26.6056 | ypsnr=28.0218
+10th-01:52:55 | epoch9(15700) | lr=8.1e-05 | psnr=26.6048 | ypsnr=28.0152
+10th-01:55:21 | epoch9(15800) | lr=8.1e-05 | psnr=26.5897 | ypsnr=28.0019
+10th-01:57:40 | epoch9(15900) | lr=8.1e-05 | psnr=26.6025 | ypsnr=28.0059
+10th-01:59:56 | epoch9(16000) | lr=8.1e-05 | psnr=26.6159 | ypsnr=28.0274
+10th-02:02:13 | epoch9(16100) | lr=8.1e-05 | psnr=26.6112 | ypsnr=28.0201
+10th-02:04:31 | epoch9(16200) | lr=8.1e-05 | psnr=26.6071 | ypsnr=28.0144
+10th-02:06:46 | epoch9(16300) | lr=8.1e-05 | psnr=26.6061 | ypsnr=28.0143
+10th-02:09:02 | epoch9(16400) | lr=8.1e-05 | psnr=26.6025 | ypsnr=28.0016
+10th-02:11:24 | epoch9(16500) | lr=8.1e-05 | psnr=26.5803 | ypsnr=27.9770
+10th-02:13:43 | epoch9(16600) | lr=8.1e-05 | psnr=26.5920 | ypsnr=27.9718
+10th-02:15:59 | epoch9(16700) | lr=8.1e-05 | psnr=26.6110 | ypsnr=28.0134
+10th-02:18:15 | epoch9(16800) | lr=8.1e-05 | psnr=26.6039 | ypsnr=28.0056
+10th-02:20:31 | epoch9(16900) | lr=8.1e-05 | psnr=26.6037 | ypsnr=28.0144
+10th-02:22:48 | epoch9(17000) | lr=8.1e-05 | psnr=26.6016 | ypsnr=27.9987
+10th-02:25:06 | epoch9(17100) | lr=8.1e-05 | psnr=26.6081 | ypsnr=28.0246
+10th-02:27:31 | epoch9(17200) | lr=8.1e-05 | psnr=26.6147 | ypsnr=28.0272
+10th-02:29:46 | epoch9(17300) | lr=8.1e-05 | psnr=26.6027 | ypsnr=27.9943
+10th-02:32:07 | epoch9(17400) | lr=8.1e-05 | psnr=26.6158 | ypsnr=28.0210
+10th-02:34:23 | epoch9(17500) | lr=8.1e-05 | psnr=26.6115 | ypsnr=28.0140
+10th-02:36:38 | epoch9(17600) | lr=8.1e-05 | psnr=26.6034 | ypsnr=28.0208
+10th-02:38:56 | epoch9(17700) | lr=8.1e-05 | psnr=26.5960 | ypsnr=28.0073
+10th-02:41:12 | epoch9(17800) | lr=8.1e-05 | psnr=26.6124 | ypsnr=28.0183
+10th-02:43:28 | epoch9(17900) | lr=8.1e-05 | psnr=26.6193 | ypsnr=28.0242
+10th-02:45:45 | epoch9(18000) | lr=8.1e-05 | psnr=26.6153 | ypsnr=28.0243
+10th-02:48:02 | epoch9(18100) | lr=8.1e-05 | psnr=26.5784 | ypsnr=27.9746
+10th-02:50:18 | epoch9(18200) | lr=8.1e-05 | psnr=26.5988 | ypsnr=28.0181
+10th-02:52:35 | epoch9(18300) | lr=8.1e-05 | psnr=26.5941 | ypsnr=28.0072
+10th-02:54:55 | epoch9(18400) | lr=8.1e-05 | psnr=26.6100 | ypsnr=28.0133
+10th-02:57:13 | epoch9(18500) | lr=8.1e-05 | psnr=26.5900 | ypsnr=28.0015
+10th-02:59:28 | epoch9(18600) | lr=8.1e-05 | psnr=26.5956 | ypsnr=27.9895
+10th-03:01:44 | epoch9(18700) | lr=8.1e-05 | psnr=26.5995 | ypsnr=28.0091
+10th-03:04:01 | epoch9(18800) | lr=8.1e-05 | psnr=26.5962 | ypsnr=28.0002
+10th-03:06:20 | epoch9(18900) | lr=8.1e-05 | psnr=26.6068 | ypsnr=28.0126
+10th-03:08:41 | epoch9(19000) | lr=8.1e-05 | psnr=26.6033 | ypsnr=28.0211
+10th-03:10:58 | epoch9(19100) | lr=8.1e-05 | psnr=26.5935 | ypsnr=27.9948
+10th-03:13:15 | epoch9(19200) | lr=8.1e-05 | psnr=26.6018 | ypsnr=28.0168
+10th-03:15:31 | epoch9(19300) | lr=8.1e-05 | psnr=26.5984 | ypsnr=27.9977
+10th-03:17:48 | epoch9(19400) | lr=8.1e-05 | psnr=26.6076 | ypsnr=28.0200
+10th-03:20:09 | epoch9(19500) | lr=8.1e-05 | psnr=26.5943 | ypsnr=27.9856
+10th-03:22:31 | epoch9(19600) | lr=8.1e-05 | psnr=26.6032 | ypsnr=27.9983
+10th-03:24:46 | epoch9(19700) | lr=8.1e-05 | psnr=26.6200 | ypsnr=28.0314
+10th-03:27:03 | epoch9(19800) | lr=8.1e-05 | psnr=26.6027 | ypsnr=28.0174
+10th-03:29:19 | epoch9(19900) | lr=8.1e-05 | psnr=26.5941 | ypsnr=28.0089
+10th-03:31:38 | epoch9(20000) | lr=7.29e-05 | psnr=26.6116 | ypsnr=28.0283
+10th-03:33:54 | epoch9(20100) | lr=7.29e-05 | psnr=26.5980 | ypsnr=28.0057
+10th-03:36:12 | epoch9(20200) | lr=7.29e-05 | psnr=26.6127 | ypsnr=28.0318
+10th-03:38:28 | epoch9(20300) | lr=7.29e-05 | psnr=26.6104 | ypsnr=28.0105
+10th-03:40:45 | epoch9(20400) | lr=7.29e-05 | psnr=26.6043 | ypsnr=28.0154
+10th-03:43:04 | epoch9(20500) | lr=7.29e-05 | psnr=26.6076 | ypsnr=28.0117
+10th-03:45:22 | epoch9(20600) | lr=7.29e-05 | psnr=26.5903 | ypsnr=27.9984
+10th-03:47:41 | epoch9(20700) | lr=7.29e-05 | psnr=26.6128 | ypsnr=28.0249
+10th-03:49:58 | epoch9(20800) | lr=7.29e-05 | psnr=26.6059 | ypsnr=28.0241
+10th-03:52:17 | epoch9(20900) | lr=7.29e-05 | psnr=26.6064 | ypsnr=28.0093
+10th-03:54:33 | epoch9(21000) | lr=7.29e-05 | psnr=26.5982 | ypsnr=27.9971
+10th-03:56:57 | epoch9(21100) | lr=7.29e-05 | psnr=26.5952 | ypsnr=27.9822
+10th-03:59:13 | epoch9(21200) | lr=7.29e-05 | psnr=26.5921 | ypsnr=28.0002
+10th-04:01:34 | epoch9(21300) | lr=7.29e-05 | psnr=26.6094 | ypsnr=28.0235
+10th-04:03:52 | epoch9(21400) | lr=7.29e-05 | psnr=26.6038 | ypsnr=28.0079
+10th-04:06:11 | epoch9(21500) | lr=7.29e-05 | psnr=26.6246 | ypsnr=28.0281
+10th-04:08:26 | epoch9(21600) | lr=7.29e-05 | psnr=26.6084 | ypsnr=28.0040
+10th-04:10:43 | epoch9(21700) | lr=7.29e-05 | psnr=26.5988 | ypsnr=28.0163
+10th-04:12:59 | epoch9(21800) | lr=7.29e-05 | psnr=26.6017 | ypsnr=28.0215
+10th-04:15:18 | epoch9(21900) | lr=7.29e-05 | psnr=26.6072 | ypsnr=28.0272
+10th-04:17:35 | epoch9(22000) | lr=7.29e-05 | psnr=26.6076 | ypsnr=28.0049
+10th-04:19:51 | epoch9(22100) | lr=7.29e-05 | psnr=26.5875 | ypsnr=27.9803
+10th-04:22:08 | epoch9(22200) | lr=7.29e-05 | psnr=26.5928 | ypsnr=27.9981
+10th-04:24:25 | epoch9(22300) | lr=7.29e-05 | psnr=26.6024 | ypsnr=28.0075
+10th-04:26:43 | epoch9(22400) | lr=7.29e-05 | psnr=26.6034 | ypsnr=28.0158
+10th-04:29:00 | epoch9(22500) | lr=7.29e-05 | psnr=26.6131 | ypsnr=28.0136
+10th-01:54:33 | epoch5(69000) | lr=1e-05 | psnr=22.947 | ypsnr=24.701  | Loss(G):12.1685[Cont:12.1685/Adv:0.395165] | Loss(D):0.304811[Real:0.222342/Fake:0.0824683]
+10th-01:58:25 | epoch5(69100) | lr=1e-05 | psnr=23.258 | ypsnr=24.910  | Loss(G):15.6497[Cont:15.6497/Adv:0.490627] | Loss(D):0.153827[Real:0.124006/Fake:0.0298208]
+10th-02:02:10 | epoch5(69200) | lr=1e-05 | psnr=23.497 | ypsnr=25.177  | Loss(G):21.9624[Cont:21.9624/Adv:4.03544] | Loss(D):0.799386[Real:0.0469914/Fake:0.752394]
+10th-02:05:58 | epoch5(69300) | lr=1e-05 | psnr=23.367 | ypsnr=25.067  | Loss(G):16.6911[Cont:16.6911/Adv:0.665698] | Loss(D):0.326007[Real:0.174101/Fake:0.151906]
+10th-02:09:41 | epoch5(69400) | lr=1e-05 | psnr=23.288 | ypsnr=24.932  | Loss(G):21.9331[Cont:21.9331/Adv:3.74252] | Loss(D):0.529971[Real:0.146341/Fake:0.38363]
+10th-02:13:21 | epoch5(69500) | lr=1e-05 | psnr=23.230 | ypsnr=24.853  | Loss(G):16.8141[Cont:16.8141/Adv:0.516094] | Loss(D):0.255639[Real:0.130338/Fake:0.125301]
+10th-02:17:03 | epoch5(69600) | lr=1e-05 | psnr=23.350 | ypsnr=24.968  | Loss(G):16.8765[Cont:16.8765/Adv:0.703335] | Loss(D):0.206541[Real:0.0856862/Fake:0.120854]
+10th-02:20:43 | epoch5(69700) | lr=1e-05 | psnr=23.616 | ypsnr=25.303  | Loss(G):17.4503[Cont:17.4503/Adv:2.70451] | Loss(D):0.617171[Real:0.380834/Fake:0.236337]
+10th-02:24:23 | epoch5(69800) | lr=1e-05 | psnr=23.406 | ypsnr=25.101  | Loss(G):18.123[Cont:18.123/Adv:1.41222] | Loss(D):0.348483[Real:0.092215/Fake:0.256268]
+10th-02:28:07 | epoch5(69900) | lr=1e-05 | psnr=23.319 | ypsnr=24.983  | Loss(G):17.5627[Cont:17.5627/Adv:1.1112] | Loss(D):0.216902[Real:0.149354/Fake:0.0675474]
+10th-02:31:52 | epoch5(70000) | lr=1e-05 | psnr=23.690 | ypsnr=25.399  | Loss(G):20.6663[Cont:20.6663/Adv:1.5206] | Loss(D):0.430516[Real:0.29941/Fake:0.131106]
+10th-02:35:40 | epoch5(70100) | lr=1e-05 | psnr=23.447 | ypsnr=25.134  | Loss(G):12.6447[Cont:12.6447/Adv:0.448833] | Loss(D):0.857769[Real:0.546315/Fake:0.311454]
+10th-02:39:23 | epoch5(70200) | lr=1e-05 | psnr=23.254 | ypsnr=24.912  | Loss(G):15.4152[Cont:15.4152/Adv:0.787515] | Loss(D):0.573397[Real:0.372783/Fake:0.200614]
+10th-02:43:04 | epoch5(70300) | lr=1e-05 | psnr=23.111 | ypsnr=24.797  | Loss(G):13.6744[Cont:13.6744/Adv:0.579341] | Loss(D):0.495882[Real:0.27545/Fake:0.220432]
+10th-02:46:50 | epoch5(70400) | lr=1e-05 | psnr=23.340 | ypsnr=24.980  | Loss(G):20.3038[Cont:20.3038/Adv:0.952312] | Loss(D):0.161353[Real:0.0665857/Fake:0.0947673]
+10th-02:50:40 | epoch5(70500) | lr=1e-05 | psnr=23.016 | ypsnr=24.731  | Loss(G):18.1754[Cont:18.1754/Adv:1.79373] | Loss(D):0.234842[Real:0.180785/Fake:0.0540563]
+10th-02:54:30 | epoch5(70600) | lr=1e-05 | psnr=23.376 | ypsnr=25.027  | Loss(G):20.6968[Cont:20.6968/Adv:0.773902] | Loss(D):0.277326[Real:0.188908/Fake:0.0884186]
+10th-02:58:15 | epoch5(70700) | lr=1e-05 | psnr=23.405 | ypsnr=25.032  | Loss(G):17.642[Cont:17.642/Adv:0.609364] | Loss(D):0.230641[Real:0.201286/Fake:0.029355]
+10th-03:02:00 | epoch5(70800) | lr=1e-05 | psnr=23.105 | ypsnr=24.839  | Loss(G):15.273[Cont:15.273/Adv:0.316673] | Loss(D):0.257002[Real:0.242723/Fake:0.0142782]
+10th-03:05:41 | epoch5(70900) | lr=1e-05 | psnr=23.169 | ypsnr=24.885  | Loss(G):21.4061[Cont:21.4061/Adv:1.73414] | Loss(D):0.203941[Real:0.084072/Fake:0.119869]
+10th-03:09:20 | epoch5(71000) | lr=1e-05 | psnr=23.346 | ypsnr=25.000  | Loss(G):13.4902[Cont:13.4902/Adv:1.21761] | Loss(D):0.0703501[Real:0.0241235/Fake:0.0462266]
+10th-03:12:58 | epoch5(71100) | lr=1e-05 | psnr=23.583 | ypsnr=25.277  | Loss(G):17.9384[Cont:17.9384/Adv:0.565364] | Loss(D):0.292808[Real:0.248451/Fake:0.0443576]
+10th-03:16:37 | epoch5(71200) | lr=1e-05 | psnr=23.542 | ypsnr=25.233  | Loss(G):18.998[Cont:18.998/Adv:0.723821] | Loss(D):0.225816[Real:0.175508/Fake:0.0503074]
+10th-03:20:16 | epoch5(71300) | lr=1e-05 | psnr=23.254 | ypsnr=24.910  | Loss(G):16.9646[Cont:16.9646/Adv:0.648227] | Loss(D):0.434075[Real:0.258076/Fake:0.175999]
+10th-03:23:54 | epoch5(71400) | lr=1e-05 | psnr=23.167 | ypsnr=24.898  | Loss(G):14.7301[Cont:14.7301/Adv:0.30469] | Loss(D):0.502314[Real:0.331064/Fake:0.17125]
+10th-03:27:37 | epoch5(71500) | lr=1e-05 | psnr=23.369 | ypsnr=25.122  | Loss(G):15.3855[Cont:15.3855/Adv:0.741964] | Loss(D):0.312099[Real:0.202263/Fake:0.109836]
+10th-03:31:51 | epoch5(71600) | lr=1e-05 | psnr=23.204 | ypsnr=24.985  | Loss(G):18.4763[Cont:18.4763/Adv:0.309834] | Loss(D):0.351322[Real:0.290482/Fake:0.0608409]
+10th-03:35:46 | epoch5(71700) | lr=1e-05 | psnr=23.235 | ypsnr=25.005  | Loss(G):19.8369[Cont:19.8369/Adv:2.38716] | Loss(D):0.37829[Real:0.0967045/Fake:0.281585]
+10th-03:39:46 | epoch5(71800) | lr=1e-05 | psnr=23.134 | ypsnr=24.797  | Loss(G):18.9492[Cont:18.9492/Adv:1.35833] | Loss(D):0.269228[Real:0.136997/Fake:0.132231]
+10th-03:43:47 | epoch5(71900) | lr=1e-05 | psnr=23.410 | ypsnr=25.094  | Loss(G):20.8634[Cont:20.8634/Adv:2.10015] | Loss(D):0.345089[Real:0.0845359/Fake:0.260553]
+10th-03:48:01 | epoch5(72000) | lr=1e-05 | psnr=23.540 | ypsnr=25.210  | Loss(G):16.7206[Cont:16.7206/Adv:1.37752] | Loss(D):0.222419[Real:0.125531/Fake:0.0968874]
+10th-03:52:12 | epoch5(72100) | lr=1e-05 | psnr=23.600 | ypsnr=25.312  | Loss(G):13.0862[Cont:13.0862/Adv:2.11162] | Loss(D):0.279384[Real:0.0886613/Fake:0.190723]
+10th-03:56:29 | epoch5(72200) | lr=1e-05 | psnr=23.438 | ypsnr=25.120  | Loss(G):14.2084[Cont:14.2084/Adv:1.22852] | Loss(D):0.213069[Real:0.0765371/Fake:0.136532]
+10th-04:00:44 | epoch5(72300) | lr=1e-05 | psnr=23.530 | ypsnr=25.229  | Loss(G):17.7943[Cont:17.7943/Adv:0.690283] | Loss(D):0.194457[Real:0.0817305/Fake:0.112726]
+10th-04:04:45 | epoch5(72400) | lr=1e-05 | psnr=23.599 | ypsnr=25.289  | Loss(G):17.7135[Cont:17.7135/Adv:1.38473] | Loss(D):0.203173[Real:0.0950569/Fake:0.108116]
+10th-04:09:03 | epoch5(72500) | lr=1e-05 | psnr=23.453 | ypsnr=25.141  | Loss(G):17.2285[Cont:17.2285/Adv:0.547045] | Loss(D):0.231088[Real:0.173832/Fake:0.0572556]
+10th-04:13:16 | epoch5(72600) | lr=1e-05 | psnr=23.803 | ypsnr=25.462  | Loss(G):26.7402[Cont:26.7402/Adv:3.41245] | Loss(D):0.940162[Real:0.354808/Fake:0.585354]
+10th-04:17:32 | epoch5(72700) | lr=1e-05 | psnr=23.597 | ypsnr=25.268  | Loss(G):15.8464[Cont:15.8464/Adv:0.718308] | Loss(D):0.19914[Real:0.150293/Fake:0.0488472]
+10th-04:21:44 | epoch5(72800) | lr=1e-05 | psnr=23.644 | ypsnr=25.328  | Loss(G):14.7628[Cont:14.7628/Adv:0.426016] | Loss(D):0.513028[Real:0.340476/Fake:0.172553]
+10th-04:26:14 | epoch5(72900) | lr=1e-05 | psnr=23.457 | ypsnr=25.177  | Loss(G):17.0206[Cont:17.0206/Adv:2.39702] | Loss(D):0.44896[Real:0.248736/Fake:0.200224]
+10th-04:30:26 | epoch5(73000) | lr=1e-05 | psnr=23.526 | ypsnr=25.247  | Loss(G):15.8914[Cont:15.8914/Adv:2.00704] | Loss(D):0.278212[Real:0.0674153/Fake:0.210797]
+10th-04:33:56 | epoch5(73100) | lr=1e-05 | psnr=23.697 | ypsnr=25.485  | Loss(G):22.039[Cont:22.039/Adv:2.14802] | Loss(D):0.330333[Real:0.168777/Fake:0.161556]
+10th-04:37:25 | epoch5(73200) | lr=1e-05 | psnr=23.675 | ypsnr=25.418  | Loss(G):9.6202[Cont:9.6202/Adv:0.352983] | Loss(D):0.900481[Real:0.725561/Fake:0.17492]
+10th-04:40:59 | epoch5(73300) | lr=1e-05 | psnr=23.753 | ypsnr=25.440  | Loss(G):14.9019[Cont:14.9019/Adv:2.09766] | Loss(D):0.31417[Real:0.0347522/Fake:0.279418]
+10th-04:44:28 | epoch5(73400) | lr=1e-05 | psnr=23.720 | ypsnr=25.385  | Loss(G):12.7017[Cont:12.7017/Adv:0.841913] | Loss(D):0.306004[Real:0.247785/Fake:0.0582189]
+10th-04:47:58 | epoch5(73500) | lr=1e-05 | psnr=23.857 | ypsnr=25.528  | Loss(G):18.7392[Cont:18.7392/Adv:1.33659] | Loss(D):0.0996202[Real:0.0406653/Fake:0.0589549]
+10th-04:51:28 | epoch5(73600) | lr=1e-05 | psnr=23.769 | ypsnr=25.420  | Loss(G):24.5383[Cont:24.5383/Adv:1.4548] | Loss(D):0.238098[Real:0.126095/Fake:0.112002]
+10th-04:55:04 | epoch5(73700) | lr=1e-05 | psnr=23.895 | ypsnr=25.552  | Loss(G):17.2931[Cont:17.2931/Adv:3.5368] | Loss(D):0.805235[Real:0.198297/Fake:0.606938]
+10th-04:58:33 | epoch5(73800) | lr=1e-05 | psnr=23.755 | ypsnr=25.427  | Loss(G):17.918[Cont:17.918/Adv:1.2945] | Loss(D):0.228352[Real:0.101676/Fake:0.126675]
+10th-05:02:06 | epoch5(73900) | lr=1e-05 | psnr=23.538 | ypsnr=25.250  | Loss(G):15.554[Cont:15.554/Adv:0.94149] | Loss(D):0.120483[Real:0.0470741/Fake:0.0734086]
+10th-05:05:36 | epoch5(74000) | lr=1e-05 | psnr=23.605 | ypsnr=25.341  | Loss(G):19.945[Cont:19.945/Adv:1.50176] | Loss(D):0.24782[Real:0.0566532/Fake:0.191167]
+10th-02:22:51 | epoch6(64300) | lr=1e-05 | psnr=22.454 | ypsnr=24.103  | Loss(G):19.7383[Cont:19.7383/Adv:2.64542] | Loss(D):1.21836[Real:1.09532/Fake:0.123044]
+10th-02:26:45 | epoch6(64400) | lr=1e-05 | psnr=22.476 | ypsnr=24.082  | Loss(G):22.9299[Cont:22.9299/Adv:1.30605] | Loss(D):0.774732[Real:0.0762977/Fake:0.698435]
+10th-02:30:48 | epoch6(64500) | lr=1e-05 | psnr=22.361 | ypsnr=23.933  | Loss(G):20.006[Cont:20.006/Adv:0.931698] | Loss(D):1.01106[Real:0.0814346/Fake:0.92963]
+10th-02:34:37 | epoch6(64600) | lr=1e-05 | psnr=22.312 | ypsnr=23.956  | Loss(G):21.1483[Cont:21.1483/Adv:2.82296] | Loss(D):0.566938[Real:0.434893/Fake:0.132045]
+10th-02:38:25 | epoch6(64700) | lr=1e-05 | psnr=22.589 | ypsnr=24.262  | Loss(G):16.2994[Cont:16.2994/Adv:1.46366] | Loss(D):0.76451[Real:0.320112/Fake:0.444398]
+10th-02:42:11 | epoch6(64800) | lr=1e-05 | psnr=21.778 | ypsnr=23.429  | Loss(G):22.6887[Cont:22.6887/Adv:1.3904] | Loss(D):0.693858[Real:0.40125/Fake:0.292608]
+10th-02:45:56 | epoch6(64900) | lr=1e-05 | psnr=22.206 | ypsnr=23.849  | Loss(G):18.5446[Cont:18.5446/Adv:3.3852] | Loss(D):2.04421[Real:2.00461/Fake:0.0395983]
+10th-02:49:42 | epoch6(65000) | lr=1e-05 | psnr=21.913 | ypsnr=23.383  | Loss(G):21.3858[Cont:21.3858/Adv:0.591693] | Loss(D):1.41003[Real:0.00306549/Fake:1.40696]
+10th-02:53:28 | epoch6(65100) | lr=1e-05 | psnr=22.877 | ypsnr=24.549  | Loss(G):18.2012[Cont:18.2012/Adv:1.96848] | Loss(D):0.315214[Real:0.102496/Fake:0.212718]
+10th-02:57:12 | epoch6(65200) | lr=1e-05 | psnr=21.813 | ypsnr=23.324  | Loss(G):17.1284[Cont:17.1284/Adv:1.11092] | Loss(D):0.98382[Real:0.324642/Fake:0.659178]
+10th-03:00:58 | epoch6(65300) | lr=1e-05 | psnr=23.121 | ypsnr=24.742  | Loss(G):20.7028[Cont:20.7028/Adv:2.12553] | Loss(D):0.497223[Real:0.278275/Fake:0.218947]
+10th-03:04:45 | epoch6(65400) | lr=1e-05 | psnr=20.934 | ypsnr=22.410  | Loss(G):19.1758[Cont:19.1758/Adv:1.7354] | Loss(D):0.635767[Real:0.492561/Fake:0.143206]
+10th-03:08:31 | epoch6(65500) | lr=1e-05 | psnr=22.996 | ypsnr=24.666  | Loss(G):17.9062[Cont:17.9062/Adv:0.867264] | Loss(D):1.32274[Real:0.0152227/Fake:1.30751]
+10th-03:12:21 | epoch6(65600) | lr=1e-05 | psnr=22.573 | ypsnr=24.203  | Loss(G):21.0579[Cont:21.0579/Adv:1.89302] | Loss(D):0.426713[Real:0.0915984/Fake:0.335114]
+10th-03:16:07 | epoch6(65700) | lr=1e-05 | psnr=22.149 | ypsnr=23.727  | Loss(G):29.0147[Cont:29.0147/Adv:2.09504] | Loss(D):0.476996[Real:0.228033/Fake:0.248963]
+10th-03:19:52 | epoch6(65800) | lr=1e-05 | psnr=22.509 | ypsnr=24.137  | Loss(G):21.7962[Cont:21.7962/Adv:3.51308] | Loss(D):0.567448[Real:0.521533/Fake:0.0459154]
+10th-03:23:42 | epoch6(65900) | lr=1e-05 | psnr=22.348 | ypsnr=23.952  | Loss(G):18.1421[Cont:18.1421/Adv:0.924167] | Loss(D):0.998656[Real:0.194219/Fake:0.804437]
+10th-03:27:29 | epoch6(66000) | lr=1e-05 | psnr=22.887 | ypsnr=24.541  | Loss(G):20.221[Cont:20.221/Adv:1.56703] | Loss(D):0.846961[Real:0.276496/Fake:0.570464]
+10th-03:31:15 | epoch6(66100) | lr=1e-05 | psnr=23.238 | ypsnr=24.888  | Loss(G):24.8933[Cont:24.8933/Adv:2.02445] | Loss(D):0.350259[Real:0.109/Fake:0.241259]
+10th-03:35:35 | epoch6(66200) | lr=1e-05 | psnr=21.510 | ypsnr=23.128  | Loss(G):20.4358[Cont:20.4358/Adv:2.22403] | Loss(D):1.24798[Real:0.891724/Fake:0.35626]
+10th-03:39:43 | epoch6(66300) | lr=1e-05 | psnr=22.422 | ypsnr=24.062  | Loss(G):20.9161[Cont:20.9161/Adv:2.80403] | Loss(D):0.647138[Real:0.574243/Fake:0.0728955]
+10th-03:44:06 | epoch6(66400) | lr=1e-05 | psnr=22.836 | ypsnr=24.490  | Loss(G):22.7948[Cont:22.7948/Adv:3.01257] | Loss(D):0.699269[Real:0.560754/Fake:0.138515]
+10th-03:48:47 | epoch6(66500) | lr=1e-05 | psnr=22.600 | ypsnr=24.215  | Loss(G):23.0901[Cont:23.0901/Adv:2.91262] | Loss(D):0.317542[Real:0.214663/Fake:0.102879]
+10th-03:53:06 | epoch6(66600) | lr=1e-05 | psnr=23.241 | ypsnr=25.010  | Loss(G):28.0616[Cont:28.0616/Adv:2.16863] | Loss(D):0.30988[Real:0.0760897/Fake:0.233791]
+10th-03:57:37 | epoch6(66700) | lr=1e-05 | psnr=22.191 | ypsnr=23.833  | Loss(G):22.4308[Cont:22.4308/Adv:2.42913] | Loss(D):1.25801[Real:1.13914/Fake:0.118868]
+10th-04:02:02 | epoch6(66800) | lr=1e-05 | psnr=22.960 | ypsnr=24.590  | Loss(G):20.2602[Cont:20.2602/Adv:1.06351] | Loss(D):0.925301[Real:0.0149682/Fake:0.910333]
+10th-04:06:24 | epoch6(66900) | lr=1e-05 | psnr=22.343 | ypsnr=23.916  | Loss(G):18.3145[Cont:18.3145/Adv:2.33624] | Loss(D):1.05354[Real:0.894873/Fake:0.158668]
+10th-04:10:53 | epoch6(67000) | lr=1e-05 | psnr=22.847 | ypsnr=24.490  | Loss(G):21.3151[Cont:21.3151/Adv:2.9308] | Loss(D):0.651343[Real:0.58064/Fake:0.0707026]
+10th-04:15:01 | epoch6(67100) | lr=1e-05 | psnr=22.789 | ypsnr=24.537  | Loss(G):16.4803[Cont:16.4803/Adv:2.65386] | Loss(D):1.78512[Real:1.70054/Fake:0.0845737]
+10th-04:19:25 | epoch6(67200) | lr=1e-05 | psnr=22.282 | ypsnr=23.881  | Loss(G):14.3137[Cont:14.3137/Adv:0.817043] | Loss(D):1.71173[Real:0.462281/Fake:1.24945]
+10th-04:23:49 | epoch6(67300) | lr=1e-05 | psnr=23.028 | ypsnr=24.666  | Loss(G):16.2143[Cont:16.2143/Adv:0.960304] | Loss(D):1.13662[Real:0.208547/Fake:0.928077]
+10th-04:27:36 | epoch6(67400) | lr=1e-05 | psnr=22.750 | ypsnr=24.412  | Loss(G):23.0093[Cont:23.0093/Adv:1.96821] | Loss(D):0.337892[Real:0.0403388/Fake:0.297553]
+10th-04:31:57 | epoch6(67500) | lr=1e-05 | psnr=22.478 | ypsnr=24.066  | Loss(G):20.0092[Cont:20.0092/Adv:2.84244] | Loss(D):0.33705[Real:0.147316/Fake:0.189734]
+10th-04:35:40 | epoch6(67600) | lr=1e-05 | psnr=21.892 | ypsnr=23.423  | Loss(G):16.4487[Cont:16.4487/Adv:2.10054] | Loss(D):0.867861[Real:0.681422/Fake:0.186439]
+10th-04:39:28 | epoch6(67700) | lr=1e-05 | psnr=21.972 | ypsnr=23.579  | Loss(G):23.1078[Cont:23.1078/Adv:2.05573] | Loss(D):0.411611[Real:0.16548/Fake:0.24613]
+10th-04:43:31 | epoch6(67800) | lr=1e-05 | psnr=22.667 | ypsnr=24.252  | Loss(G):14.3706[Cont:14.3706/Adv:1.29823] | Loss(D):1.48943[Real:1.03987/Fake:0.449567]
+10th-04:47:51 | epoch6(67900) | lr=1e-05 | psnr=22.383 | ypsnr=23.974  | Loss(G):19.2896[Cont:19.2896/Adv:1.23058] | Loss(D):1.13808[Real:0.54471/Fake:0.593369]
+10th-04:51:55 | epoch6(68000) | lr=1e-05 | psnr=21.466 | ypsnr=22.999  | Loss(G):28.71[Cont:28.71/Adv:2.0215] | Loss(D):0.455679[Real:0.0234199/Fake:0.43226]
+10th-04:56:07 | epoch6(68100) | lr=1e-05 | psnr=22.343 | ypsnr=23.942  | Loss(G):23.3678[Cont:23.3678/Adv:2.23364] | Loss(D):0.401982[Real:0.0744936/Fake:0.327489]
+10th-05:00:23 | epoch6(68200) | lr=1e-05 | psnr=22.316 | ypsnr=23.864  | Loss(G):28.2911[Cont:28.2911/Adv:0.92262] | Loss(D):0.922877[Real:0.00178205/Fake:0.921095]
+10th-05:04:27 | epoch6(68300) | lr=1e-05 | psnr=22.049 | ypsnr=23.694  | Loss(G):20.3227[Cont:20.3227/Adv:2.19514] | Loss(D):0.669712[Real:0.402621/Fake:0.267091]
+10th-05:08:29 | epoch6(68400) | lr=1e-05 | psnr=22.333 | ypsnr=23.935  | Loss(G):24.979[Cont:24.979/Adv:2.22703] | Loss(D):0.487289[Real:0.274453/Fake:0.212836]
+10th-05:12:50 | epoch6(68500) | lr=1e-05 | psnr=22.462 | ypsnr=24.149  | Loss(G):24.6912[Cont:24.6912/Adv:1.75114] | Loss(D):0.403652[Real:0.0563213/Fake:0.347331]
+10th-05:16:54 | epoch6(68600) | lr=1e-05 | psnr=22.702 | ypsnr=24.408  | Loss(G):24.736[Cont:24.736/Adv:1.28964] | Loss(D):0.71491[Real:0.235205/Fake:0.479705]
+10th-05:21:13 | epoch6(68700) | lr=1e-05 | psnr=21.840 | ypsnr=23.492  | Loss(G):21.0215[Cont:21.0215/Adv:2.30792] | Loss(D):0.777641[Real:0.593677/Fake:0.183964]
+10th-05:25:36 | epoch6(68800) | lr=1e-05 | psnr=22.880 | ypsnr=24.545  | Loss(G):18.201[Cont:18.201/Adv:1.55389] | Loss(D):1.45452[Real:0.935653/Fake:0.518868]
+10th-05:29:36 | epoch6(68900) | lr=1e-05 | psnr=22.347 | ypsnr=23.990  | Loss(G):17.891[Cont:17.891/Adv:2.44757] | Loss(D):0.90803[Real:0.654045/Fake:0.253985]
+10th-05:33:50 | epoch6(69000) | lr=1e-05 | psnr=22.251 | ypsnr=23.866  | Loss(G):18.5867[Cont:18.5867/Adv:1.38425] | Loss(D):0.579156[Real:0.143464/Fake:0.435692]
+10th-05:38:04 | epoch6(69100) | lr=1e-05 | psnr=22.243 | ypsnr=23.785  | Loss(G):24.1538[Cont:24.1538/Adv:2.79678] | Loss(D):0.358426[Real:0.225157/Fake:0.133269]
+10th-05:42:05 | epoch6(69200) | lr=1e-05 | psnr=23.159 | ypsnr=24.853  | Loss(G):21.1936[Cont:21.1936/Adv:3.132] | Loss(D):0.200349[Real:0.0909916/Fake:0.109358]
+10th-05:46:03 | epoch6(69300) | lr=1e-05 | psnr=22.651 | ypsnr=24.288  | Loss(G):18.5186[Cont:18.5186/Adv:1.54392] | Loss(D):0.836739[Real:0.302297/Fake:0.534442]
+10th-02:34:56 | epoch6(64200) | lr=1e-05 | psnr=23.033 | ypsnr=24.691  | Loss(G):14.4443[Cont:14.4443/Adv:3.86384] | Loss(D):0.120758[Real:0.0757974/Fake:0.0449603]
+10th-02:38:55 | epoch6(64300) | lr=1e-05 | psnr=23.114 | ypsnr=24.707  | Loss(G):12.8695[Cont:12.8695/Adv:3.60722] | Loss(D):0.0479559[Real:0.000101731/Fake:0.0478541]
+10th-02:42:50 | epoch6(64400) | lr=1e-05 | psnr=23.024 | ypsnr=24.680  | Loss(G):19.8903[Cont:19.8903/Adv:2.96395] | Loss(D):0.116895[Real:0.00112136/Fake:0.115773]
+10th-02:46:43 | epoch6(64500) | lr=1e-05 | psnr=22.992 | ypsnr=24.650  | Loss(G):21.0732[Cont:21.0732/Adv:1.79876] | Loss(D):0.51066[Real:0.00036923/Fake:0.510291]
+10th-02:50:40 | epoch6(64600) | lr=1e-05 | psnr=22.851 | ypsnr=24.638  | Loss(G):18.687[Cont:18.687/Adv:4.36753] | Loss(D):0.0961196[Real:2.68221e-07/Fake:0.0961193]
+10th-02:54:39 | epoch6(64700) | lr=1e-05 | psnr=22.944 | ypsnr=24.625  | Loss(G):12.8416[Cont:12.8416/Adv:9.91238] | Loss(D):0.297715[Real:0.297287/Fake:0.000428316]
+10th-02:58:42 | epoch6(64800) | lr=1e-05 | psnr=22.929 | ypsnr=24.548  | Loss(G):14.2746[Cont:14.2746/Adv:7.17955] | Loss(D):0.0490229[Real:0.0464227/Fake:0.00260016]
+10th-03:02:39 | epoch6(64900) | lr=1e-05 | psnr=22.871 | ypsnr=24.540  | Loss(G):15.2073[Cont:15.2073/Adv:6.23365] | Loss(D):0.0215051[Real:0.0170839/Fake:0.00442125]
+10th-03:06:34 | epoch6(65000) | lr=1e-05 | psnr=22.866 | ypsnr=24.572  | Loss(G):16.4235[Cont:16.4235/Adv:3.01312] | Loss(D):0.101035[Real:7.37167e-05/Fake:0.100961]
+10th-03:10:29 | epoch6(65100) | lr=1e-05 | psnr=22.322 | ypsnr=24.035  | Loss(G):11.6278[Cont:11.6278/Adv:2.48626] | Loss(D):0.834311[Real:0.458383/Fake:0.375928]
+10th-03:14:22 | epoch6(65200) | lr=1e-05 | psnr=22.769 | ypsnr=24.408  | Loss(G):12.9796[Cont:12.9796/Adv:6.09054] | Loss(D):0.785263[Real:0.778919/Fake:0.00634422]
+10th-03:18:16 | epoch6(65300) | lr=1e-05 | psnr=23.029 | ypsnr=24.756  | Loss(G):19.657[Cont:19.657/Adv:4.34523] | Loss(D):0.0713122[Real:0.0189242/Fake:0.052388]
+10th-03:22:11 | epoch6(65400) | lr=1e-05 | psnr=22.908 | ypsnr=24.596  | Loss(G):16.1522[Cont:16.1522/Adv:4.78643] | Loss(D):0.0153613[Real:0.00104124/Fake:0.0143201]
+10th-03:26:13 | epoch6(65500) | lr=1e-05 | psnr=23.008 | ypsnr=24.625  | Loss(G):19.3162[Cont:19.3162/Adv:1.84742] | Loss(D):0.49347[Real:0.00110353/Fake:0.492367]
+10th-03:30:06 | epoch6(65600) | lr=1e-05 | psnr=22.388 | ypsnr=24.058  | Loss(G):13.5796[Cont:13.5796/Adv:7.31126] | Loss(D):0.0031919[Real:0.00108944/Fake:0.00210246]
+10th-03:33:59 | epoch6(65700) | lr=1e-05 | psnr=22.518 | ypsnr=24.179  | Loss(G):16.0286[Cont:16.0286/Adv:4.30463] | Loss(D):0.0499303[Real:0.00345074/Fake:0.0464796]
+10th-03:38:35 | epoch6(65800) | lr=1e-05 | psnr=22.563 | ypsnr=24.277  | Loss(G):18.1141[Cont:18.1141/Adv:9.20634] | Loss(D):0.00428639[Real:0.00404421/Fake:0.000242175]
+10th-03:42:56 | epoch6(65900) | lr=1e-05 | psnr=22.901 | ypsnr=24.566  | Loss(G):17.0444[Cont:17.0444/Adv:2.01347] | Loss(D):0.104943[Real:0.00333695/Fake:0.101606]
+10th-03:47:20 | epoch6(66000) | lr=1e-05 | psnr=23.056 | ypsnr=24.649  | Loss(G):16.2849[Cont:16.2849/Adv:7.01826] | Loss(D):0.066695[Real:0.0613497/Fake:0.00534529]
+10th-03:52:03 | epoch6(66100) | lr=1e-05 | psnr=23.021 | ypsnr=24.824  | Loss(G):16.5989[Cont:16.5989/Adv:4.86831] | Loss(D):0.0579984[Real:0.0390802/Fake:0.0189182]
+10th-03:56:42 | epoch6(66200) | lr=1e-05 | psnr=23.037 | ypsnr=24.694  | Loss(G):16.8163[Cont:16.8163/Adv:5.33466] | Loss(D):0.00900539[Real:0.000396252/Fake:0.00860914]
+10th-04:01:21 | epoch6(66300) | lr=1e-05 | psnr=23.450 | ypsnr=25.031  | Loss(G):13.3939[Cont:13.3939/Adv:6.7306] | Loss(D):1.55208[Real:1.55103/Fake:0.00104666]
+10th-04:05:46 | epoch6(66400) | lr=1e-05 | psnr=23.158 | ypsnr=24.767  | Loss(G):13.5364[Cont:13.5364/Adv:4.46191] | Loss(D):0.0443334[Real:0.0147049/Fake:0.0296285]
+10th-04:10:08 | epoch6(66500) | lr=1e-05 | psnr=23.018 | ypsnr=24.604  | Loss(G):14.2836[Cont:14.2836/Adv:6.0267] | Loss(D):0.0372081[Real:0.000935641/Fake:0.0362725]
+10th-04:14:16 | epoch6(66600) | lr=1e-05 | psnr=22.611 | ypsnr=24.231  | Loss(G):17.5101[Cont:17.5101/Adv:0.982536] | Loss(D):1.09587[Real:0.00171659/Fake:1.09416]
+10th-04:18:33 | epoch6(66700) | lr=1e-05 | psnr=22.685 | ypsnr=24.257  | Loss(G):18.4071[Cont:18.4071/Adv:3.33048] | Loss(D):0.0663895[Real:0.00640759/Fake:0.0599819]
+10th-04:23:09 | epoch6(66800) | lr=1e-05 | psnr=22.764 | ypsnr=24.378  | Loss(G):17.2952[Cont:17.2952/Adv:6.1589] | Loss(D):1.74304[Real:1.7346/Fake:0.00843824]
+10th-04:27:04 | epoch6(66900) | lr=1e-05 | psnr=23.119 | ypsnr=24.695  | Loss(G):13.0677[Cont:13.0677/Adv:7.12494] | Loss(D):0.151702[Real:0.149907/Fake:0.00179464]
+10th-04:30:57 | epoch6(67000) | lr=1e-05 | psnr=23.312 | ypsnr=24.908  | Loss(G):12.3554[Cont:12.3554/Adv:6.19232] | Loss(D):0.0272838[Real:0.0230936/Fake:0.0041902]
+10th-04:35:12 | epoch6(67100) | lr=1e-05 | psnr=23.303 | ypsnr=24.913  | Loss(G):13.9643[Cont:13.9643/Adv:7.13304] | Loss(D):0.00460588[Real:0.00289341/Fake:0.00171247]
+10th-04:39:05 | epoch6(67200) | lr=1e-05 | psnr=23.077 | ypsnr=24.665  | Loss(G):22.2769[Cont:22.2769/Adv:4.40749] | Loss(D):0.0395661[Real:3.0504e-05/Fake:0.0395356]
+10th-04:43:11 | epoch6(67300) | lr=1e-05 | psnr=22.946 | ypsnr=24.575  | Loss(G):18.76[Cont:18.76/Adv:3.7691] | Loss(D):0.0845663[Real:0.00217062/Fake:0.0823956]
+10th-04:47:13 | epoch6(67400) | lr=1e-05 | psnr=23.014 | ypsnr=24.699  | Loss(G):19.4312[Cont:19.4312/Adv:2.49647] | Loss(D):0.132814[Real:0.000259778/Fake:0.132554]
+10th-04:51:23 | epoch6(67500) | lr=1e-05 | psnr=23.337 | ypsnr=24.927  | Loss(G):20.7423[Cont:20.7423/Adv:12.5182] | Loss(D):0.00126659[Real:0.000804118/Fake:0.000462472]
+10th-04:55:38 | epoch6(67600) | lr=1e-05 | psnr=23.136 | ypsnr=24.779  | Loss(G):17.8099[Cont:17.8099/Adv:2.14623] | Loss(D):0.382823[Real:0.00058182/Fake:0.382241]
+10th-04:59:48 | epoch6(67700) | lr=1e-05 | psnr=23.436 | ypsnr=25.089  | Loss(G):25.1908[Cont:25.1908/Adv:5.20368] | Loss(D):0.0199208[Real:2.48852e-06/Fake:0.0199184]
+10th-05:03:57 | epoch6(67800) | lr=1e-05 | psnr=23.263 | ypsnr=24.997  | Loss(G):18.982[Cont:18.982/Adv:1.60085] | Loss(D):0.682943[Real:0.000789141/Fake:0.682153]
+10th-05:08:06 | epoch6(67900) | lr=1e-05 | psnr=23.287 | ypsnr=24.961  | Loss(G):14.2565[Cont:14.2565/Adv:4.79387] | Loss(D):0.0167965[Real:9.00278e-05/Fake:0.0167065]
+10th-05:12:12 | epoch6(68000) | lr=1e-05 | psnr=23.237 | ypsnr=24.872  | Loss(G):18.3839[Cont:18.3839/Adv:4.54901] | Loss(D):0.0247757[Real:3.89024e-05/Fake:0.0247367]
+10th-05:16:35 | epoch6(68100) | lr=1e-05 | psnr=23.692 | ypsnr=25.335  | Loss(G):18.8087[Cont:18.8087/Adv:4.48387] | Loss(D):0.0306471[Real:0.00051066/Fake:0.0301365]
+10th-05:20:34 | epoch6(68200) | lr=1e-05 | psnr=23.556 | ypsnr=25.215  | Loss(G):16.632[Cont:16.632/Adv:5.65978] | Loss(D):0.13598[Real:0.130414/Fake:0.00556588]
+10th-05:24:40 | epoch6(68300) | lr=1e-05 | psnr=23.498 | ypsnr=25.182  | Loss(G):21.7466[Cont:21.7466/Adv:4.20616] | Loss(D):0.0327358[Real:0.000262194/Fake:0.0324736]
+10th-05:28:48 | epoch6(68400) | lr=1e-05 | psnr=23.585 | ypsnr=25.258  | Loss(G):15.7874[Cont:15.7874/Adv:2.63907] | Loss(D):0.129218[Real:0.000628166/Fake:0.128589]
+10th-05:33:08 | epoch6(68500) | lr=1e-05 | psnr=23.475 | ypsnr=25.045  | Loss(G):13.0465[Cont:13.0465/Adv:3.83352] | Loss(D):0.198944[Real:0.175032/Fake:0.0239124]
+10th-05:37:29 | epoch6(68600) | lr=1e-05 | psnr=23.853 | ypsnr=25.440  | Loss(G):13.1184[Cont:13.1184/Adv:6.66005] | Loss(D):0.083879[Real:0.0815901/Fake:0.00228886]
+10th-05:41:44 | epoch6(68700) | lr=1e-05 | psnr=23.685 | ypsnr=25.271  | Loss(G):15.7987[Cont:15.7987/Adv:3.87996] | Loss(D):0.0429309[Real:0.00262643/Fake:0.0403044]
+10th-05:45:48 | epoch6(68800) | lr=1e-05 | psnr=23.598 | ypsnr=25.214  | Loss(G):20.5473[Cont:20.5473/Adv:4.37126] | Loss(D):0.0783173[Real:0.00872861/Fake:0.0695886]
+10th-05:49:44 | epoch6(68900) | lr=1e-05 | psnr=23.608 | ypsnr=25.213  | Loss(G):18.0467[Cont:18.0467/Adv:5.14977] | Loss(D):0.0897563[Real:0.0731437/Fake:0.0166126]
+10th-05:53:40 | epoch6(69000) | lr=1e-05 | psnr=23.527 | ypsnr=25.197  | Loss(G):12.7267[Cont:12.7267/Adv:3.4223] | Loss(D):0.294579[Real:0.173487/Fake:0.121092]
+10th-05:57:52 | epoch6(69100) | lr=1e-05 | psnr=23.411 | ypsnr=25.029  | Loss(G):16.096[Cont:16.096/Adv:4.56791] | Loss(D):0.0202866[Real:0.00251467/Fake:0.0177719]
+10th-04:31:18 | epoch9(22600) | lr=7.29e-05 | psnr=26.6118 | ypsnr=28.0215
+10th-04:33:34 | epoch9(22700) | lr=7.29e-05 | psnr=26.6048 | ypsnr=28.0190
+10th-04:35:53 | epoch9(22800) | lr=7.29e-05 | psnr=26.6106 | ypsnr=28.0345
+10th-04:38:08 | epoch9(22900) | lr=7.29e-05 | psnr=26.5982 | ypsnr=28.0098
+10th-04:40:24 | epoch9(23000) | lr=7.29e-05 | psnr=26.6010 | ypsnr=28.0252
+10th-04:42:39 | epoch9(23100) | lr=7.29e-05 | psnr=26.6170 | ypsnr=28.0204
+10th-04:44:56 | epoch9(23200) | lr=7.29e-05 | psnr=26.6261 | ypsnr=28.0296
+10th-04:47:13 | epoch9(23300) | lr=7.29e-05 | psnr=26.6137 | ypsnr=28.0171
+10th-04:49:29 | epoch9(23400) | lr=7.29e-05 | psnr=26.5971 | ypsnr=28.0125
+10th-04:51:48 | epoch9(23500) | lr=7.29e-05 | psnr=26.6096 | ypsnr=28.0178
+10th-04:54:04 | epoch9(23600) | lr=7.29e-05 | psnr=26.6089 | ypsnr=28.0161
+10th-04:56:24 | epoch9(23700) | lr=7.29e-05 | psnr=26.5990 | ypsnr=27.9902
+10th-04:58:41 | epoch9(23800) | lr=7.29e-05 | psnr=26.6175 | ypsnr=28.0187
+10th-05:00:58 | epoch9(23900) | lr=7.29e-05 | psnr=26.6163 | ypsnr=28.0273
+10th-05:03:14 | epoch9(24000) | lr=7.29e-05 | psnr=26.6059 | ypsnr=28.0161
+10th-05:05:31 | epoch9(24100) | lr=7.29e-05 | psnr=26.6111 | ypsnr=28.0148
+10th-05:07:46 | epoch9(24200) | lr=7.29e-05 | psnr=26.6063 | ypsnr=28.0199
+10th-05:10:02 | epoch9(24300) | lr=7.29e-05 | psnr=26.6274 | ypsnr=28.0342
+10th-05:12:19 | epoch9(24400) | lr=7.29e-05 | psnr=26.6035 | ypsnr=28.0175
+10th-05:14:36 | epoch9(24500) | lr=7.29e-05 | psnr=26.6038 | ypsnr=27.9958
+10th-05:16:55 | epoch9(24600) | lr=7.29e-05 | psnr=26.6227 | ypsnr=28.0313
+10th-05:19:11 | epoch9(24700) | lr=7.29e-05 | psnr=26.6047 | ypsnr=28.0205
+10th-05:21:30 | epoch9(24800) | lr=7.29e-05 | psnr=26.6150 | ypsnr=28.0171
+10th-05:23:47 | epoch9(24900) | lr=7.29e-05 | psnr=26.6024 | ypsnr=28.0139
+10th-05:26:04 | epoch9(25000) | lr=7.29e-05 | psnr=26.5898 | ypsnr=27.9930
+10th-05:28:20 | epoch9(25100) | lr=7.29e-05 | psnr=26.6093 | ypsnr=28.0118
+10th-05:30:38 | epoch9(25200) | lr=7.29e-05 | psnr=26.6103 | ypsnr=28.0185
+10th-05:32:55 | epoch9(25300) | lr=7.29e-05 | psnr=26.6006 | ypsnr=28.0019
+10th-05:35:12 | epoch9(25400) | lr=7.29e-05 | psnr=26.6196 | ypsnr=28.0282
+10th-05:37:33 | epoch9(25500) | lr=7.29e-05 | psnr=26.5797 | ypsnr=27.9900
+10th-05:39:51 | epoch9(25600) | lr=7.29e-05 | psnr=26.6074 | ypsnr=28.0190
+10th-05:42:10 | epoch9(25700) | lr=7.29e-05 | psnr=26.6085 | ypsnr=28.0113
+10th-05:44:28 | epoch9(25800) | lr=7.29e-05 | psnr=26.6142 | ypsnr=28.0233
+10th-05:46:45 | epoch9(25900) | lr=7.29e-05 | psnr=26.6072 | ypsnr=28.0203
+10th-05:49:01 | epoch9(26000) | lr=7.29e-05 | psnr=26.6128 | ypsnr=28.0065
+10th-05:51:17 | epoch9(26100) | lr=7.29e-05 | psnr=26.6049 | ypsnr=27.9980
+10th-05:53:34 | epoch9(26200) | lr=7.29e-05 | psnr=26.6160 | ypsnr=28.0213
+10th-05:55:52 | epoch9(26300) | lr=7.29e-05 | psnr=26.6119 | ypsnr=28.0112
+10th-05:58:11 | epoch9(26400) | lr=7.29e-05 | psnr=26.6214 | ypsnr=28.0348
+10th-06:00:27 | epoch9(26500) | lr=7.29e-05 | psnr=26.6129 | ypsnr=28.0430
+10th-06:02:45 | epoch9(26600) | lr=7.29e-05 | psnr=26.6138 | ypsnr=28.0236
+10th-06:05:01 | epoch9(26700) | lr=7.29e-05 | psnr=26.6046 | ypsnr=28.0248
+10th-06:07:17 | epoch9(26800) | lr=7.29e-05 | psnr=26.6173 | ypsnr=28.0232
+10th-06:09:34 | epoch9(26900) | lr=7.29e-05 | psnr=26.6052 | ypsnr=28.0089
+10th-06:11:50 | epoch9(27000) | lr=7.29e-05 | psnr=26.5992 | ypsnr=27.9842
+10th-06:14:07 | epoch9(27100) | lr=7.29e-05 | psnr=26.6134 | ypsnr=28.0247
+10th-06:16:24 | epoch9(27200) | lr=7.29e-05 | psnr=26.6048 | ypsnr=28.0042
+10th-06:18:40 | epoch9(27300) | lr=7.29e-05 | psnr=26.6134 | ypsnr=28.0155
+10th-06:20:56 | epoch9(27400) | lr=7.29e-05 | psnr=26.6089 | ypsnr=28.0302
+10th-06:23:15 | epoch9(27500) | lr=7.29e-05 | psnr=26.6277 | ypsnr=28.0323
+10th-06:25:31 | epoch9(27600) | lr=7.29e-05 | psnr=26.6125 | ypsnr=28.0168
+10th-06:27:51 | epoch9(27700) | lr=7.29e-05 | psnr=26.5933 | ypsnr=27.9764
+10th-06:30:15 | epoch9(27800) | lr=7.29e-05 | psnr=26.6145 | ypsnr=28.0183
+10th-06:32:32 | epoch9(27900) | lr=7.29e-05 | psnr=26.5934 | ypsnr=28.0143
+10th-06:34:48 | epoch9(28000) | lr=7.29e-05 | psnr=26.6103 | ypsnr=28.0153
+10th-06:37:04 | epoch9(28100) | lr=7.29e-05 | psnr=26.5996 | ypsnr=27.9913
+10th-06:39:20 | epoch9(28200) | lr=7.29e-05 | psnr=26.5884 | ypsnr=27.9792
+10th-06:41:37 | epoch9(28300) | lr=7.29e-05 | psnr=26.6105 | ypsnr=28.0148
+10th-06:43:56 | epoch9(28400) | lr=7.29e-05 | psnr=26.5959 | ypsnr=28.0139
+
+10th-05:09:04 | epoch5(74100) | lr=1e-05 | psnr=23.583 | ypsnr=25.223  | Loss(G):20.3573[Cont:20.3573/Adv:1.87985] | Loss(D):0.310659[Real:0.0621858/Fake:0.248473]
+10th-05:12:37 | epoch5(74200) | lr=1e-05 | psnr=23.622 | ypsnr=25.261  | Loss(G):12.9057[Cont:12.9057/Adv:0.977267] | Loss(D):0.168016[Real:0.0775629/Fake:0.0904534]
+10th-05:16:11 | epoch5(74300) | lr=1e-05 | psnr=23.603 | ypsnr=25.275  | Loss(G):17.845[Cont:17.845/Adv:1.49602] | Loss(D):0.186149[Real:0.0383111/Fake:0.147838]
+10th-05:19:41 | epoch5(74400) | lr=1e-05 | psnr=23.558 | ypsnr=25.203  | Loss(G):19.6069[Cont:19.6069/Adv:1.36743] | Loss(D):0.171415[Real:0.0332448/Fake:0.13817]
+10th-05:23:10 | epoch5(74500) | lr=1e-05 | psnr=23.784 | ypsnr=25.439  | Loss(G):18.6311[Cont:18.6311/Adv:1.32379] | Loss(D):0.0984[Real:0.0555495/Fake:0.0428504]
+10th-05:26:40 | epoch5(74600) | lr=1e-05 | psnr=23.441 | ypsnr=25.091  | Loss(G):14.626[Cont:14.626/Adv:1.34268] | Loss(D):0.111363[Real:0.0383007/Fake:0.0730619]
+10th-05:30:08 | epoch5(74700) | lr=1e-05 | psnr=23.256 | ypsnr=24.842  | Loss(G):22.7033[Cont:22.7033/Adv:1.32286] | Loss(D):0.141332[Real:0.0542017/Fake:0.0871303]
+10th-05:33:39 | epoch5(74800) | lr=1e-05 | psnr=23.259 | ypsnr=24.908  | Loss(G):13.0206[Cont:13.0206/Adv:0.241828] | Loss(D):0.601557[Real:0.450724/Fake:0.150833]
+10th-05:37:10 | epoch5(74900) | lr=1e-05 | psnr=23.504 | ypsnr=25.152  | Loss(G):28.5637[Cont:28.5637/Adv:1.81622] | Loss(D):0.21797[Real:0.017771/Fake:0.200199]
+10th-05:40:44 | epoch5(75000) | lr=1e-05 | psnr=23.074 | ypsnr=24.741  | Loss(G):11.8628[Cont:11.8628/Adv:0.435855] | Loss(D):0.643753[Real:0.499284/Fake:0.144469]
+10th-05:44:14 | epoch5(75100) | lr=1e-05 | psnr=23.681 | ypsnr=25.304  | Loss(G):21.0324[Cont:21.0324/Adv:0.411038] | Loss(D):0.380825[Real:0.251544/Fake:0.12928]
+10th-05:47:47 | epoch5(75200) | lr=1e-05 | psnr=23.658 | ypsnr=25.327  | Loss(G):18.8366[Cont:18.8366/Adv:1.28212] | Loss(D):0.0882591[Real:0.0225801/Fake:0.065679]
+10th-05:51:17 | epoch5(75300) | lr=1e-05 | psnr=23.552 | ypsnr=25.234  | Loss(G):15.7307[Cont:15.7307/Adv:1.18996] | Loss(D):0.193356[Real:0.120314/Fake:0.0730421]
+10th-05:54:47 | epoch5(75400) | lr=1e-05 | psnr=23.734 | ypsnr=25.400  | Loss(G):18.0314[Cont:18.0314/Adv:0.517313] | Loss(D):0.321377[Real:0.191495/Fake:0.129882]
+10th-05:58:16 | epoch5(75500) | lr=1e-05 | psnr=23.769 | ypsnr=25.399  | Loss(G):16.4737[Cont:16.4737/Adv:2.08382] | Loss(D):0.420332[Real:0.153518/Fake:0.266813]
+10th-06:01:47 | epoch5(75600) | lr=1e-05 | psnr=23.517 | ypsnr=25.098  | Loss(G):13.6987[Cont:13.6987/Adv:0.530463] | Loss(D):0.273921[Real:0.145123/Fake:0.128798]
+10th-06:05:18 | epoch5(75700) | lr=1e-05 | psnr=23.529 | ypsnr=25.092  | Loss(G):15.1039[Cont:15.1039/Adv:0.614603] | Loss(D):0.360755[Real:0.287778/Fake:0.0729765]
+10th-06:08:46 | epoch5(75800) | lr=1e-05 | psnr=23.853 | ypsnr=25.480  | Loss(G):17.0233[Cont:17.0233/Adv:1.05298] | Loss(D):0.0845971[Real:0.052731/Fake:0.0318661]
+10th-06:12:16 | epoch5(75900) | lr=1e-05 | psnr=23.820 | ypsnr=25.471  | Loss(G):22.4564[Cont:22.4564/Adv:2.00966] | Loss(D):0.318675[Real:0.0722257/Fake:0.246449]
+10th-06:15:46 | epoch5(76000) | lr=1e-05 | psnr=23.805 | ypsnr=25.434  | Loss(G):15.6641[Cont:15.6641/Adv:0.322443] | Loss(D):0.367405[Real:0.307279/Fake:0.0601258]
+10th-06:19:19 | epoch5(76100) | lr=1e-05 | psnr=23.729 | ypsnr=25.351  | Loss(G):18.3475[Cont:18.3475/Adv:0.918118] | Loss(D):0.247177[Real:0.172049/Fake:0.075128]
+10th-06:22:49 | epoch5(76200) | lr=1e-05 | psnr=23.584 | ypsnr=25.169  | Loss(G):20.4382[Cont:20.4382/Adv:1.15402] | Loss(D):0.208827[Real:0.115532/Fake:0.0932957]
+10th-06:26:26 | epoch5(76300) | lr=1e-05 | psnr=23.774 | ypsnr=25.398  | Loss(G):15.2808[Cont:15.2808/Adv:0.757698] | Loss(D):0.224765[Real:0.109243/Fake:0.115522]
+10th-06:29:54 | epoch5(76400) | lr=1e-05 | psnr=23.729 | ypsnr=25.350  | Loss(G):18.0642[Cont:18.0642/Adv:0.902521] | Loss(D):0.0720854[Real:0.0333816/Fake:0.0387038]
+10th-06:33:30 | epoch5(76500) | lr=1e-05 | psnr=23.637 | ypsnr=25.219  | Loss(G):19.9686[Cont:19.9686/Adv:1.10574] | Loss(D):0.162812[Real:0.0712866/Fake:0.0915257]
+10th-06:36:58 | epoch5(76600) | lr=1e-05 | psnr=23.617 | ypsnr=25.195  | Loss(G):17.1373[Cont:17.1373/Adv:1.62692] | Loss(D):0.216143[Real:0.0879994/Fake:0.128144]
+10th-06:40:29 | epoch5(76700) | lr=1e-05 | psnr=24.029 | ypsnr=25.658  | Loss(G):12.1643[Cont:12.1643/Adv:0.658025] | Loss(D):0.149803[Real:0.123176/Fake:0.0266277]
+10th-06:43:59 | epoch5(76800) | lr=1e-05 | psnr=23.893 | ypsnr=25.502  | Loss(G):21.7006[Cont:21.7006/Adv:1.02323] | Loss(D):0.210119[Real:0.0858647/Fake:0.124254]
+10th-06:47:30 | epoch5(76900) | lr=1e-05 | psnr=23.823 | ypsnr=25.410  | Loss(G):31.0884[Cont:31.0884/Adv:0.865141] | Loss(D):0.0871886[Real:0.0532541/Fake:0.0339345]
+10th-06:51:03 | epoch5(77000) | lr=1e-05 | psnr=23.807 | ypsnr=25.416  | Loss(G):16.7797[Cont:16.7797/Adv:1.23882] | Loss(D):0.1509[Real:0.0527468/Fake:0.0981532]
+10th-06:54:33 | epoch5(77100) | lr=1e-05 | psnr=23.811 | ypsnr=25.404  | Loss(G):16.4585[Cont:16.4585/Adv:0.861132] | Loss(D):0.372445[Real:0.137405/Fake:0.23504]
+10th-06:58:03 | epoch5(77200) | lr=1e-05 | psnr=23.782 | ypsnr=25.355  | Loss(G):16.9209[Cont:16.9209/Adv:1.17491] | Loss(D):0.0572011[Real:0.0326473/Fake:0.0245538]
+10th-07:01:32 | epoch5(77300) | lr=1e-05 | psnr=23.844 | ypsnr=25.442  | Loss(G):15.2139[Cont:15.2139/Adv:0.196457] | Loss(D):0.565172[Real:0.382389/Fake:0.182783]
+10th-07:05:32 | epoch5(77400) | lr=1e-05 | psnr=23.655 | ypsnr=25.261  | Loss(G):16.9623[Cont:16.9623/Adv:0.811241] | Loss(D):0.126771[Real:0.0346916/Fake:0.0920792]
+10th-07:09:41 | epoch5(77500) | lr=1e-05 | psnr=23.656 | ypsnr=25.258  | Loss(G):13.7632[Cont:13.7632/Adv:0.353533] | Loss(D):0.33431[Real:0.242651/Fake:0.0916584]
+10th-07:13:46 | epoch5(77600) | lr=1e-05 | psnr=23.592 | ypsnr=25.166  | Loss(G):14.4486[Cont:14.4486/Adv:0.709192] | Loss(D):0.160227[Real:0.083791/Fake:0.0764358]
+10th-07:17:55 | epoch5(77700) | lr=1e-05 | psnr=23.580 | ypsnr=25.191  | Loss(G):21.7381[Cont:21.7381/Adv:1.56633] | Loss(D):0.175982[Real:0.0568201/Fake:0.119162]
+10th-07:22:11 | epoch5(77800) | lr=1e-05 | psnr=23.820 | ypsnr=25.453  | Loss(G):21.9914[Cont:21.9914/Adv:0.796882] | Loss(D):0.113742[Real:0.0895739/Fake:0.0241679]
+10th-07:26:17 | epoch5(77900) | lr=1e-05 | psnr=23.798 | ypsnr=25.505  | Loss(G):12.3189[Cont:12.3189/Adv:0.187562] | Loss(D):0.574373[Real:0.461314/Fake:0.113059]
+10th-07:30:14 | epoch5(78000) | lr=1e-05 | psnr=23.677 | ypsnr=25.304  | Loss(G):16.2892[Cont:16.2892/Adv:0.417338] | Loss(D):0.206569[Real:0.106546/Fake:0.100023]
+10th-07:33:55 | epoch5(78100) | lr=1e-05 | psnr=24.002 | ypsnr=25.611  | Loss(G):14.1059[Cont:14.1059/Adv:0.802463] | Loss(D):0.169078[Real:0.0891354/Fake:0.0799429]
+10th-07:37:57 | epoch5(78200) | lr=1e-05 | psnr=23.869 | ypsnr=25.434  | Loss(G):16.8955[Cont:16.8955/Adv:1.49264] | Loss(D):0.245954[Real:0.0337012/Fake:0.212252]
+10th-07:41:41 | epoch5(78300) | lr=1e-05 | psnr=23.923 | ypsnr=25.520  | Loss(G):20.7925[Cont:20.7925/Adv:0.782939] | Loss(D):0.079332[Real:0.0327578/Fake:0.0465741]
+10th-07:45:18 | epoch5(78400) | lr=1e-05 | psnr=23.993 | ypsnr=25.569  | Loss(G):13.9713[Cont:13.9713/Adv:0.857017] | Loss(D):0.128833[Real:0.067152/Fake:0.0616806]
+10th-07:48:54 | epoch5(78500) | lr=1e-05 | psnr=23.790 | ypsnr=25.414  | Loss(G):16.6348[Cont:16.6348/Adv:1.94458] | Loss(D):0.325493[Real:0.0492473/Fake:0.276246]
+10th-07:52:43 | epoch5(78600) | lr=1e-05 | psnr=23.684 | ypsnr=25.290  | Loss(G):24.2098[Cont:24.2098/Adv:1.16861] | Loss(D):0.085872[Real:0.0269483/Fake:0.0589237]
+10th-07:56:41 | epoch5(78700) | lr=1e-05 | psnr=23.714 | ypsnr=25.280  | Loss(G):17.2881[Cont:17.2881/Adv:0.879404] | Loss(D):0.0847386[Real:0.0414258/Fake:0.0433127]
+10th-08:00:27 | epoch5(78800) | lr=1e-05 | psnr=23.771 | ypsnr=25.371  | Loss(G):17.2716[Cont:17.2716/Adv:0.915791] | Loss(D):0.0697615[Real:0.0284042/Fake:0.0413573]
+10th-08:04:27 | epoch5(78900) | lr=1e-05 | psnr=23.810 | ypsnr=25.394  | Loss(G):18.7577[Cont:18.7577/Adv:1.16085] | Loss(D):0.100728[Real:0.0761728/Fake:0.0245547]
+10th-08:08:14 | epoch5(79000) | lr=1e-05 | psnr=23.731 | ypsnr=25.267  | Loss(G):23.5735[Cont:23.5735/Adv:1.98435] | Loss(D):0.290433[Real:0.194442/Fake:0.0959907]
+10th-05:49:57 | epoch6(69400) | lr=1e-05 | psnr=22.048 | ypsnr=23.639  | Loss(G):24.3262[Cont:24.3262/Adv:2.05984] | Loss(D):0.564682[Real:0.13125/Fake:0.433432]
+10th-05:54:10 | epoch6(69500) | lr=1e-05 | psnr=22.790 | ypsnr=24.458  | Loss(G):19.0343[Cont:19.0343/Adv:2.68416] | Loss(D):1.31004[Real:1.23428/Fake:0.0757591]
+10th-05:58:11 | epoch6(69600) | lr=1e-05 | psnr=22.927 | ypsnr=24.554  | Loss(G):19.4778[Cont:19.4778/Adv:1.19322] | Loss(D):1.01064[Real:0.355325/Fake:0.655311]
+10th-06:02:35 | epoch6(69700) | lr=1e-05 | psnr=22.510 | ypsnr=24.071  | Loss(G):16.3369[Cont:16.3369/Adv:2.54167] | Loss(D):0.930449[Real:0.827924/Fake:0.102525]
+10th-06:06:49 | epoch6(69800) | lr=1e-05 | psnr=22.472 | ypsnr=24.034  | Loss(G):28.952[Cont:28.952/Adv:4.40797] | Loss(D):0.253024[Real:0.207658/Fake:0.0453656]
+10th-06:11:11 | epoch6(69900) | lr=1e-05 | psnr=22.252 | ypsnr=23.767  | Loss(G):17.0514[Cont:17.0514/Adv:1.34022] | Loss(D):0.90705[Real:0.174685/Fake:0.732365]
+10th-06:15:17 | epoch6(70000) | lr=1e-05 | psnr=22.798 | ypsnr=24.470  | Loss(G):18.6933[Cont:18.6933/Adv:4.17078] | Loss(D):0.101447[Real:0.0323133/Fake:0.0691336]
+10th-06:19:35 | epoch6(70100) | lr=1e-05 | psnr=22.425 | ypsnr=23.991  | Loss(G):26.9451[Cont:26.9451/Adv:2.6891] | Loss(D):0.378698[Real:0.202374/Fake:0.176324]
+10th-06:23:31 | epoch6(70200) | lr=1e-05 | psnr=22.728 | ypsnr=24.306  | Loss(G):25.7021[Cont:25.7021/Adv:0.950879] | Loss(D):0.732336[Real:0.0315675/Fake:0.700768]
+10th-06:27:32 | epoch6(70300) | lr=1e-05 | psnr=21.999 | ypsnr=23.547  | Loss(G):17.5738[Cont:17.5738/Adv:1.44624] | Loss(D):1.03904[Real:0.303632/Fake:0.735405]
+10th-06:31:49 | epoch6(70400) | lr=1e-05 | psnr=23.188 | ypsnr=24.898  | Loss(G):24.1013[Cont:24.1013/Adv:1.61455] | Loss(D):0.530954[Real:0.0157295/Fake:0.515225]
+10th-06:35:49 | epoch6(70500) | lr=1e-05 | psnr=22.689 | ypsnr=24.382  | Loss(G):20.2543[Cont:20.2543/Adv:1.51841] | Loss(D):0.561014[Real:0.130182/Fake:0.430832]
+10th-06:40:04 | epoch6(70600) | lr=1e-05 | psnr=21.906 | ypsnr=23.481  | Loss(G):17.463[Cont:17.463/Adv:1.05221] | Loss(D):1.32999[Real:0.66317/Fake:0.66682]
+10th-06:44:26 | epoch6(70700) | lr=1e-05 | psnr=22.894 | ypsnr=24.566  | Loss(G):22.5303[Cont:22.5303/Adv:1.6675] | Loss(D):0.843978[Real:0.244584/Fake:0.599394]
+10th-06:49:06 | epoch6(70800) | lr=1e-05 | psnr=22.395 | ypsnr=24.002  | Loss(G):20.4408[Cont:20.4408/Adv:3.00397] | Loss(D):0.335624[Real:0.19802/Fake:0.137604]
+10th-06:52:53 | epoch6(70900) | lr=1e-05 | psnr=22.969 | ypsnr=24.603  | Loss(G):23.557[Cont:23.557/Adv:3.19372] | Loss(D):0.135452[Real:0.0630377/Fake:0.072414]
+10th-06:56:50 | epoch6(71000) | lr=1e-05 | psnr=22.460 | ypsnr=24.007  | Loss(G):24.1717[Cont:24.1717/Adv:4.42251] | Loss(D):0.936807[Real:0.888979/Fake:0.0478284]
+10th-07:00:34 | epoch6(71100) | lr=1e-05 | psnr=22.963 | ypsnr=24.564  | Loss(G):26.1819[Cont:26.1819/Adv:1.29796] | Loss(D):0.858667[Real:0.137212/Fake:0.721455]
+10th-07:04:29 | epoch6(71200) | lr=1e-05 | psnr=22.704 | ypsnr=24.298  | Loss(G):15.9711[Cont:15.9711/Adv:1.40822] | Loss(D):1.01115[Real:0.539521/Fake:0.471629]
+10th-07:09:06 | epoch6(71300) | lr=1e-05 | psnr=22.490 | ypsnr=24.015  | Loss(G):19.2664[Cont:19.2664/Adv:0.836604] | Loss(D):1.08429[Real:0.102553/Fake:0.98174]
+10th-07:13:16 | epoch6(71400) | lr=1e-05 | psnr=22.580 | ypsnr=24.134  | Loss(G):19.2704[Cont:19.2704/Adv:2.09235] | Loss(D):0.742806[Real:0.516364/Fake:0.226443]
+10th-07:17:51 | epoch6(71500) | lr=1e-05 | psnr=22.286 | ypsnr=23.845  | Loss(G):21.2697[Cont:21.2697/Adv:2.28895] | Loss(D):0.459722[Real:0.17799/Fake:0.281732]
+10th-07:22:27 | epoch6(71600) | lr=1e-05 | psnr=21.457 | ypsnr=22.998  | Loss(G):19.2826[Cont:19.2826/Adv:1.4157] | Loss(D):0.924238[Real:0.523542/Fake:0.400696]
+10th-07:26:59 | epoch6(71700) | lr=1e-05 | psnr=22.826 | ypsnr=24.500  | Loss(G):18.2589[Cont:18.2589/Adv:3.7101] | Loss(D):1.0305[Real:0.984944/Fake:0.0455564]
+10th-07:31:25 | epoch6(71800) | lr=1e-05 | psnr=21.959 | ypsnr=23.572  | Loss(G):17.6457[Cont:17.6457/Adv:2.80113] | Loss(D):0.764568[Real:0.644827/Fake:0.119741]
+10th-07:36:06 | epoch6(71900) | lr=1e-05 | psnr=22.125 | ypsnr=23.767  | Loss(G):16.8637[Cont:16.8637/Adv:1.77167] | Loss(D):1.36528[Real:1.21669/Fake:0.148587]
+10th-07:40:19 | epoch6(72000) | lr=1e-05 | psnr=22.994 | ypsnr=24.641  | Loss(G):27.8947[Cont:27.8947/Adv:3.7135] | Loss(D):0.133067[Real:0.0501511/Fake:0.0829162]
+10th-07:44:26 | epoch6(72100) | lr=1e-05 | psnr=21.948 | ypsnr=23.535  | Loss(G):22.3511[Cont:22.3511/Adv:1.22346] | Loss(D):0.847473[Real:0.0888503/Fake:0.758622]
+10th-07:48:29 | epoch6(72200) | lr=1e-05 | psnr=22.491 | ypsnr=24.154  | Loss(G):24.3901[Cont:24.3901/Adv:2.68343] | Loss(D):0.150138[Real:0.0353468/Fake:0.114791]
+10th-07:52:38 | epoch6(72300) | lr=1e-05 | psnr=22.565 | ypsnr=24.169  | Loss(G):17.7508[Cont:17.7508/Adv:2.3758] | Loss(D):0.836541[Real:0.648064/Fake:0.188477]
+10th-07:57:00 | epoch6(72400) | lr=1e-05 | psnr=22.225 | ypsnr=23.802  | Loss(G):15.1175[Cont:15.1175/Adv:1.78919] | Loss(D):0.616395[Real:0.38959/Fake:0.226805]
+10th-08:01:14 | epoch6(72500) | lr=1e-05 | psnr=21.947 | ypsnr=23.572  | Loss(G):13.9471[Cont:13.9471/Adv:1.05431] | Loss(D):1.36899[Real:0.458112/Fake:0.910878]
+10th-08:05:32 | epoch6(72600) | lr=1e-05 | psnr=22.701 | ypsnr=24.330  | Loss(G):21.6897[Cont:21.6897/Adv:2.10443] | Loss(D):0.512795[Real:0.225777/Fake:0.287018]
+10th-08:09:35 | epoch6(72700) | lr=1e-05 | psnr=22.580 | ypsnr=24.155  | Loss(G):15.5937[Cont:15.5937/Adv:2.31626] | Loss(D):1.0136[Real:0.839476/Fake:0.174121]
+10th-08:13:41 | epoch6(72800) | lr=1e-05 | psnr=21.919 | ypsnr=23.480  | Loss(G):21.0151[Cont:21.0151/Adv:2.7687] | Loss(D):1.87073[Real:1.7658/Fake:0.104926]
+10th-08:17:49 | epoch6(72900) | lr=1e-05 | psnr=22.699 | ypsnr=24.318  | Loss(G):18.6286[Cont:18.6286/Adv:1.34908] | Loss(D):0.790735[Real:0.125664/Fake:0.665071]
+10th-08:21:47 | epoch6(73000) | lr=1e-05 | psnr=22.666 | ypsnr=24.274  | Loss(G):23.9459[Cont:23.9459/Adv:0.846178] | Loss(D):0.935226[Real:0.0143405/Fake:0.920885]
+10th-08:25:51 | epoch6(73100) | lr=1e-05 | psnr=22.339 | ypsnr=23.919  | Loss(G):16.274[Cont:16.274/Adv:1.11755] | Loss(D):1.24295[Real:0.50113/Fake:0.741824]
+10th-08:30:00 | epoch6(73200) | lr=1e-05 | psnr=22.445 | ypsnr=24.039  | Loss(G):17.8941[Cont:17.8941/Adv:1.73202] | Loss(D):0.579585[Real:0.158379/Fake:0.421206]
+10th-08:34:11 | epoch6(73300) | lr=1e-05 | psnr=22.536 | ypsnr=24.086  | Loss(G):23.8558[Cont:23.8558/Adv:1.03836] | Loss(D):0.829263[Real:0.0896168/Fake:0.739646]
+10th-08:38:27 | epoch6(73400) | lr=1e-05 | psnr=22.794 | ypsnr=24.394  | Loss(G):17.9431[Cont:17.9431/Adv:2.9869] | Loss(D):1.78817[Real:1.72443/Fake:0.0637415]
+10th-08:42:42 | epoch6(73500) | lr=1e-05 | psnr=22.350 | ypsnr=23.894  | Loss(G):17.9067[Cont:17.9067/Adv:3.50369] | Loss(D):1.54113[Real:1.47205/Fake:0.0690807]
+10th-08:47:01 | epoch6(73600) | lr=1e-05 | psnr=22.667 | ypsnr=24.212  | Loss(G):24.3227[Cont:24.3227/Adv:1.91256] | Loss(D):0.485961[Real:0.160188/Fake:0.325773]
+10th-08:51:13 | epoch6(73700) | lr=1e-05 | psnr=21.948 | ypsnr=23.436  | Loss(G):19.0787[Cont:19.0787/Adv:2.59113] | Loss(D):0.290184[Real:0.153658/Fake:0.136526]
+10th-08:55:32 | epoch6(73800) | lr=1e-05 | psnr=22.844 | ypsnr=24.407  | Loss(G):17.8455[Cont:17.8455/Adv:1.37177] | Loss(D):0.64254[Real:0.0947244/Fake:0.547816]
+10th-08:59:32 | epoch6(73900) | lr=1e-05 | psnr=22.564 | ypsnr=24.101  | Loss(G):16.0446[Cont:16.0446/Adv:2.23017] | Loss(D):0.56812[Real:0.361308/Fake:0.206812]
+10th-09:03:45 | epoch6(74000) | lr=1e-05 | psnr=21.812 | ypsnr=23.368  | Loss(G):16.3474[Cont:16.3474/Adv:1.64657] | Loss(D):1.88005[Real:1.7403/Fake:0.139752]
+10th-09:07:55 | epoch6(74100) | lr=1e-05 | psnr=22.986 | ypsnr=24.584  | Loss(G):25.9356[Cont:25.9356/Adv:2.60955] | Loss(D):0.268647[Real:0.0972809/Fake:0.171366]
+10th-09:12:04 | epoch6(74200) | lr=1e-05 | psnr=22.183 | ypsnr=23.745  | Loss(G):18.5873[Cont:18.5873/Adv:1.95405] | Loss(D):0.741917[Real:0.51392/Fake:0.227997]
+10th-09:16:25 | epoch6(74300) | lr=1e-05 | psnr=23.222 | ypsnr=24.862  | Loss(G):22.9002[Cont:22.9002/Adv:2.47147] | Loss(D):0.212043[Real:0.0252282/Fake:0.186815]
+10th-09:20:24 | epoch6(74400) | lr=1e-05 | psnr=22.094 | ypsnr=23.624  | Loss(G):20.508[Cont:20.508/Adv:2.58584] | Loss(D):0.227091[Real:0.115133/Fake:0.111958]
+10th-06:01:55 | epoch6(69200) | lr=1e-05 | psnr=23.424 | ypsnr=25.060  | Loss(G):18.3339[Cont:18.3339/Adv:1.4508] | Loss(D):0.607507[Real:2.06248e-05/Fake:0.607486]
+10th-06:06:03 | epoch6(69300) | lr=1e-05 | psnr=23.448 | ypsnr=25.094  | Loss(G):16.0531[Cont:16.0531/Adv:2.91561] | Loss(D):0.110536[Real:0.00764913/Fake:0.102887]
+10th-06:10:23 | epoch6(69400) | lr=1e-05 | psnr=23.404 | ypsnr=24.925  | Loss(G):12.6982[Cont:12.6982/Adv:4.99926] | Loss(D):0.91636[Real:0.894396/Fake:0.0219646]
+10th-06:14:38 | epoch6(69500) | lr=1e-05 | psnr=23.382 | ypsnr=24.955  | Loss(G):14.2678[Cont:14.2678/Adv:7.53177] | Loss(D):1.52734[Real:1.52692/Fake:0.000420159]
+10th-06:18:42 | epoch6(69600) | lr=1e-05 | psnr=23.347 | ypsnr=24.932  | Loss(G):17.0582[Cont:17.0582/Adv:4.43163] | Loss(D):0.0526721[Real:0.028404/Fake:0.0242682]
+10th-06:22:51 | epoch6(69700) | lr=1e-05 | psnr=23.510 | ypsnr=25.116  | Loss(G):13.4407[Cont:13.4407/Adv:1.78427] | Loss(D):0.539951[Real:0.174315/Fake:0.365636]
+10th-06:27:04 | epoch6(69800) | lr=1e-05 | psnr=23.436 | ypsnr=25.051  | Loss(G):18.2798[Cont:18.2798/Adv:0.814646] | Loss(D):1.32978[Real:3.64433e-05/Fake:1.32974]
+10th-06:31:15 | epoch6(69900) | lr=1e-05 | psnr=23.572 | ypsnr=25.196  | Loss(G):16.5019[Cont:16.5019/Adv:3.52139] | Loss(D):0.0442738[Real:0.000788314/Fake:0.0434855]
+10th-06:35:29 | epoch6(70000) | lr=1e-05 | psnr=23.375 | ypsnr=25.005  | Loss(G):23.8973[Cont:23.8973/Adv:2.91175] | Loss(D):0.105854[Real:2.3544e-06/Fake:0.105852]
+10th-06:39:32 | epoch6(70100) | lr=1e-05 | psnr=23.402 | ypsnr=25.034  | Loss(G):14.6082[Cont:14.6082/Adv:4.08373] | Loss(D):0.0414166[Real:0.00938354/Fake:0.0320331]
+10th-06:43:43 | epoch6(70200) | lr=1e-05 | psnr=23.594 | ypsnr=25.213  | Loss(G):16.0116[Cont:16.0116/Adv:5.45257] | Loss(D):0.0379638[Real:0.0235297/Fake:0.0144342]
+10th-06:48:04 | epoch6(70300) | lr=1e-05 | psnr=23.758 | ypsnr=25.409  | Loss(G):14.2066[Cont:14.2066/Adv:2.74497] | Loss(D):0.199188[Real:0.0238431/Fake:0.175345]
+10th-06:52:54 | epoch6(70400) | lr=1e-05 | psnr=23.788 | ypsnr=25.483  | Loss(G):17.2519[Cont:17.2519/Adv:6.89228] | Loss(D):0.00241904[Real:6.87611e-05/Fake:0.00235028]
+10th-06:56:59 | epoch6(70500) | lr=1e-05 | psnr=23.706 | ypsnr=25.386  | Loss(G):22.3806[Cont:22.3806/Adv:2.01017] | Loss(D):0.382359[Real:0.000905446/Fake:0.381454]
+10th-07:00:54 | epoch6(70600) | lr=1e-05 | psnr=23.628 | ypsnr=25.277  | Loss(G):18.7222[Cont:18.7222/Adv:5.1123] | Loss(D):0.0335257[Real:0.0179379/Fake:0.0155878]
+10th-07:05:36 | epoch6(70700) | lr=1e-05 | psnr=23.535 | ypsnr=25.300  | Loss(G):18.4616[Cont:18.4616/Adv:1.57552] | Loss(D):1.16718[Real:1.86265e-06/Fake:1.16718]
+10th-07:10:28 | epoch6(70800) | lr=1e-05 | psnr=23.532 | ypsnr=25.083  | Loss(G):14.4574[Cont:14.4574/Adv:5.54294] | Loss(D):0.0100807[Real:0.000548503/Fake:0.00953223]
+10th-07:15:11 | epoch6(70900) | lr=1e-05 | psnr=23.750 | ypsnr=25.336  | Loss(G):15.8776[Cont:15.8776/Adv:4.40904] | Loss(D):0.0425208[Real:0.0250614/Fake:0.0174595]
+10th-07:19:50 | epoch6(71000) | lr=1e-05 | psnr=23.605 | ypsnr=25.181  | Loss(G):14.5954[Cont:14.5954/Adv:6.08299] | Loss(D):0.597535[Real:0.592624/Fake:0.00491135]
+10th-07:24:25 | epoch6(71100) | lr=1e-05 | psnr=23.527 | ypsnr=25.156  | Loss(G):15.9276[Cont:15.9276/Adv:7.03415] | Loss(D):0.0956886[Real:0.0912431/Fake:0.00444551]
+10th-07:29:07 | epoch6(71200) | lr=1e-05 | psnr=23.248 | ypsnr=24.795  | Loss(G):19.4387[Cont:19.4387/Adv:3.24292] | Loss(D):0.105117[Real:0.00187962/Fake:0.103237]
+10th-07:33:22 | epoch6(71300) | lr=1e-05 | psnr=23.251 | ypsnr=24.778  | Loss(G):22.4987[Cont:22.4987/Adv:2.91569] | Loss(D):0.0653784[Real:0.000819847/Fake:0.0645585]
+10th-07:38:14 | epoch6(71400) | lr=1e-05 | psnr=23.385 | ypsnr=24.925  | Loss(G):13.4558[Cont:13.4558/Adv:7.17127] | Loss(D):0.0254099[Real:0.0240949/Fake:0.00131491]
+10th-07:42:38 | epoch6(71500) | lr=1e-05 | psnr=23.187 | ypsnr=24.696  | Loss(G):21.7226[Cont:21.7226/Adv:11.2955] | Loss(D):0.000805768[Real:0.000736256/Fake:6.95119e-05]
+10th-07:46:47 | epoch6(71600) | lr=1e-05 | psnr=23.604 | ypsnr=25.128  | Loss(G):23.0431[Cont:23.0431/Adv:4.79525] | Loss(D):0.0117819[Real:0.00010602/Fake:0.0116759]
+10th-07:51:11 | epoch6(71700) | lr=1e-05 | psnr=23.214 | ypsnr=24.750  | Loss(G):15.7714[Cont:15.7714/Adv:3.23837] | Loss(D):0.204228[Real:0.0137123/Fake:0.190516]
+10th-07:55:34 | epoch6(71800) | lr=1e-05 | psnr=23.426 | ypsnr=24.947  | Loss(G):15.5031[Cont:15.5031/Adv:5.01031] | Loss(D):0.0652681[Real:0.0544793/Fake:0.0107888]
+10th-07:59:45 | epoch6(71900) | lr=1e-05 | psnr=23.718 | ypsnr=25.276  | Loss(G):14.6317[Cont:14.6317/Adv:4.08725] | Loss(D):0.450399[Real:0.406743/Fake:0.0436565]
+10th-08:04:01 | epoch6(72000) | lr=1e-05 | psnr=23.614 | ypsnr=25.144  | Loss(G):16.6642[Cont:16.6642/Adv:4.89109] | Loss(D):0.0312284[Real:0.000858743/Fake:0.0303697]
+10th-08:08:15 | epoch6(72100) | lr=1e-05 | psnr=23.665 | ypsnr=25.206  | Loss(G):11.8868[Cont:11.8868/Adv:5.66634] | Loss(D):0.306043[Real:0.291994/Fake:0.0140491]
+10th-08:12:29 | epoch6(72200) | lr=1e-05 | psnr=23.534 | ypsnr=25.063  | Loss(G):15.5425[Cont:15.5425/Adv:4.13326] | Loss(D):0.0559737[Real:0.011627/Fake:0.0443466]
+10th-08:16:47 | epoch6(72300) | lr=1e-05 | psnr=23.698 | ypsnr=25.284  | Loss(G):17.3598[Cont:17.3598/Adv:3.38774] | Loss(D):0.0955248[Real:0.000888878/Fake:0.0946359]
+10th-08:21:05 | epoch6(72400) | lr=1e-05 | psnr=23.707 | ypsnr=25.260  | Loss(G):13.5431[Cont:13.5431/Adv:4.55494] | Loss(D):0.144242[Real:0.13248/Fake:0.0117613]
+10th-08:25:13 | epoch6(72500) | lr=1e-05 | psnr=23.563 | ypsnr=25.102  | Loss(G):17.0301[Cont:17.0301/Adv:4.34826] | Loss(D):0.0624498[Real:0.0112369/Fake:0.0512129]
+10th-08:29:24 | epoch6(72600) | lr=1e-05 | psnr=23.769 | ypsnr=25.318  | Loss(G):17.8615[Cont:17.8615/Adv:3.45548] | Loss(D):0.0577184[Real:1.2517e-06/Fake:0.0577171]
+10th-08:33:31 | epoch6(72700) | lr=1e-05 | psnr=23.766 | ypsnr=25.355  | Loss(G):19.5136[Cont:19.5136/Adv:3.55452] | Loss(D):0.118412[Real:2.47073e-05/Fake:0.118388]
+10th-08:37:54 | epoch6(72800) | lr=1e-05 | psnr=23.794 | ypsnr=25.362  | Loss(G):14.8212[Cont:14.8212/Adv:6.17145] | Loss(D):0.0102933[Real:0.00521376/Fake:0.00507957]
+10th-08:42:09 | epoch6(72900) | lr=1e-05 | psnr=23.781 | ypsnr=25.379  | Loss(G):13.8155[Cont:13.8155/Adv:7.72842] | Loss(D):0.483626[Real:0.4827/Fake:0.000926422]
+10th-08:46:24 | epoch6(73000) | lr=1e-05 | psnr=23.496 | ypsnr=25.038  | Loss(G):10.1691[Cont:10.1691/Adv:7.47736] | Loss(D):2.30442[Real:2.30399/Fake:0.000425313]
+10th-08:50:42 | epoch6(73100) | lr=1e-05 | psnr=23.800 | ypsnr=25.346  | Loss(G):15.3835[Cont:15.3835/Adv:8.66931] | Loss(D):0.0462295[Real:0.0456003/Fake:0.000629211]
+10th-08:54:57 | epoch6(73200) | lr=1e-05 | psnr=23.703 | ypsnr=25.217  | Loss(G):15.8096[Cont:15.8096/Adv:2.67775] | Loss(D):0.180486[Real:9.28088e-05/Fake:0.180393]
+10th-08:59:12 | epoch6(73300) | lr=1e-05 | psnr=23.752 | ypsnr=25.335  | Loss(G):15.2465[Cont:15.2465/Adv:8.10107] | Loss(D):0.00639707[Real:0.00565655/Fake:0.000740515]
+10th-09:03:16 | epoch6(73400) | lr=1e-05 | psnr=23.747 | ypsnr=25.399  | Loss(G):16.6501[Cont:16.6501/Adv:5.72746] | Loss(D):0.028948[Real:0.00415745/Fake:0.0247905]
+10th-09:07:23 | epoch6(73500) | lr=1e-05 | psnr=23.708 | ypsnr=25.406  | Loss(G):16.461[Cont:16.461/Adv:4.74191] | Loss(D):0.0307976[Real:0.000328036/Fake:0.0304696]
+10th-09:11:32 | epoch6(73600) | lr=1e-05 | psnr=23.694 | ypsnr=25.313  | Loss(G):13.3463[Cont:13.3463/Adv:6.99707] | Loss(D):0.0122347[Real:0.00993928/Fake:0.00229538]
+10th-09:15:36 | epoch6(73700) | lr=1e-05 | psnr=23.490 | ypsnr=25.025  | Loss(G):15.9414[Cont:15.9414/Adv:2.20252] | Loss(D):0.165362[Real:2.08618e-06/Fake:0.16536]
+10th-09:20:07 | epoch6(73800) | lr=1e-05 | psnr=23.386 | ypsnr=24.912  | Loss(G):19.6531[Cont:19.6531/Adv:5.76151] | Loss(D):0.0101157[Real:0.000100857/Fake:0.0100148]
+10th-09:24:07 | epoch6(73900) | lr=1e-05 | psnr=23.790 | ypsnr=25.336  | Loss(G):16.6354[Cont:16.6354/Adv:5.31224] | Loss(D):0.0187628[Real:6.34796e-06/Fake:0.0187564]
+10th-09:28:13 | epoch6(74000) | lr=1e-05 | psnr=23.536 | ypsnr=25.056  | Loss(G):14.9824[Cont:14.9824/Adv:5.7651] | Loss(D):1.57046[Real:1.56568/Fake:0.00477715]
+10th-09:32:28 | epoch6(74100) | lr=1e-05 | psnr=23.580 | ypsnr=25.107  | Loss(G):12.5574[Cont:12.5574/Adv:5.3165] | Loss(D):0.0407359[Real:0.0340464/Fake:0.00668949]10th-06:45:20 | epoch10(28458) | lr=7.29e-05 | psnr=26.6078 | ypsnr=28.0140
+10th-06:47:38 | epoch10(28558) | lr=7.29e-05 | psnr=26.6126 | ypsnr=28.0235
+10th-06:49:54 | epoch10(28658) | lr=7.29e-05 | psnr=26.6105 | ypsnr=28.0246
+10th-06:52:10 | epoch10(28758) | lr=7.29e-05 | psnr=26.6140 | ypsnr=28.0155
+10th-06:54:26 | epoch10(28858) | lr=7.29e-05 | psnr=26.6059 | ypsnr=27.9927
+10th-06:56:42 | epoch10(28958) | lr=7.29e-05 | psnr=26.6209 | ypsnr=28.0293
+10th-06:58:59 | epoch10(29058) | lr=7.29e-05 | psnr=26.6275 | ypsnr=28.0300
+10th-07:01:16 | epoch10(29158) | lr=7.29e-05 | psnr=26.6179 | ypsnr=28.0305
+10th-07:03:32 | epoch10(29258) | lr=7.29e-05 | psnr=26.6085 | ypsnr=28.0265
+10th-07:05:56 | epoch10(29358) | lr=7.29e-05 | psnr=26.6182 | ypsnr=28.0290
+10th-07:08:12 | epoch10(29458) | lr=7.29e-05 | psnr=26.6153 | ypsnr=28.0344
+10th-07:10:28 | epoch10(29558) | lr=7.29e-05 | psnr=26.6252 | ypsnr=28.0343
+10th-07:12:44 | epoch10(29658) | lr=7.29e-05 | psnr=26.6075 | ypsnr=28.0109
+10th-07:15:00 | epoch10(29758) | lr=7.29e-05 | psnr=26.6118 | ypsnr=28.0299
+10th-07:17:16 | epoch10(29858) | lr=7.29e-05 | psnr=26.6084 | ypsnr=28.0191
+10th-07:19:31 | epoch10(29958) | lr=7.29e-05 | psnr=26.6207 | ypsnr=28.0404
+10th-07:21:47 | epoch10(30058) | lr=6.561e-05 | psnr=26.5754 | ypsnr=27.9525
+10th-07:24:04 | epoch10(30158) | lr=6.561e-05 | psnr=26.6143 | ypsnr=28.0284
+10th-07:26:19 | epoch10(30258) | lr=6.561e-05 | psnr=26.6116 | ypsnr=28.0269
+10th-07:28:35 | epoch10(30358) | lr=6.561e-05 | psnr=26.5945 | ypsnr=27.9810
+10th-07:30:53 | epoch10(30458) | lr=6.561e-05 | psnr=26.6278 | ypsnr=28.0279
+10th-07:33:09 | epoch10(30558) | lr=6.561e-05 | psnr=26.6000 | ypsnr=27.9857
+10th-07:35:26 | epoch10(30658) | lr=6.561e-05 | psnr=26.6161 | ypsnr=28.0183
+10th-07:37:42 | epoch10(30758) | lr=6.561e-05 | psnr=26.5984 | ypsnr=28.0010
+10th-07:39:58 | epoch10(30858) | lr=6.561e-05 | psnr=26.6183 | ypsnr=28.0179
+10th-07:42:15 | epoch10(30958) | lr=6.561e-05 | psnr=26.6109 | ypsnr=28.0190
+10th-07:44:31 | epoch10(31058) | lr=6.561e-05 | psnr=26.6066 | ypsnr=28.0124
+10th-07:46:48 | epoch10(31158) | lr=6.561e-05 | psnr=26.6029 | ypsnr=28.0075
+10th-07:49:06 | epoch10(31258) | lr=6.561e-05 | psnr=26.5988 | ypsnr=28.0100
+10th-07:51:25 | epoch10(31358) | lr=6.561e-05 | psnr=26.6172 | ypsnr=28.0138
+10th-07:53:44 | epoch10(31458) | lr=6.561e-05 | psnr=26.6151 | ypsnr=28.0104
+10th-07:56:02 | epoch10(31558) | lr=6.561e-05 | psnr=26.6144 | ypsnr=28.0266
+10th-07:58:18 | epoch10(31658) | lr=6.561e-05 | psnr=26.5852 | ypsnr=27.9811
+10th-08:00:36 | epoch10(31758) | lr=6.561e-05 | psnr=26.6046 | ypsnr=28.0052
+10th-08:02:53 | epoch10(31858) | lr=6.561e-05 | psnr=26.6049 | ypsnr=28.0082
+10th-08:05:10 | epoch10(31958) | lr=6.561e-05 | psnr=26.6122 | ypsnr=28.0211
+10th-08:07:25 | epoch10(32058) | lr=6.561e-05 | psnr=26.6156 | ypsnr=28.0177
+10th-08:09:42 | epoch10(32158) | lr=6.561e-05 | psnr=26.6074 | ypsnr=28.0038
+10th-08:11:59 | epoch10(32258) | lr=6.561e-05 | psnr=26.6241 | ypsnr=28.0278
+10th-08:14:16 | epoch10(32358) | lr=6.561e-05 | psnr=26.6165 | ypsnr=28.0219
+10th-08:16:34 | epoch10(32458) | lr=6.561e-05 | psnr=26.6160 | ypsnr=28.0215
+10th-08:18:50 | epoch10(32558) | lr=6.561e-05 | psnr=26.6223 | ypsnr=28.0165
+10th-08:21:07 | epoch10(32658) | lr=6.561e-05 | psnr=26.6035 | ypsnr=27.9971
+10th-08:23:22 | epoch10(32758) | lr=6.561e-05 | psnr=26.6116 | ypsnr=28.0253
+10th-08:25:39 | epoch10(32858) | lr=6.561e-05 | psnr=26.6239 | ypsnr=28.0307
+10th-08:27:55 | epoch10(32958) | lr=6.561e-05 | psnr=26.6207 | ypsnr=28.0271
+10th-08:30:13 | epoch10(33058) | lr=6.561e-05 | psnr=26.5924 | ypsnr=28.0097
+10th-08:32:29 | epoch10(33158) | lr=6.561e-05 | psnr=26.6138 | ypsnr=28.0144
+10th-08:34:45 | epoch10(33258) | lr=6.561e-05 | psnr=26.6206 | ypsnr=28.0175
+10th-08:37:00 | epoch10(33358) | lr=6.561e-05 | psnr=26.6222 | ypsnr=28.0390
+10th-08:39:22 | epoch10(33458) | lr=6.561e-05 | psnr=26.6232 | ypsnr=28.0154
+10th-08:41:40 | epoch10(33558) | lr=6.561e-05 | psnr=26.6044 | ypsnr=28.0258
+10th-08:43:56 | epoch10(33658) | lr=6.561e-05 | psnr=26.6206 | ypsnr=28.0300
+10th-08:46:12 | epoch10(33758) | lr=6.561e-05 | psnr=26.6141 | ypsnr=28.0283
+10th-08:48:28 | epoch10(33858) | lr=6.561e-05 | psnr=26.6154 | ypsnr=28.0177
+10th-08:50:48 | epoch10(33958) | lr=6.561e-05 | psnr=26.6401 | ypsnr=28.0474
+10th-08:53:05 | epoch10(34058) | lr=6.561e-05 | psnr=26.6180 | ypsnr=28.0220
+10th-08:55:22 | epoch10(34158) | lr=6.561e-05 | psnr=26.6103 | ypsnr=28.0079
+10th-08:57:39 | epoch10(34258) | lr=6.561e-05 | psnr=26.6194 | ypsnr=28.0240
+10th-08:59:57 | epoch10(34358) | lr=6.561e-05 | psnr=26.6127 | ypsnr=28.0177
+10th-09:02:15 | epoch10(34458) | lr=6.561e-05 | psnr=26.5965 | ypsnr=27.9850
+10th-09:04:32 | epoch10(34558) | lr=6.561e-05 | psnr=26.6080 | ypsnr=28.0108
+10th-09:06:49 | epoch10(34658) | lr=6.561e-05 | psnr=26.6080 | ypsnr=28.0218
+10th-09:09:04 | epoch10(34758) | lr=6.561e-05 | psnr=26.6238 | ypsnr=28.0335
+10th-09:11:20 | epoch10(34858) | lr=6.561e-05 | psnr=26.6293 | ypsnr=28.0192
+10th-09:13:36 | epoch10(34958) | lr=6.561e-05 | psnr=26.6206 | ypsnr=28.0167
+10th-09:15:55 | epoch10(35058) | lr=6.561e-05 | psnr=26.5886 | ypsnr=27.9880
+10th-09:18:13 | epoch10(35158) | lr=6.561e-05 | psnr=26.6058 | ypsnr=28.0065
+10th-09:20:32 | epoch10(35258) | lr=6.561e-05 | psnr=26.6218 | ypsnr=28.0211
+10th-09:22:49 | epoch10(35358) | lr=6.561e-05 | psnr=26.6253 | ypsnr=28.0325
+10th-09:25:06 | epoch10(35458) | lr=6.561e-05 | psnr=26.6058 | ypsnr=28.0052
+10th-09:27:22 | epoch10(35558) | lr=6.561e-05 | psnr=26.6153 | ypsnr=28.0153
+10th-09:29:38 | epoch10(35658) | lr=6.561e-05 | psnr=26.6264 | ypsnr=28.0224
+10th-09:31:55 | epoch10(35758) | lr=6.561e-05 | psnr=26.6173 | ypsnr=28.0204
+10th-09:34:12 | epoch10(35858) | lr=6.561e-05 | psnr=26.6233 | ypsnr=28.0295
+10th-09:36:33 | epoch10(35958) | lr=6.561e-05 | psnr=26.6226 | ypsnr=28.0139
+10th-09:38:49 | epoch10(36058) | lr=6.561e-05 | psnr=26.6050 | ypsnr=28.0031
+10th-09:41:05 | epoch10(36158) | lr=6.561e-05 | psnr=26.6248 | ypsnr=28.0347
+10th-09:43:21 | epoch10(36258) | lr=6.561e-05 | psnr=26.6252 | ypsnr=28.0233
+10th-09:45:36 | epoch10(36358) | lr=6.561e-05 | psnr=26.6167 | ypsnr=28.0158
+10th-09:47:50 | epoch10(36458) | lr=6.561e-05 | psnr=26.6116 | ypsnr=28.0045
+10th-09:50:11 | epoch10(36558) | lr=6.561e-05 | psnr=26.5956 | ypsnr=27.9951
+10th-09:52:32 | epoch10(36658) | lr=6.561e-05 | psnr=26.6217 | ypsnr=28.0191
+10th-09:54:47 | epoch10(36758) | lr=6.561e-05 | psnr=26.6284 | ypsnr=28.0352
+10th-09:57:08 | epoch10(36858) | lr=6.561e-05 | psnr=26.6292 | ypsnr=28.0363
+10th-09:59:29 | epoch10(36958) | lr=6.561e-05 | psnr=26.6141 | ypsnr=28.0174
+10th-10:01:44 | epoch10(37058) | lr=6.561e-05 | psnr=26.6216 | ypsnr=28.0315
+10th-10:04:08 | epoch10(37158) | lr=6.561e-05 | psnr=26.6239 | ypsnr=28.0319
+10th-10:06:23 | epoch10(37258) | lr=6.561e-05 | psnr=26.6139 | ypsnr=28.0128
+10th-10:08:39 | epoch10(37358) | lr=6.561e-05 | psnr=26.6173 | ypsnr=28.0327
+10th-10:11:01 | epoch10(37458) | lr=6.561e-05 | psnr=26.6143 | ypsnr=28.0157
+10th-10:13:17 | epoch10(37558) | lr=6.561e-05 | psnr=26.6137 | ypsnr=28.0134
+10th-10:15:34 | epoch10(37658) | lr=6.561e-05 | psnr=26.6098 | ypsnr=28.0007
+10th-10:17:52 | epoch10(37758) | lr=6.561e-05 | psnr=26.6077 | ypsnr=28.0095
+10th-10:20:13 | epoch10(37858) | lr=6.561e-05 | psnr=26.6219 | ypsnr=28.0096
+10th-10:22:29 | epoch10(37958) | lr=6.561e-05 | psnr=26.6234 | ypsnr=28.0353
+10th-10:24:47 | epoch10(38058) | lr=6.561e-05 | psnr=26.6168 | ypsnr=28.0043
+10th-10:27:03 | epoch10(38158) | lr=6.561e-05 | psnr=26.6212 | ypsnr=28.0309
+10th-10:29:20 | epoch10(38258) | lr=6.561e-05 | psnr=26.6127 | ypsnr=28.0164
+10th-10:31:37 | epoch10(38358) | lr=6.561e-05 | psnr=26.6013 | ypsnr=28.0097
+10th-10:33:53 | epoch10(38458) | lr=6.561e-05 | psnr=26.6152 | ypsnr=28.0287
+10th-10:36:10 | epoch10(38558) | lr=6.561e-05 | psnr=26.6110 | ypsnr=27.9979
+10th-10:38:26 | epoch10(38658) | lr=6.561e-05 | psnr=26.6145 | ypsnr=28.0109
+10th-10:40:42 | epoch10(38758) | lr=6.561e-05 | psnr=26.6173 | ypsnr=28.0239
+10th-10:42:59 | epoch10(38858) | lr=6.561e-05 | psnr=26.6125 | ypsnr=28.0166
+10th-10:45:15 | epoch10(38958) | lr=6.561e-05 | psnr=26.6193 | ypsnr=28.0280
+10th-10:47:31 | epoch10(39058) | lr=6.561e-05 | psnr=26.6229 | ypsnr=28.0264
+10th-08:12:16 | epoch5(79100) | lr=1e-05 | psnr=23.871 | ypsnr=25.449  | Loss(G):19.6362[Cont:19.6362/Adv:1.28839] | Loss(D):0.112215[Real:0.0183187/Fake:0.0938964]
+10th-08:16:11 | epoch5(79200) | lr=1e-05 | psnr=24.046 | ypsnr=25.658  | Loss(G):10.6053[Cont:10.6053/Adv:0.368625] | Loss(D):0.482663[Real:0.447922/Fake:0.0347412]
+10th-08:19:55 | epoch5(79300) | lr=1e-05 | psnr=24.137 | ypsnr=25.740  | Loss(G):22.9735[Cont:22.9735/Adv:1.58722] | Loss(D):0.114882[Real:0.0575751/Fake:0.0573073]
+10th-08:23:43 | epoch5(79400) | lr=1e-05 | psnr=24.259 | ypsnr=25.880  | Loss(G):19.288[Cont:19.288/Adv:1.3775] | Loss(D):0.154536[Real:0.0624783/Fake:0.0920572]
+10th-08:27:23 | epoch5(79500) | lr=1e-05 | psnr=24.218 | ypsnr=25.820  | Loss(G):19.0065[Cont:19.0065/Adv:0.924474] | Loss(D):0.102714[Real:0.0468775/Fake:0.0558366]
+10th-08:31:09 | epoch5(79600) | lr=1e-05 | psnr=24.133 | ypsnr=25.690  | Loss(G):18.8421[Cont:18.8421/Adv:1.43694] | Loss(D):0.0931198[Real:0.0581878/Fake:0.0349319]
+10th-08:35:12 | epoch5(79700) | lr=1e-05 | psnr=24.092 | ypsnr=25.726  | Loss(G):20.604[Cont:20.604/Adv:1.36031] | Loss(D):0.107143[Real:0.0762341/Fake:0.0309085]
+10th-08:38:57 | epoch5(79800) | lr=1e-05 | psnr=24.232 | ypsnr=25.854  | Loss(G):17.6444[Cont:17.6444/Adv:1.48901] | Loss(D):0.115114[Real:0.0605336/Fake:0.05458]
+10th-08:42:46 | epoch5(79900) | lr=1e-05 | psnr=24.201 | ypsnr=25.881  | Loss(G):12.9018[Cont:12.9018/Adv:0.466578] | Loss(D):0.228332[Real:0.19837/Fake:0.0299624]
+10th-08:46:52 | epoch5(80000) | lr=1e-05 | psnr=24.236 | ypsnr=25.930  | Loss(G):13.5227[Cont:13.5227/Adv:0.812289] | Loss(D):0.0701794[Real:0.0597092/Fake:0.0104702]
+10th-08:50:40 | epoch5(80100) | lr=1e-05 | psnr=24.426 | ypsnr=26.035  | Loss(G):17.9133[Cont:17.9133/Adv:0.668745] | Loss(D):0.149579[Real:0.058113/Fake:0.0914664]
+10th-08:54:49 | epoch5(80200) | lr=1e-05 | psnr=24.357 | ypsnr=25.954  | Loss(G):20.41[Cont:20.41/Adv:0.681595] | Loss(D):0.114235[Real:0.0272121/Fake:0.0870225]
+10th-08:58:35 | epoch5(80300) | lr=1e-05 | psnr=24.238 | ypsnr=25.879  | Loss(G):19.8167[Cont:19.8167/Adv:1.30431] | Loss(D):0.102912[Real:0.0579729/Fake:0.0449387]
+10th-09:02:22 | epoch5(80400) | lr=1e-05 | psnr=24.387 | ypsnr=26.040  | Loss(G):19.6432[Cont:19.6432/Adv:1.21073] | Loss(D):0.0948734[Real:0.0294726/Fake:0.0654008]
+10th-09:06:12 | epoch5(80500) | lr=1e-05 | psnr=24.382 | ypsnr=26.013  | Loss(G):13.2312[Cont:13.2312/Adv:0.848187] | Loss(D):0.11758[Real:0.0592199/Fake:0.0583599]
+10th-09:09:59 | epoch5(80600) | lr=1e-05 | psnr=24.347 | ypsnr=25.989  | Loss(G):17.2844[Cont:17.2844/Adv:0.552298] | Loss(D):0.216646[Real:0.10773/Fake:0.108915]
+10th-09:13:48 | epoch5(80700) | lr=1e-05 | psnr=24.494 | ypsnr=26.167  | Loss(G):13.7259[Cont:13.7259/Adv:1.06205] | Loss(D):0.107983[Real:0.0292963/Fake:0.0786872]
+10th-09:17:40 | epoch5(80800) | lr=1e-05 | psnr=24.522 | ypsnr=26.240  | Loss(G):10.1997[Cont:10.1997/Adv:0.833888] | Loss(D):0.115996[Real:0.0762928/Fake:0.0397032]
+10th-09:21:20 | epoch5(80900) | lr=1e-05 | psnr=24.579 | ypsnr=26.262  | Loss(G):17.5584[Cont:17.5584/Adv:1.72587] | Loss(D):0.12499[Real:0.0589834/Fake:0.0660068]
+10th-09:25:05 | epoch5(81000) | lr=1e-05 | psnr=24.515 | ypsnr=26.207  | Loss(G):20.6872[Cont:20.6872/Adv:0.874254] | Loss(D):0.0695391[Real:0.0184647/Fake:0.0510744]
+10th-09:28:48 | epoch5(81100) | lr=1e-05 | psnr=24.610 | ypsnr=26.340  | Loss(G):9.78452[Cont:9.78452/Adv:0.289685] | Loss(D):0.304976[Real:0.263147/Fake:0.0418289]
+10th-09:32:32 | epoch5(81200) | lr=1e-05 | psnr=24.622 | ypsnr=26.305  | Loss(G):17.4599[Cont:17.4599/Adv:0.937697] | Loss(D):0.0497175[Real:0.0302844/Fake:0.0194331]
+10th-09:36:02 | epoch5(81300) | lr=1e-05 | psnr=24.654 | ypsnr=26.405  | Loss(G):21.5121[Cont:21.5121/Adv:0.83697] | Loss(D):0.0289711[Real:0.0193743/Fake:0.00959676]
+10th-09:39:26 | epoch5(81400) | lr=1e-05 | psnr=24.706 | ypsnr=26.446  | Loss(G):13.9279[Cont:13.9279/Adv:0.90367] | Loss(D):0.0583853[Real:0.0245277/Fake:0.0338577]
+10th-09:42:52 | epoch5(81500) | lr=1e-05 | psnr=24.601 | ypsnr=26.374  | Loss(G):21.0317[Cont:21.0317/Adv:0.941458] | Loss(D):0.0296799[Real:0.0231646/Fake:0.00651534]
+10th-09:46:18 | epoch5(81600) | lr=1e-05 | psnr=24.610 | ypsnr=26.341  | Loss(G):19.7351[Cont:19.7351/Adv:1.16951] | Loss(D):0.0540063[Real:0.0148978/Fake:0.0391085]
+10th-09:49:45 | epoch5(81700) | lr=1e-05 | psnr=24.642 | ypsnr=26.407  | Loss(G):14.4584[Cont:14.4584/Adv:0.906537] | Loss(D):0.0448535[Real:0.0202174/Fake:0.0246361]
+10th-09:53:16 | epoch5(81800) | lr=1e-05 | psnr=24.612 | ypsnr=26.351  | Loss(G):18.7127[Cont:18.7127/Adv:0.98465] | Loss(D):0.0252869[Real:0.0145028/Fake:0.0107841]
+10th-09:56:43 | epoch5(81900) | lr=1e-05 | psnr=24.763 | ypsnr=26.548  | Loss(G):14.319[Cont:14.319/Adv:0.872592] | Loss(D):0.0347788[Real:0.0120474/Fake:0.0227314]
+10th-10:00:12 | epoch5(82000) | lr=1e-05 | psnr=24.637 | ypsnr=26.465  | Loss(G):14.612[Cont:14.612/Adv:0.884845] | Loss(D):0.0446571[Real:0.020876/Fake:0.0237811]
+10th-10:03:39 | epoch5(82100) | lr=1e-05 | psnr=24.711 | ypsnr=26.553  | Loss(G):16.8558[Cont:16.8558/Adv:1.17519] | Loss(D):0.176588[Real:0.0721615/Fake:0.104426]
+10th-10:07:13 | epoch5(82200) | lr=1e-05 | psnr=24.803 | ypsnr=26.556  | Loss(G):16.915[Cont:16.915/Adv:1.27527] | Loss(D):0.0269718[Real:0.0164218/Fake:0.01055]
+10th-10:10:40 | epoch5(82300) | lr=1e-05 | psnr=24.802 | ypsnr=26.559  | Loss(G):15.5064[Cont:15.5064/Adv:1.01235] | Loss(D):0.034203[Real:0.0187805/Fake:0.0154225]
+10th-10:14:13 | epoch5(82400) | lr=1e-05 | psnr=24.819 | ypsnr=26.619  | Loss(G):14.793[Cont:14.793/Adv:1.54113] | Loss(D):0.0647533[Real:0.0385801/Fake:0.0261732]
+10th-10:17:40 | epoch5(82500) | lr=1e-05 | psnr=24.754 | ypsnr=26.595  | Loss(G):17.0979[Cont:17.0979/Adv:1.22136] | Loss(D):0.0502076[Real:0.041566/Fake:0.00864159]
+10th-10:21:09 | epoch5(82600) | lr=1e-05 | psnr=24.723 | ypsnr=26.484  | Loss(G):13.4334[Cont:13.4334/Adv:0.902561] | Loss(D):0.0171879[Real:0.0127983/Fake:0.00438961]
+10th-10:24:36 | epoch5(82700) | lr=1e-05 | psnr=24.722 | ypsnr=26.482  | Loss(G):17.6812[Cont:17.6812/Adv:1.21286] | Loss(D):0.0988206[Real:0.039698/Fake:0.0591226]
+10th-10:28:08 | epoch5(82800) | lr=1e-05 | psnr=24.758 | ypsnr=26.530  | Loss(G):10.7493[Cont:10.7493/Adv:0.695936] | Loss(D):0.0360405[Real:0.0228692/Fake:0.0131714]
+10th-10:31:36 | epoch5(82900) | lr=1e-05 | psnr=24.673 | ypsnr=26.423  | Loss(G):16.2632[Cont:16.2632/Adv:1.14632] | Loss(D):0.118319[Real:0.0289709/Fake:0.0893481]
+10th-10:35:03 | epoch5(83000) | lr=1e-05 | psnr=24.683 | ypsnr=26.416  | Loss(G):15.8401[Cont:15.8401/Adv:1.15862] | Loss(D):0.0503748[Real:0.0219507/Fake:0.0284241]
+10th-10:38:32 | epoch5(83100) | lr=1e-05 | psnr=24.625 | ypsnr=26.409  | Loss(G):16.404[Cont:16.404/Adv:1.08162] | Loss(D):0.0472613[Real:0.0227946/Fake:0.0244668]
+10th-10:42:00 | epoch5(83200) | lr=1e-05 | psnr=24.623 | ypsnr=26.484  | Loss(G):13.0568[Cont:13.0568/Adv:0.713893] | Loss(D):0.0409366[Real:0.0210829/Fake:0.0198537]
+10th-10:45:27 | epoch5(83300) | lr=1e-05 | psnr=24.567 | ypsnr=26.468  | Loss(G):19.842[Cont:19.842/Adv:0.846938] | Loss(D):0.0502757[Real:0.0414942/Fake:0.00878152]
+10th-10:48:56 | epoch5(83400) | lr=1e-05 | psnr=24.560 | ypsnr=26.452  | Loss(G):25.8416[Cont:25.8416/Adv:0.977222] | Loss(D):0.0311004[Real:0.0131987/Fake:0.0179017]
+10th-10:52:22 | epoch5(83500) | lr=1e-05 | psnr=24.635 | ypsnr=26.507  | Loss(G):12.3383[Cont:12.3383/Adv:0.961828] | Loss(D):0.0363089[Real:0.00967345/Fake:0.0266355]
+10th-10:55:49 | epoch5(83600) | lr=1e-05 | psnr=24.630 | ypsnr=26.510  | Loss(G):18.5976[Cont:18.5976/Adv:1.17291] | Loss(D):0.0338912[Real:0.0250069/Fake:0.00888431]
+10th-10:59:18 | epoch5(83700) | lr=1e-05 | psnr=24.665 | ypsnr=26.465  | Loss(G):17.841[Cont:17.841/Adv:1.00879] | Loss(D):0.0170297[Real:0.00713296/Fake:0.00989678]
+10th-11:02:47 | epoch5(83800) | lr=1e-05 | psnr=24.740 | ypsnr=26.532  | Loss(G):19.6931[Cont:19.6931/Adv:0.880698] | Loss(D):0.0549795[Real:0.0249048/Fake:0.0300748]
+10th-11:06:21 | epoch5(83900) | lr=1e-05 | psnr=24.748 | ypsnr=26.518  | Loss(G):21.5118[Cont:21.5118/Adv:1.05723] | Loss(D):0.0214314[Real:0.0121087/Fake:0.00932266]
+10th-11:09:48 | epoch5(84000) | lr=1e-05 | psnr=24.793 | ypsnr=26.575  | Loss(G):12.7831[Cont:12.7831/Adv:1.42061] | Loss(D):0.0402516[Real:0.0112467/Fake:0.0290049]
